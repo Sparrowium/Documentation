@@ -11,10 +11,14 @@
             "id": "8cec5e9d7aab9fa2",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "Computer Science/Theoretical Disciplines/Data Structures & Algorithm.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Data Structures & Algorithm"
             }
           }
         ]
@@ -158,22 +162,22 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "8cec5e9d7aab9fa2",
+  "active": "94c6bde8c47967b6",
   "lastOpenFiles": [
-    "Welcome.md",
+    "Computer Science/Applied Disciplines/Applied disciplines.md",
+    "Computer Engineering/Computer Engineering.md",
     "README.md",
-    "Computer Science/Computer Science.md",
-    "Computer Science/Computer Systems/Shell and Scripting.md",
+    "Welcome.md",
     "Computer Science/Theoretical Disciplines/Theoretical disciplines.md",
     "Computer Science/Theoretical Disciplines/Data Structures & Algorithm.md",
-    "Computer Science/Computer Systems/Linux Kernel.md",
+    "Computer Science/Applied Disciplines/Git.md",
+    "Computer Science/Computer Systems/Shell and Scripting.md",
     "Computer Science/Computer Systems/Linux.md",
+    "Computer Science/Computer Systems/Linux Kernel.md",
     "Computer Science/Computer Systems/Computer Systems.md",
     "Computer Science/Computer Systems/Access Controll.md",
     "Computer Science/Applied Disciplines/Software Engineering.md",
-    "Computer Science/Applied Disciplines/Git.md",
-    "Computer Science/Applied Disciplines/Applied disciplines.md",
-    "Computer Engineering/Computer Engineering.md",
+    "Computer Science/Computer Science.md",
     "Computer Engineering",
     "Computer Science"
   ]
