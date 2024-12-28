@@ -1,4 +1,7 @@
 {
   "theme": "obsidian",
-  "cssTheme": "Comfort color dark"
+  "cssTheme": "Comfort color dark",
+  "enabledCssSnippets": [
+    "theme"
+  ]
 }
