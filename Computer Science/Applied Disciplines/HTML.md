@@ -32,11 +32,11 @@ A Hyper Text Markup Language.
 
 ## HTML Tags
 
-- HTML tag can be considered hidden keywords or commands incorporated in HTML, which can be define how your browser will display the content and format of the page. Most HTML tag have 2 sections: **Opening** ( < ... > ) and **Closing** ( </ ... > ), and any text written in between the tags will carry the tags effects upon them. 
+- [HTML Tags]: Are hidden keywords or commands incorporated in HTML, which can be define how your browser will display the content and format of the page. Most HTML tag have 2 sections: **Opening** ( < ... > ) and **Closing** ( </ ... > ), and any text written in between the tags will carry the tags effects upon them. 
 	
- - #HTML Document:
+ - [HTML Document]:
 	
-	- All HTML documents begin with `<! DOCTYPE html >` 
+	- All HTML documents begin with `<!DOCTYPE html>` 
 		
 	- The HTML document begins with `<html>` and ends with `</html>`.
 		
@@ -44,6 +44,24 @@ A Hyper Text Markup Language.
 		
 	- Only the content inside the `<body>` and `</body>` are displayed in the browser
 	
--  
+- [HTML Tag]: `<html> ... </html>` 
+	
+- [HEAD Tag]: `<head> ... </head>` used to add the header in HTML. It is also used to give various additional information about the web page along with description, configuration and title to your page, which gets display in the title bar or acts as an indicator of what information to use or on which page you are currently in. The Title Tag `<title> ... </title>` is also in written within the `<head>` tag.
+	
+- [BODY Tag]: the `<body> ... </body>` tag is used to display information of the HTML document. All formatting and writing of content are done in this section within the `<body>` and the `</body>`. If your HTML code does not have it, the code will still run but nothing will be displayed. Noted that, `<body>` needs to be inside the `<html>` tag.
 
-### HTML
+## HTML Elements
+
+- [HTML Element]: A combination of HTML tags and content within the opening and closing tags.
+	
+- [Nested HTML Elements]: HTML elements can be nested by writing another element before closing the previous element.
+	
+- [Heading Elements or `<hn>` Elements]: HTML has 6 different sizes heading ranging from 1 -> 6. In addition, Web browser will automatically add one line prior/following to make it look neat.
+
+## HTML Attributes
+
+- [HTML Attributes]: An HTML attribute is a property named used to provide supplementary information about HTML elements. Some common examples of HTML attributes are id, class, align, etc. Many attributes are defined globally and are applied to any element, whereas we use some of them only for specific HTML elements.
+	
+- Syntax: `<element_name attribute_name="value"> .... </element_name>`
+	
+- #Note: Names of attributes and their values are not case-sensitive. But according to the World Wide Web Consortium (W3C), it is recommended to use lowercase names and values. The value defines the value which you want to assign to the property and is set within quotations.

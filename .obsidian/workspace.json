@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "098fa8c33118316f",
+        "id": "c8e912b57f918a11",
         "type": "tabs",
         "children": [
           {
-            "id": "fde569f3065ba722",
+            "id": "3d409e3dbc9f5c5f",
             "type": "leaf",
             "state": {
-              "type": "graph",
+              "type": "empty",
               "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#HTML",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -159,14 +159,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "fde569f3065ba722",
+  "active": "3d409e3dbc9f5c5f",
   "lastOpenFiles": [
     "Computer Science/Applied Disciplines/HTML.md",
-    "Computer Science/Applied Disciplines/Applied disciplines.md",
     "Computer Science/Theoretical Disciplines/Theoretical disciplines.md",
+    "Computer Science/Computer Science.md",
+    "Computer Science/Applied Disciplines/Applied disciplines.md",
     "Computer Science/Theoretical Disciplines/Data Structures & Algorithm.md",
     "Computer Science/Computer Systems/Shell and Scripting.md",
-    "Computer Science/Computer Science.md",
     "Computer Science/Computer Systems/Access Controll.md",
     "Computer Science/Computer Systems/Computer Systems.md",
     "Computer Science/Applied Disciplines/Software Engineering.md",
