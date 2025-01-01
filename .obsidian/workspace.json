@@ -11,24 +11,14 @@
             "id": "488f224d47bcb67d",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
-            }
-          },
-          {
-            "id": "0f236c5fb383c1f7",
-            "type": "leaf",
-            "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Languages.md",
+                "file": "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/HTML.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Languages"
+              "title": "HTML"
             }
           }
         ]
@@ -174,8 +164,11 @@
   },
   "active": "488f224d47bcb67d",
   "lastOpenFiles": [
-    "Computer Science/Applied Disciplines/Software Engineering/Tools/Git.md",
+    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/HTML.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Languages.md",
+    "^Attributes.md",
+    "HTML Attributes.md",
+    "Computer Science/Applied Disciplines/Software Engineering/Tools/Git.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Programming Language Theory and Program Semantics.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages",
@@ -199,11 +192,8 @@
     "README.md",
     "Computer Science/Computer Systems/System Software/Linux Kernel.md",
     "Computer Science/Computer Systems/System Software/Linux.md",
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/HTML.md",
-    "Computer Science/Computer Systems/System Software/Access Control.md",
     "Computer Science/Computer Systems/System Software/Access Control.md",
     "Untitled.canvas",
-    "Computer Science/Applied Disciplines/Applied disciplines.md",
     "Computer Science/Applied Disciplines/Software Engineering",
     "Computer Science/Applied Disciplines/Image and Sound Processing",
     "Computer Science/Applied Disciplines/Human - Computer Interaction",

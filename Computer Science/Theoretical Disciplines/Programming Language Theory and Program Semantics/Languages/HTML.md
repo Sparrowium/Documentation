@@ -60,6 +60,8 @@ A Hyper Text Markup Language.
 
 ## HTML Attributes
 
+^3881c6
+
 - [HTML Attributes]: An HTML attribute is a property named used to provide supplementary information about HTML elements. Some common examples of HTML attributes are id, class, align, etc. Many attributes are defined globally and are applied to any element, whereas we use some of them only for specific HTML elements.
 	
 - Syntax: `<element_name attribute_name="value"> .... </element_name>`
@@ -110,4 +112,10 @@ A Hyper Text Markup Language.
 
 - `<head>` Tag: The `<head>` tag in HTML is a container for metadata (information about the document, such as its title, scripts, and style sheets) that is not directly related to the page's content.
 	
-- `<meta>` Tag: 
+- `<meta>` Tag: Meta tags are text snippets in the form of data that depict the content of your page. Their value do not emerge on the web page you create but  can be seen in the source code of your HTML page. Meta tags act as small content descriptors that allow you to convey to search engines what your web page is about and what keywords it contains It is to be noted that the HTML `<meta>` tag comes within the `<head>` tag.
+	
+- `<body>` Tag: Defines the main content of an HTML document. It encloses all of the content displayed in the web browser when the page is loaded, including text, images, links, and other HTML elements. It can also have HTML Attributes ([[#^3881c6]].)
+	
+- `<hn>` Tag: These tags are used to create headings and subheadings in an HTML document ranging from 1 -> 6. The headings are hierarchical, with the main heading being the largest and the subheadings getting progressively smaller.
+	
+- `<a>` Tag: The Anchor tag in HTML can be defined as a means to create a hyperlink that can link your current page on which the text is being converted to hypertext via `<a>` (anchor tag) to another page. This anchoring from one page to another is made possible by the attribute `href`, which can be abbreviated (hypertext reference). They change color based on certain situations, such as unvisited, clicked, visited, etc.
