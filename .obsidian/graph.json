@@ -2,10 +2,10 @@
   "collapse-filter": false,
   "search": "",
   "showTags": false,
-  "showAttachments": false,
-  "hideUnresolved": true,
+  "showAttachments": true,
+  "hideUnresolved": false,
   "showOrphans": false,
-  "collapse-color-groups": false,
+  "collapse-color-groups": true,
   "colorGroups": [
     {
       "query": "path:\"Computer Science/Applied Disciplines\"  ",
@@ -34,11 +34,11 @@
   "textFadeMultiplier": 0,
   "nodeSizeMultiplier": 1,
   "lineSizeMultiplier": 1,
-  "collapse-forces": true,
-  "centerStrength": 0.518713248970312,
-  "repelStrength": 10,
-  "linkStrength": 1,
-  "linkDistance": 250,
-  "scale": 0.6666666666666666,
-  "close": true
+  "collapse-forces": false,
+  "centerStrength": 0.198544698544699,
+  "repelStrength": 12.3284823284823,
+  "linkStrength": 0.878378378378378,
+  "linkDistance": 240,
+  "scale": 0.24192491286747947,
+  "close": false
 }

@@ -65,3 +65,49 @@ A Hyper Text Markup Language.
 - Syntax: `<element_name attribute_name="value"> .... </element_name>`
 	
 - #Note: Names of attributes and their values are not case-sensitive. But according to the World Wide Web Consortium (W3C), it is recommended to use lowercase names and values. The value defines the value which you want to assign to the property and is set within quotations.
+	
+- [Core Attributes]: 
+	
+	- [ID Attributes]: Assign a unique identity to an element. 
+		`<p id="..."></p>`
+		
+	- [Title Attributes]: Gives a recommended title for your element.
+		`<h3 title="..."></h3>`
+		
+	- [Class Attributes]: This attribute is implemented by combining an element through a stylesheet (CSS) and identifying its class element.
+		`<p class="..."></p>`
+		
+	- [Style Attributes]: This attribute gives you a chance for specifying the rules for Cascading Style Sheet (CSS) in your element.
+		`<p style="..."></p>`
+
+## HTML Formatting
+
+- Formatting can be defined as the appearance of your documentation or presentation of your HTML code in a meaningful and more beautiful way.
+	
+- [Formatting Tags]: Refer to [HTML W3C](https://www.w3.org/TR/WD-html40-970708/index/attribs.html)
+
+## HTML Comments
+
+- Provide the details of what is written in the HTML source code. HTML comment tags are completely ignored to display by the browsers.
+	
+- Syntax: `<! -- ... -->`
+
+## CSS in HTML
+
+- Cascading Style Sheets (CSS) describes web content's visual presentation and layout.
+	
+- Ways to implement CSS into HTML: 
+	
+	- [Inline CSS]: Include the style attribute in the relevant element and specify any CSS property. Useful for making quick changes to the appearance of individual elements
+		
+	- [Internal CSS]: Styling a single HTML document without affecting other pages. To add internal CSS, insert a `<style>` tag in your HTML page's `<head>` section. Within the `<style>` tag, you can declare CSS rules that apply only to that page. It is more efficient than inline CSS because it allows you to style multiple elements on a page with a single CSS rule.
+		
+	- [External CSS]: To add external CSS, link to a separate CSS file using the HTML `<link>` element in each HTML page's `<head>` section. Useful for styling multiple pages because it allows you to make changes to the CSS in one place and have those changes reflected on all of your pages.
+
+<h2><center> Glossary </center></h2>
+
+## HTML Tag
+
+- `<head>` Tag: The `<head>` tag in HTML is a container for metadata (information about the document, such as its title, scripts, and style sheets) that is not directly related to the page's content.
+	
+- `<meta>` Tag: 

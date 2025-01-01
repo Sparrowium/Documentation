@@ -5,7 +5,7 @@
 - _Git_ is a fast, scalable, distributed revision control system with an unusually rich command set that provides both high-level operations and full access to internals.
 ## Why was Git created?
 
-- _Git_ was created for use in the development of the [[Linux Kernel]] by Linus Torvalds and others developing the kernel.
+- _Git_ was created for use in the development of the [[#Linux Kernel]] by Linus Torvalds and others developing the kernel.
 ## [About version control and Git](https://docs.github.com/en/get-started/using-git/about-git#about-version-control-and-git)
 
 A version control system, or VCS, tracks the history of changes as people and teams collaborate on projects together. As developers make changes to the project, any earlier version of the project can be recovered at any time.
@@ -74,7 +74,7 @@ _git_ \[-v | --version] \[-h | --help] \[-C \<path>] \[-c <\name>=\<value>]
 --help
 -  Prints the synopsis and a list of the most commonly used commands. If the option `--all` or `-a` is given then all available commands are printed. If a Git command is named this option will bring up the manual page for that command.
 	   
-- Other options are available to control how the manual page is displayed. See git-help[1] for more information, because git --help ... is converted internally into git help ....
+- Other options are available to control how the manual page is displayed. See git-help for more information, because git --help ... is converted internally into git help ....
 
 -C \<path>
 
@@ -87,16 +87,16 @@ _git_ \[-v | --version] \[-h | --help] \[-C \<path>] \[-c <\name>=\<value>]
 -c \<name>=\<value>
 - Pass a configuration parameter to the command. The value given will override values from configuration files. The \<name> is expected in the same format as listed by git config (subkeys separated by dots).
 	
-- Note that omitting the = in git -c foo.bar ... is allowed and sets foo.bar to the boolean true value (just like [foo]bar would in a config file). Including the equals but with an empty value (like git -c foo.bar= ...) sets foo.bar to the empty string which git config --type=bool will convert to false.
+- Note that omitting the = in git -c foo.bar ... is allowed and sets foo.bar to the boolean true value (just like [foo] bar would in a config file). Including the equals but with an empty value (like git -c foo.bar= ...) sets foo.bar to the empty string which git config --type=bool will convert to false.
  
 --config-env=\<name>=\<envvar>
 
-- Like -c \<name>=\<value>, give configuration variable \<name> a value, where \<envvar> is the name of an environment variable from which to retrieve the value. Unlike -c there is no shortcut for directly setting the value to an empty string, instead the environment variable itself must be set to the empty string. It is an error if the <envvar> does not exist in the environment. <envvar> may not contain an equals sign to avoid ambiguity with <name> containing one.
+- Like -c \<name>=\<value>, give configuration variable \<name> a value, where \<envvar> is the name of an environment variable from which to retrieve the value. Unlike -c there is no shortcut for directly setting the value to an empty string, instead the environment variable itself must be set to the empty string. It is an error if the \<envvar> does not exist in the environment.\<envvar> may not contain an equals sign to avoid ambiguity with \<name> containing one.
 
     This is useful for cases where you want to pass transitory configuration options to git, but are doing so on operating systems where other processes might be able to read your command line (e.g. /proc/self/cmdline), but not your environment (e.g. /proc/self/environ). That behavior is the default on Linux, but may not be on your system.
 
     Note that this might add security for variables such as http.extraHeader where the sensitive information is part of the value, but not e.g. url.<base>.insteadOf where the sensitive information can be part of the key.
---exec-path[=<path>]
+--exec-path\[=<path>]
 
     Path to wherever your core Git programs are installed. This can also be controlled by setting the GIT_EXEC_PATH environment variable. If no path is given, git will print the current setting and then exit.
 --html-path
