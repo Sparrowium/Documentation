@@ -8,7 +8,7 @@ A Hyper Text Markup Language.
 	
 - The word in **Hyper Text** in HTML refers to a "Link" that connect the web pages from one to another, either in a single website or between websites. 
 	
-- HTML uses **markup** to annotate text, images, an other content for display in Web Browser. (ex: </head>, </title> )
+- HTML uses **markup** to annotate text, images, an other content for display in Web Browser. (ex: <!head>, <!title> )
 	
 - An HTML element is set off from other text in a document by **tags**, which consist of the element name surrounded by `<` and `>` . The name in the tags are case-insensitive. Which means that I can be written as lower case, upper case but lower case is preferred for normal convention.
 
@@ -111,11 +111,21 @@ A Hyper Text Markup Language.
 ## HTML Tag
 
 - `<head>` Tag: The `<head>` tag in HTML is a container for metadata (information about the document, such as its title, scripts, and style sheets) that is not directly related to the page's content.
+	`<head> ... </head>`
 	
 - `<meta>` Tag: Meta tags are text snippets in the form of data that depict the content of your page. Their value do not emerge on the web page you create but  can be seen in the source code of your HTML page. Meta tags act as small content descriptors that allow you to convey to search engines what your web page is about and what keywords it contains It is to be noted that the HTML `<meta>` tag comes within the `<head>` tag.
+	`<meta> ... </meta>`
 	
 - `<body>` Tag: Defines the main content of an HTML document. It encloses all of the content displayed in the web browser when the page is loaded, including text, images, links, and other HTML elements. It can also have HTML Attributes ([[#^3881c6]].)
+	`<body> ... </body>`
 	
 - `<hn>` Tag: These tags are used to create headings and subheadings in an HTML document ranging from 1 -> 6. The headings are hierarchical, with the main heading being the largest and the subheadings getting progressively smaller.
+	`<hn> ... </hn>`
 	
 - `<a>` Tag: The Anchor tag in HTML can be defined as a means to create a hyperlink that can link your current page on which the text is being converted to hypertext via `<a>` (anchor tag) to another page. This anchoring from one page to another is made possible by the attribute `href`, which can be abbreviated (hypertext reference). They change color based on certain situations, such as unvisited, clicked, visited, etc.
+	`<a href=""> ... </a>`
+	
+- `<img>` Tag: Used to add images into our web page. Noted, `<img>` is an empty tag (no ending tag). In addition, `<img>` tag comes with 2 default attributes called `src` and `alt`. `src` attribute instruct your web browser from which location it should fetch the picture, `alt` defines an alternative text in case your browser failed to load the image.
+	`<img src="http://example.com/wallpaper.jpg" alt="Wallpaper">
+	
+- 
