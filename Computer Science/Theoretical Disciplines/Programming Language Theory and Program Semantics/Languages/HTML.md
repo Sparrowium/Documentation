@@ -111,7 +111,7 @@ A Hyper Text Markup Language.
 ## HTML Tag
 
 - `<head>` Tag: The `<head>` tag in HTML is a container for metadata (information about the document, such as its title, scripts, and style sheets) that is not directly related to the page's content.
-	`<head> ... </head>`
+	```<head> ... </head>```
 	
 - `<meta>` Tag: Meta tags are text snippets in the form of data that depict the content of your page. Their value do not emerge on the web page you create but  can be seen in the source code of your HTML page. Meta tags act as small content descriptors that allow you to convey to search engines what your web page is about and what keywords it contains It is to be noted that the HTML `<meta>` tag comes within the `<head>` tag.
 	`<meta> ... </meta>`
@@ -127,5 +127,13 @@ A Hyper Text Markup Language.
 	
 - `<img>` Tag: Used to add images into our web page. Noted, `<img>` is an empty tag (no ending tag). In addition, `<img>` tag comes with 2 default attributes called `src` and `alt`. `src` attribute instruct your web browser from which location it should fetch the picture, `alt` defines an alternative text in case your browser failed to load the image.
 	`<img src="http://example.com/wallpaper.jpg" alt="Wallpaper">
+	
+- `<ol>, <ul>, <dl>` Tag: These are listing with `<ol>` stands for ordered list, `<ul>` stands for unordered list, `dl` stands for definition list. These tags also offers `type= ...` attribute to customize your list. In addition, listing elements `<li>` are used in `<ol>` and `<ul>`, `<dt>` and `<dd>` are used in `<dl>`.
+	`<ol> ... </ol>`
+	`<ul> ... </ul>`
+	`<dl> ... </dl>`
+	
+- `<table>` Tag: An HTML table is a way of displaying data in rows and columns. The table comprises three main tags: `<table>`, `<tr>,` and `<td>`. The `<table>` tag defines the table, the `<tr>` tag defines the table rows, and the `<td>` tag defines the table cells. In addition, the `<th>` tag is used within the `<table>` tag for defining the heading for your table data. Finally, `<table>` supports attributes and nesting.
+	`<table> ... </table>`
 	
 - 
