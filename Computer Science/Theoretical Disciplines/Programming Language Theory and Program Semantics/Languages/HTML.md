@@ -116,7 +116,7 @@ A Hyper Text Markup Language.
 - `<meta>` Tag: Meta tags are text snippets in the form of data that depict the content of your page. Their value do not emerge on the web page you create but  can be seen in the source code of your HTML page. Meta tags act as small content descriptors that allow you to convey to search engines what your web page is about and what keywords it contains It is to be noted that the HTML `<meta>` tag comes within the `<head>` tag.
 	`<meta> ... </meta>`
 	
-- `<body>` Tag: Defines the main content of an HTML document. It encloses all of the content displayed in the web browser when the page is loaded, including text, images, links, and other HTML elements. It can also have HTML Attributes ([[#^3881c6]].)
+- `<body>` Tag: Defines the main content of an HTML document. It encloses all of the content displayed in the web browser when the page is loaded, including text, images, links, and other HTML elements. It can also have HTML Attributes.
 	`<body> ... </body>`
 	
 - `<hn>` Tag: These tags are used to create headings and subheadings in an HTML document ranging from 1 -> 6. The headings are hierarchical, with the main heading being the largest and the subheadings getting progressively smaller.
@@ -135,5 +135,38 @@ A Hyper Text Markup Language.
 	
 - `<table>` Tag: An HTML table is a way of displaying data in rows and columns. The table comprises three main tags: `<table>`, `<tr>,` and `<td>`. The `<table>` tag defines the table, the `<tr>` tag defines the table rows, and the `<td>` tag defines the table cells. In addition, the `<th>` tag is used within the `<table>` tag for defining the heading for your table data. Finally, `<table>` supports attributes and nesting.
 	`<table> ... </table>`
+	
+- `<div>` Tag: Known as division tag and it is used for creating content segmentation in a web page. It can be used to replace almost all block-level tags while note affecting the context of the layout of the document. 
+	`<div> ... </div>`
+	
+- Phrases Tag: Phrase tags are unique purpose tags designed to use indefinite cases.
+	`<em>` : Emphasizes the text.
+	`<mark>` : Highlight the text.
+	`<strong>` : Makes the text becomes bold.
+	`<abbr>` : Create an abbreviation when hovering on the text.
+	`<dfn>` : Defines a new term and display it in Italic.
+	`<blockquote>` : used to add a quote to a passage from a different source.
+	`<q>` : add a double quote to your text.
+	`<code>` : visualize the text as mono-spaced font (programming font)
+	`<kdb>` : defines the text as input from the keyboard by highlighting it.
+	`<address>`: used to specify a set of text that is an address.
+	
+- `<blockquote>` Tag: Tag that display long quotes. It is recommended to use the `cite=` attribute to create a citation. It also supports attributes
+	`<blockquote cite=""> ... </blockquote>`
+	
+- `<button>` Tag: Creates a clickable button in the web page. The content's images and text can reside inside that `<button>` tag. In addition, there are various `<button>` tag attributes.
+	`<button type=""> ... </button>`
+	`type=` : Declare a specific type of button.
+	`name=` : Specifies a name for the button.
+	`value=` : Specifies a default value.
+	`disabled=` : Disable the button.
+	`onClick=` : Specifies a special attribute when clicking the button.
+	`form=` : Specifies the form that the button belongs to.
+	
+- `<textarea>` Tag: creates a multi-line text input field for users to enter long text into a web page. It also supports attributes to further customize the tag.
+	`<textarea rows="" cols==""> ... </textarea>` 
+	
+- `<link>` Tag: Establishes a link between the current document and an external resources. The `<link>` tag comes with 2 default attributes, `rel=` specifies the relationship of the documents, `href=` refers to the location of the linked resource.
+	`<link rel="" href=""> ... </link>`
 	
 - 
