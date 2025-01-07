@@ -92,8 +92,34 @@ A Hyper Text Markup Language.
 
 - Provide the details of what is written in the HTML source code. HTML comment tags are completely ignored to display by the browsers.
 	
+- Used to explain the owner code to help others understand when they edit their source code for future purposes.
+	
+- Advantages:
+	
+	- Help coders understand the flexible of ongoing flow of code.
+		
+	- Developers can comment one any line of existing code without disrupting the original code.
+		
+	- Can be easily deleted if its become unusable.
+	
 - Syntax: `<! -- ... -->`
 
+## HTML Forms
+
+- A [Web Forms] is a part of an HTML document containing HTML form elements such as input, select, checkboxes, radio, buttons, etc. 
+	
+- Common Web Forms: Contact form, Registration form, Sign-in form, Lead Generation form, Order form, Survey form, Search form, Email form.
+	
+- Form Syntax: `<form name="" action"" method""> ... </forms>`
+	
+- Form Attribute: Form has 2 important attributes, the action and the method attributes. Here, the **form action** specifies the location where the form data will be submitted, and the **form method** specifies the HTTP method that is usually GET / POST.
+	HTTP Methods: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`
+	
+- Form Elements: Are input field types that are used to obtain users input.
+	`<input type""> ... </input>`
+	
+- `<label>` Elements: Defines a form element label by holding the element's ID in the "**for**" attribute.
+	`<label for=""> ... </label>`
 ## CSS in HTML
 
 - Cascading Style Sheets (CSS) describes web content's visual presentation and layout.
@@ -163,10 +189,64 @@ A Hyper Text Markup Language.
 	`onClick=` : Specifies a special attribute when clicking the button.
 	`form=` : Specifies the form that the button belongs to.
 	
-- `<textarea>` Tag: creates a multi-line text input field for users to enter long text into a web page. It also supports attributes to further customize the tag.
+- `<textarea>` Tag: Creates a multi-line text input field for users to enter long text into a web page. It also supports attributes to further customize the tag.
 	`<textarea rows="" cols==""> ... </textarea>` 
 	
 - `<link>` Tag: Establishes a link between the current document and an external resources. The `<link>` tag comes with 2 default attributes, `rel=` specifies the relationship of the documents, `href=` refers to the location of the linked resource.
 	`<link rel="" href=""> ... </link>`
 	
-- 
+- `<video>` Tag: Embedding video and incorporating movies files and video streaming.
+	`<video> ... </video>`
+	`src` : Set the URL or path from where the video file will get fetched.
+	`autoplay` : Play as soon as website is loaded.
+	`controls` : Specifies buttons on the video.
+	`muted` : Mute or not mute audio.
+	
+- `<abbr>` Tag: Displays an abbreviation on hovers.
+	`<abbr title=""> ... </abbr>`
+	
+- `<frameset>` Tag: Defines a specific window or frame. The primary use of the frame is to display a menu in parts of the page with content in one of the page. Multiple page can be viewed in a browser window using this tag. However, there are small drawbacks, due to devices incompatibility, screen resolution, and the support of the technology.
+	`<frameset> ... </frameset>`
+	
+- `<font>` Tag: Defines a specific font for the content in the website. It also have 3 basic attributes, `size=` means the size, `face=` means style, `color=` is color.
+	`<font> ... </font>`
+	
+
+## HTML Attributes
+
+### Common Attributes
+
+- `class` Attribute: Allows developers to reuse CSS styles across multiple HTML elements.
+	`class=`
+	
+- `id` Attribute: Specifies a unique identifier for an HTML element. Can be use like `class` but in terms of identifying.
+	`id=`
+	
+- `src` Attribute: Specifies the source URL of various HTML elements, including audio, video, embed, iframe, image, input, script, source, and track.
+	`src=`
+	
+- `alt` Attribute: Specifies an alternative text for an HTML elements, especially for images. Display when the content cannot be displayed.
+	`alt=`
+	
+- `href` Attribute: "Hypertext Reference" Specifies the URL of a linked resource.
+	`href=`
+
+### Event Attributes
+
+- Defines how an event should respond to an event that occur on the web page. This could be user-triggered or automatically.
+	
+- `onload` Attribute: Triggers an action to be executed when the page is loaded.
+	`onload=`
+	
+- `onclick` Attribute: Specify actions to occur when the HTML element is clicked.
+	`onclick=`
+	
+- `onmouseover` Attribute: Triggers an action when the user moves the mouse over an HTML element.
+	`onmouseover=`
+	
+- `onfocus` Attribute: Triggers an action when an HTML element gains focus.
+	`onfocus=`
+	
+- `onsubmit` Attribute: Triggers an action when a web form is submitted.
+	`onsubmit=`
+
