@@ -8,9 +8,11 @@ A Hyper Text Markup Language.
 	
 - The word in **Hyper Text** in HTML refers to a "Link" that connect the web pages from one to another, either in a single website or between websites. 
 	
-- HTML uses **markup** to annotate text, images, an other content for display in Web Browser. (ex: <!head>, <!title> )
+- HTML uses **markup** to annotate text, images, an other content for display in Web Browser. (ex: `<head>`, `<title>` )
 	
 - An HTML element is set off from other text in a document by **tags**, which consist of the element name surrounded by `<` and `>` . The name in the tags are case-insensitive. Which means that I can be written as lower case, upper case but lower case is preferred for normal convention.
+	
+- File extension: `.html`
 
 ## How to create and write HTML code?
 
@@ -18,7 +20,7 @@ A Hyper Text Markup Language.
 	
 - Step 2: Write HTML code.
 	
-- Step 3: Save the file with the **.html** extension. This will make the file a HTML Document
+- Step 3: Save the file with the **.html** extension. This will make the file a HTML Document.
 	
 - Step 4: Run the HTML page in your browser via open the file in your browser.
 
