@@ -71,4 +71,80 @@ A Cascading Style Sheet Language.
 
 ## CSS Selectors
 
+- [CSS Selectors]: 
+	
+	- Are used for selecting the substance of your web page you wish to style. These selectors act as the components of the rule set of CSS. CSS Selectors choose elements in HTML based on the class, id, attribute, type, etc.
+		
+	- Selectors are those names that you give to your different styles.
+		
+	- In the definition of styles, you define how each selector should work.
+		
+	- Then, in HTML page, you mention these selectors to implement styles.
+	
+- [ID Selector]: Can be implemented by writing it with the `#` character, trailing with your desired element's id. It has the highest specificity.
+	`#id_name {}`
+	
+- [Class Selector]: Can be implemented by writing it with the dot `.` character, trailing with the class name. It has the second highest specificity.
+	`.class_name {}`
+	`element.class_name {}`
+	
+- [Element Selector]: Can be implemented by using the element name.
+	`element_name {}`
+	
+- [Grouping Selector]: Grouping can be achieved through the usage of comma after each selector's name. Great for code re-usability/organization.
+	`selector1, selector2 {}`
+	
+- [Universal Selector]: Style every single element, implemented by using asterisk `*`. Additionally, there are some properties for Universal selector: `ns|*` match all elements within the namespace ns, `*|*` match simply all elements, `|*` match all element that are without declared namespace.
+	`* {}`
+	
+- [Descendant Selector]: 
+	
+	- Permits you to add a limitation to any targeted HTML elements, for the one who are offspring or descendants of some other element. Combinators are some concept which is used to explain the association or connection among the selectors.
+		
+	- [General Sibling Selector]: It is implemented for selecting the element that trails the initial or first selector element and shares the same parent as the first selector element. The general sibling selector is explicitly implemented for choosing a group of elements allocated for the same parent element.
+		`element ~ element {}`
+		
+	- [Descendant Selector]: This selector is implemented to select every child element within the particular tag mentioned in the CSS selector section. The tags may be of the direct child of any specific tag or extremely deep within the particular tag.
+		`element element {}`
+		
+	- [Child Selector]: It is implemented for selecting that particular element that lies within the immediate child of that specific tag. It is more precise or exact than the descendant selector since it chooses only the second selector if it has the first selector element as its parent.
+		`element > element {}`
+		
+	- [Adjacent Sibling Selector]: This selector is implemented for selecting all those elements, which are the contiguous or neighboring siblings of a particular element. 
+		`element + element {}`
+	
+- [Attribute Selector]:
+	
+	- A particular type of selector that is implemented to select the HTML elements with a specific attribute and/or attribute(s) having any specified value associated with it.
+		
+	- CSS [Attribute] Selector:  This form of attribute selector is implemented for choosing all of its elements which have the particular attribute, where it applies the CSS property for that attribute.
+		`element[attribute] {}`
+		
+	- CSS [Attribute="value"] Selector: This selector chooses the HTML element having a specific attribute and value.
+		`element[attribute=...] {}`
+		
+	- CSS [Attribute~="value"] Selector: This attribute selector chooses all the elements with an attribute value as a list of space-separated values or a specific word.
+		`[attribute=...] {}`
+		
+	- CSS [Attribute|="value"] Selector: This attribute selector is implemented for choosing elements having a specified attribute that starts with the particular value.
+		`[attribute|=...] {}`
+		
+	- CSS [Attribute^="value"] Selector: This selector is implemented for choosing elements that have their attribute value starts with a particular value.
+		`[attribute^=...] {}`
+		
+	- CSS [Attribute$="value"] Selector: This type of attribute selector is implemented for choosing elements that have attribute value ending with a specific value.
+		`[attribute$=...] {}`
+		
+	- CSS [Attribute*="value"] Selector: This type of attribute selector is implemented for choosing elements having attribute value containing a specified value.
+		`[attribute*=...] {}`
+	
+- [CSS Pseudo Classes]: Pseudo-classes in CSS act as conditions for applying styles to HTML elements. These styles are triggered when certain conditions are met, such as an element's position in the document, its state (like being hovered over), or based on the user's interaction history (like visiting links).
+	`selector:pseudo-class { property: value; }`
+	
+- [Dir Pseudo Class]: Implemented to match HTML elements, depending on the direction of the content contained in them.
+	`:dir(direction) {}`
+	`selector[dir=direction] {}`
+
+
+
 
