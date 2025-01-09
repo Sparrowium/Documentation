@@ -149,9 +149,71 @@ A Cascading Style Sheet Language.
 ## CSS Properties
 
 - [Color Property]: Used to define colors for HTML elements. Supporting colors format are: RGB, HEX, HSL, RGBA, HSLA.
-	`element {background-color: ... ;}`: Background color for HTML element.
-	`element {color: ... ;}`: HTML text color.
-	`element {border: #FFFFFF ;}`: Border color.
-	`element {color: rgb(0, 0, 0, n) ;}`: Transparency factor `n`. 
+	`selector {background-color: ... ;}`: Background color for HTML element.
+	`selector {color: ... ;}`: HTML text color.
+	`selector {border: #FFFFFF ;}`: Border color.
+	`selector {color: rgb(0, 0, 0, n) ;}`: Transparency factor `n`. 
 	
+- [Background Property]: Properties that gives background effects.
+	`selector {background-color: ... ;}`: Background Color.
+	`selector {background-image: url() ;}`: Background image.
+	`selector {background-repeat: repeat-x/y ;}`:Repeat image.
+	`selector {background-attachment: ... ;}`: Specify whether the background is `fixed` or `scroll`.
+	`selector {background-position: ... ;}`: Define your background position. Either `center`, `bottom`, `left`, `right`, and `top`.
+	
+- [Font Property]: Defines the font property for your HTML element or your web page.
+	`selector {font-family: ... ;}`: Defines the font family.
+	`selector {font-style: ... ;}`: Defines the font style.
+	`selector {font-size: ... ;}`: Defines the font size in `px`, `em`, `rem`.
+	`selector {font-weight: ... ;}`: Defines the shape of your font.
+	`selector {font-variant: ... ;}`: Defines whether font should be small caps or not.
+	
+- [Text Property]: Defines Text property.
+	`selector {color: ... ;}`: Defines text color.
+	`selector {text-align: ... ;}`: Defines text alignment.
+	`selector {text-decoration: ... ;}`: Defines text decorations.
+	`selector {text-transform: ... ;}`: Defines the cases of your text.
+	`selector {text-indent: ... ;}`: Defines text indentation.
+	`selector {line-height: ... ;}`: Defines spaces between lines.
+	`selector {letter-spacing: ... ;}`: Defines spaces between letters.
+	`selector {text-shadow: ... ;}`: Defines text shadows.
+	
+- [Padding Property]: 
+	
+	- Defines padding value either in percentage `%`, length `px pt cm etc`, or `inherit` from parent element.
+		
+	- [Short Hand Padding]: Specify padding property in a single property. ex: `padding: 30px, 45px, 65px, 90px`.
+		4 values: top `30px`, right `45px`, bottom `65px`, left `90px`.
+		3 values: top `30px`, right and left `45px`, bottom `65px`.
+		2 values: top and bottom `30px`, right and left `45px`.
+		1 value: all are `30px`.
+		
+	- [Padding with Width]: Padding is included with element total width.
+	
+- [Margin Property]: 
+	
+	- Defines margin value either in `automatic`, percentage `%`, length `px pt cm etc`, or `inherit` from parent element.
+		
+	- [Short Hand Margin]: Specify margin property in a single property. ex: `margin: 30px, 45px, 65px, 90px`.
+		4 values: top `30px`, right `45px`, bottom `65px`, left `90px`.
+		3 values: top `30px`, right and left `45px`, bottom `65px`.
+		2 values: top and bottom `30px`, right and left `45px`.
+		1 value: all are `30px`.
+		
+	- [Margin value Auto]: Used to center HTML element horizontally in its containers. Syntax: `margin: auto`
+		
+	- [Margin value Inherit]: Inherit margin from parent element.
+	
+- [Border Property]: Defines border property.
+	`border-color`: Defines border color.
+	`border-style`: Defines border style.
+	`border width`: Width/thickness of the border.
+	`border: value style color`: Border shorthand Property.
+	`border-radius`: Rounded border.
+
+
+
+
+
+
 
