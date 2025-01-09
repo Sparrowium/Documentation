@@ -22,7 +22,17 @@
             }
           },
           {
-            "id": "7f59e67c00935941",
+            "id": "e831a24993d225d0",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          },
+          {
+            "id": "9a40b6d87dc4281d",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -33,16 +43,6 @@
               },
               "icon": "lucide-file",
               "title": "HTML"
-            }
-          },
-          {
-            "id": "e831a24993d225d0",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
             }
           }
         ]
@@ -188,8 +188,8 @@
   },
   "active": "dc3d8b65373384e3",
   "lastOpenFiles": [
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/CSS.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/HTML.md",
+    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/CSS.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Languages.md",
     "Untitled 1.canvas",
     "Untitled.canvas",

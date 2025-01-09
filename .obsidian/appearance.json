@@ -3,5 +3,6 @@
   "cssTheme": "Comfort color dark",
   "enabledCssSnippets": [
     "theme"
-  ]
+  ],
+  "baseFontSize": 22
 }

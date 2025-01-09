@@ -69,6 +69,7 @@ A Cascading Style Sheet Language.
 			
 		- Link the Style Sheet into HTML through `<link href=""></link>` element.
 
+<h2><center> Glossary </center></h2>
 ## CSS Selectors
 
 - [CSS Selectors]: 
@@ -145,6 +146,12 @@ A Cascading Style Sheet Language.
 	`:dir(direction) {}`
 	`selector[dir=direction] {}`
 
+## CSS Properties
 
-
+- [Color Property]: Used to define colors for HTML elements. Supporting colors format are: RGB, HEX, HSL, RGBA, HSLA.
+	`element {background-color: ... ;}`: Background color for HTML element.
+	`element {color: ... ;}`: HTML text color.
+	`element {border: #FFFFFF ;}`: Border color.
+	`element {color: rgb(0, 0, 0, n) ;}`: Transparency factor `n`. 
+	
 
