@@ -1,4 +1,8 @@
 
+* {
+  font-family: 'Courier New', Courier, monospace;
+}
+
 .theme-dark
 {
   --background-primary: #2f3136;
@@ -63,6 +67,7 @@ a,
   color: var(--text-a) !important;
   text-decoration: none !important;
   font-family: Avenir !important;
+  font-size: 16px;
 }
 
 /* link hover color */

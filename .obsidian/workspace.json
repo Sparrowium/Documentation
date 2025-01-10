@@ -8,41 +8,27 @@
         "type": "tabs",
         "children": [
           {
-            "id": "dc3d8b65373384e3",
+            "id": "82e1d2899514faac",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/CSS.md",
+                "file": "Computer.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CSS"
+              "title": "Computer"
             }
           },
           {
-            "id": "e831a24993d225d0",
+            "id": "fc7fe15f67a04270",
             "type": "leaf",
             "state": {
               "type": "graph",
               "state": {},
               "icon": "lucide-git-fork",
               "title": "Graph view"
-            }
-          },
-          {
-            "id": "9a40b6d87dc4281d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/HTML.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "HTML"
             }
           }
         ]
@@ -101,7 +87,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "e5d9271595e93348",
@@ -186,9 +173,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "dc3d8b65373384e3",
+  "active": "82e1d2899514faac",
   "lastOpenFiles": [
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/HTML.md",
+    "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
+    "Computer.md",
+    "Welcome.md",
+    "Computer Science/Computer Systems/Computer Architecture/Computer Organization.md",
+    "Computer Science/Computer Science.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/CSS.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Languages.md",
     "Untitled 1.canvas",
@@ -202,7 +194,6 @@
     "Computer Science/Computer Systems/System Software/System Software.md",
     "Computer Science/Computer Systems/Computer Systems.md",
     "Computer Science/Computer Systems/System Software",
-    "Computer Science/Computer Science.md",
     "Computer Science/Computer Systems/Concurrency.md",
     "Computer Science/Computer Systems/Computer Networks.md",
     "Computer Science/Computer Systems/Computer Architecture.md",
@@ -215,10 +206,6 @@
     "Computer Science/Computer Systems.md",
     "Computer Science/Computer Systems/Computer Systems",
     "Computer Science/Computer Systems/System Software/Shell and Scripting.md",
-    "Welcome.md",
-    "README.md",
-    "Computer Science/Computer Systems/System Software/Linux Kernel.md",
-    "Computer Science/Computer Systems/System Software/Linux.md",
     "Computer Science/Applied Disciplines/Software Engineering",
     "Computer Science/Applied Disciplines/Image and Sound Processing",
     "Computer Science/Applied Disciplines/Human - Computer Interaction",
