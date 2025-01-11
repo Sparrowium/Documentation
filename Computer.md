@@ -89,4 +89,16 @@
 		
 	- [Network Card]: The network card allows your computer to communicate over a network and access internet. It can either be connected through **Ethernet** or **Wireless**. Most computers has built in network card.
 
+## Laptop Computers
 
+- A laptop is a personal computer that can be **easily moved** and used in a variety of locations. Most laptops are designed to have all of the functionality of a desktop computer but in a compacted size.
+	
+- A laptop has an **all-in-one design**, with a built-in **monitor**, **keyboard**, **touchpad** (which replaces the mouse), and **speakers**.
+	
+- Unique Feature: 
+	
+	- [Touchpad]: A touch-sensitive pad for controlling the cursor/pointer.
+		
+	- [Battery]: Provides power to the laptop even if the electricity goes out.
+		
+	- [AC Adapter]: A specialized power cable.
