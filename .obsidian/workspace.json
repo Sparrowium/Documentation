@@ -8,7 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "82e1d2899514faac",
+            "id": "fc7fe15f67a04270",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -19,16 +19,6 @@
               },
               "icon": "lucide-file",
               "title": "Computer"
-            }
-          },
-          {
-            "id": "fc7fe15f67a04270",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
             }
           }
         ]
@@ -87,8 +77,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "e5d9271595e93348",
@@ -173,13 +162,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "82e1d2899514faac",
+  "active": "fc7fe15f67a04270",
   "lastOpenFiles": [
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/HTML.md",
+    "Computer Science/Computer Systems/Computer Architecture/Computer Organization.md",
     "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
     "Computer.md",
+    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/HTML.md",
     "Welcome.md",
-    "Computer Science/Computer Systems/Computer Architecture/Computer Organization.md",
     "Computer Science/Computer Science.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/CSS.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Languages.md",

@@ -44,3 +44,27 @@
 	- [Trackball]: A form of mouse but instead uses a ball as a pointing device.
 		
 	- [Touchpad]: - also called a trackpad - Is a touch-sensitive pad that lets you control the pointer by making a drawing motion with your finger.
+
+## Buttons and Ports on a Computer
+
+- [Front of the Computer Case]: Usually have 1-3 USB port, 1-2 Aux port, Power button.
+	
+- [Back of the Computer Case]: Has **connection ports** that are made to fit **specific devices**. Usually have 2-5 USB port, 3 Video port (VGA, HDMI, DP), 6 Aux port, 1 RJ-45 Port, 1 Power supply port, some will have RP-SMA port/connector for external wifi antenna.
+	
+- [Peripherals to use with your Computer]: 
+	
+	- Basic computer setup usually includes computer case, monitor, keyboard, and mouse, but you can plug many different type of devices into the extra port on your computer. These devices are called peripherals.
+		
+	- [Printer]: A printer is used to print documents, photos, and anything else that appear on your screen on to a blank paper (Typically A4). There are many types of printers, including inkjet, laser, and photo printer. There are even all-in-one printer which can scan and print document.
+		
+	- [Scanner]: A scanner allows you to copy a physical image or document and save it to your computer as a digital (computer readable) image. 
+		
+	- [Speaker/Headphone]: Speakers and headphones are audio output devices. Depending on the model they may connect to either AUX port or USB port.
+		
+	- [Microphone]: A microphone is an audio input devices. Some have built-in microphone.
+		
+	- [Web Cameras]: A web camera-or a webcam-is a type of video input device that can record and take pictures. It can also transmit video over internet in **real time**, which allows for video chat or video conferencing with someone else. Some have integrated speaker/microphone.
+		
+	- Other devices may include [Game Controller], [Joystick], [Digital Cameras], and [Mobiles Devices].
+
+
