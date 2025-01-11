@@ -102,3 +102,13 @@
 	- [Battery]: Provides power to the laptop even if the electricity goes out.
 		
 	- [AC Adapter]: A specialized power cable.
+
+## Mobile Devices
+
+- A mobile device is a general term for any type of **handheld computer**.
+	
+- [Tablets]: **Tablet computers** are designed to be portable. The entire screen is touch-sensitive, allowing you to type on a **virtual keyboard** and use your finger as a mouse pointer.
+	
+- [E-Reader]: Like Tablet but mainly designed to be electronics book reader.
+	
+- [Smartphones]: Smartphones are tablets but in a much more compact size and have all the feature of a tablet and a traditional cell phone.
