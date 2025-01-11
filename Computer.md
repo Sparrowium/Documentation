@@ -49,7 +49,7 @@
 
 - [Front of the Computer Case]: Usually have 1-3 USB port, 1-2 Aux port, Power button.
 	
-- [Back of the Computer Case]: Has **connection ports** that are made to fit **specific devices**. Usually have 2-5 USB port, 3 Video port (VGA, HDMI, DP), 6 Aux port, 1 RJ-45 Port, 1 Power supply port, some will have RP-SMA port/connector for external wifi antenna.
+- [Back of the Computer Case]: Has **connection ports** that are made to fit **specific devices**. Usually have 2-5 USB port, 3 Video port (VGA, HDMI, DP), 6 Aux port, 1 RJ-45 Port, 1 Power supply port, some will have RP-SMA port/connector for external Wi-Fi antenna.
 	
 - [Peripherals to use with your Computer]: 
 	
@@ -66,5 +66,27 @@
 	- [Web Cameras]: A web camera-or a webcam-is a type of video input device that can record and take pictures. It can also transmit video over internet in **real time**, which allows for video chat or video conferencing with someone else. Some have integrated speaker/microphone.
 		
 	- Other devices may include [Game Controller], [Joystick], [Digital Cameras], and [Mobiles Devices].
+
+## Inside a Computer
+
+- [Motherboard]: The computer **main circuit board**. It's a thin PCB plate that holds the CPU, Memory, Connectors for Hard Drives and Optical Drives, Expansion Cards to control the Video and Audio, and connections to your computer's ports. The mother board connects directly or indirectly to every part of the computer.
+	
+- [CPU/Processor]: The central processing unit (CPU), also called the processor, is located inside the computer case on the motherboard. It is called the brain of the computer, and its job is to execute and carries out commands from user's input.
+	
+- [RAM (Random Access Memory)]: RAM is your computer's **short-term memory** which means that it is volatile. Whenever your computer performs executions, it temporarily stores the data in the RAM until it is needed. This short-term memory **disappears** when the computer is turned off. RAM is often measured in **Bytes** or **Binary-Byte(bibyte)**. And the more RAM you have the more memory your computer can access and use it to process because it is **easy to access**. 
+	
+- [Storage Drive]: The **storage drive** is where your software and documents are stored. These are non-volatile memory, means that the data will still be saved even if the machine is off. When you run a program, the computer copies some of the data from the storage devices onto the RAM. There are two main types of storage devices: HDD (Hard Disk Drive), and SSD (Solid State Drive).
+	
+- [Power Supply Unit]: The power supply unit in a computer **converts the power** from the wall outlet to the type of power needed by the computer. It sends power through cables to the motherboard.
+	
+- [Expansion Cards]: 
+	
+	- Most computers have expansions slots that are called **PCIE (Peripheral Component Interconnect Express)** that allows you to add various types of **expansion cards**.
+		
+	- [Video Card/Graphics Card]: The **video card** is responsible for **what you see** on the monitor. Some computers have a **GPU (Graphics Processing Unit)** built into the CPU/Processor.
+		
+	- [Sound Card]: The sound card-audio card-is responsible for what you hear in the speakers or headphones. Most computer have built-in sound card. 
+		
+	- [Network Card]: The network card allows your computer to communicate over a network and access internet. It can either be connected through **Ethernet** or **Wireless**. Most computers has built in network card.
 
 
