@@ -44,13 +44,87 @@
 - [Representing Groups of Bits]: 
 	
 	- [Hexadecimal]: A 16 digits systems with each of the digit can represent one group of 4 bits.
+		![[Pasted image 20250114135814.png]]![[Pasted image 20250114135835.png]]
 		
 	- [Octal Systems]: A 8 digit systems, from 0-7, with each digit resembling a group of 3 bits. 
+		![[Pasted image 20250114140110.png]]
 	
 - [Using Hexadecimal Digits]: 
 	
-	- Hexadecimal digits are especially convenient when we need to specify the state of a group. 
+	- Hexadecimal digits are especially convenient when we need to specify the state of a group. But a single bit isn't usually useful for storing data, we uses Byte instead.
+		
+	- [Byte]: The smallest number of bits that can be accessed at a time in a computer.
 
+## Mathematical Equivalency of Binary and Decimal
 
+- [Positional Notation]: The value of a symbol depends on its position within a group of symbols.
+	`123 = 1 * 10^2 + 2 * 10^1 + 3 * 10^0`
+	
+	- [Least significant digit]: A digit where its values contributed the least to the number's total value.
+		`3 in 123`
+		
+	- [Most significant digit]: A digit where its values contributed the most to the number's total value.
+		`1 in 123`
+		
+	- [Base / Radix]: The number of unique digit. 10 for Decimal Number System.
+		
+	- [Signed / Unsigned Number]: Signed number can either be negative or positive, Unsigned number have no sign.
+		
+	- #HonorableMention: Roman Numbering System.
+	
+- [Converting Binary to Unsigned Decimal]:
+	
+	- Binary to Decimal can be converted by computing the value of 2 raised to the power of its position it is in then multiplying that be the value of the bit in that position.
+		![[Pasted image 20250114142930.png]]
+	- The following algorithm summarizes the procedure for converting binary to decimal:
+		![[Pasted image 20250114143133.png]]
+	
+- [Converting Unsigned Decimal to Binary]: We can produce the binary representation of a number by working from right to left, repeatedly dividing by, and using the remainder as the value of the respective bit. 
+	![[Pasted image 20250114154739.png]]
+## Storing Data in Memory 
 
+- There are two generals kinds of memory used for storing program instructions and data in a computer: **RAM (Random Access Memory)** which is volatile and it takes the same amount of time to access any byte in memory, **ROM (Read-only Memory)** which is non-volatile memory (NVM). **SAM (Sequential Access Memory)** means that the amount it takes to access a byte depends on its position.
+	
+- [Express Memory Address]:
+	
+	- Each byte in memory has a location, or address, much like the room number in an office building. The address of specific byte never changes but their state will which can either be 0 or 1. Computer Scientist typically express the address of each byte in memory in hexadecimal. This means that the first 16 bytes in memory have the addresses: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, d, e, f. Using the notation: 
+		`<address>:<content`
+		![[Pasted image 20250114162322.png]]
+	- The content of each byte is represented by two hexadecimals digits, which specify the exact state of byte's eight bits.
+	
+- [Characters]: Text Strings
+	
+	- [Character Encoding]: 
+		
+		- The most common standard for encoding characters for computer storage is `UNICODE UTF-8` (Unicode Transformation Format). It uses  from one to four bytes for storing a number called a **code point**, which represent a character. 
+			UTF-8 for the Hexadecimal Characters![[Pasted image 20250114182100.png]]
+		- A Unicode code point is written as `U+h`, where h is four to six hexadecimal digits.
+			
+		- The operating systems and display hardware associate one or more code points with a **glyph**, which is what we see on the screen or on paper.
+			
+		- American Standard Code for Information Interchange (`ASCII`) uses seven bits to specify each code point in a 128-character set, which contains the English alphabet, numerals, special characters, and control characters.
+			
+		- UTF-8 uses one byte per character to store code points U+0000 to U+007F. Bits 6 and 5 in the byte (numbered from right to left) specify the four group of characters, these special characters are mostly punctuation.
+			![[Pasted image 20250114182434.png]]
+		- To generate a table of code points that coincide with ASCII characters, type `man ascii` in Linux Terminal
+		
+	- [Storing a Text String]: Text string are stored by the **compiler** as a constant array of characters. To specify the extent of this array, a C-style string uses the code point U+0000 (ASCII NUL) at the end of the string as a **sentinel value**, a unique value that indicates the end of a sequence of characters.
+	
+- [Unsigned Integers]: 
+	
+	- Unsigned Integer can be expressed in any radix/base, the most obvious way is to store it in Binary Number System. If we number the bits in a byte from right to left, then the lowest-order bit would be stored in bit 0, the next in bit 1, and so forth.
+		
+	- The default size for an unsigned integer in most programming environment is 4 bytes = 4,294,967,295 base 10.
+		
+	- One limitation of binary number systems is that you need to convert a decimal number from a character string to the binary number system before performing arithmetic operations on it.
+		
+	- **Binary COded Decimal (BCD)** is another code for storing integer, it uses four bits for each decimal digits.
+		![[Pasted image 20250114184401.png]]
+	- BCD is useful when it comes to printing a lot of numbers.
+	
+- [Understanding Byte Storage Order in Memory]:
+	
+	- [Little Endian]: Data is stored in memory with the *least* significant byte in a multiple-byte value in the lowest-numbered address. That is, the "littlest" byte comes first in memory.
+		
+	- [Big Endian]: Data is stored in memory with the *most* significant byte in a multiple-byte value in the lowest-numbered address. That is, the "biggest" byte comes first in memory.
 
