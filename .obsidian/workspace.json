@@ -8,34 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "7609872b64133be9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Computer Science/Computer Systems/Computer Architecture/Computer Organization.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Computer Organization"
-            }
-          },
-          {
-            "id": "f68c023008e668da",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/CSS.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "CSS"
-            }
-          },
-          {
             "id": "8406c9abfe57844f",
             "type": "leaf",
             "state": {
@@ -190,8 +162,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "94c6bde8c47967b6",
+  "active": "8406c9abfe57844f",
   "lastOpenFiles": [
+    "assets/imgs/Pasted image 20250114212242.png",
+    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Go.md",
+    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/CSS.md",
+    "Computer Science/Computer Systems/Computer Architecture/Computer Organization.md",
     "assets/imgs/Pasted image 20250114184401.png",
     "assets/imgs/Pasted image 20250114182434.png",
     "assets/imgs/Pasted image 20250114182100.png",
@@ -202,12 +178,7 @@
     "assets/imgs/Pasted image 20250114135835.png",
     "assets/imgs/Pasted image 20250114140110.png",
     "assets/imgs/Pasted image 20250114142930.png",
-    "assets/imgs/Pasted image 20250114154739.png",
-    "Pasted image 20250114160615.png",
-    "Computer Science/Computer Systems/Computer Architecture/Computer Organization.md",
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Go.md",
     "().md",
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/CSS.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Languages.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/HTML.md",
     "assets/imgs",
