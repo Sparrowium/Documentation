@@ -1,7 +1,5 @@
 
-<h2><center> Basic </center></h2>
-
-<h1 style="color:#6290C3"><center> The Baseline </center></h1>
+<h2 style="color:#6290C3"><center> The Baseline </center></h2>
 ## Computer Subsystems
 
 - Computer hardware consist of three separated subsystems: [Central Processing Unit], [Memory], and [Input/Output(I/O)]. These are connected with buses.
@@ -32,7 +30,7 @@
 	
 - If the CPU is instructed to store data in memory, it places the data on the data bus, places the location in memory where the data is to be stored on the address bus, and places a **write** signal on the control bus. The memory subsystem responds by copying the data on the data bus into the specified memory location.
 
-<h1 style="color:#6290C3"><center> Data Storage Formats </center></h1>
+<h2 style="color:#6290C3"><center> Data Storage Formats </center></h2>
 ## Describing Switches and Groups of Switches
 
 - [Representing Switches with Bits]: 
@@ -127,4 +125,17 @@
 	- [Little Endian]: Data is stored in memory with the *least* significant byte in a multiple-byte value in the lowest-numbered address. That is, the "littlest" byte comes first in memory.
 		
 	- [Big Endian]: Data is stored in memory with the *most* significant byte in a multiple-byte value in the lowest-numbered address. That is, the "biggest" byte comes first in memory.
+
+<h2 style="color:#6290C3"><center> Computer Arithmetic </center></h2>
+## Adding and Subtracting Unsigned Integers
+
+- [Adding in the Decimal Number System]: 
+	![[Pasted image 20250117220727.png]]
+- [Subtracting the Decimal Number Systems]:
+	
+	
+
+
+
+
 
