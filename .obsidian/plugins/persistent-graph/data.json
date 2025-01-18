@@ -2,238 +2,253 @@
   "nodePositions": [
     {
       "id": "Computer Engineering/Computer Engineering.md",
-      "x": 211.60401916503906,
-      "y": -577.2755126953125
+      "x": 232.9576873779297,
+      "y": -566.6419067382812
     },
     {
       "id": "Computer Science/Applied Disciplines/Applied disciplines.md",
-      "x": 445.3902587890625,
-      "y": -188.97608947753906
-    },
-    {
-      "id": "Computer Science/Computer Science.md",
-      "x": 194.24522399902344,
-      "y": -57.638893127441406
-    },
-    {
-      "id": "Computer Science/Computer Systems/Computer Systems.md",
-      "x": 213.6957244873047,
-      "y": 252.1175079345703
-    },
-    {
-      "id": "Computer Science/Theoretical Disciplines/Theoretical disciplines.md",
-      "x": -169.70086669921875,
-      "y": -129.5767364501953
-    },
-    {
-      "id": "Welcome.md",
-      "x": 266.38665771484375,
-      "y": -327.5075378417969
+      "x": 450.90625,
+      "y": -198.06402587890625
     },
     {
       "id": "Computer Science/Applied Disciplines/Artificial Intelligence/Artificial Intelligence.md",
-      "x": 565.3804931640625,
-      "y": 22.196762084960938
+      "x": 583.213134765625,
+      "y": 5.4812140464782715
     },
     {
       "id": "Computer Science/Applied Disciplines/Computational Science & Engineering/Computational Science & Engineering.md",
-      "x": 651.4338989257812,
-      "y": -304.46588134765625
+      "x": 665.6038818359375,
+      "y": -301.8644104003906
     },
     {
       "id": "Computer Science/Applied Disciplines/Computer Graphics and Visualization/Computer Graphics and Visualization.md",
-      "x": 409.06085205078125,
-      "y": 47.57646560668945
+      "x": 429.0660095214844,
+      "y": 41.80530548095703
     },
     {
       "id": "Computer Science/Applied Disciplines/Human - Computer Interaction/Human - Computer Interaction.md",
-      "x": 381.6265563964844,
-      "y": -429.3719482421875
+      "x": 397.5057678222656,
+      "y": -443.1240539550781
     },
     {
       "id": "Computer Science/Applied Disciplines/Image and Sound Processing/Image and Sound Processing.md",
-      "x": 507.8082275390625,
-      "y": -425.2155456542969
+      "x": 527.13427734375,
+      "y": -432.8123474121094
     },
     {
       "id": "Computer Science/Applied Disciplines/Software Engineering/Software Engineering.md",
-      "x": 659.6343994140625,
-      "y": -52.07380676269531
-    },
-    {
-      "id": "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
-      "x": -30.533132553100586,
-      "y": 268.9063415527344
-    },
-    {
-      "id": "Computer Science/Computer Systems/Computer Networks/Computer Networks.md",
-      "x": 161.51402282714844,
-      "y": 491.3487548828125
-    },
-    {
-      "id": "Computer Science/Computer Systems/Concurrency/Concurrency.md",
-      "x": 451.896484375,
-      "y": 204.94183349609375
-    },
-    {
-      "id": "Computer Science/Computer Systems/Data Mining/Data Mining.md",
-      "x": 281.4552917480469,
-      "y": 494.62030029296875
-    },
-    {
-      "id": "Computer Science/Computer Systems/Database/Database.md",
-      "x": 5.247122764587402,
-      "y": 383.4254455566406
-    },
-    {
-      "id": "Computer Science/Computer Systems/Distributed Systems/Distributed Systems.md",
-      "x": 448.3431396484375,
-      "y": 331.56402587890625
-    },
-    {
-      "id": "Computer Science/Computer Systems/Microarchitecture/Microarchitecture.md",
-      "x": 384.5223083496094,
-      "y": 433.1796569824219
-    },
-    {
-      "id": "Computer Science/Computer Systems/System Software/Access Control.md",
-      "x": -4.2026472091674805,
-      "y": 700.363037109375
-    },
-    {
-      "id": "Computer Science/Computer Systems/System Software/Linux Kernel.md",
-      "x": -380.2984619140625,
-      "y": 406.845458984375
-    },
-    {
-      "id": "Computer Science/Computer Systems/System Software/Linux.md",
-      "x": -207.2094268798828,
-      "y": 575.6920166015625
-    },
-    {
-      "id": "Computer Science/Computer Systems/System Software/Shell and Scripting.md",
-      "x": -444.5301513671875,
-      "y": 535.7994995117188
-    },
-    {
-      "id": "Computer Science/Computer Systems/System Software/System Software.md",
-      "x": 41.695945739746094,
-      "y": 497.7388916015625
-    },
-    {
-      "id": "Computer Science/Theoretical Disciplines/Algorithms/Algorithms.md",
-      "x": 54.27429962158203,
-      "y": -49.398338317871094
-    },
-    {
-      "id": "Computer Science/Theoretical Disciplines/Automate Theory/Automate Theory.md",
-      "x": -419.3932800292969,
-      "y": 14.788707733154297
-    },
-    {
-      "id": "Computer Science/Theoretical Disciplines/Coding Theory/Coding Theory.md",
-      "x": -61.01386642456055,
-      "y": -307.6985778808594
-    },
-    {
-      "id": "Computer Science/Theoretical Disciplines/Computational Complexity Theory/Computational Complexity Theory.md",
-      "x": -313.843994140625,
-      "y": 153.73001098632812
-    },
-    {
-      "id": "Computer Science/Theoretical Disciplines/Computational Geometry/Computational Geometry.md",
-      "x": -301.0744934082031,
-      "y": 34.46637725830078
-    },
-    {
-      "id": "Computer Science/Theoretical Disciplines/Computational Learning Theory/Computational Learning Theory.md",
-      "x": -378.811767578125,
-      "y": -257.8229064941406
-    },
-    {
-      "id": "Computer Science/Theoretical Disciplines/Computational Number Theory/Computational Number Theory.md",
-      "x": -61.93340301513672,
-      "y": -427.7248229980469
-    },
-    {
-      "id": "Computer Science/Theoretical Disciplines/Cryptography/Cryptography.md",
-      "x": -272.03790283203125,
-      "y": -312.3379211425781
-    },
-    {
-      "id": "Computer Science/Theoretical Disciplines/Data Structures/Data Structures.md",
-      "x": -265.853515625,
-      "y": -432.20318603515625
-    },
-    {
-      "id": "Computer Science/Theoretical Disciplines/Distributed Computation/Distributed Computation.md",
-      "x": -372.6687316894531,
-      "y": -377.6085205078125
-    },
-    {
-      "id": "Computer Science/Theoretical Disciplines/Formal Methods/Formal Methods.md",
-      "x": 43.361602783203125,
-      "y": -248.61605834960938
-    },
-    {
-      "id": "Computer Science/Theoretical Disciplines/Information Theory/Information Theory.md",
-      "x": -201.58372497558594,
-      "y": 111.49800872802734
-    },
-    {
-      "id": "Computer Science/Theoretical Disciplines/Information-based Complexity/Information-based Complexity.md",
-      "x": -474.4572448730469,
-      "y": -185.590576171875
-    },
-    {
-      "id": "Computer Science/Theoretical Disciplines/Machine Learning/Machine Learning.md",
-      "x": 42.37989044189453,
-      "y": -368.5340881347656
-    },
-    {
-      "id": "Computer Science/Theoretical Disciplines/Natural Computation/Natural Computation.md",
-      "x": -82.11382293701172,
-      "y": 121.94021606445312
-    },
-    {
-      "id": "Computer Science/Theoretical Disciplines/Parallel Computation/Parallel Computation.md",
-      "x": -389.070556640625,
-      "y": -101.30274200439453
-    },
-    {
-      "id": "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Programming Language Theory and Program Semantics.md",
-      "x": -504.7605895996094,
-      "y": -69.49608612060547
-    },
-    {
-      "id": "Computer Science/Theoretical Disciplines/Quantum Computation/Quantum Computation.md",
-      "x": 24.364662170410156,
-      "y": 66.70948791503906
-    },
-    {
-      "id": "Computer Science/Theoretical Disciplines/Symbolic Computation/Symbolic Computation.md",
-      "x": -165.24195861816406,
-      "y": -366.9511413574219
-    },
-    {
-      "id": "Computer Science/Theoretical Disciplines/Very-Large-Scale Integration/Very-Large-Scale Integration.md",
-      "x": 115.24798583984375,
-      "y": -152.64114379882812
+      "x": 673.8994750976562,
+      "y": -84.37677001953125
     },
     {
       "id": "Computer Science/Applied Disciplines/Software Engineering/Tools/Git.md",
-      "x": 659.1868896484375,
-      "y": 208.95838928222656
+      "x": 684.6038818359375,
+      "y": 171.59963989257812
+    },
+    {
+      "id": "Computer Science/Computer Science.md",
+      "x": 204.94435119628906,
+      "y": -29.779237747192383
+    },
+    {
+      "id": "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
+      "x": -3.6869750022888184,
+      "y": 308.154296875
+    },
+    {
+      "id": "Computer Science/Computer Systems/Computer Networks/Computer Networks.md",
+      "x": 210.22103881835938,
+      "y": 533.0663452148438
+    },
+    {
+      "id": "Computer Science/Computer Systems/Computer Systems.md",
+      "x": 238.5602264404297,
+      "y": 287.0494689941406
+    },
+    {
+      "id": "Computer Science/Computer Systems/Concurrency/Concurrency.md",
+      "x": 468.45794677734375,
+      "y": 210.79327392578125
+    },
+    {
+      "id": "Computer Science/Computer Systems/Data Mining/Data Mining.md",
+      "x": 329.4716491699219,
+      "y": 519.71484375
+    },
+    {
+      "id": "Computer Science/Computer Systems/Database/Database.md",
+      "x": 31.898162841796875,
+      "y": 422.7421569824219
+    },
+    {
+      "id": "Computer Science/Computer Systems/Distributed Systems/Distributed Systems.md",
+      "x": 480.4248352050781,
+      "y": 342.42437744140625
+    },
+    {
+      "id": "Computer Science/Computer Systems/Microarchitecture/Microarchitecture.md",
+      "x": 427.07470703125,
+      "y": 449.9100036621094
+    },
+    {
+      "id": "Computer Science/Computer Systems/System Software/Access Control.md",
+      "x": 21.114961624145508,
+      "y": 730.3696899414062
+    },
+    {
+      "id": "Computer Science/Computer Systems/System Software/Linux Kernel.md",
+      "x": -349.0171203613281,
+      "y": 436.561767578125
+    },
+    {
+      "id": "Computer Science/Computer Systems/System Software/Linux.md",
+      "x": -170.87942504882812,
+      "y": 594.0711059570312
+    },
+    {
+      "id": "Computer Science/Computer Systems/System Software/Shell and Scripting.md",
+      "x": -410.3372802734375,
+      "y": 576.8580322265625
+    },
+    {
+      "id": "Computer Science/Computer Systems/System Software/System Software.md",
+      "x": 85.17774963378906,
+      "y": 530.2528076171875
+    },
+    {
+      "id": "Computer Science/Theoretical Disciplines/Algorithms/Algorithms.md",
+      "x": 60.40031814575195,
+      "y": -68.80879974365234
+    },
+    {
+      "id": "Computer Science/Theoretical Disciplines/Automate Theory/Automate Theory.md",
+      "x": -350.5040588378906,
+      "y": 48.628849029541016
+    },
+    {
+      "id": "Computer Science/Theoretical Disciplines/Coding Theory/Coding Theory.md",
+      "x": -75.0816879272461,
+      "y": -334.1799621582031
+    },
+    {
+      "id": "Computer Science/Theoretical Disciplines/Computational Complexity Theory/Computational Complexity Theory.md",
+      "x": -281.7585144042969,
+      "y": 146.93832397460938
+    },
+    {
+      "id": "Computer Science/Theoretical Disciplines/Computational Geometry/Computational Geometry.md",
+      "x": -230.9354705810547,
+      "y": 38.295291900634766
+    },
+    {
+      "id": "Computer Science/Theoretical Disciplines/Computational Learning Theory/Computational Learning Theory.md",
+      "x": -379.6744689941406,
+      "y": -265.29705810546875
+    },
+    {
+      "id": "Computer Science/Theoretical Disciplines/Computational Number Theory/Computational Number Theory.md",
+      "x": -73.22330474853516,
+      "y": -454.18218994140625
+    },
+    {
+      "id": "Computer Science/Theoretical Disciplines/Cryptography/Cryptography.md",
+      "x": -278.62200927734375,
+      "y": -330.4763488769531
+    },
+    {
+      "id": "Computer Science/Theoretical Disciplines/Data Structures/Data Structures.md",
+      "x": -284.774169921875,
+      "y": -450.32861328125
+    },
+    {
+      "id": "Computer Science/Theoretical Disciplines/Distributed Computation/Distributed Computation.md",
+      "x": -385.4353332519531,
+      "y": -385.08251953125
+    },
+    {
+      "id": "Computer Science/Theoretical Disciplines/Formal Methods/Formal Methods.md",
+      "x": 94.36868286132812,
+      "y": -291.5633544921875
+    },
+    {
+      "id": "Computer Science/Theoretical Disciplines/Information Theory/Information Theory.md",
+      "x": -162.23365783691406,
+      "y": 136.66261291503906
+    },
+    {
+      "id": "Computer Science/Theoretical Disciplines/Information-based Complexity/Information-based Complexity.md",
+      "x": -446.64453125,
+      "y": -165.83001708984375
+    },
+    {
+      "id": "Computer Science/Theoretical Disciplines/Machine Learning/Machine Learning.md",
+      "x": 29.684097290039062,
+      "y": -392.5686340332031
+    },
+    {
+      "id": "Computer Science/Theoretical Disciplines/Natural Computation/Natural Computation.md",
+      "x": -64.80702209472656,
+      "y": 66.75529479980469
+    },
+    {
+      "id": "Computer Science/Theoretical Disciplines/Parallel Computation/Parallel Computation.md",
+      "x": -376.59674072265625,
+      "y": -68.42493438720703
+    },
+    {
+      "id": "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/CSS.md",
+      "x": -479.86102294921875,
+      "y": 247.03375244140625
+    },
+    {
+      "id": "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Go.md",
+      "x": -719.756103515625,
+      "y": -121.11117553710938
     },
     {
       "id": "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/HTML.md",
-      "x": -596.4481811523438,
-      "y": 275.5590515136719
+      "x": -599.10205078125,
+      "y": 350.09454345703125
     },
     {
       "id": "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Languages.md",
-      "x": -702.8665161132812,
-      "y": 57.377323150634766
+      "x": -682.5692138671875,
+      "y": 119.65336608886719
+    },
+    {
+      "id": "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Programming Language Theory and Program Semantics.md",
+      "x": -495.9647521972656,
+      "y": -56.42460632324219
+    },
+    {
+      "id": "Computer Science/Theoretical Disciplines/Quantum Computation/Quantum Computation.md",
+      "x": 54.08547592163086,
+      "y": 50.94855499267578
+    },
+    {
+      "id": "Computer Science/Theoretical Disciplines/Symbolic Computation/Symbolic Computation.md",
+      "x": -177.96511840820312,
+      "y": -395.8096923828125
+    },
+    {
+      "id": "Computer Science/Theoretical Disciplines/Theoretical disciplines.md",
+      "x": -164.59552001953125,
+      "y": -151.497802734375
+    },
+    {
+      "id": "Computer Science/Theoretical Disciplines/Very-Large-Scale Integration/Very-Large-Scale Integration.md",
+      "x": 118.07532501220703,
+      "y": -173.95654296875
+    },
+    {
+      "id": "Computer.md",
+      "x": 4.370055198669434,
+      "y": -212.24868774414062
+    },
+    {
+      "id": "Welcome.md",
+      "x": 266.38330078125,
+      "y": -311.76922607421875
     }
   ],
   "automaticallyRestoreNodePositions": true

@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "dedd167505aaeaa8",
+        "id": "feae98ba4d419b6a",
         "type": "tabs",
         "children": [
           {
-            "id": "8406c9abfe57844f",
+            "id": "e0c7595bd56c4762",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Go.md",
+                "file": "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Languages.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Go"
+              "title": "Languages"
             }
           }
         ]
@@ -77,7 +77,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "e5d9271595e93348",
@@ -162,49 +163,50 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "8406c9abfe57844f",
+  "active": "e0c7595bd56c4762",
   "lastOpenFiles": [
-    "assets/imgs/Pasted image 20250114212242.png",
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Go.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/CSS.md",
+    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Go.md",
+    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/HTML.md",
+    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Languages.md",
+    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Programming Language Theory and Program Semantics.md",
+    "Computer Science/Applied Disciplines/Software Engineering/Software Engineering.md",
     "Computer Science/Computer Systems/Computer Architecture/Computer Organization.md",
+    "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
+    "README.md",
+    "Welcome.md",
+    "Computer.md",
+    "Computer Science/Computer Science.md",
+    "Computer Science/Theoretical Disciplines/Theoretical disciplines.md",
+    "Computer Science/Applied Disciplines/Applied disciplines.md",
+    "Computer Science/Computer Systems/Computer Systems.md",
+    "assets/imgs/Pasted image 20250117220727.png",
+    "assets/imgs/Pasted image 20250114212242.png",
     "assets/imgs/Pasted image 20250114184401.png",
     "assets/imgs/Pasted image 20250114182434.png",
     "assets/imgs/Pasted image 20250114182100.png",
     "assets/imgs/Pasted image 20250114162322.png",
-    "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
     "assets/imgs/Pasted image 20250112222509.png",
     "assets/imgs/Pasted image 20250114135814.png",
     "assets/imgs/Pasted image 20250114135835.png",
     "assets/imgs/Pasted image 20250114140110.png",
-    "assets/imgs/Pasted image 20250114142930.png",
     "().md",
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Languages.md",
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/HTML.md",
     "assets/imgs",
     "assets",
-    "Computer.md",
-    "Welcome.md",
-    "Computer Science/Computer Science.md",
     "Untitled 1.canvas",
     "Untitled.canvas",
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Programming Language Theory and Program Semantics.md",
     "^Attributes.md",
     "HTML Attributes.md",
     "Computer Science/Applied Disciplines/Software Engineering/Tools/Git.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages",
     "Computer Science/Computer Systems/System Software/System Software.md",
-    "Computer Science/Computer Systems/Computer Systems.md",
     "Computer Science/Computer Systems/System Software",
     "Computer Science/Computer Systems/Concurrency.md",
     "Computer Science/Computer Systems/Computer Networks.md",
     "Computer Science/Computer Systems/Computer Architecture.md",
     "Computer Science/Computer Systems/Data Mining.md",
     "Computer Science/Computer Systems/Database.md",
-    "Computer Science/Computer Systems/Distributed Systems.md",
-    "Computer Science/Computer Systems/Microarchitecture.md",
-    "Computer Science/Theoretical Disciplines/Distributed Computation/Distributed Computation.md",
     "Computer Science/Computer Systems/Computer Systems",
     "Computer Science/Applied Disciplines/Software Engineering",
     "Computer Science/Applied Disciplines/Image and Sound Processing",
