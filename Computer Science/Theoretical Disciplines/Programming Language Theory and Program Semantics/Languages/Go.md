@@ -117,7 +117,14 @@ High level General Purpose Language
 - [Naming Variables and Constants]: Go uses Camel case. 
 	` var HelloWorld string = "true"`
 
+## Composite Types
 
+- [Arrays - Too Rigid to Use Directly]: Because the size of the array to be part of the type of the array. In addition, you cant use a type conversion to directly convert arrays of different sizes to identical types.
+	`var x = [3]int{0, 0, 0}`
+	
+- [Slices]: A data structure that holds a sequence of values. The length of a slice is not part of its types.
+	`var x = []int{0, 0, 0}`
+	
 
 
 
