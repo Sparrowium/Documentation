@@ -198,3 +198,48 @@
 	
 - [SI]: An international organization of scientists and engineers that sets generally accepted standards for scientific measurement units.
 
+## Basic CPU-Based Architecture
+
+### A Musical Processing Unit
+
+- A machine with a capability of reading and performs musical scores.
+	
+- [From Music To Calculation]: Implementing player piano-style roll of punch cards to specify sequences of instructions, and a Jacquard loom-style mechanical reader to read them and automatically activate the corresponding simple machines in return.
+	
+- [From Calculation to Computation]: Implementing instructions similar to the musical processing unit, facilitating repeats, codas, and the like. And Memory are required to store intermediate results.
+
+### Babbage's Central Processing Unit
+
+- [High-Level Architecture]: Contains CPU, RAM, and bus to connect them.
+	
+- [Programming Interface]: Old school programming interface were programs.
+	
+	- [Constants]: Specify value that is addressed into an address.
+		
+	- [Load and Store]: Load data for CPU to execute, Store data for future execution.
+		
+	- [Arithmetic]: Requires *mode*, tells the engine which of these operations you want to perform.
+		
+	- [Jumps]: Allows program to repeat.
+		
+	- [Branches]: A conditional checker which ask for whether a condition holds and jumps only if it does.
+	
+- [Internal Subcomponents]: 
+	
+	- [Registers]: Are small unit of memory location inside the CPU itself, rather than in the main RAM.
+		
+	- [Arithmetic Logic Unit]: A collection of independent simple machines that each perform a single arithmetic operation.
+		
+	- [Control Unit]: Reads instruction form the program in memory, decodes them, and passes control to the ALU or elsewhere to carry the instructions out. Then updates the position in the program according to either normal sequential execution or a jump.
+	
+- [Internal Operation]: 
+	
+	- [Fetch]: Reading the machines code for the next instruction into the CPU
+		
+	- [Decode]: Figuring out what this code means depending on the combinations. 
+		
+	- [Execute : Load and Store]: Carrying out the decoded instruction.
+		
+	- [Execute: Arithmetic Instructions]
+		
+	- [Execute: Program Flow]: Depends on jumps and branches.
