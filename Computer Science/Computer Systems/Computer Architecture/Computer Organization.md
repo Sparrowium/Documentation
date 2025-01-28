@@ -133,10 +133,32 @@
 - [Adding in the Decimal Number System]: 
 	![[Pasted image 20250117220727.png]]
 - [Subtracting the Decimal Number Systems]:
+	![[Pasted image 20250128124322.png]]
+- [Adding and Subtracting Unsigned Integers in Binary]: Can be tedious if another bytes needs to be borrowed when performing calculation.
+
+## Adding and Subtracting Signed Integer
+
+- Calculation in signed integer tends to be incorrect due to the "sign magnitude code" which result in arithmetically incorrect.
 	
+- [Two Complement]: The complement of a quantity is the amount that must be added to make it "whole". When it comes to computers, it based on the radix (base) and the number of digits that allow you to represent the numbers.
+	`-2^(n-1) =< x <= +(2^(n-1) - 1)`
 	
-
-
-
-
-
+- [Computing Two's Complement]: Starting with the binary representation of the number, invert the bits following the one's complement and add one to the result.
+	
+- [Circular Nature of Integer Codes]: For a given number of bits, each code "wraps around".
+	![[Pasted image 20250128132808.png]]
+	- Steps:
+		
+		- Pick the ring corresponding to the type of integer you're using.
+			
+		- Move the location on that ring corresponding to the first integer.
+			
+		- Move along the ring, moving the number of "spokes" equal to the second integer. Move clockwise to add, and move counterclockwise to subtract.
+	
+- [Binary arithmetic]: Computers perform addition and subtraction in the binary number system. Addition of two numbers may yield a result that is one bit wider than each of the two numbers. Subtraction of one number from another may require borrowing from one bit beyond the width of the two numbers.
+	
+- [Representing signed/unsigned]: Bit patterns can be treated as representing either signed or unsigned integers. Two’s complement notation is commonly used to represent signed integers.
+	
+- [Carry Flag]: The CPU includes a one-bit carry flag that shows whether the result of addition or subtraction exceeds the number of bits allowed for an unsigned integer.
+	
+- [Overflow flag]: The CPU includes a one-bit overflow flag that shows whether the result of addition or subtraction exceeds the number of bits allowed for a signed integer using the two’s complement notation.
