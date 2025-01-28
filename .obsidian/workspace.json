@@ -4,35 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "9e39fb8e9efef0e7",
+        "id": "f9ab29a06ebf72ba",
         "type": "tabs",
         "children": [
           {
-            "id": "a342e2c8da987be9",
+            "id": "39640d468c333e73",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Computer Science/Computer Systems/Computer Architecture/Computer Organization.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Computer Organization"
-            }
-          },
-          {
-            "id": "ed603fb0976cc756",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Computer Architecture"
+              "title": "New tab"
             }
           }
         ]
@@ -176,11 +158,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "94c6bde8c47967b6",
+  "active": "39640d468c333e73",
   "lastOpenFiles": [
-    "assets/Pasted image 20250128132808.png",
     "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
     "Computer Science/Computer Systems/Computer Architecture/Computer Organization.md",
+    "assets/Pasted image 20250128132808.png",
     "assets/Pasted image 20250128124322.png",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Go.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/CSS.md",
@@ -205,7 +187,6 @@
     "assets/imgs/Pasted image 20250114162322.png",
     "assets/imgs/Pasted image 20250112222509.png",
     "assets/imgs/Pasted image 20250114135814.png",
-    "assets/imgs/Pasted image 20250114135835.png",
     "().md",
     "assets/imgs",
     "assets",
