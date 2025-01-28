@@ -122,9 +122,60 @@ High level General Purpose Language
 - [Arrays - Too Rigid to Use Directly]: Because the size of the array to be part of the type of the array. In addition, you cant use a type conversion to directly convert arrays of different sizes to identical types.
 	`var x = [3]int{0, 0, 0}`
 	
-- [Slices]: A data structure that holds a sequence of values. The length of a slice is not part of its types.
+- [Slices]: A data structure that holds a sequence of values, and it is grow-able. The length of a slice is not part of its types.
 	`var x = []int{0, 0, 0}`
 	
-
+	- [Multi-dimension Slices]: Slice of Slices
+		`var x [][]int`
+		
+	- [len]: Checking the slice length.
+		
+	- [append]: Used to grow slices by adding element.
+		
+	- [Capacity]: The number of consecutive memory locations reserved.
+		`cap()`
+		
+	- [make]: A built-in function to specify the type, length, and the capacity
+		`var := make([]int, len, cap)`
+		
+		- New data will be added to the end of the slice, resulting in growing the slice.
+		
+	- [Emptying a Slice]: Sets all of the slice's elements to zero. The slice length remain unchanged.
+		`clear(slice)`
+		
+	- [Declaring Slice]: Depends on use cases, either zero (nil) or specified.
+		
+	- [Slicing Slices]: A slice expression creates a slice from a slice.
+		
+		- When you take a slice from a slice, you're not making a copy of a slice but instead creates two slice-holder that are sharing memory.
+			
+		- Whenever you take a slice from another slice, the subslice’s capacity is set to the capacity of the original slice, minus the starting offset of the subslice within the original slice.
+		
+	- [copy]: Used to create a slice that's independent from the original.
+		
+	- [Converting Arrays to Slices]: Use `[:]` syntax. It comes at a cost of memory-sharing properties.
+		
+	- [Converting Slices to Arrays]: By specifying the length of a slice `xArray := [num]int(xSlice)`. When converting slice into array, the memory is copied to a new memory.
+	
+- [String and Runes and Bytes]: String are represented by a sequence of bytes, or a composed of a sequence of UTF-8. A single rune or byte can be converted to a string. A string can be converted back and forth to a slice of bytes or runes.
+	
+- [Maps]: Used for sequential data, associate one value to another.
+	`var NilMap map[string]int`
+	`totalWins := map[string]int{}`
+	
+	- A map literal’s body is written as the key, followed by a colon (:), then the value. A comma separates each key-value pair in the map, even on the last line. In this example, the value is a slice of strings.
+		
+	- Map are another variation of slice.
+		
+	- [The comma ok Idiom]: Tell the difference between a key that's associate with a zero value and a key that's not in the map.
+		`v, ok := map["key"]`: v is value, and ok is evaluation of v whether it exist or not.
+		
+	- [Deleting from Maps]: `delete(map, "key")`
+		
+	- [Emptying a Map]: `clear(map)`
+		
+	- [Comparing Maps]: `.Equal(firstmap, secondmap)`
+	
+- [Structs]: A group of related data. same 
 
 

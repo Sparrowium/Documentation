@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
+                "file": "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Go.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Computer Architecture"
+              "title": "Go"
             }
           }
         ]
@@ -165,8 +165,8 @@
   "active": "a342e2c8da987be9",
   "lastOpenFiles": [
     "Computer Science/Computer Systems/Computer Architecture/Computer Organization.md",
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Go.md",
     "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
+    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Go.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/CSS.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/HTML.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Languages.md",
