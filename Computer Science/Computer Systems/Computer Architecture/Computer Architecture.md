@@ -243,3 +243,66 @@
 	- [Execute: Arithmetic Instructions]
 		
 	- [Execute: Program Flow]: Depends on jumps and branches.
+
+<h2 style="color:#6290C3"><center> The Electronic Hierarchy </center></h2>
+## Switches
+
+### Directional Systems
+
+- [Switch]: A directional system, takes an input and does something, causing an output.
+	
+- [Water Valve]: An example of a directional system.
+	
+	- *reverse-bias*: When pressure is applied in the opposite direction which result in the gate closes.
+		
+	- *forward-bias*: When pressure is applied in a direction which causes the gate to be opened.
+	
+- [Heat Diode]: 
+	
+	- [Diode]: A diode is any electrical system that enables current to flow in one, forward-bias direction and not in the other, reverse-bias direction.
+	
+- [p-n Junction Diode]: 
+	
+	- Semiconductor Crash Course: Materials that in their normal states are insulators, but can be coaxed into becoming conductor through a very small change. *Silicon (Si)*, element 1 of the period table is a semiconductor.
+		
+	- Quantum mechanics shows that atoms are in a low-energy state when their outmost shell is full. Informally low-energy states are called happy and high-energy states are called unhappy. Happy states are highly probable because moving into them is a directional system.
+		
+	- [doping]: A process of making a silicon crystal conduct by injecting/adding atoms. *p-doping* causes electron shortage (make it positive charge). *n-doping* causes surplus of electrons (making it negative). n-doping allows the material (silicon) to be conductive since the structure is loose.
+		
+	- [How p-n Junction Works]: A p-n junction consists of p-doped and n-doped region next to one another.
+		![[Pasted image 20250130151433.png]]
+	- When the junction is created, there’s no effect on the parts of the crystals that are far from the boundary where they touch. But in the region close to the boundary—called the depletion zone—something interesting happens almost instantly.In this zone, the excess electrons on the n-doped side experience a chemical force that attracts them across the boundary to complete the outer shells on the p-doped side. 
+		![[Pasted image 20250130151557.png]]
+	- The p-n junction functions like the water valve: in its high-energy state it’s like an open valve, enabling current to flow; in its low-energy state it’s like a closed valve, preventing current from flowing.
+
+### Switching
+
+- A switch turn a flow on and off automatically using another flow.
+	
+- [Water Current Switch]: A system consist of two water valves placed in sequence, with both of their blocks replaced by a spring-loaded moving platform.
+	![[Pasted image 20250130152718.png]]
+	
+- [Electrical Tube Switch]: electrical tube switches extend electrical heat diodes by using one electrical current to control the flow of another electrical current. This works by inserting a metal grid in the middle of the vacuum between the cathode and anode in the heat diode.
+	![[Pasted image 20250130153835.png]]
+	
+- [p-n-p Transistor]: two mirror-image p-n diodes stuck together to form a p-n-p sequence, with a base wire attached to the central n region.
+	![[Pasted image 20250130154154.png]]
+	
+- [Water Pressure Effect Switch]: A water switch but implements the rubber membrane to open the valve. 
+	![[Pasted image 20250130154823.png]]
+	
+- [Field Effect Transistors]: Field-effect transistors (FETs) are the exact analog of water pressure switches, as p-n-p transistors are to water current switches. The FET improves on the p-n-p transistor by covering the end of the base wire with an electrical insulator (such as silicon oxide, SiO2 ) where it joins the n region. The insulator allows an electrical fields to transmit through it, this means an electron on one side can push away an electron on the other side, without the electron itself crossing over.
+	![[Pasted image 20250130155250.png]]
+	
+- [Clocks]: An automatic switch that signal on and off over a period of time.
+	![[Pasted image 20250130155751.png]]
+
+### Fabricating Transistor
+
+- [Fabrication]: The process of creating transistors and wires and connecting them together on wafers. A *wafer* presents a two-dimensional surface on which transistors are laid out. Tiny metal wires are added to connect them together.
+
+### Moore's Law
+
+- Transistors will double per two years. But recently there have been a barrier when the 64bit era hits. As transistors increases, heat increases and power consumption increases.The formula below show the relationship between clock frequency, capacitance, voltage, and power:
+	`P = C(V^2)F`
+
