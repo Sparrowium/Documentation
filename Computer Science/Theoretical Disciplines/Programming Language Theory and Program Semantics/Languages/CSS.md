@@ -210,10 +210,33 @@ A Cascading Style Sheet Language.
 	`border width`: Width/thickness of the border.
 	`border: value style color`: Border shorthand Property.
 	`border-radius`: Rounded border.
+	
+- [Variables Property]: Placeholders for values in your styles.
+	`--variable`: Define variable.
+	`var(variable)`: Using variable.
+	
+	- [Local and Global]: Local variable are located within an element. Global variables are located in `:root`.
+		
+	- [Fallback Values]: Are values that substitute in when the variable is not defined.
 
+## CSS Advanced
 
-
-
-
-
-
+- [Gradients]: Are a helpful feature for creating smooth transitions between two or more colors on webpage elements without relying on images.
+	
+	- [Linear Gradient]: The `linear-gradient()` function generates a linear gradient. The function takes two or more color stops as arguments and the colors transition from one stop to the next along a straight line.
+		
+	- The color stops can be defined by specifying a color and a position. The position can be specified as a percentage or as a keyword, like `to top`, `to bottom`, `to left`, or `to right`.
+		
+	- [Radial Gradient]: Transitions from a specific point and radiates outward.The `radial-gradient()` function generates a radial gradient. This function takes two or more color stops as arguments, and the colors transition from one stop to the next in a circular pattern.
+		
+	- The color stops can be defined by specifying a color and a position. The position can be specified as a percentage or as a keyword, like `center`, `top`, `bottom`, `left`, or `right`.
+		
+	- [Comic Gradient]: The `conic-gradient()` function creates gradients that rotate around a central point. This function takes two or more color stops as arguments, and the colors transition from one stop to the next in a circular pattern around the center point.
+		
+	- The color stops can be defined by specifying a color and a position. The position can be specified as a percentage or keyword like 0deg, 90deg, 180deg, or 270deg.
+	
+- [Glowing Text Effect]: 
+	
+	- The most straightforward way to create glowing text is using the `text-shadow` property. This CSS property allows you to add multiple layers of text shadows.
+		
+	- You can use CSS `animation` and `keyframes` properties for a more dynamic look.  The `animation` property allows you to change the appearance of an element over time, and the `keyframes` will enable you to specify the specific values that you want the element to have at different points in time.
