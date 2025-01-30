@@ -176,6 +176,116 @@ High level General Purpose Language
 		
 	- [Comparing Maps]: `.Equal(firstmap, secondmap)`
 	
-- [Structs]: A group of related data. same 
+- [Structs]: A group of related data.
+	```
+	type peson struct {
+		name string
+		age int
+		pet string
+	}
+	```
+	- A struct is defined with keyword *type*, the name of the struct type, the keyword *struct* and a pair of braces. Within the braces you list the fields in the struct.
+		
+	- A *struct literal* can be assigned to a variable.
+		
+	- [Anonymous Structs]: struct type without name.
+		
+	- [Comparing and Converting Struct]: Depends on the struct's fields.
 
+## Blocks, Shadows, and Control Structures
+
+- [Blocks]: A place where a declaration occurs. 
+	
+	- [Package Blocks]: Are declaration outside of any functions.
+		
+	- [File Blocks]: Are packages that are valid for the file that contains the import statement.
+		
+	- Within a function, every set of brace {} defines another block.
+	
+- [Shadowing Variables]: A variable that has the same name as a variable in a containing block.
+	```
+	func main() {
+		x := 10
+		if x>5 {
+			fmt.Println(x)
+			x:= 5
+			fmt.Println(x)
+		}
+		fmt.Println(x)
+	}
+	```
+	
+- [if]: A state of wonder where things could be true or false.
+	
+- [for, Four Ways]: A statement to loop. But it only looping keywords in the language. Go completed this by using the for keyword in four formats.
+	
+	- [C-style for]: 
+		```
+		for i := 0; i < 10; i++{
+			fmt.Println(i)
+		}
+		```
+		
+	- [Condition-Only for Statement]: 
+		```
+		i := 0
+		for ; i<10; i++ {
+			fmt.Println(i)
+		}
+		```
+		
+	- [The infinite for Statement]: 
+		```
+		for {
+			fmt.Println("Hello")
+		}
+		```
+		
+	- [break and continue]: 
+		```
+		for i := 1; i <= 100; i++ {
+			if i%3 == 0 && i%5 == 0 {
+				fmt.Println("FizzBuzz")
+				continue
+			}
+			if i%3 == 0 {
+			fmt.Println("Fizz")
+			continue
+			}
+			if i%5 == 0 {
+			fmt.Println("Buzz")
+			continue
+			}
+			fmt.Println(i)
+		}
+		```
+		
+	- [The for-range statement]: For iterating over elements in some of Go's built in types.
+		```
+		evenVals := []int{2, 4, 6, 8, 10}
+		for i, v := range evenVals {
+			fmt.Println(i, v)
+		}
+		```
+		
+	- [Labeling Your for Statement]: Labels are always indented to the same level as the braces for the block. Nested for loops with labels are rare.
+		
+	- [Choosing the Right for Statement]: for-range is the best way to walk through a string. The complete for loop are when you aren't iterating from the first element to the last element in a compound type. The condition-only for loop is just while loop. The infinite for loop is useful in some situation.
+	
+- [switch]: A `switch` statement is a shorter way to write a sequence of `if - else` statements.
+	```
+	switch variable := condition; value {
+	case 1:
+		statememnt
+	case 2: 
+		statement
+	default:
+		statement
+	}
+	```
+
+	- [Blank Switches]: Switch statements that doesn't specify the value you're comparing against
+		`switch variable := condition; {}`
+	
+- [goto]: A jump statement (skip statement).
 
