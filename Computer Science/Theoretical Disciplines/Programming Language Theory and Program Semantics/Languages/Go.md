@@ -249,12 +249,12 @@ High level General Purpose Language
 				continue
 			}
 			if i%3 == 0 {
-			fmt.Println("Fizz")
-			continue
+				fmt.Println("Fizz")
+				continue
 			}
 			if i%5 == 0 {
-			fmt.Println("Buzz")
-			continue
+				fmt.Println("Buzz")
+				continue
 			}
 			fmt.Println(i)
 		}
