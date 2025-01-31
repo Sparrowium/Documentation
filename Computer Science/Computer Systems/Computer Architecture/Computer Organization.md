@@ -162,3 +162,63 @@
 - [Carry Flag]: The CPU includes a one-bit carry flag that shows whether the result of addition or subtraction exceeds the number of bits allowed for an unsigned integer.
 	
 - [Overflow flag]: The CPU includes a one-bit overflow flag that shows whether the result of addition or subtraction exceeds the number of bits allowed for a signed integer using the two’s complement notation.
+
+<h2 style="color:#6290C3"><center> Boolean Algebra </center></h2>
+## Basic Boolean Operators
+
+- A Boolean operator acts on a value, or pair of values, called the operands
+	
+- [Truth Table]: A table that shows the results for all possible combinations of the operands.
+	![[Pasted image 20250130165103.png]]
+- [Gates]: Electronic devices that implement the Boolean operators.
+	
+	- [AND]: A *binary operator* that result in 1 if and only if both operands are one; otherwise, the result is 0. Some times also called a *Conjunction*.
+		![[Pasted image 20250130165512.png]]
+		
+	- [OR]: A *binary operator* that results in 1 if at least one of the operands is 1; otherwise the result is 0. Some times also called a *Disjunction*.
+		![[Pasted image 20250130165744.png]]
+		
+	- [NOT]: A *unary operator*, which acts on only one operand. The result of NOT is 1 if the operand is 0, vice versa. Other name for NOT is *complement* and *invert*.
+		![[Pasted image 20250130170014.png]]	
+
+## Boolean Algebra Rules
+
+### Boolean Algebra Rules That Are the Same as Elementary Algebra
+
+- [AND and OR are associative]: Means that there are two or more occurrences of the operator in an expression, the order of applying the operator does not change the value of the expression. Mathematically: 		
+	![[Pasted image 20250130170511.png]]![[Pasted image 20250130170607.png]]![[Pasted image 20250130170630.png]]
+	
+- [AND and OR have identity values]: Means that their identity value is a value specific to an operation such that using that operation on a quantity with the identity value yields the value of the original quantity. 
+	![[Pasted image 20250130171016.png]]
+	
+- [AND and OR are commutative]: The order of its operands are reversible.
+	![[Pasted image 20250130171130.png]]
+	
+- [AND is distributive over OR]: The AND operator applied to quantities OR-ed together can be *distributed* to apply to each of the OR-ed quantities.
+	![[Pasted image 20250130171519.png]]
+	
+- [AND has an annulment (annihilation) value]: Operating on a value with the operator's annulment value yields the annulment value.
+	![[Pasted image 20250130184745.png]]
+	
+- [NOT shows involution]: An operator show *involution* if applying it to a quantity twice yields the original quantity.
+
+### Boolean Algebra Rules That Differ from Elementary Algebra
+
+- [OR is distributive over AND]: The OR operator applied to quantities AND-ed together can be distributed to apply to each of the AND-ed quantities.
+	![[Pasted image 20250130185327.png]]![[Pasted image 20250130185622.png]]
+	
+- [OR has an annulment value]: An *annulment value* is a value such that operating on a quantity with the annulment value yields the annulment value. For OR it is 1.
+	![[Pasted image 20250130185805.png]]
+	
+- [AND and OR both have complement value]: The *complement value* is the diminished radix complement of the variable. In boolean algebra the complement of 1 is 0 and vice versa.
+	![[Pasted image 20250130185936.png]]
+	
+- [AND and OR are idempotent]: If an operator is *idempotent*, applying it to two of the same operands results in that operands.
+	![[Pasted image 20250130190223.png]]
+	
+- [De Morgan's law applies]: Boolean algebra states that if you replace every 0 with 1, every 1 with a 0, every AND with an OR, and every OR with an AND, the equation will still be true.
+	![[Pasted image 20250130190427.png]]
+
+## Boolean Functions
+
+- A Boolean Functions looks somewhat like an elementary algebra function, but the variables can appear in either uncomplemented or complemented form. The variables and constants are connected by Boolean operators. A Boolean function evaluates to either 1 or 0.
