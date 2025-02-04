@@ -306,3 +306,62 @@
 - Transistors will double per two years. But recently there have been a barrier when the 64bit era hits. As transistors increases, heat increases and power consumption increases.The formula below show the relationship between clock frequency, capacitance, voltage, and power:
 	`P = C(V^2)F`
 
+## Digital Logic
+
+### Claude Shannon and Logic Gates
+
+- [Logic Gates]: Devices that take a representation of one or more binary variables as inputs, and produce one or more binary outputs using the same representation.
+	
+- Simple switches are not logic gates because they lose energy, so the output representation has lower energy and is different from the input.
+	 
+- Any computation could be performed by combining instances of small sets of standard logic gates, such as AND, OR, and NOT.
+
+### Logic Gates
+
+- [Modern Logic Gates Definition]: A logic gate is any device that has some binary inputs and some binary outputs and doesn't contain any memory, where the inputs and outputs use exactly the same physical representations for two symbols, 0 and 1. A logic gate's function can be completely and deterministically described by a truth table, which lists the resulting outputs for each configuration of the inputs.
+	
+- [Standard Logic Gate]: AND, OR, NOT, XOR, NOR, NAND.
+	![[Pasted image 20250204131018.png]]![[Pasted image 20250204131032.png]]![[Pasted image 20250204131041.png]]![[Pasted image 20250204131056.png]]![[Pasted image 20250204131105.png]]![[Pasted image 20250204131112.png]]
+	
+- [Identifying Universal Gates]: A group of different types of logic gates that could be reconfigured to build any machine at the hardware level. Universal gates reduces the number of types of physical gates to manufacture down to just one.
+	
+- [Making Logic Gates from Transistors]: The same concept derived from electrical circuit, which is where a electrons flow from the power source to the ground, then are pumped back from the ground to the power source, creating a closed loop. Creating a logic gates from transistors requires external power source to keep the "data" in the same form.
+	
+- [Putting Logic Gates on Chips]: To connect the logic gates you attach physical wires to appropriate pins.
+
+### Boolean Logic
+
+- Logic allows us to formalize statements and inferences about truth and false-hood.
+	
+- [Boolean Logic]: Uses variable names to represent conceptual statements whose values are either true or false.
+	
+- [Logic As Arithmetic]: 
+	
+	- [Logic]: An "arts subject" performed using natural language text and by studying rules to analyze arguments.
+		
+	- [Arithmetic]: "STEM subject" made of numbers and equations.
+	![[Pasted image 20250204133312.png]]
+	
+- [Model Checking vs. Proof]:
+	
+	- [Model Checking]: Given a potential equality, we simply compute truth tables for both the left side and right side of the potential equation. If the truth tables match completely, then expressions are equal. 
+		
+	- Model checking make use of the values of the terms. If an equality has been shown by model checking, we say that it has been entailed, and it is true.
+		
+	- [Proof]: A list of transformations from the first to the second expression, where each transformation is justified by stating which law has been applied. If an equality has been shown by proof, we say it is proved.
+
+### Simplifying Logic Circuits Using Boolean Logic
+
+- Simplification can include reducing both the number of gates and the number of types of gates.
+	
+- This is done by translating a logic gate network into a Boolean expression, simplifying the expression using the laws of arithmetic, then translating the result back into a smaller logic gate network. 
+
+### Laying Out Digital Logic
+
+- [7400 Chips]: Connect a bunch of 7400 chips
+	
+- [Photolithogaphy]: Here, masks are prepared containing the transistor layouts needed to form the logic gates. This process gives the smallest, fastest hardware, but it’s economical only at large scales to justify the setup costs.
+	
+- [Programmable Logic Arrays]: A chip with many inputs and many outputs made with photo-lithography, such that every input and every input negation are connected to a series of AND and OR gates by fuses.
+	
+- [Field Programmable Gate Arrays]: Similar to PLA, but you can rewrite it whenever you like with the new digital logic rather than only being able to burn it once. FPGAs operates by electronically switching on and off connections between blocks of standard logic.
