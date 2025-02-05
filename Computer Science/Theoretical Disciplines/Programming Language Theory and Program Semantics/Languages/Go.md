@@ -289,3 +289,96 @@ High level General Purpose Language
 	
 - [goto]: A jump statement (skip statement).
 
+## Functions
+
+- [Declaring and Calling Functions]: A function declaration contains four parts: the keyword func, the name of the function, the input parameters, and the return type. 
+	
+	- The input parameters are listed in parentheses, separated by commas, with the parameters name first and then type second.
+	
+	- The return type is written between the input parameters closing and he opening braces for function body.
+	
+	- Go is a *Typed* language, so the parameters must be specified.
+		
+	- Syntax: 
+		```
+		func input_name(input1 type, input2 type) type {
+			if input1 == statement{
+				return result
+			}
+			return statement/result
+		}
+		```
+	
+	- [Simulating Named and Optional Parameters]: 
+	
+	- Go does not have *named* and *optional input parameters*.
+		
+	- [Struct]: Used as a fields to simulate named parameters.
+		```
+		type MyFuncOpts struct{
+			var1 string
+			var2 int
+		}
+		
+		func MyFunc(opts MyFuncOpts) error {// do something}
+		
+		func main() {
+			MyFunc(MyFuncOpts{
+				var1: "value"
+				var2: "value"
+			})
+			
+			MyFunc(MyFuncOpts{
+				var1: "value"
+				var2: "value"})
+			}
+		}
+		```
+		
+	- [Variadic Input Parameters and Slices]: A parameter that must by the last (for only) parameter in the input parameter list. you indicate it by typing ... before the type ends. It's makes the variable created within a function a slice of the specified type.
+		``` 
+		func addTo(base int, vals ...int) []int {
+			out := make([]int, 0, len(vals))
+			for _, v := range vals {			
+				out = append(out, base+v)
+			}
+		return out
+		}
+		```
+		
+	- [Multiple Return Values]: Returning multiple values.
+		
+	- [Multiple Return Values Are Multiple Values]: Same concept.
+		
+	- [Ignored Return Values]: Using *_* in front of a variable.
+		
+	- [Named Return Values]: Specifying name for return values.
+		
+	- Never use *Blank* Returns.
+	
+- [Functions Are Values]: The type of a function is a built out of the keyword func and the types of the parameters and return values. This combination is called the *signature* of the function. Any function that has the exact same number and types of parameters and return values meets the type signature.
+	
+	- The default value for a function variable is *nil*.
+		
+	- [Function Type Declaration]: Same concept as struct you can use the type keyword to define a function type.
+	`type opFuncType func(int,int) int`
+		
+	- [Anonymous Functions]: Are functions that are created inside another function, sometime called inner function/ anonymous. 
+		
+	- You declare a anonymous function with the keyword func followed by the input parameters, the return values, and the opening braces.
+		
+	- They are useful for *defer statements* and *launching goroutines*.
+	
+- [Closures]: Functions declared inside function. They are able to access and modify variables declared in the out function.
+	
+	- When playing with assignment operator, make sure to use the right one since `:=` is different from `=`.
+		
+	- Closures allow you to limit a function's scope. If a function is going to be called from only one other function, but it’s called multiple times, you can use an inner function to “hide” the called function. This helps to reduce the number of declarations at package level.
+		
+	- [Passing Function as Parameters]: Since functions are values, it can be passed in as a parameters into other functions.
+		
+	- [Returning Functions from Functions]: Returning closure from a function.
+	
+- [defer]: The keyword to cleanup code and resources that is temporary.
+	
+- [Go is Call by Value]: This is because go always makes a copy of the value of the variable whenever you supply a variable for a parameter to a function.
