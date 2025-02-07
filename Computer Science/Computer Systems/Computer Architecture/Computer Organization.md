@@ -222,3 +222,69 @@
 ## Boolean Functions
 
 - A Boolean Functions looks somewhat like an elementary algebra function, but the variables can appear in either uncomplemented or complemented form. The variables and constants are connected by Boolean operators. A Boolean function evaluates to either 1 or 0.
+	
+- [Canonical Sum or Sum of Minterms]: 
+	
+	- [Canonical Form]: A canonical form of a Boolean function explicitly shows whether each variable in the problem is complemented or nor in each term that defines the function.
+		
+	- [Product terms]: Terms where all the literals are operated on only by AND.
+		
+	- An equation that has n variable has 2^n permutations of the values for the variable.
+		
+	- [minterm]: A product term that specifies exactly one of the permutations
+		
+	- A Boolean function that is defined by summing (OR-ing) all the minterms that evaluate to 1 is said to be a canonical sum, a sum of minterms, or in full disjunctive normal form. A function defined by a sum of minterms evaluates to 1 when at least one of the minterms evaluate to 1.
+	
+- [Canonical Product or Product of Maxterms]: 
+	
+	- [sum terms]: Terms where all the literals are operated on only by OR.
+		
+	- [conjunctive normal form]: A product of sums.
+		
+	- [maxterm]: A sum term specifying exactly one of those permutations.
+		
+	- A Boolean function that is defined by multiplying (AND-ing) all the maxterms that evaluate to 0 is said to be a canonical product, a product of maxterms, or in full conjunctive normal form.
+	
+- [Comparison of Canonical Boolean Forms]:
+	![[Pasted image 20250206154234.png]]
+
+## Boolean Expression Minimization
+
+### Minimal Expressions
+
+- When simplifying a Boolean function, start with one of the canonical forms to ensure you have taken all of the possible cases into account. Create a truth table that list all possible combinations of the variables in the problem. List the minterms and maxterms.
+	
+- [Minimal Expression]: an expression that does the same thing as the canonical one, but with a minimum number of literals and Boolean operators.
+	
+- Too minimize an expression, we apply the rules of Boolean algebra to reduce the number of terms and the number of literals in each term.
+	
+- [Minimal Sum of Products]: A sum of products expression where all other mathematically equivalent sum of products expression have at least as many product terms, and those with the same number of product terms have at least as many literals.
+	
+- [Minimal Product of Sums]: A product of sums expression where all other mathematically equivalent product of sums expressions have at least as many sum terms, and those with the same number of sum terms have at least as many literals.
+
+### Minimization Using Algebraic Manipulations
+
+- By using idempotency rule, distribution, the complement properties, substitutions. 
+
+### Minimization using Karnaugh Maps
+
+- [Karnaugh Maps]: A rectangular grid with a cell for each minterm. There are 2 ^ n cells for n variables.
+	
+- [Simplifying Sums of Products using Karnaugh Maps]: You group two adjacent cells in a sum of products karnaugh map that have 1s in them. Then you eliminate the variable that differs between them and coalesce the two product terms. Repeating this process allows you to simplify the equation. Each grouping eliminates a product term in the final sum of products. This can be extended to no equations with more than two variables, but the number of cells that are grouped together must be a multiple of 2, and you can group only adjacent cells. The adjacency wraps around from side to side and from top to bottom.
+	
+- [Karnaugh Map Cell Order]: Follows the Gray Code.
+	![[Pasted image 20250206184048.png]]![[Pasted image 20250206184109.png]]
+- [Karnaugh Map for Three Variable]: Adding another variable means that we need to double the number of cells to hold the minterms. To keep the map two-dimensional, we add the new variable to an existing variable on one side of the map. We need a total of eight cells (23), so we’ll draw it four cells wide and two high. We’ll add z to the y-axis and draw our Karnaugh map with y and z on the horizontal axis, and x on the vertical.
+	
+- [Simplifying Products of Sums using Karnaugh Maps]: Using maxterms, complement, and comparison.
+	
+- [Larger Groupings on a Karnaugh Map]
+	
+- [Adding More Variables to a Karnaugh Map]: Each time you add another variable to Karnaugh Map, you need to double the number of cells. The only requirement for the Karnaugh map to work is that you arrange the minterms or maxterms, according to the adjacency rule.
+	
+- [Don't Care Cells]: Are cells that no matter the combination the value never occur, or known as irrelevant.
+
+## Combining Basic Boolean Operators
+
+- [XOR]: The XOR is a binary operator. The result is 1 if one, and only one, of the two operands is 1; otherwise, the result is 0.
+
