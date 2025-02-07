@@ -288,3 +288,89 @@
 
 - [XOR]: The XOR is a binary operator. The result is 1 if one, and only one, of the two operands is 1; otherwise, the result is 0.
 
+<h2 style="color:#6290C3"><center> Logic Gates </center></h2>
+## Crash Course
+
+- [Current]: The movement of electrical charge, measured in *Coulombs*. A flow of one coulomb is *ampere*, often abbreviated as *amp*. Current flow through an electrical circuit only if there is a completely connected path from one side of the power source to the other side.
+	
+- [Voltage]: The difference in electrical energy per unit charge, *potential difference*, between two points in an electrical circuit. One *volt* is defined as the electrical difference between two points on a *conductor* when one ampere of current flowing through the conductor dissipates one watt of power.
+	
+- A computer consist of: 
+	
+	- Power source that provide electrical power.
+		
+	- Passive components that affect current flow and voltage levels, but whose characteristics cannot be altered by another electronic component.
+		
+	- Active components that switch between various combinations of the power source, passive components, and other active components under the control of one or more other electronic components.
+		
+	- Conductors that connect the other components together.
+	
+- [Power Supplies and Battery]: Electrical power comes in the form of alternating current (AC), have a sinusoidal plot, most computer circuits use direct current (DC) power. A power supply is used to convert AC to DC. A battery provides DC power.
+	
+- [Passive Components]: 
+	
+	- [Resistance]: Impedes current flow, thus dissipating energy. The electrical energy is transformed into heat.
+		
+	- [Capacitance]: Stores energy in an electrical field. Voltage across a capacitance cannot change instantaneously.
+		
+	- [Inductance]: Stores energy in a magnetic field. Current through an inductance cannot change instantaneously.
+		 
+	- [Switches]: Act as a bridge, has two form, open or closed.
+		
+	- [Resistors]: Used to limit the amount of current in a specific location in a circuit. By limiting the current flow into a capacitor or inductor, a resistor affects the time it takes for these other devices to build up their energy storage.
+		
+	- [Capacitors]: Stores energy in a form of an electric field, which is essentially the electric charge at rest.
+		
+	- [Inductors]: Stores energy in the form of a magnetic field, which is created by electric charge in motion.
+		
+	- [Power Consumption]: Energy is the ability to cause change, and power is a measure of how fast energy can be used to make the change. The basic unit of energy is a joule. The basic unit of power is a watt, which is defined as expending one joule per second. Resistance is the primary consumer of power. 
+
+## Transistors
+
+- [Transistors]: A device whose resistance can be controlled electronically. 
+	
+- [MOSFET Switch]: The most commonly used switching transistor in today’s computer logic circuits is the metal-oxide-semiconductor field-effect transistor (MOSFET).
+	
+	- The basic material in a MOSFET is typically silicon, which is a semiconductor, meaning it conducts electricity, but not very well. Its conductivity is improved by adding an impurity, a process called doping. Depending on the type of impurity, the electrical conductivity can be either the flow of electrons or the flow of lack of electrons (called holes). Since electrons have a negative electrical charge, the type that conducts electrons is called N-type, and the type that conducts holes is called P-type. The main conduction path through a MOSFET is the channel, which is connected between the source and the drain terminals on the MOSFET. The gate is made from the opposite type of semi-conductor. The gate controls the conductivity through the channel.
+		
+	- Each MOSFET has three connection points, or terminals. The gate is used as the input terminal. Voltage applied to the gate, relative to the volt- age applied to the source, controls current flow through the MOSFET. The drain is used as the output. The source of an N-channel MOSFET is connected to the lower voltage of the power supply, and the source of a P-channel is connected to the higher voltage.
+		![[Pasted image 20250206205928.png]]
+	
+- [N-Channel MOSFET]: When the voltage applied to the gate is positive with respect to the source, the resistance between the drain and the source of the N-channel MOSFET decreases. When this voltage reaches a threshold value, typically in the range of 1 volt, the resistance becomes very low, thus providing a good conduction path for current between the drain and the source.If the voltage applied to the gate is switched to be nearly the same as the voltage applied to the source, 0 volts, the MOSFET turns off.
+	
+-  [P-Channel MOSFET]: When the voltage applied to the gate is switched to be nearly the same as the voltage applied to the source, the MOSFET turns off. In this case, the resistor, R, acts as a pull-down device, to pull the voltage on the drain down to 0 volts. When the voltage applied to the gate is negative with respect to the source, the resistance between the drain and source of the P-channel MOSFET decreases. When this voltage reaches a threshold value, typically in the range of –1 volt, the resistance becomes very low, thus providing a good conduction path for current between the drain and the source.
+	
+- [CMOS Switch]: The P-channel will replace the pull-up resistor in the N-channel circuit, and the N-channel will replace the pull-down resistor in the P-channel circuit.
+	![[Pasted image 20250206205951.png]]
+	- The two main advantages of using CMOS circuits are:
+		
+		- They consume very little power. Because of the switching speed difference between N-channel and P-channel MOSFETs, only a small amount of current flows during the switching period. Less current means less heat, which is often the limiting factor in chip design.
+			
+		-  The circuit responds much faster. A MOSFET can supply the current at its output faster than a resistor, charging the gate of the following MOSFET. This allows us to build faster computers.
+
+## NAND and NOR Gates
+
+- [NAND]: A binary operator that gives a result of 0 if and only if both operands are 1 and gives 1 otherwise.
+	![[Pasted image 20250206210159.png]]
+- [NOR]: A binary operator that gives a result of 0 if at least one of the two operands is 1 and gives 1 otherwise.
+	![[Pasted image 20250206210308.png]]
+
+## NAND as a Universal Gate
+
+- One of the interesting properties about NAND gates is that they can be used to build AND, OR, and NOT gates. This means the NAND gate can be used to implement any Boolean function. In this sense, you can think of the NAND gate as a universal gate.
+	![[Pasted image 20250206210404.png]]![[Pasted image 20250206210421.png]]![[Pasted image 20250206210428.png]]
+- The conversion from an AND/OR/NOT gate design to one that uses
+	only NAND gates is straightforward:
+	
+	- Express the function as a minimal sum of products.
+		
+	- Convert the products (AND terms) and the final sum (OR) to NANDs.
+		
+	- Add a NAND gate for any product with only a single literal.
+
+
+
+
+
+
+
