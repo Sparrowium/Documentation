@@ -1,4 +1,4 @@
-
+Related Article [[Computer Organization]]
 <h2 style="color:#6290C3"><center> Introduction </center></h2>
 ## Inside Common Devices
 
