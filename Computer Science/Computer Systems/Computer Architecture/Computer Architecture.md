@@ -365,3 +365,92 @@ Related Article [[Computer Organization]]
 - [Programmable Logic Arrays]: A chip with many inputs and many outputs made with photo-lithography, such that every input and every input negation are connected to a series of AND and OR gates by fuses.
 	
 - [Field Programmable Gate Arrays]: Similar to PLA, but you can rewrite it whenever you like with the new digital logic rather than only being able to burn it once. FPGAs operates by electronically switching on and off connections between blocks of standard logic.
+
+## Simple Machines
+
+### Combinatorial Logic
+
+- Digital logic networks that can be describes by Boolean Logic, without considering the role of time.
+	
+- [Bitwise Logical Operations]: 
+	
+	- [Array Operator]: A simple machine that simultaneously performs the same operations on each bit of an input array to give an output array.
+		![[Pasted image 20250211204508.png]]
+	
+- [Multi-input Logical Operations]: Are versions of logic gates from hierarchies of the gates two-input versions.
+	![[Pasted image 20250211204744.png]]
+	
+- [Shifters]: Performs a shifting of the to either the left or the right based on the base/natural power of a number after arithmetic operation. For base 2 depends on the power, shift according to the power to the left or right.
+	![[Pasted image 20250211205102.png]]
+	
+- [Decoders and Encoders]: 
+	
+	- [Decoders]: are machines that can convert from binary representation to an alternative 1-of-N representation, which has N = 2M bits, all 0 except for a 1 in the xth bit.
+		
+	- [Encoders]: performs the inverse operation. 
+	![[Pasted image 20250211205415.png]]
+	
+- [Multiplexers and Demultiplexers]: 
+	
+	- [Multiplexers]: Enables the ability to select which one of the multiple possible sources a user wish to connect to a single output.
+		![[Pasted image 20250211205710.png]]
+	- [Demultiplexers]: Performs the opposite function to a multiplexers. It takes a single input wire and a code *n*, and sends a copy of the input signal to the nth of multiple output wires.
+		
+	- [bus]: A shared wire.
+	
+- [Adders]: Performing additions.
+	
+	- [Half Adders]: A machine consist of one XOR and one AND to compute the sums for columns when there's no carry coming in.
+		![[Pasted image 20250211210106.png]]
+	- [Full Adders]: Two half adders combine with an OR gate.
+		![[Pasted image 20250211210203.png]]![[Pasted image 20250211210233.png]]![[Pasted image 20250211210340.png]]
+	- [Ripple-Carry Adder]: A full ladder for each column and connect the carry out from each column to the carry in of the next.
+		![[Pasted image 20250211210517.png]]
+	
+- [Negators and Subtractors]: 
+	
+	- [Negator]: A machine that flip the bits and then adding 1 to the result.
+		
+	- [Subtractor]: A machine that subtracts one number from another.
+
+### From Combinatorial to Sequential Logic
+
+- A type of logic circuit that depends on both the current input and past sequence of input.
+	![[Pasted image 20250211211725.png]]![[Pasted image 20250211211737.png]]
+
+### Clocked Logic
+
+- [Clock Signal]: Abbreviate as clk, that steadily oscillates between 0 and 1.
+	
+- [Tick]: A status updater.
+	
+- [Clocked Flip-Flops]:
+	
+	- [SR Flip-Flop]: A simple clocked flip-flop that implements the usage of S (set) and R (reset) and a simple clock signal to flip it's state.
+		![[Pasted image 20250211213206.png]]
+	- [D-Type Flip-Flop]: A data flip flop that has only one data input and clock input. It captures the data on the D input at a point of a clock cycle. For the rest it output the value on its output Q.
+		![[Pasted image 20250211213639.png]]
+	
+- [Counters]: A digital logic version of Pascal's Calculator that uses a D-type flip-flop to store the data in each column, and wire its output to both its own data input (to refresh the storage) and also to the clock input of the next column's flip-flop as a carry.
+	![[Pasted image 20250211214117.png]]
+- [Sequencers]: A device that triggers a bunch of other devices at particular times. Made of counter and decoder.
+	![[Pasted image 20250211214247.png]]
+- [Random-Access Memory RAM]: Is memory that consist of addresses, each containing a group of bits of data known as a word, and in which any address can be read and written at equal time cost.
+	
+	- Basic RAM has three groups of wires as its interface:
+		
+		- N address wires carry a binary natural number representation specifying which of 2^N addresses is of interest.
+			 
+		- A group of M data wires carry copies of words to or from the specified address of the RAM.
+			
+		- A single control wire, called write, carries a single bit that controls whether the specified address is to be read or written.
+	![[Pasted image 20250211215112.png]]
+- [Hardware Description Language]:
+	
+	- [Mask Files]: Lowest level of chip description, containing the physical locations, sizes, and shapes of components such as transistors and wires.
+		
+	- [Netlist Files]: Contains descriptions of connectivity between physical components and wires, but as abstract connectivity rather than a physical layout.
+		
+	- [Verilog and VHDL Files]: Are text-based hardware description languages for designing electronic systems. In their most basic forms, they have a similar function to LogiSim, allowing you to instantiate and connect various electronic components. But instead of using a GUI, they use text files with a syntax similar to software programming languages. Unlike a language like C, however, which is imperative, Verilog and VHDL fundamentally describe static objects and relationships between them. In this sense, their structure is more like XML or a database, containing lists of facts rather than instructions to do things.
+		
+	- [Chisel]: A high-level hardware language that was developed for general architecture design usage. Chisel describes classes of hardware with object orientation.
