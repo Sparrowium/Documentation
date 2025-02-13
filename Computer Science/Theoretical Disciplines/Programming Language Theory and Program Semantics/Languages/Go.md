@@ -382,3 +382,74 @@ High level General Purpose Language
 - [defer]: The keyword to cleanup code and resources that is temporary.
 	
 - [Go is Call by Value]: This is because go always makes a copy of the value of the variable whenever you supply a variable for a parameter to a function.
+
+## Pointers
+
+- [Pointer]: 
+	
+	- A variable that holds the location in memory where the value is stored.
+		
+	- [Address]: A pointer that holds a number that indicates the location in memory where the data being pointed to is stored.
+		
+	- Zero value of a pointer is *nil*.
+		
+	- The & is the address operator. It precedes a value type and returns the address where the value is stored.
+		`pointerToX := &x`
+		
+	- The * is the indirection operator. It precedes a variable of pointer type and returns the pointed-to value. This is called dereferencing.
+		```
+		x := 10
+		pointerToX := &x
+		fmt.Println(pointerToX) // prints a memory address
+		fmt.Println(*pointerToX) // prints 10
+		z := 5 + *pointerToX
+		fmt.Println(z) // print 15
+		```
+		
+	- [Pointer type]: A type that represent a pointer. It is written with a * before a type name. 
+	
+- [Don't Fear the Pointers]: When a class instance is passed to a function or method, the value being copied is the pointer to the instance. When you use a pointer variable or parameter in Go, you see the exact same behaviors. The difference between Go and these languages is that Go gives you the choice to use pointers or values for both primitives and structs. Most of the time, you should use a value. Values make it easier to understand how and when your data is modified. A secondary benefit is that using values reduces the amount of work that the garbage collector has to do.
+	
+- [Pointers Indicate Mutable Parameters]: 
+	
+	- Go constants provide names for literal expressions that can be calculated at compile time. Go has no mechanism to declare that order kinds of values are immutable. But that's where pointer comes and play.
+		
+	- Since Go is a call-by language, the values passed to functions are copies. For non-pointers types like primitives, structs, and arrays, this mean that the called function cannot modify the original. However, if the pointers is passed in as a parameters then mutability is available.
+		
+	- nil pointers will not change.
+		
+	- In order to assign a value to a pointer, the pointer must be dereferenced and then set is available.
+	
+- [Pointers Are a Last Resort]: Only use them when it is needed, in general have the function instantiate and return the struct instead.
+	
+	- Pointers parameters are used only when the function expects an interface.
+	
+- [Pointer Passing Performance]: Mostly in large structs, because the time to pass a pointer into a function is constant in all data sizes, roughly one nanosecond. 
+	
+- [The Zero Value vs No Value]: Go pointers are also commonly used to indicate the difference between a variable or field that's been assigned the zero value and a variable or field that hasn't been assigned a value at all. If distinction matters, use nil pointer to represent unassigned variable or struct field.
+	
+- [Map vs Slices]: Maps are bad when it comes to API-design level because you have to trace back. Slice that’s passed to a function can have its contents modified, but the slice can’t be resized.
+	
+- [Slices as Buffers]: Rather than returning a new allocation each time you read from a data source, you create a slice of bytes once and use it as a buffer to read data from the data source.
+	
+- [Reducing the Garbage Collector's Workload]: 
+	
+	- [Stack]: A consecutive block of memory.
+		
+	- [Stack Pointer]: Tracks the last location where memory was allocated. 
+		
+	- [Stack Frame]: A frame of data that got pushed on the stack.
+		
+	- When a function exits, its return values are copied back to the calling function via the stack, and the stack pointer is moved back to the beginning of the stack frame for the exited function, deallocating all the stack memory that was used by that function’s local variables and parameters.
+		
+	- In order for Go to allocate the data the pointer points to on the stack, several conditions must be true. The data must be a local variable whose data size is known at compile time. The pointer cannot be returned from the function. If the pointer is passed into a function, the compiler must be able to ensure that these conditions still hold. If the size isn’t known, you can’t make space for it by moving the stack pointer. If the pointer variable is returned, the memory that the pointer points to will no longer be valid when the function exits. When the compiler determines that the data can’t be stored on the stack, we say that the data the pointer points to escapes the stack, and the compiler stores the data on the heap.
+		
+	- [Heap]: Memory that's managed by the garbage collector.
+		
+	- Any data that’s stored on the heap is valid as long as it can be tracked back to a pointer type variable on a stack. Once there are no more variables on the stack pointing to that data, either directly or via a chain of pointers, the data becomes garbage, and it’s the job of the garbage collector to clear it out.
+		
+	- [Escape Analysis]: Analyze whether the data is trash and needs to be escape. Sometimes it sends to the heap which may cause memory corruption.
+		
+	- You reduce the garbage collector’s workload by making sure that as much as possible is stored on the stack. Slices of structs or primitive types have their data lined up sequentially in memory for rapid access. And when the garbage collector does do work, it is optimized to return quickly rather than gather the most garbage. The key to making this approach work is to simply create less garbage in the first place.
+	
+- [Tuning the Garbage Collector]: Doubling the value of GOGC will halve the amount of CPU time spent on GC. Limiting the amount of memory prevent unwanted memory overflow.
