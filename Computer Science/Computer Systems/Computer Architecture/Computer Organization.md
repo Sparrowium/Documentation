@@ -368,9 +368,56 @@ Related Article [[Computer Architecture]]
 		
 	- Add a NAND gate for any product with only a single literal.
 
+<h2 style="color:#6290C3"><center> Combinational Logic Circuits </center></h2>
+## The Two Classes of Logic Circuits
 
+- [Combinational]: A combinational logic circuits has output that depends only on the inputs given at any specific time and not on any previous inputs.
+	
+- [Sequential]: A sequential logic circuit has outputs that depend both on previous and current inputs.
 
+## Adders
 
+- [Half Adders]: Simply adds the two bits in the current bit position of a number (expressed in binary). Only work with two inputs bits and does not take into account of a possible carry.
+	![[Pasted image 20250213142257.png]]
+- [Full Adder]: Has three one-bit inputs, Carry, xi, and yi. Carry is the carry that resulted when you added two bits in in the previous bit position.
+	![[Pasted image 20250213142453.png]]![[Pasted image 20250213142535.png]]![[Pasted image 20250213142543.png]]![[Pasted image 20250213142743.png]]
+- [Full Adder from Two Half Adder]:
+	![[Pasted image 20250213142937.png]]
+- [Ripple-Carry Addition and Subtraction Circuits]:
+	![[Pasted image 20250213143313.png]]![[Pasted image 20250213143325.png]]
 
+## Decoders
 
+- [Decoder]: Process the 4 bits of the the register, and the output is one of n possible connections to the specified register.
+	
+- The decoder has n binary inputs that can produce up to 2^n binary outputs.
+	
+- [Line Decoder]: Selects only one of the output lines to set to 1 for each input bit pattern.
+	![[Pasted image 20250213143812.png]]![[Pasted image 20250213143828.png]]
+- Decoders are more versatile because each input can be seen as a minterm.
+	![[Pasted image 20250213144049.png]]
+
+## Multiplexers
+
+- [Multiplexers]: A device that can switch between 2^n input lines by using n selection lines.
+	![[Pasted image 20250213144506.png]]
+- [Tristate Buffers]: A buffer that has 3 states: 0, 1, and "no connection".The “no connection” output is actually a high impedance connection, also called high Z or open. The “no connection” output lets us physically connect the outputs of many tristate buffers together but select only one to pass its input to the common output line. A tristate buffer has both a data input and an enabling feature. 
+	![[Pasted image 20250213145748.png]]![[Pasted image 20250213145803.png]]![[Pasted image 20250213145841.png]]![[Pasted image 20250213150006.png]]
+
+## Programmable Logic Devices
+
+- PLDs, Programmable Logic Devices, contains many AND and OR gates which can be programmed to implement Boolean Functions. The inputs, and their complemented value, are connected to the AND gates. The AND gates, taken together, are referred to as the AND plane, or AND array. The outputs of from the AND gates are connected to OR gates, which taken together are referred to as the OR plane, or OR array. Depending on the type, one or both planes can be programmed to implement combinational logic. When using a PLD, a design change means only changing how the device is programmed, not buying different devices, meaning the circuit board does not need to be redesigned.
+	
+- [Programmable Logic Array]: Both AND and OR planes are programmable. PLAs are used to implement logic functions.
+	![[Pasted image 20250213150904.png]]
+	- Each input variable, in both its uncomplemented and complemented form, is an input to the AND gates through fuses. A fuse is a thin piece of conductor used to protect an electrical circuit. If the current flowing through it is high enough, the conductor melts, thus opening the circuit and stop- ping current flow. PLDs can be programmed by breaking (or blowing) the appropriate fuses, thus removing the input to the logic gate. Some devices use antifuses instead of fuses. These are normally open, and programming them consists of completing the connection instead of removing it. Devices that can be reprogrammed have fuses that can be broken and then remade.
+	![[Pasted image 20250213151354.png]]
+- [Read-Only Memory]: Used to store bit patterns that can represent data or program instructions. A program can only read the data or program stored in ROM, but the contents of the ROM cannot be changed by writing new data or program instructions to it.
+	
+	- ROM can be implemented as a programmable logic device where only the OR gate plane can be programmed. The AND gate plane remains wired to provide all the minterms. We can think of the inputs to the ROM as addresses. Then the OR gate plane is programmed to provide the bit pattern at each address.
+	![[Pasted image 20250213151803.png]]
+	- The “×” connections in Figure 6-17 represent permanent connections, showing that the AND gate plane is fixed. Each AND gate produces a minterm at each address in this ROM. The OR gate plane produces up to 2n eight-bit bytes, where n is the width, in number of bits, of the address input to the AND gate plane. The connections (dots) to the OR gates represent the bit pattern stored at the corresponding address.
+	
+- [Programmable Array Logic]: In a programmable array logic (PAL) device, each OR gate is permanently wired to a group of AND gates. Only the AND gate plane is programmable.
+	![[Pasted image 20250213152114.png]]
 
