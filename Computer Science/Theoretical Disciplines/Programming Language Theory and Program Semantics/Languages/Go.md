@@ -453,3 +453,155 @@ High level General Purpose Language
 	- You reduce the garbage collector’s workload by making sure that as much as possible is stored on the stack. Slices of structs or primitive types have their data lined up sequentially in memory for rapid access. And when the garbage collector does do work, it is optimized to return quickly rather than gather the most garbage. The key to making this approach work is to simply create less garbage in the first place.
 	
 - [Tuning the Garbage Collector]: Doubling the value of GOGC will halve the amount of CPU time spent on GC. Limiting the amount of memory prevent unwanted memory overflow.
+
+## Types, Methods, and Interfaces
+
+- [Types in GO]: 
+	```
+	type Person struct {
+		Firstname string
+		Age int
+		
+	}
+	``` 
+	- This should be read as declaring a user-defined type with the name Person to have the underlying type of the struct literal that follows.
+		
+	- In addition to struct literals, you can use any primitive type or compound type literal to define a concrete type.
+		```
+		type Score int
+		type Converter func(string)Score
+		type TeamScores map[string]Score
+		```
+	- Go allows you to declare a type at any block level, from the package block down. However, you can access the type only from within its scope. The only exceptions are types exported from other packages.
+	
+- [Methods]: 
+	```
+	type Person struct {
+		FirstName string
+		LastName string
+		Age int
+	}
+	func (p Person) String() string {
+		return fmt.Sprintf("%s %s, age %d", p.FirstName, p.LastName, p.Age)	
+	}
+	```
+	- The Method declaration look like function declaration, with one addition: the *receiver* specification. The receiver appears between the keyword func and the name of the method. Like all other variable declarations, the receiver name appears before the type. By convention, the receiver name is a short abbreviation of the type’s name, usually its first letter. It is nonidiomatic to use this or self.
+		
+	- Just like functions, method names cannot be overloaded. You can use the same method names for different types, but you can’t use the same method name for two different methods on the same type.
+		
+	- There is one key difference between declaring methods and functions: methods can be defined only at the package block level, while functions can be defined inside any block.
+		
+	- [Point Receivers and Value Receivers]: Point Receivers (the type is the pointer), Value Receivers (the type is a value type). When a type has any pointer receiver method, a common practice is to be consistent and use pointer receivers for all methods, even on the ones that doesn't modify the receivers. 
+		
+	- [Methods are Function Too]: Methods and Functions are really alike that sometimes you can use methods instead of function whenever there's an instance of a function type.
+		
+	- [Functions vs Methods]: If the data changes during run time use methods. If if just based on input, use function.
+		
+	- [Type Declarations aren't Inheritance]: This is because the type has no hierarchy, despite it has underlying types.
+		
+	- [Types are Executable Documentation]: Because they provides a name for a concept and describing the kind of data that is expected. 
+	
+- [iota Is for Enumerations-Sometimes]:
+	
+	- [Enumerations]: A concept that allow you to specify that a type can have only a limited set of values. 
+		
+	- Unfortunately, Go said no. Instead it has iota, which lets you assign an increasing value to a set of constants.
+		
+	- The iota concept is to create a struct based on *int* then use a const block to define a set of values. When the compiler see *iota* the value will increment for each constant in the block
+		```
+		type MailCategory int
+		const (
+			Uncategorized Mailcategory = iota #0
+			Personal #1
+			Spam #2
+		)
+		```
+	- If you insert a new identifier, everything will be re-numbered.
+	
+- [Use Embedding for Composition]:
+	```
+	type Employee struct {
+		Name string
+		ID string
+	}
+	
+	func (e Employee) Description() string {
+		return fmt.Sprintf("%s (%s)", e.Name, e.ID)
+	}
+	
+	type Manager struct {
+		Employee
+		Reports []Employee
+	}
+	
+	func (m Manager) FindNewEmployees() []Employee {
+		// do business logic
+	}
+	```
+	- This makes Employee an embedded field. Any fields or methods declared on an embedded field are promoted to the containing struct and can be invoked directly on it.
+		```
+		m := Manager{
+			Employee: Employee{
+				Name: "Bob Bobson",
+				ID: "12345",
+			},
+			Reports: []Employee{},
+		}
+		fmt.Println(m.ID) // prints 12345
+		fmt.Println(m.Description()) // prints Bob Bobson (12345)
+		```
+	- If the containing struct has fields or methods with the same name as an embedded field, you need to use the embedded field’s type to refer to the obscured fields or methods.
+	
+- [Embedding is not Inheritance]: That is because you cannot assign a variable of a type that contains Embedded fields to a embedded variable.
+	
+	- Go has no *dynamic dispatch* for concrete types. The methods on the embedded field have no idea they are embedded which result in error.
+	
+- [Interfaces]: Are defined using the type keyword with the following syntax: 
+	```
+	type Stringer interface {
+		String() string
+	}
+	```
+	- In an interface declaration, an interface literal appears after the name of the interface type. It lists the methods that must be implemented by a concrete type to meet the interface. The methods defined by an interface are the methods set of the interface.
+	
+- [Interfaces Are Type-Safe Duck Typing]: Because Go interfaces implements implicitly. That is, If the method set for a concrete type contains all the methods in the method set for an interface, the concrete type implements the interface.
+	
+- [Embedding and Interfaces]: Embedding is not only for struct but for interface too.
+	```
+	type Reader interface {
+		Read(p []byte) (n int, err error)
+	}
+	type Closer interface {
+		Close() error
+	}
+	type ReadCloser interface {
+		Reader
+		Closer
+	}
+	```
+- [Accept Interfaces, Return Structs]: It means that the business logic invoked by your functions should be invoked via interfaces, but the output of your functions should be a concrete type. This will allow flexibility and explicitly for the declaration of the functionality being used.
+	
+	- The primary reason your functions should return concrete types is they make it easier to gradually update a function’s return values in new versions of your code. When a concrete type is returned by a function, new methods and fields can be added without breaking existing code that calls the function, because the new fields and methods are ignored. The same is not true for an interface. Adding a new method to an interface means that all existing implementations of that interface must be updated, or your code breaks.
+	
+- [Interface and Nil]: You can use nil for representing zero value for an interface, as long as the type field is non-nil, the interface is non-nil. In order for an interface to be considered nil, both the type and the value must be nil.
+	
+- [Interfaces are Comparable]: Just as an interface is equal to nil only if its type and value fields are both nil, two instances of an interface type are equal only if their types are equal and their values are equal. Avoid different type comparison.
+	
+- [Empty Interfaces Says Nothing]: Empty interfaces stores a value of any type.
+	`var i interface{}`
+	
+- [Type Assertions and Switches]:
+	
+	- [Type Assertions]: Names the concrete type that implemented the interface, or names another interface that is also implemented by the concrete type whose value is stored in the interface. 
+		
+	- [Type Switches]: When there are multiple possible types.
+	
+- [Use Type Assertions and Type Switches Sparingly]: Type assertions and type switches are useful in some use cases. One common use of a type assertion is to see if the concrete type behind the interface also implements another interface. This allows you to specify optional interfaces. Type switch statements provide the ability to differentiate between multiple implementations of an interface that require different processing. They are most useful when only certain possible valid types can be supplied for an interface. Be sure to include a default case in the type switch to handle implementations that aren’t known at development time.
+	
+- [Function Types Are a Bridge to Interfaces]: Because Go allows functions to implement interface by replacing a functions parameters to an interface.
+	
+- [Implicit Interfaces make Dependency Injection Better]:
+	
+	- [Dependency injection]: Is the concept that your code should explicitly specify the functionality it needs to perform its task.
+	
+- Go is Practical.
