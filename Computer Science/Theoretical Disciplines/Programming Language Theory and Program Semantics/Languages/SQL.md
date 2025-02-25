@@ -69,3 +69,7 @@ Structured Query Language
 ### SQL Unplugged
 
 - Using third party tools instead of SQL to increase performance, and cross database server/service manipulation.
+
+## Creating and Populating a Database
+
+- [Creating a PostgreSQL Database]:  
