@@ -453,3 +453,102 @@
 	- [Verilog and VHDL Files]: Are text-based hardware description languages for designing electronic systems. In their most basic forms, they have a similar function to LogiSim, allowing you to instantiate and connect various electronic components. But instead of using a GUI, they use text files with a syntax similar to software programming languages. Unlike a language like C, however, which is imperative, Verilog and VHDL fundamentally describe static objects and relationships between them. In this sense, their structure is more like XML or a database, containing lists of facts rather than instructions to do things.
 		
 	- [Chisel]: A high-level hardware language that was developed for general architecture design usage. Chisel describes classes of hardware with object orientation.
+
+## Digital CPU Design
+
+### The Baby's Programmer Interface
+
+- Store their instructions and data in the same RAM space. Each line has a number, and it gets copied to the RAM address of that same number.
+	![[Pasted image 20250225125022.png]]
+	- [Halting]: Stop the machine. Prevent execution of any further instructions and tell the user to inspect the results by lighting up the bulb.
+		`01 : HLT`
+		
+	- [Constant]: Lines with NUM are considered as *data* at their address when the code is first loaded into RAM.
+		`01: NUM 10`
+		
+	- [Load and Store]: Copy the data from RAM into the CPU, and loads the data from CPU to RAM for storage. 
+		```
+		01: LDN 20
+		02: STO 21
+		20: NUM 20
+		21: NUM0
+		```
+	- [Arithmetic]: It only has subtraction.
+		```
+		01: LDN 20
+		02: SUB 21
+		03: STO 22
+		20: NUM 0
+		21: NUM 10
+		22: NUM 0
+		```
+	- [Jumps]: Makes the program execution jump to the line whose address is one plus the number stored at the address given in the instruction. This operation is called an indirect jump, as opposed to a direct jump, which would encode the target address itself as a part of the instruction, instead of, the location of the target in this case.
+		```
+		01: LDN 21
+		02: JMP 23
+		21: NUM 10
+		23: NUM 0 
+		# Cause a loop because after 0 is 1
+		```
+	- [Branches]: Act as a condition statement, whether the current results is negative, if so, it skip the next instruction, moving to the one after it.
+		```
+		01: LOAD 20
+		02: SKN
+		03: SUB 21
+		04: STO 22
+		20: NUM 0
+		21: NUM 20
+		22: NUM 0
+		# 22 is still 0 because line 03 is skipped 
+		```
+
+### Assemblers
+
+- Automate the process of translating human-readable assembly programs into machine code. A file of 0s and 1s correspond to machine code is called an executable, as it can be executed directly by the CPU once copied to RAM.
+
+### The Baby's Internal Structures
+
+- [Registers]: Are fast word-length memory, usually made today as arrays of D-type flip-flops, which live inside the CPU and are readable and writable by the CU and ALU. 
+	
+	- The size of the registers in a CPU are usually taken to define the CPU's word length; 32-bit uses 32 bit-words that are stored in 32-bit registers. 
+		
+	- Like the individuals flip flops that compose them, registers must be timed to enable correct synchronization of reads and writes. An update signal can be sent to the clock inputs of all the flip-flops making up the registers. Usu- ally writes to the register are performed on the rising edge of this signal. Each register also continually outputs its latest stored value for reading as a set of parallel wires, regardless of the updates.
+		![[Pasted image 20250225133016.png]]![[Pasted image 20250225133037.png]]
+	- [User Registers]: Are usually the only registers that are visible to the assembly language programmer, who can give instructions to act on their content. Ex: An *accumulator* is a user register that functions both as an input and to store the results of calculation in the same place, *Accumulator Architectures* are those that have only a single user register that acts as an accumulator.
+		
+	- [Internal Registers]: Are not modifiable registers that is not accessible to user, exclusively to the hardware it self. It include the *program counter* to to store and keep track of the program state in a registers. In addition, the *instruction registers* store a copy of the current instruction, copied in from its address in memory.
+	
+- [Arithmetic Logic Unit]: 
+	![[Pasted image 20250225195400.png]]
+- [Control Unit]: A musical conductor liked machine that trigger all of other CPU components at the right times.
+	![[Pasted image 20250225195757.png]]![[Pasted image 20250225195827.png]]
+	- Tunnels, which are named point taking the place of wires. 
+	![[Pasted image 20250225200150.png]]
+
+### Putting It All Together
+
+- [Fetch]: To bring a copy of the next instruction from RAM into the IR in the CPU. Fetching assumes that the address of the next instruction is already in the program counter. When the CPU is first turned on, the program counter-like all registers- is initialized to 0, but is immediately incremented to 1, so the firs instruction must to stored at address 1 and will be fetched.
+	
+	- To perform a fetch, the program counter is temporarily connected to the address lines of RAM, on tick 1. The data out lines of RAM can be permanently connected to the IR data in, but the IR takes only a copy of the word from these lines when write-enabled and clocked at tick 2
+	![[Pasted image 20250225200733.png]]![[Pasted image 20250225200917.png]]
+	- This is also called *register transfer language*
+	
+- [Decode]: In the Baby, bits 13 to 15 are the opcode, bits 0 to 12 are a single operand for some instructions, and the remaining 16 bits aren’t used. This encoding now needs to be decoded. We need to split up the opcode and operand, then convert the opcode into an activation signal.
+	![[Pasted image 20250225201055.png]]
+- [Execute]: Depends on what instructions has been fetched and decoded.
+	
+	- [Load]: The operand connect to the RAM's address input and then temporarily connect to the RAM's data output to the accumulator
+		![[Pasted image 20250225202221.png]]
+	- [Store]: Opposite to loading. Connecting the STO instruction's operand to the RAM's address lines. The accumulator output can be permanently connected to the RAM data input, but only write-enabled.
+		![[Pasted image 20250225202238.png]]
+	- [Arithmetic]: The CU makes temporary connections to the ALU's inputs from the CPU registers, and creates and sends an ALU command to the ALU's command inputs. The ALU output is then temporarily connected to a destination register.
+		![[Pasted image 20250225202418.png]]
+	- [Flow Control]: At the start of each instruction, the Baby moves to the next address (line) of the program. This can be done by incrementing (adding 1 to) the program counter at tick 0. If the current instruction is a flow control instruction—that is, a jump or branch—then its execution step also needs to update the program counter to get it ready for the next instruction.
+		
+		- The Baby uses an indirect jump instruction, JMP, in which the operand contains the address that in turn contains the actual jump target. To implement this indirect jump we thus first attach the operand to the RAM address lines, then attach the RAM data lines to the program counter.
+			
+		- The Baby also has a relative jump, JRP, which works similarly to JMP except that the address in the operand contains a number of lines to advance the program counter, rather than an absolute address.
+			
+		- For the branch instruction, SKN, we check its condition and behave as normal if it’s false, or increment the program counter an extra time if it’s true, to skip over one line of code.
+		![[Pasted image 20250225202808.png]]
+	

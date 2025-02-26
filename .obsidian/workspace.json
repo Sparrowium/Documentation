@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Science/Applied Disciplines/Software Engineering/Software Engineering.md",
+                "file": "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Software Engineering"
+              "title": "Computer Architecture"
             }
           }
         ]
@@ -163,15 +163,26 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "d85c02c478b4ae37",
+  "active": "94c6bde8c47967b6",
   "lastOpenFiles": [
+    "assets/Pasted image 20250225202808.png",
+    "assets/Pasted image 20250225202418.png",
+    "assets/Pasted image 20250225202238.png",
+    "assets/Pasted image 20250225202221.png",
+    "assets/Pasted image 20250225201055.png",
+    "assets/Pasted image 20250225200917.png",
+    "Pasted image 20250225200831.png",
+    "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
+    "assets/Pasted image 20250225200733.png",
+    "assets/Pasted image 20250225200150.png",
+    "assets/Pasted image 20250225195827.png",
+    "assets/Pasted image 20250225195757.png",
+    "Computer Science/Applied Disciplines/Software Engineering/Software Engineering.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/SQL.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Go.md",
-    "Computer Science/Applied Disciplines/Software Engineering/Software Engineering.md",
     "Computer Science/Computer Systems/System Software/System Software.md",
     "Computer Science/Applied Disciplines/Applied disciplines.md",
     "Computer Science/Computer Systems/Microarchitecture/Microarchitecture.md",
-    "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
     "Computer Science/Computer Systems/Computer Systems.md",
     "Computer Science/Theoretical Disciplines/Theoretical disciplines.md",
     "Computer Science/Applied Disciplines/Software Engineering/Tools/Git.md",
@@ -186,21 +197,10 @@
     "Computer Science/Computer Systems/System Software/Shell and Scripting.md",
     "Computer Science/Computer Systems/Distributed Computing/Distributed Computing.md",
     "Computer Science/Applied Disciplines/Human - Computer Interaction/Human - Computer Interaction.md",
-    "assets/Pasted image 20250213152114.png",
-    "assets/Pasted image 20250213151803.png",
-    "assets/Pasted image 20250213151354.png",
-    "assets/Pasted image 20250213150904.png",
-    "assets/Pasted image 20250213150006.png",
-    "assets/Pasted image 20250213145841.png",
-    "assets/Pasted image 20250213145803.png",
-    "assets/Pasted image 20250213145748.png",
-    "assets/Pasted image 20250213144506.png",
-    "assets/Pasted image 20250213144049.png",
     "Computer Science/Theoretical Disciplines/Very-Large-Scale Integration/Very-Large-Scale Integration.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/CSS.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Languages.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/HTML.md",
-    "Computer Science/Theoretical Disciplines/Computational Complexity Theory/Computational Complexity Theory.md",
     "assets/imgs",
     "assets",
     "Untitled 1.canvas",
