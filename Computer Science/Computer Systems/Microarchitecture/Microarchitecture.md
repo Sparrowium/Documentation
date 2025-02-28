@@ -421,3 +421,46 @@ Also Called **Computer Organization**
 - [Programmable Array Logic]: In a programmable array logic (PAL) device, each OR gate is permanently wired to a group of AND gates. Only the AND gate plane is programmable.
 	![[Pasted image 20250213152114.png]]
 
+<h2 style="color:#6290C3"><center> Sequential Logic Circuits </center></h2>
+- [System State]: A description of the system such that knowing the state at time t0 and the inputs from time t0 through time t1, uniquely determines the state at time t and the outputs from time t0 through time t1. 
+	
+- [Finite State Machine]: A mathematical model of computation that can exist in any one of a finite number of states. If a sequential logic circuit is designed such that its output depends only on the state it’s in, it’s called a Moore state machine. If the output also depends on the input causing a transition to a state, it’s called a Mealy state machine.
+## Latches
+
+- A one-bit storage device that can be in one of two states, depending on its input. A latch can be constructed by connecting two or more logic gates such that the output from one gate is fed back into the input of another gate; this keeps the out- put of both gates in the same state as long as power is applied.
+	
+- [SR Latch using NOR gates]: The most basic latch is the Set-Reset (SR). It has two inputs (S and R) and two states, called Set and Reset. The state is used as the primary output, Q. It’s common to also provide the complemented output, ¬Q. The SR latch is said to be in the Set state when the outputs Q = 1 and ¬Q = 0. It’s in a Reset state when Q = 0 and ¬Q = 1.
+	![[Pasted image 20250227155501.png]]
+	- This result in 4 different state:
+		`S = 0, R = 0. Keep current state.`
+		`S = 1, R = 0. Set (Q = 1).`
+		`S = 0, R = 1. Reset (Q = 0).`
+		`S = 1, R = 1. Not allowed.`
+	![[Pasted image 20250227155742.png]]![[Pasted image 20250227155803.png]]
+	
+- [SR Latch using NAND Gates]: 
+	![[Pasted image 20250227160332.png]]
+	- There are 4 different state:
+		`¬S = 1, ¬R = 1: Keep current state`
+		`¬S = 0, ¬R = 1: Set (Q = 1)`
+		`¬S = 1, ¬R = 0: Reset (Q = 0)`
+		`¬S = 0, ¬R = 0: Not allowed`
+	![[Pasted image 20250227160459.png]]![[Pasted image 20250227160509.png]]
+- [SR Latch with Enable]: We can get better control over the SR latch by adding two NAND gates to provide an Enable input. Connecting the outputs of these two NAND gates to the inputs of an ¬S¬R latch gives us a gated SR latch.
+	![[Pasted image 20250227161656.png]]![[Pasted image 20250227161851.png]]
+- [The D Latch]: A D latch allows us to store the value of one bit.
+	![[Pasted image 20250227163106.png]]![[Pasted image 20250227163115.png]]
+
+## Flip-Flops
+
+- A one bit storage device designed to accept an input during one portion of the clock signal and then lock the output to a single value throughout the duration of the other portion if the clock signal.
+	
+- [Clocks]: A device that provides an electronic clock signal, typically a square wave that alternates between the 0 and 1 levels. This signal is used as the enabling/disabling input to devices that needs to be synchronized. 
+	![[Pasted image 20250227164430.png]]
+- [D Flip-Flop]: The uncomplemented output of the Primary D latch is fed to the S input, and its complemented output is fed to the R input of the Secondary SR latch, effectively making the Secondary a D latch without requiring a NOT gate at the R input.
+	![[Pasted image 20250227165336.png]]![[Pasted image 20250227165820.png]]![[Pasted image 20250227165835.png]]
+- [T Flip-Flop]: Toggleable switches using a flip-flop that simply complements its state. To construct a T flip-flop from a D flip-flop, we need to feed the output back and combine it with the input to the D flip-flop.
+	![[Pasted image 20250227165937.png]]![[Pasted image 20250227170208.png]]
+- [JK Flip Flop]: Implementing all four possible actions—set, reset, keep, toggle—requires two inputs, J and K, giving us the JK flip-flop.
+	![[Pasted image 20250227170244.png]]![[Pasted image 20250227170301.png]]![[Pasted image 20250227170322.png]]![[Pasted image 20250227170333.png]]![[Pasted image 20250227170343.png]]
+	
