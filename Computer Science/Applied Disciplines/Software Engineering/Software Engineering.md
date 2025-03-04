@@ -30,10 +30,21 @@ A field within Computer Science and a branch of Engineering focused on designing
 - [Software Testing]: Is an empirical, technical investigation conducted to provide stakeholders with information about the quality of the software under test.
 	
 - [Program Analysis]: Is the process of analyzing computer programs with respect to an aspect such as performance, robustness, and security.
+	
+- [Software Maintenance]: Refers to the supporting of software after released. It may include but is not limited to: error correction, optimization, deletion of unused and discarded features, and enhancement of existing features.
 
+## Tools
 
-[[Git]]
-
-
-
+- [Configuration Management and Source Code Management]:
+	[[CVS]]
+	[[Git]]
+	
+- [Build Tools]:
+	[[Make]]
+	
+- [Editors]:
+	[[Integrated Development Environments (IDEs)]]
+	[[Text Editors]]
+	
+- [[Parsers]] creation tools.
 
