@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "be5a8ef5ec0a6929",
+        "id": "05409a94532f996d",
         "type": "tabs",
         "children": [
           {
-            "id": "4eea9f36883bd0e0",
+            "id": "ce24b7426c9783b0",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Computer Architecture"
             }
           }
         ]
@@ -74,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "e5d9271595e93348",
@@ -160,15 +163,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "4eea9f36883bd0e0",
+  "active": "94c6bde8c47967b6",
   "lastOpenFiles": [
-    "Computer Science/Computer Systems/Computer Networks/Computer Networks.md",
-    "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
-    "Computer Science/Computer Systems/Computer Systems.md",
-    "Computer Science/Applied Disciplines/Software Engineering/Tools/Git.md",
-    "Computer Engineering/Computer Engineering.md",
+    "assets/Pasted image 20250304155051.png",
+    "assets/Pasted image 20250304154147.png",
+    "assets/Pasted image 20250304154136.png",
     "Computer Science/Applied Disciplines/Software Engineering/Software Engineering.md",
     "Tools.md",
+    "Computer Engineering/Computer Engineering.md",
     "Computer Science/Computer Systems/System Software/System Software.md",
     "Computer Science/Computer Systems/Microarchitecture/Microarchitecture.md",
     "assets/Pasted image 20250227170343.png",
@@ -179,13 +181,14 @@
     "assets/Pasted image 20250227170208.png",
     "assets/Pasted image 20250227165937.png",
     "assets/Pasted image 20250227165835.png",
-    "assets/Pasted image 20250227165820.png",
-    "assets/Pasted image 20250227165336.png",
     "Computer.md",
+    "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/SQL.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Go.md",
     "Computer Science/Applied Disciplines/Applied disciplines.md",
+    "Computer Science/Computer Systems/Computer Systems.md",
     "Computer Science/Theoretical Disciplines/Theoretical disciplines.md",
+    "Computer Science/Applied Disciplines/Software Engineering/Tools/Git.md",
     "Computer Science/Computer Science.md",
     "Welcome.md",
     "README.md",

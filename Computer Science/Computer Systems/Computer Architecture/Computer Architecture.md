@@ -551,4 +551,115 @@
 			
 		- For the branch instruction, SKN, we check its condition and behave as normal if it’s false, or increment the program counter an extra time if it’s true, to skip over one line of code.
 		![[Pasted image 20250225202808.png]]
+
+## Advanced CPU Design
+
+### Number of User Registers
+
+- Makes programming easier, makes programs run faster, in trades for, complexity. 
 	
+- Some architecture have a set of registers which allow programmers to take advantage of possibly simpler and faster instructions on the accumulator while retaining the flexibility to work with the other registers.
+
+### Number of Instructions
+
+- [Instruction Set Architecture (ISA)]: Defines the interface between what the programmer can see and can use, and what needs to be implemented by the CPU designer. 
+	
+	- But there's a trade off between the assembly language programmer's life and the digital logic implementer's life.
+	
+- **CISC** AND **RISC** are the two historically opposing philosophies of architecture. 
+	
+- [CISC]: Pronounced "sisc", stands for *complex instruction set computing*, which emphasizes the creation of lots of instructions in ISA. These can include adding many variations on basic instructions that each act as a new instructions.
+	
+- [RISC]: Stands for Reduced instruction set computing, stating that hardware is nasty, expensive to develop, and difficult to debug, so make the processor as lean as possible, then solve all the problems in software, which is less expensive and nicer. Focusing on keeping the instructions set as small as possible, then make it fast as possible.
+
+### Duration of Instructions
+
+- [Open Loop Architecture]: No feedback to the counter about the rest of the CPU state. 
+	
+- [Closed Loop Architecture]: the timing of triggers isn’t set by a central counter. Instead, each stage of work is responsible for trigger- ing the next stage when it’s ready to do so.
+	
+- The advantage of the closed-loop approach is that some instructions may be simpler than others, requiring fewer ticks to complete. These can use only the ticks that are necessary, then trigger the next instruction as soon as possible, rather than sitting around doing nothing.
+	
+- Open-loop style is usually associated with RISC, due to RISC’s emphasis on making all instructions simple and fast. Closed-loop is associated with CISC, as CISC may want to include single instructions that perform a lot of complex work and take many ticks to complete, as well as short, fast ones.
+
+### Different Addressing Modes
+
+- RISC aims to reduce the size of the instruction set by maintaining a clean separation between memory access instructions and arithmetic instructions.
+	![[Pasted image 20250304154136.png]]
+- CISC, in contrast, aims to provide multiple variations of the ADD instruction to make the programmer’s life easier. In addition to ADD, which adds the contents of two registers, we could create another instruction such as ADDM for “add from memory” that would enable the four-line RISC-style addition program to be written with a single instruction
+	![[Pasted image 20250304154147.png]]
+- Another common variant is to add instructions that use indirect addressing, meaning the operand of the instruction contains the address of the address to be used.
+	![[Pasted image 20250304155051.png]]
+- [Offset addressing]: (aka index addressing) modes are another popular ISA inclusion. The idea here is that assembly programmers often need to make repeated use of many variables that they tend to store close together in memory. Their life can be made easier if they can first use a new instruction to specify the address of this general region of variable storage, such as A7B216 , then refer to each individual variable by the difference between its address and this region’s address to pick each of the variables in order.
+
+### Subroutines
+
+- [Subroutine]: A piece of code sitting somewhere in memory that will do something when your main program calls it, and will return to the same line in the main program after it was called.
+	
+- Other subroutines names: Functions, Procedures, Method.
+	
+- [Stackless Architectures]: A architecture in which a "routine" cannot executed or call another routine because it would override the return address.
+	
+- [Stack Architecture]: 
+	
+	- [Stack]: A simple data structure with two operations, push and pop. Implements LIFO.
+		
+	- Using a stack, you can create a full trail of addresses to return through in the case of nested subroutines. Each time a subroutine is called, its return address is pushed to the stack. When the subroutine returns, this address is popped off the stack and used to set the program counter.
+		
+	- A **stack overflow error** is a failure condition where we run out of stack space; if you use a specific chunk of memory to hold your stack, and you run out of space, the program will create a stack overflow error as you try to write outside the stack boundaries. This usually happens because of something that’s gone wrong in an infinite loop of functions calling themselves or each other.
+		
+	- [stack pointer register]: An internal register that contains a pointer to the top of the stack.
+
+### Floating Point Units
+
+- [Floating-point registers]: Are specialized user registers designed to store floating-point data representations for use in floating-point computations.
+	
+- [Floating Point Unit (FPU)]: Are complex pieces of digital logic and expensive to design; they also take up lots of silicon and are prone to bugs.
+
+### Pipelining
+
+- A form of instruction-level parallelism.
+	
+- [Hazards]:
+	
+	- [Branching Hazards]: Somewhere down the pipeline, an if statement is found and the other, earlier stages were working to complete one outcome of the branch, but you need to go to the other outcome instead. When a conditional branch is reached, you don't know which condition will be followed until the branch gets executed.
+		
+	- [Data Hazards]: Two of the workers trying to hit on the same memory location-to fetch and output to.
+		
+		- [Read After Write]: This is where you have two instructions, the first trying to write to memory and the second trying to read from the same address. The logic of the program is supposed to be that the value that gets read should be equal to what has just been written. But when pipelining is in play, it may be possible for the RAM access of the read to occur before RAM has been changed by the write.
+			
+		- [Write After Read]: This is the other way around: here two instructions are supposed to first read the old RAM value and then update it with a write. But when they are interleaved by pipelining, it may be possible for the part of the write instruction that actually changes the RAM value to occur before the part of the read that accesses it.
+			
+		- [Write After Write]: This is where two write instructions interfere with one another when trying to write to the same address. The program logic is supposed to be that the first one writes, then the second one, leaving the address containing the second one. But again, pipelining may interleave stages of their executions, in some cases performing the intended first write after the second.
+		
+	- [Structural Hazards]: Where multiple stages are fighting for resources at the same time.
+	
+- [Hazard Correction]: 
+	
+	- [Programming to Avoid Hazards]: Often involves considering groups of neighboring instructions and thinking about how they could affect one another in the pipeline, and changing the order of some instructions to make them further apart and less likely to affect one another.
+		
+	- [Null Operation (NOP)]: Means do nothing, it still go through the pipeline, taking up time slots, so a human programmer or compiler can insert them between hazard-causing instructions to spread them out and avert the hazard. Involves less intelligence than reordering instructions but trades for execution speeds.
+		
+	- [Stalling]: Putting he results of the pipeline on hold to allow some stage to complete its work. Affects execution time.
+		
+	- [Eager Execution]: Executing both possible branches at the same time for a short period, and then killing the one not taken later on, once we figure out which it should be. Affects execution time due to doubling physical logic to perform twice as much computation in parallel during the period of uncertainty.
+		
+	- [Branch Prediction]: Predicting where a branch will be before execution. 
+		
+	- [Operand Forwarding]: Directly route the result of an instruction to become an input to a next or nearby instruction.
+
+### Out of Order Execution
+
+- A advanced form of instruction-level parallelism than pipelining. It involves actually swapping around the order of instructions as they come into CPU, so they're executed in a different order than they appear in the program.
+	
+- They key to OOOE is recognizing that instructions in a serial programs can often be swapped without changing their results.
+	
+- OOOE is usually performed by digital logic in the CPU, in real time during program execution. Usually only a short window—such as 10 or 20 instructions—around the current instruction in the program is considered for reordering.
+
+### Hyperthreading
+
+- Another way to make use of CPU resources when they would otherwise be sitting idle during the cycle. Rather than work on consecutive instructions from one program, we put them all together to form a second virtual CPU core that operates on a separate set of instructions. Each component of this virtual core runs out of phase with its use in the main CPU core, when it would otherwise be idle. By collecting all the components together, all out of phase, we create a whole extra CPU, keeping all the silicon in constant use at all times.
+	
+- It effectively doubles the number of apparent cores over the number of physical cores in a device, which is why you often see your computer report having twice the number of cores that were advertised on the hardware you bought.
+	
+- Hyperthreading has the advantage over pipelining that you no longer have to worry about hazards because the two cores can operate completely independently of one other. On the other hand, it doesn’t increase the speed of any one program. It also requires additional digital logic to read, store, and write the states of the two virtual CPUs at the right times, and duplication of some hardware components, so that one doesn’t affect the other.
