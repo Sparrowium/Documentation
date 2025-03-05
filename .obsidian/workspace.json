@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
+                "file": "Computer Science/Computer Systems/System Software/Linux.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Computer Architecture"
+              "title": "Linux"
             }
           }
         ]
@@ -163,39 +163,39 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "94c6bde8c47967b6",
+  "active": "ce24b7426c9783b0",
   "lastOpenFiles": [
+    "assets/Pasted image 20250304213022.png",
+    "assets/Pasted image 20250304212544.png",
+    "assets/Pasted image 20250304205727.png",
+    "assets/Pasted image 20250304205230.png",
+    "assets/Pasted image 20250304193433.png",
+    "Computer Science/Computer Systems/System Software/Access Control.md",
+    "Computer Science/Computer Systems/System Software/Linux.md",
+    "Computer Science/Computer Systems/System Software/Shell and Scripting.md",
+    "Computer Science/Computer Systems/System Software/Linux Kernel.md",
+    "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
+    "Computer Science/Computer Systems/System Software/System Software.md",
+    "Computer Science/Computer Systems/Computer Systems.md",
     "assets/Pasted image 20250304155051.png",
     "assets/Pasted image 20250304154147.png",
     "assets/Pasted image 20250304154136.png",
     "Computer Science/Applied Disciplines/Software Engineering/Software Engineering.md",
     "Tools.md",
     "Computer Engineering/Computer Engineering.md",
-    "Computer Science/Computer Systems/System Software/System Software.md",
     "Computer Science/Computer Systems/Microarchitecture/Microarchitecture.md",
     "assets/Pasted image 20250227170343.png",
     "assets/Pasted image 20250227170333.png",
     "assets/Pasted image 20250227170322.png",
-    "assets/Pasted image 20250227170301.png",
-    "assets/Pasted image 20250227170244.png",
-    "assets/Pasted image 20250227170208.png",
-    "assets/Pasted image 20250227165937.png",
-    "assets/Pasted image 20250227165835.png",
     "Computer.md",
-    "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/SQL.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Go.md",
     "Computer Science/Applied Disciplines/Applied disciplines.md",
-    "Computer Science/Computer Systems/Computer Systems.md",
     "Computer Science/Theoretical Disciplines/Theoretical disciplines.md",
     "Computer Science/Applied Disciplines/Software Engineering/Tools/Git.md",
     "Computer Science/Computer Science.md",
     "Welcome.md",
     "README.md",
-    "Computer Science/Computer Systems/System Software/Access Control.md",
-    "Computer Science/Computer Systems/System Software/Linux.md",
-    "Computer Science/Computer Systems/System Software/Linux Kernel.md",
-    "Computer Science/Computer Systems/System Software/Shell and Scripting.md",
     "Computer Science/Computer Systems/Distributed Computing/Distributed Computing.md",
     "Computer Science/Applied Disciplines/Human - Computer Interaction/Human - Computer Interaction.md",
     "Computer Science/Theoretical Disciplines/Very-Large-Scale Integration/Very-Large-Scale Integration.md",
