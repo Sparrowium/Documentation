@@ -463,4 +463,60 @@ Also Called **Computer Organization**
 	![[Pasted image 20250227165937.png]]![[Pasted image 20250227170208.png]]
 - [JK Flip Flop]: Implementing all four possible actions—set, reset, keep, toggle—requires two inputs, J and K, giving us the JK flip-flop.
 	![[Pasted image 20250227170244.png]]![[Pasted image 20250227170301.png]]![[Pasted image 20250227170322.png]]![[Pasted image 20250227170333.png]]![[Pasted image 20250227170343.png]]
+
+<h2 style="color:#6290C3"><center> Memory </center></h2>
+## The Memory Hierarchy
+
+- The closer the memory is to the CPU the fast and more expensive it will be. 
+	![[Pasted image 20250306131728.png]]
+	- The top three layers is typically included int the CPU.
+		
+	- There are maybe one or two more levels of cache before getting into the main memory.
+		
+	- The main memory and disk are usually in the same enclosure with the CPU, which may include more than one disk.
+		
+	- Next layer represent offline storage devices.
+		
+	- The final line is online storage. 
 	
+- [Mass Storage]: Used for keeping programs and large amounts of data in a machine-readable format. This includes hard disks, solid state drives, memory sticks, optical disks, etc. Their content is *nonvolatile*, meaning that if the computer is turn off, the content remain. They also are slow compared to the CPU. Accessing their contents requires explicit programming.
+	![[Pasted image 20250306132333.png]]
+- [Main Memory]: Often called RAM, volatile, meaning the content is erased when the computer is turned off. The main memory communicates with the CPU using data, address, and control buses. It as synchronized in the hardware with the CPU, this means that the programmer can access items in the memory via specifying the address.
+	
+	- Only a portion of the data is loaded when the computer is turned on, and only a portion currently being worked on is loaded from mass storage to main memory. And since they are loaded into memory, loading from mass storage is not needed therefore increasing execution speed.
+		
+	- Most organization of main memory store both program instructions and data. Which introduce the *von Neumann bottleneck*, that is if an instructions calls for reading from, or writing data to, memory, the next instruction in the program sequence cannot be read from memory over the same bus until the current execution has completed the data transfer. This was partially resolve by *Harvard Architecture* which store data in different memories, allows for simultaneous access. 
+	
+- [Cache Memory]: Provides a much faster location for the instructions and variables currently being processed by the program. 
+	
+	- Cache memory is organized in levels, as the level increase the cache gets bigger and further away from the CPU. 
+		
+	- Cache is checked first. If data exist in higher level cache, it is copied to the lower level then into the CPU.
+		
+	- [Line]: The amount of memory copied into a cache at a time.
+		
+	- When data is written into main memory, it starts with the lowest cache (Level 1), then to the next level (Level 2), and so on. 
+		
+	- The time decrease as a exponential of 10^n as the cache level increases. 
+		
+	- [Locality of Reference]: The tendency of a program to reference nearby memory addresses in a short period of time. Simply, shows the effectiveness of cache based on the location.
+	
+- [Registers]: The fastest memory. They’re mainly used for numerical computations, logical operations, temporary data storage, and similar short-term operations. They are also very specific to the particular architecture and usage.
+
+## Implementing Memory in Hardware
+
+- [Four Bit Register]:
+	![[Pasted image 20250306134711.png]]![[Pasted image 20250306134751.png]]
+- [Shift Register]: We can use a shift register as a serial-in parallel-out (SIPO) device. A shift register uses a sequence of D flip-flops, like the simple storage register, but the output of each flip-flop is connected to the input of the next flip-flop in the sequence.
+	![[Pasted image 20250306135414.png]]
+- [Register File]: Grouped register that are used for similar operations.
+	![[Pasted image 20250306141819.png]]
+- [Read Write Memory]:
+	![[Pasted image 20250306141912.png]]
+- [Static Random Access Memory]: Uses flip-flops to store bits. SRAM is fast, but expensive. It is called static because it maintains its values so long as power is maintained, it is called random because it takes the same amount of time to access any random byte in the memory. SRAM is used for cache memory. 
+	![[Pasted image 20250306142138.png]]![[Pasted image 20250306142152.png]]
+- [Dynamic Random-Access Memory]: Uses capacitors to store bits. DRAM is slow, but has a much lower cost. A bit in DRAM is commonly implemented by a charging a capacitor to one of two voltages.
+	![[Pasted image 20250306142317.png]]
+	- When the Row Select line is set to 1, all the transistors in that row are turned on, thus connecting the respective capacitor to the Sense Amplifier/Latch. The value stored in the capacitor, high voltage or low voltage, is amplified and stored in the latch. There, it’s available to be read. Since this action tends to discharge the capacitors, they must be refreshed from the values stored in the latch. Separate circuitry is provided to do the refresh. 
+		
+	- When data is to be stored in DRAM, the new bit value, 0 or 1, is first stored in the latch. Then Row Select is set to 1, and the Sense Amplifier/Latch circuitry applies the voltage corresponding to the logical 0 or 1 to the capacitor. The capacitor is either charged or discharged appropriately.
