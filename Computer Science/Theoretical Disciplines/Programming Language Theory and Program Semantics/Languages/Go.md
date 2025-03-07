@@ -605,3 +605,94 @@ High level General Purpose Language
 	- [Dependency injection]: Is the concept that your code should explicitly specify the functionality it needs to perform its task.
 	
 - Go is Practical.
+
+## Generics
+
+- Generics Reduce Repetitive Code and Increase Type Safety
+	
+- [Introducing Generics in Go]: 
+	```
+	type Stack[T any] struct {
+		vals []T
+	}
+	func (s *Stack[T]) Push(val T) {
+		s.vals = append(s.vals, val)
+	}
+	func (s *Stack[T]) Pop() (T, bool) {
+		if len(s.vals) == 0 {
+			var zero T
+			return zero, false
+		}
+		top := s.vals[len(s.vals)-1]
+		s.vals = s.vals[:len(s.vals)-1]
+		return top, true
+	}
+	```
+	- First, you have `[T any]` after the type declaration. Type parameter information is placed within brackets and has two parts. The first part is the type parameter name. You can pick any name for the type parameter, but using capital letters is customary. The second part is the type constraint, which uses a Go interface to specify which types are valid. If any type is usable, this is specified with the universe block identifier any. Inside the Stack declaration, you declare vals to be of type `[]T`.
+		
+	- Next, look at the method declarations. Just as you used T in your vals declaration, you do the same here. You also refer to the type in the receiver section with `Stack[T]` instead of Stack.
+		
+	- The only difference is that when you declare your variable, you include the type that you want to use with your Stack.
+	
+- [Generic Functions Abstract Algorithms]: Reduces complexity, making it easy to write map, reduce, and filter implementations that work for all types.
+	
+- [Generics and Interfaces]: You can use an interface as a type constraint. You can also create interfaces that have type parameters.
+	```
+	type Pair[T fmt.Stringer] struct {
+		Val1 T
+		Val2 T
+		}
+	```
+	
+- [Use Types Terms to Specify Operators]: Go generics do that with a *type element*, which is composed of one or more *type terms* within an interface:
+	```
+	type Integer interface {
+		int | int8 | int16 | int32 | int64 |
+			uint | uint8 | uint16 | uint32 | uint64 | uintptr
+	}
+	```
+	- [Type Element]: Specify which types can be assigned to a type parameter and which operators are supported. They list concrete types separated by `|`. The allowed operators are the ones that are valid for all of the listed types. The modulus (%) operator is valid for integers, so we list all integer types. 
+		
+	- Be aware that interfaces with type elements are valid only as type constraints. It is a compile-time error to use them as the type foe a variable, field, return value, or parameter.
+		
+	- if you want a type term to be valid for any type that has the type term as its underlying type, put a `~` before the type term.
+		```
+		type Ordered interface {
+			~int | ~int8 | ~int16 | ~int32 | ~int64 |
+				~uint | ~uint8 | ~uint16 | ~uint32 | ~uint64 | ~uintptr 
+		}
+		```
+	- The addition of type terms allow you to define a type that lets you write generic comparison functions:
+		 ```
+		type Ordered interface {
+			~int | ~int8 | ~int16 | ~int32 | ~int64 |
+				~uint | ~uint8 | ~uint16 | ~uint32 | ~uint64 | ~uintptr |
+				~float32 | ~float64 |
+				~string
+		}
+		```
+	- The Ordered interface lists all types that support the `==,<,>,~=,<=,>=` operators, which was defined in the *cmp package*. 
+		
+	- The *cmp package* also defines two comparison functions. The *Compare* function either return -1, 0, 1, depending on whether its first parameter is less than, equal to, or greater than its second parameters, and the *Less* function returns true if its first parameter is less than its second parameter. 
+		
+	- It is legal to have both type elements and method elements in an interface used for a type parameter. But beware of the `~` because without it, it would become a invalid type.
+		```
+		type PrintableInt interface {
+			~int
+			String() string
+		}
+		```
+	
+- [Type Inference and Generics]: Just as go support types inference when using the := operator, it also support type inference to simplify calls to generic functions. But type parameter that is used only as a return value won't work.
+	
+- [Type Elements Limit Constant]: Type element also specify which constant can be assigned to variables of the generic type. Like operators, the constants need to be valid for all the type terms in the type element. There are no constant listed in Ordered, so you cannot assign a constant to a variable of that generic type.
+	
+- [More on Comparable]: Interfaces are some of the comparable types in Go. This means that you need to be careful when using == and != with variable of the interface type. If the underlying type of the interface is not comparable, your code will panic at runtime. This pothole still exists when using the comparable interface with generics
+	
+- [Things That Are Left Out]: 
+	
+	- [Specialization]: A function or method can be overloaded with one or more type-specific versions in addition to the generic version. Since Go doesn’t have overloading, this feature is not under consideration.
+		
+	- [Currying]: Allows you to partially instantiate a function or type based on another generic function or type by specifying some of the type parameters.
+		
+	- [Metaprogramming]: Allow you to specify code that runs at compile time to produce code that runs at runtime.
