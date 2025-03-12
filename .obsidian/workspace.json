@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Go.md",
+                "file": "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/SQL.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Go"
+              "title": "SQL"
             }
           }
         ]
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "e5d9271595e93348",
@@ -166,19 +165,24 @@
   },
   "active": "ce24b7426c9783b0",
   "lastOpenFiles": [
+    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Go.md",
+    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/SQL.md",
+    "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
+    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/HTML.md",
+    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Languages.md",
+    "assets/imgs/Pasted image 20250311192949.png",
+    "assets/imgs/Pasted image 20250311190857.png",
+    "assets/imgs/Pasted image 20250311190724.png",
+    "assets/imgs/Pasted image 20250311185319.png",
+    "assets/imgs/Pasted image 20250311185016.png",
+    "assets/imgs/Pasted image 20250311180607.png",
+    "().md",
+    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/CSS.md",
     "Computer Science/Computer Systems/Microarchitecture/Microarchitecture.md",
     "assets/imgs/Pasted image 20250306142317.png",
     "assets/imgs/Pasted image 20250306142152.png",
     "assets/imgs/Pasted image 20250306142138.png",
     "assets/imgs/Pasted image 20250306141912.png",
-    "assets/imgs/Pasted image 20250306141908.png",
-    "assets/imgs/Pasted image 20250306141819.png",
-    "assets/imgs/Pasted image 20250306135414.png",
-    "assets/imgs/Pasted image 20250306134751.png",
-    "assets/imgs/Pasted image 20250306134711.png",
-    "assets/imgs/Pasted image 20250306132333.png",
-    "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Go.md",
     "Computer Science/Computer Systems/System Software/Linux.md",
     "Computer Science/Computer Systems/System Software/Access Control.md",
     "Computer Science/Computer Systems/System Software/Shell and Scripting.md",
@@ -189,7 +193,6 @@
     "Tools.md",
     "Computer Engineering/Computer Engineering.md",
     "Computer.md",
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/SQL.md",
     "Computer Science/Applied Disciplines/Applied disciplines.md",
     "Computer Science/Theoretical Disciplines/Theoretical disciplines.md",
     "Computer Science/Applied Disciplines/Software Engineering/Tools/Git.md",
@@ -197,10 +200,6 @@
     "Welcome.md",
     "README.md",
     "Computer Science/Computer Systems/Distributed Computing/Distributed Computing.md",
-    "Computer Science/Applied Disciplines/Human - Computer Interaction/Human - Computer Interaction.md",
-    "Computer Science/Theoretical Disciplines/Very-Large-Scale Integration/Very-Large-Scale Integration.md",
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/CSS.md",
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Languages.md",
     "assets/imgs",
     "assets",
     "Untitled 1.canvas",
