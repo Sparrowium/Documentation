@@ -520,3 +520,91 @@ Also Called **Computer Organization**
 	- When the Row Select line is set to 1, all the transistors in that row are turned on, thus connecting the respective capacitor to the Sense Amplifier/Latch. The value stored in the capacitor, high voltage or low voltage, is amplified and stored in the latch. There, it’s available to be read. Since this action tends to discharge the capacitors, they must be refreshed from the values stored in the latch. Separate circuitry is provided to do the refresh. 
 		
 	- When data is to be stored in DRAM, the new bit value, 0 or 1, is first stored in the latch. Then Row Select is set to 1, and the Sense Amplifier/Latch circuitry applies the voltage corresponding to the logical 0 or 1 to the capacitor. The capacitor is either charged or discharged appropriately.
+
+<h2 style="color:#6290C3"><center> Central Processing Unit </center></h2>
+## CPU Overview
+
+- [CPU Subsystems]: The subsystems are connected through internal buses, which include the hardware pathways and the software protocols that control the communication.
+	![[Pasted image 20250313142223.png]]
+	- [Instruction Pointer]: This register always contains the memory address of the next instruction to be executed.
+		
+	- [Cache Memory]: Although it could be argued that this is not part of the CPU, most modern CPUs include very fast cache memory on the CPU chip. The CPU can execute instructions much faster than it can fetch them from main memory through the bus interface. The interface with main memory makes it more efficient to fetch several instructions at one time, storing them in cache memory where the CPU has fast access to them.
+		
+	- [Instruction Register]: This register contains the instruction currently being executed. Its bit pattern determines what the control unit is causing the CPU to do. Once that action is completed, the bit pattern in the instruction register will be changed to that of the next instruction, and the CPU will perform the operation specified by this new bit pattern.
+		
+	- [Register File]: A register file is a group of registers used in a similar ways. Most CPUs have several register files. Compilers and assemblers have names for each register. Almost all arithmetic and logic operations and data movement operations involve at least one register in a register file.
+		
+	- [Control Unit]: The bits in the instruction register are decoded in the control unit. To carry out the action specified by the instruction, the control unit generates the signals that control the other subsystems in the CPU. It's typically implemented as a finite-state machine and contains decoders, multiplexers, and other logic components.
+		
+	- [Arithmetic Logic Unit (ALU)]: Used to perform the arithmetic and logic operations you specify in your program. It is also used by the CPU when it needs to do its own arithmetic.
+		
+	- [Status Register]: Each operation performed by the ALU results in various conditions that must be recorded for possible use by the program.
+		
+	- [Bus Interface]: This is how CPU communicates with the other computer subsystems. It contains circuitry to place addresses on the address bus, read and write data on the data bus, and read and write signals on the control bus. The bus interface on many CPUs interfaces with external bus control units that in turn interface with memory and with different types of I/O buses.
+	
+- [Instruction Execution Cycle]: It does this by fetching the instructions form main memory using the three buses-address, data, and control-through the bus interface.
+	
+	- The address in the instruction pointer register, rip, always points to (has the memory address of) the next instruction in a program to be executed. The CPU works its way through a program by fetching the instruction from the memory address in the instruction pointer. When an instruction is fetched, the CPU starts to decode it. The first byte or two, depending on the instruction, tell the CPU the number of bytes in the instruction. The CPU then increments the rip register by this number, causing the rip to contain the address of the next instruction in the program. Thus, the rip marks the current location in a program.
+		
+	- There are instructions that change the address in the rip, thus causing a jump from one place in the program to another. In this case, the address of the next instruction is not known until the instruction that causes the jump is actually executed.
+		
+	- The steps to fetch each instruction from memory, and thus to execute a programs:
+		1. A sequence of instructions is stored in memory.
+		2. The memory address where the first instruction is located is copied to the instruction pointer.
+		3. The CPU sends the address in the instruction pointer to memory on the address bus.
+		4. The CPU sends a "read" signal on the control bus.
+		5. The memory responds by sending a copy of the state of the bits at that memory location on the data bus, which the CPU then copies into its instructions register.
+		6. The instruction pointer is automatically incremented to contain the address of the next instruction in memory.
+		7. The CPU executes the instruction in the instruction register.
+		8. Go back to step 3.
+		![[Pasted image 20250313144352.png]]
+	- Most instructions in a program use at least on register in at least one of the register files. A program typically loads data from memory into a register, operates on the data, and stores the result in memory. Registers are also used to hold addresses of items that are stored in memory, thus serving as pointers to data or other addresses.
+
+## x86_64 Register
+
+![[Pasted image 20250313144722.png]]![[Pasted image 20250313144733.png]]
+- [General Purpose Register]: Deal with the integral data types and memory addresses. Each bit in the register is numbered from right to left, beginning with 0. So, the rightmost bit is number 0, the next one to the left is 1, and so on. Since there are 64 bits in each general purpose register, the leftmost bit is 63.
+	
+	- Each instruction in a computer treats a group of bits as a single unit, often called as *word*.
+		1. Quadword: 64 bits (63-0)
+		2. DoubleWord: The low-order 32 bits (31-0)
+		3. Word: The low-order 16 bits (15-0)
+		4. Byte: The low-order 8 bits (7-0), and in for register bit (15-8)
+		![[Pasted image 20250313145907.png]]
+	- Several instructions work only with specific general purpose registers.
+	
+- [Status Register]: Indicates a side effects of many instructions.
+	![[Pasted image 20250313150653.png]]
+
+## C/C++ Integral Data Types and Register Sizes
+
+- [Data Type]: Specifies the possible values for the data types, the bit patterns used to represent those values, operations that can be performed on the data, and the data's semantic usage in the program.
+	
+- Some programming languages like C, C++, and Java require the programmer to explicitly state the data types of values used in the program. Other languages like Python, BASIC, and JavaScript can determine a data type from the way the value is used. CPU manufacturers specify machine-level data types specific to the CPU architecture, often including specialized data types that are unique to the design.
+	
+- The C and C++ language specifications provide ranges for values that can be stored in a variable of each data type. For example, an int must be able to store a value in the range –32,767 to + 32,767; thus, it must be at least 16 bits in size. An unsigned int must be at least 0 to 65,525, so it also must be at least 16 bits. Compiler designers are free to exceed the minimums specified in the language specifications.
+	![[Pasted image 20250313151307.png]]
+- A value can usually be represented with more than one data type.
+
+## Using gdb to View the CPU Registers
+- Using gdb to view the contents of the CPU register:
+	![[Pasted image 20250313151722.png]]
+	1. Using the register storage class modifier to request that the compiler use a CPU register for the feet and inchesRem variables.
+	2. No register storage class modifier was used.
+	3. The inches variable must be placed in a memory since scanf needs a pointer to the location of the inches to store the value read from the keyboard.
+	
+- When you hit a breakpoints in a program that has been running, here are some additional commands that you might find useful for moving through the program under your control and viewing information about the program
+	
+	- [n (next)]: Executes the current source code statement; if it’s a call to a function, the entire function is executed.
+		
+	- [s (step)]: Executes the current source code statement; if it’s a call to a function, step into the function, arriving at the first instruction of the called function.
+		
+	- [si (step instruction)]: Executes the current machine instruction; if it’s a call to a function, step into the function.
+		
+	- [i r (info register)]: Displays the contents of the registers, except the floating-point and vector registers.
+	
+- Using gdb to control the execution of the program and observe the register contents:
+	![[Pasted image 20250313152949.png]]
+	1. Compile the program
+	2. Load it with gdb, and then list the source code to see where to set the breakpoint.
+	3. Using the `ENTER` key repeats the previous command.

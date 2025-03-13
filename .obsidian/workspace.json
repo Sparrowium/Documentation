@@ -11,30 +11,17 @@
             "id": "ce24b7426c9783b0",
             "type": "leaf",
             "state": {
-              "type": "image",
-              "state": {
-                "file": "assets/imgs/Pasted image 20250312212007.png"
-              },
-              "icon": "lucide-image",
-              "title": "Pasted image 20250312212007"
-            }
-          },
-          {
-            "id": "dc49cd40448cce12",
-            "type": "leaf",
-            "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Networking/Computer Networking.md",
+                "file": "Computer Science/Computer Systems/Microarchitecture/Microarchitecture.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Computer Networking"
+              "title": "Microarchitecture"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -178,29 +165,29 @@
   },
   "active": "94c6bde8c47967b6",
   "lastOpenFiles": [
-    "assets/imgs/Pasted image 20250312221836.png",
-    "assets/imgs/Pasted image 20250312221834.png",
-    "assets/imgs/Pasted image 20250312215841.png",
-    "assets/imgs/Pasted image 20250312215118.png",
-    "assets/imgs/Pasted image 20250312215042.png",
-    "assets/imgs/Pasted image 20250312215012.png",
-    "assets/imgs/Pasted image 20250312214749.png",
-    "assets/imgs/Pasted image 20250312213102.png",
-    "assets/imgs/Pasted image 20250312212759.png",
-    "Pasted image 20250312211915.png",
-    "assets/imgs/Pasted image 20250312212007.png",
-    "Computer Networking/Computer Networking.md",
-    "Computer Networking",
+    "assets/imgs/Pasted image 20250313152949.png",
+    "assets/imgs/Pasted image 20250313151722.png",
+    "Pasted image 20250313151530.png",
+    "assets/imgs/Pasted image 20250313142223.png",
+    "Computer Science/Computer Systems/Microarchitecture/Microarchitecture.md",
+    "assets/imgs/Pasted image 20250313151307.png",
+    "assets/imgs/Pasted image 20250313150653.png",
+    "assets/imgs/Pasted image 20250313145907.png",
+    "assets/imgs/Pasted image 20250313144733.png",
+    "assets/imgs/Pasted image 20250313144722.png",
+    "assets/imgs/Pasted image 20250313144352.png",
     "Computer Science/Computer Systems/Computer Networks/Computer Networks.md",
+    "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
+    "Computer Networking/Computer Networking.md",
+    "assets/imgs/Pasted image 20250312212007.png",
+    "Computer Networking",
     "Welcome.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/SQL.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Go.md",
-    "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/HTML.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Languages.md",
     "().md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/CSS.md",
-    "Computer Science/Computer Systems/Microarchitecture/Microarchitecture.md",
     "Computer Science/Computer Systems/System Software/Linux.md",
     "Computer Science/Computer Systems/System Software/Access Control.md",
     "Computer Science/Computer Systems/System Software/Shell and Scripting.md",
