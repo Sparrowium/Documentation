@@ -663,3 +663,91 @@
 - It effectively doubles the number of apparent cores over the number of physical cores in a device, which is why you often see your computer report having twice the number of cores that were advertised on the hardware you bought.
 	
 - Hyperthreading has the advantage over pipelining that you no longer have to worry about hazards because the two cores can operate completely independently of one other. On the other hand, it doesn’t increase the speed of any one program. It also requires additional digital logic to read, store, and write the states of the two virtual CPUs at the right times, and duplication of some hardware components, so that one doesn’t affect the other.
+
+## Input/Output
+
+### Basic I/O Concepts
+
+- [I/O Modules]: Are digital electronics that are assigned and connected to addresses in the computer's *address space*, the range of possible addresses that the CPU can access.
+	
+- [Devices]: Are electronic systems, including digital and analog electronics, that aren't connected directly to the computer's address space but that can communicate with it via the attached I/O modules.
+	
+- [Peripherals]: Are the most obvious elements of I/O for most computer users: they're physical objects that connect to the computer from outside. They're encased in their own plastic and connect to the computer's box via a wire that the end user can easily plug and unplug.
+	![[Pasted image 20250311180607.png]]
+
+### Buses
+
+- [Bus Architecture]: A specific type of network architecture in which every device involved in communication has equal access to a shared wire or set of wires, called bus.
+	
+- There's no privacy in bus architecture, which may have interesting security implications if untrusted devices are allowed to access it.
+	
+- A bus is the simplest form of network, lacking the complexity of the internet's access, error handling, and routing.
+	
+- A bus is composed of several nodes (thing that want to talk to each other) and communication lines (wires) between them. Modern buses usually have many lines in parallel, though there are also buses with only one.
+	
+- A protocol is needed to ensure that signals don't collide with the signals being sent by other nodes, so for a node to send a message to another it must first announce whom the message is for-the address, on the address lines- and announce what type of message is it-the control, on the control line.
+	
+- [Bus Lines]: 
+	
+	- [Address Lines]: These are used to designate the source or destination of data on the data bus. The width of the address bus determines the maximum possible memory capacity.
+		
+	- [Data Lines]: These provides the path for the actual transfer of data among nodes. A key performance factor is the width of the data bus. A typical data bus consists of 32, 64, 128, or even more separate lines. To send messages that are longer than the data line width, you need to split them up and send them over several cycles.
+		
+	- [Control Lines]: These are used to control access to and use of the data and address lines.
+	
+- [The CPU-Bus Interface]: Most CPUs are designed to connect to an external bus, printed onto the mainboard, via pins on the CPU chip connecting to sockets on the mainboard. Where the bus wires physically connect to the CPU, the connection is known as the front side bus (FSB). The vast majority of a CPU’s pins are taken up by the FSB.
+	![[Pasted image 20250311185016.png]]
+	- The CPU needs to communicate with the bus, but the bus is usually slower than the CPU. Hence, CPU designers prefer to use registers to stage data going in and out of the CPU. The bus is a scarce resource, so we don’t want to use it for any longer than needed; if data is staged, it can be put on and off the bus at whatever time the bus becomes available.
+		
+	- Typically, these staging mechanisms include a *memory address register (MAR)*, which stores the address from which we want to read or write, and a *memory buffer register (MBR)*, which stores a copy of the data being written to or read from that address.
+	![[Pasted image 20250311185319.png]]
+	- To execute a load instruction, the operand containing the address to be loaded is temporarily connected from its instruction register (IR) bits to the MAR, creating a copy in the MAR. When this copy is completed, the MAR is temporarily connected to memory as a read request, and the data from memory is temporarily connected to the MBR, which takes a copy of this data. Then the control unit (CU) can temporarily connect the MBR to the accumulator or other user register.
+
+### I/O Modules
+
+- A chip that sits on the bus and at some address, it looks just like RAM to the CPU, but it has wires coming out of the other side that go to the device. The module presents a standardized interface to the CPU, and translates requests from the CPU to specific signals on the wires to the particular device. 
+	
+- Storing to these addresses might transmit commands to the device. Loading from these addresses might read data from the device.
+	
+- [Control and Timing]: 
+	
+	- An I/O module must be able to coordinate the flow of data between the internal resources and external devices. The latter may be slow, so the module manages them independently of the CPU. This allows the CPU to go and do other things while it’s waiting. This is a form of non–CPU level parallelism.
+		
+	- [Buffering]: Using a dedicated area of memory, called **buffer**, as a staging area. 
+		
+		- Which enable independent management to transfer data into and out of main memory or CPU. Slow devices can take their time writing to or reading from a buffer, independently of the CPU. The fast CPU can also read or write to the same buffer, independently of the device.
+		
+	- [Ring Buffers]: Are used in audio and similar real-time signal processing I/Os. Conceptually, a ring buffer is a region of data in which the data items are organized in a circle, each with a previous and next neighbor. 
+		![[Pasted image 20250311190724.png]]
+		- Two pointers—which can be visualized as clock hands—keep track of the read point and the write point. As new data arrives in real time, it’s written to the write point, which is then incremented to point to the next slot. Eventually the write pointer makes it all the way around the ring, at which point it starts overwriting old data. The user program can request to read the next available items at any time. When this happens, the data at the read pointer is copied out and the read pointer is incremented until the number of items requested is met or the read pointer hits the write pointer, meaning there’s no further new data available.
+		
+	- [Double Buffers]: Often used for graphics rendering.
+		![[Pasted image 20250311190857.png]]
+		- At any instant, one buffer stores a completely rendered image and is connected (shown by the thick black outlines in the figure) to the graphics display hardware, which works to physically display it. Meanwhile, the other buffer is used to gradually build up the next image to be displayed. Only when the new buffer is finished is the output line swapped over to connect it to the display; then the original buffer is cleared and used to start drawing the third image in the sequence.
+		
+	- [Error Detection]: Error is reported to I/O modules, then passed on to the CPU.
+
+### I/O Module Technique
+
+- [Polling]: The CPU requests an action by the I/O module over the bus. The I/O module starts to perform the requested action, setting appropriates bits in an internal I/O modules status registers as it goes. The CPU then periodically checks the status of the I/O module by reading this status register until it finds that the action is complete. 
+	
+	- Advantages of polling are that it’s simple to implement and the CPU has direct control over I/O operation, requiring very little hardware support. The disadvantage—as in the human boss case—is that the CPU must periodically poll the module to check its status. This ties up the CPU, creating long periods where it does no useful work.
+	
+- [Interrupts]: In interrupt architecture, the CPU is extended to enables the programmer to tell it the address of a special subroutine called a handler. The CPU is also extended by adding an extra dedicated physical pin called an *interrupt request (IRQ)* input, along with adding digital logic to the CU to make use of the pin. A high voltage on the IRQ tells the CU to alter the program flow by immediately calling the handler subroutine.
+	
+	- To use an interrupt architecture, the IRQ pin must be connected to a dedicated output from the I/O module. The programmer creates a handler subroutine intended to be executed once the I/O work is done, and tells the CPU its address. The programmer then writes a main program that instructs the I/O module to do actions. When an action command is sent to the I/O module, the CPU forgets all about it and continues executing the main pro- gram. The I/O module makes its device do its thing, which can take some time. When the device is done, the I/O module interrupts the CPU by setting the IRQ line to high. This calls the handler subroutine, which makes use of the new data from the device or tells it what to do next.
+		
+	- An advantage of interrupts is that they’re fast and efficient, with no need for the CPU to wait or to have to manage polling requests. A disadvantage of interrupts is that they can be tricky to write, especially when multiple I/O modules are in play, all sending interrupt signals at the same time. A *re-entrant architecture* allows interrupt-handling subroutines to be themselves interrupted by higher-priority IRQs, while a *non-re-entrant architecture* might ignore or delay these meta-interrupts.
+	
+- [Direct Memory Access]: DMA requires a dedicated hardware DMA controller to be placed on the system bus, since bus allow non-CPU nodes to communicate directly with one another, independently of the CPU. Any node can put a message to any other node on the bus, this is done in DMA: the CPU grants authority for the I/O module to communicate directly with RAM over the bus, reading from or writing to memory without any CPU involvement. 
+	
+	- This frees up the CPU and DMA usually sends an interrupt when a task is complete, so the CPU is involved only at the beginning and the end of the transfer.
+
+### I/O Without Modules
+
+- [CPU I/O Pins]: I/O modules are implemented as *pins* that is connected directly to the CPU. Reduce complexity allows the bus for other activities, comes at a cost of spaces.
+	
+- [Memory Mapping]: Map address directly onto the RAM, as it can be readable and writable, cost of confusion.
+	
+- [Bus Hierarchies]: Multiple layers or buses, improves usability.
+	![[Pasted image 20250311192949.png]]

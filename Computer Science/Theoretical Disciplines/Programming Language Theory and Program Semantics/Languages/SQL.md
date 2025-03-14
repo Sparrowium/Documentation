@@ -62,14 +62,74 @@ Structured Query Language
 	- Some database vendors have toolkit/API to integrate SQL into programming languages.
 		![[Pasted image 20250212203351.png]]
 
-### What is MySQL?
+### What is PostgreSQL?
 
-- A relational database.
+- An Object-Relational database management system (ORDBMS).
+	
+- An open source that support a large part of the SQL standard and offers many modern features.
+	`complex queries`
+	`foreign keys`
+	`triggers`
+	`updatable views`
+	`transactional integrity`
+	`multiversion concurrency control`
+	
+- It can also extended by user in many ways, for example by adding new
+	`data types`
+	`functions`
+	`operators`
+	`aggregate functions`
+	`index methods`
+	`procedural languages`
 
-### SQL Unplugged
+### Third Party GUI for SQL
 
-- Using third party tools instead of SQL to increase performance, and cross database server/service manipulation.
+- [pgAdmin 4](https://www.pgadmin.org/docs/pgadmin4/9.1/index.html): A Open Source management tool for PostgreSQL. 
+
+<h2 style="color:#6290C3"><center> Getting Started </center></h2>
+## Installation 
+
+- Refer to PostgreSQL Guidelines for [Installation](https://www.postgresql.org/docs/16/installation.html). Or follow the OS/Distros Guidelines for Installation, which in this documentation uses [Fedora Workstation](https://docs.fedoraproject.org/en-US/quick-docs/postgresql/).
+
+## Architecture Fundamentals
+
+- In database jargon, PostgreSQL uses a client/server model. A PostgreSQL session consists of the following cooperating processes:
+	
+	- [Server Process]: Manages the database files, accepts connections to the database from the client applications, and performs database actions on behalf of the clients. The database server program is called `postgres`.
+		
+	- [User's Client Application]: A front end application that wants to perform database operations. Client applications can be very diverse in nature: a client could be a text-oriented tool, a graphical application, a web server that accesses the database to display the web pages, or a specialized database maintenance tool. Some client applications are supplied with the PostgreSQL distributions.
+	
+- As is typical of client/server applications, the client and the server can be on different hosts. In that case they communicate over a TCP/IP network connection, therefore not all files can be accessed.
+	
+- The PostgreSQL server can handle multiple concurrent connections from clients. To achieve this it starts (“forks”) a new process for each connection. From that point on, the client and the new server process communicate without intervention by the original `postgres` process. Thus, the supervisor server process is always running, waiting for client connections, whereas client and associated server processes come and go.
 
 ## Creating and Populating a Database
 
-- [Creating a PostgreSQL Database]:  
+- To create a database type: `createdb {name}`.
+	
+- To remove a database type: `dropdb {name}`.
+	
+- Once you have created a database you can access it by:
+	
+	- Running the PostgreSQL interactive terminal program, called `psql`, which allows you to interactively enter, edit, and execute SQL commands.
+		
+	- Using an existing graphical frontend tool like pgAdmin or an office suite with ODBC (Microsoft Open Database Connectivity) or JDBC (Java Database Connectivity) support to create and manipulate a database.
+		
+	- Writing a custom application, using one of the several available language bindings.
+	
+- To start up `psql` type: `psql mydb`. You will be greeted with:
+	```
+	psql (16.8)
+	Type "help" for help.
+	
+	mydb=>
+	```
+	another instance would be in SuperUser mode `sudo`.
+	```
+	mydb=#
+	```
+	The last line printed out by `psql` is the prompt, and it indicates that `psql` is listening to you and that you can type SQL queries into a work space maintained by `psql`.
+	
+- In `psql` program there are internals commands that are not SQL commands. To list them type: `\h`.
+	
+- To quit `psql` type: `\q`.
