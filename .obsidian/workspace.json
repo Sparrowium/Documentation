@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Science/Computer Systems/Computer Networks/Computer Networks.md",
+                "file": "Computer Networking/Computer Networking.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Computer Networks"
+              "title": "Computer Networking"
             }
           }
         ]
@@ -163,8 +163,9 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "94c6bde8c47967b6",
+  "active": "ce24b7426c9783b0",
   "lastOpenFiles": [
+    "Computer Science/Computer Systems/Computer Networks/Computer Networks.md",
     "assets/imgs/Pasted image 20250313194630.png",
     "assets/imgs/Pasted image 20250313194214.png",
     "Computer Science/Computer Systems/System Software/System Software.md",
@@ -173,7 +174,6 @@
     "Computer Science/Computer Systems/System Software/Access Control.md",
     "Computer Science/Computer Systems/Microarchitecture/Microarchitecture.md",
     "Computer Science/Computer Systems/Computer Systems.md",
-    "Computer Science/Computer Systems/Computer Networks/Computer Networks.md",
     "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
     "Computer Science/Applied Disciplines/Software Engineering/Software Engineering.md",
     "Computer Science/Applied Disciplines/Software Engineering/Tools/Git.md",
@@ -190,7 +190,6 @@
     "assets/imgs/Pasted image 20250313150653.png",
     "assets/imgs/Pasted image 20250313145907.png",
     "assets/imgs/Pasted image 20250313144733.png",
-    "assets/imgs/Pasted image 20250313144722.png",
     "Computer Networking/Computer Networking.md",
     "Computer Networking",
     "Welcome.md",
