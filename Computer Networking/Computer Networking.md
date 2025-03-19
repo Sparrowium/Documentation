@@ -2,7 +2,6 @@
 <h2 style="color:#6290C3"><center> Getting Started with Networking </center></h2>
 
 ## How Networks Work
-### What is a Network?
 
 - A network is a conduit that connects two or more computers or other devices.
 	
@@ -92,4 +91,153 @@
 	
 - [Networking Addressing]: 
 	![[Pasted image 20250312221836.png]]
-- 
+## Building Ethernet LANs
+
+- [PC's]: Are also known as end user's devices, hosts.
+	
+- Ethernet is a set of standards that define rules for things such as Frame Format, Communication.
+	
+- [Collision Domain]: A group of devices compete for access.
+	
+- [Ethernet Component]: 
+	
+	- [Network Segments]: A group of network devices that compete with each other for access to the wire. Including the Physical Layer Characteristic, Access to Network, Frame Format.
+		
+	- [Ethernet Shared Bus]: Multiple computers connected to the same physical wire or cable.
+		
+	- [Physical Cable Segment]: The cable or wire used to connect network devices.
+		
+	- To connect end user's devices a Network Interface Controller (NIC) and Ethernet Cabling-or a wireless NIC.
+		
+	- [Network Interface Controller (NIC)]: A computer hardware component installed in a computer or printer so that it can be connected to a network. The terms NIC, Network Adapter, Network Card and LAN are used interchangeably.
+		
+	- Access to the physical wire or segment is controlled by a Media Access Control (MAC) protocol. Ethernet uses Carrier Sense Multiple Access with Collisions Detection as it MAC Protocol.
+		
+	- [CSMA/CD]: Carrier Sense Multiple Access with Collisions Detection.
+		
+	- In Ethernet LANs, the CSMA/CD protocol regulates the "conversation".
+		
+	- [Half-Duplex Communication]: The CSMA/CD protocol allows a network device to either transmit data or receive data, but not both simultaneously.
+		
+	- [Half-Duplex]: Half Duplex Data transmission provides for communication in both directions, but only one direction at a time.
+		
+	- [Full-Duplex]: Full Duplex Communication sends and receives data at the same time. 
+		
+	- When one device on a network segment is transmitting data, other devices cannot transmit data.
+		
+	- Data is encapsulated by the NIC into an Ethernet Frame. Additionally, the Term 802.3 is also Ethernet Frame II but includes a Logical Link Control Portion which allows Layer 3 protocols other than IP access to the wire.
+		![[Pasted image 20250318152722.png]]
+	- The Ethernet Frame contains the Destination of the Device receiving the data as well as the source of the Layer 2 Address of the device sending the data. Each NIC has a unique Layer 2 address that is assigned by its manufacturer. The manufacturer burns this address into a PROM chip on the NIC, then the NIC uses this address as the source address in a frame. For the destination address, it uses the address that is burned into the NIC on the receiving device. 
+		Ex: Hardware Address, Physical Address, MAC Address.
+		
+		- [Destination Layer 2 Address]: The MAC address of the receiving device.
+			
+		- [Source Layer 2 Address]: The MAC address of the sending device.
+			
+		- [Type]: Identify which Layer 3 protocol is being transported in the Ethernet frame. In an 802.3 frame, it indicates the length of the frame.
+			
+		- [Checksum]: Includes a CRC which is a method of checking errors in data that has been transmitted on a communication link.
+		
+	- [MAC]: A 48-bit (6 byte) address that uniquely identifies a device's NIC. Ex: 00:90:69:9f:ea:46. Bytes in MAC address can be displayed via `:`, `-`, and `.` . The first 3 byte identifies the manufacturer Organizational Unique Identifier (OUI), the 00:90:69 is Juniper Network OUI. The last 3 byte identifies the Unique NIC.
+		
+		- When a device is sends data to one other device it uses an individual or unicast address.
+			
+		- [Broadcast Destination MAC Address]: An address that allows a device to send the same data to every device on the network.
+			
+		- [Group Address / Multicast MAC Address]: An address that allows a device to send data to a group of devices on the same network. It always has the first bit of the first byte set to 1.
+		
+	- When the NIC is ready it adds the destination and source MAC address and send it into the segment. Every devices on the segments receive the frame and processes it. If it doesn't match the address, the frame is be discarded by the device NIC. The device that match, the NIC will run the CRC to check the data then examines the type frame to determine the upper Layer protocol. Then it strips off the Ethernet frame and forward the data to the appropriate upper layer protocol.
+	
+- [Repeater]: A physical layer device that connects 2 or more separate physical cable segments together. It is a simple hardware that regenerates electrical signals, sending all frames from one physical cable segment to another.
+	Maximum Cable Length for Ethernet Media: ![[Pasted image 20250318155533.png]]
+- [The 5-4-3 Rule]: Means that there can only be a total of 5 cable segments connected through 4 repeaters and only 3 of the 5 segments can contain end-user devices. The other 2 segments or link segments are used to connect the repeaters.
+	![[Pasted image 20250318170550.png]]![[Pasted image 20250318170559.png]]![[Pasted image 20250318170612.png]]![[Pasted image 20250318170622.png]]![[Pasted image 20250318170630.png]]![[Pasted image 20250318170638.png]]
+- [Cabling]: Coaxial Cabling, Twisted Pair Cabling based on 10BASE-T standard.
+	10BASE-T: 10 mbps transmission speed, Basedband (only Ethernet signaling is carried on the wires), Twisted Pair of unshielded, but insulated.
+	
+- [Hub]: Shared Bus with Repeater to Star Configuration with Hub to prevent daisy chain cable segment failures. A hub takes a signal from a device and repeats it to all other device. It is simply a junction that join all the different devices together. Operates at Level 1.
+	
+- [Bridge]: Connects two or more physical cable segments to create one larger network, each side of the bridge becomes a separate collision domain or network segment. A bridge can be used to break up network into separate domain collision, this is called network segmentation.
+	![[Pasted image 20250318201532.png]]
+	- A Bridge operates at Level 2, Data Link Layer. Ethernet bridges have three basic functions: Forwarding Lanes, Learning MAC Addresses, Controlling Traffic. A bridge uses a MAC Address Table, like a database, to limit and control traffic on a network
+		
+	- When a bridge receives a frame with a destination MAC Address in its MAC address table, it can foward or drop it selectively, reducing overall network traffic.
+		
+	- Bridges never change the destination or sort MAC address. They just simply look at the destination MAC address to make their decisions.
+		
+	- Network Loop can form if Destination MAC Address is unknown. Same case applied for broadcast address and multicast address, the bridge must foward it to every port and might result in a broadcast storm which might block all other traffic and put the network into a hold/stand-still. To prevent this a Spanning Tree Protocol (STP) is used.
+	
+- [Network Speed]: The data transfer rate or bit rate. The amount of data that can be transferred from one point to another in a given time period, usually one second. It is expressed in bits of data per second, which is abbreviated bps or bits/s (not Bps). It is also the maximum capacity of a network connection.
+	![[Pasted image 20250318195627.png]]![[Pasted image 20250318195940.png]]
+- [Network Throughput]: The actual amount of data that can be sent over a network in a given period of time. This is due to network congestion.
+	
+- [Twisted Pair Cable]: Consist of Voice, Ethernet Receive, Auxiliary, Ethernet Transmit, which are connected to the pin of an RJ-45M (Male).
+	![[Pasted image 20250318200526.png]]
+- [Straight-through Ethernet Cable]: Connects an end-user device to a network device. When the end-user device sends data on its transmit pair of wires, the network device receives the data on its receive pins.
+	![[Pasted image 20250318200818.png]]
+- [Crossover Ethernet Cable]: Connects two end-user device. The crosses wires within the cable allow the transmit wires on the sending computer to connect to the receive circuitry on the receiving computer.
+	![[Pasted image 20250318200826.png]]
+- [Switches]: Layer 2 device that help manage and control traffic, each port creates a separate collision domain, forward traffic and builds a MAC address table, can have few or hundreds of ports. Each of the port are dedicated to a single end-user device.
+	![[Pasted image 20250318201600.png]]
+	- Each collision domain has only two devices: the switch and the end-user device. This means that the end-user are no longer competing for network access. Since both sides of the connection will receive data form only a network device, packets will not get corrupted by multiple stations transmitting simultaneously.
+		
+	- Full-duplex transmission, Bandwidth is not shared, Virtual LANs are possible.
+		
+	- [VLANs]: Are a way to subdivide a LAN. A VLAN is a group of PCs, servers, and other network devices that may be connected to the same switch as other devices but behave as if they are connected to the same, smaller LAN or a completely separate switch. Devices that are in one VLAN do not receive broadcasts from devices in another VLAN.
+		![[Pasted image 20250318201814.png]]
+	- Limitations: Susceptible to network loops, might not improve performance with multicast and broadcast traffic, might not be able to interconnect geographically dispersed networks.
+	
+- [Wireless LAN Architectures]: A device with built-in radio that usually comes with 3 architecture: Autonomus, Centralized, Distributed.
+	
+	- [Autonomus WLAN]: Known as “Fat Access Point” or “Fat AP” architecture where all functionality is coded into every access point — or wireless termination point.
+		![[Pasted image 20250318202824.png]]
+	- [Centralized WLAN Architecture]: Known as a switched WLAN system. In this type of system, the access points become “Thin” or “Lightweight” and there is a central switch or access point controller that actually manages them. With a centralized (or switched) WLAN system, the access point controllers are the managed devices. This reduces the management problem by at least a factor of 10. 
+		![[Pasted image 20250318202946.png]]
+		- Switched WLAN systems are physically more secure than other architectures. The access point controller may be installed in a locked data closet or data center and the thin access points are a less likely target for theft as, without the controller, they can’t be used. 
+			
+		- In addition to this, these access points typically don’t store any configuration data or admin user credentials. The access point controller can also include a powerful network processor that can provide value added functionality, such as security and access control, VLAN management and manipulation, user roaming between access points and quality of service.
+		
+	- [Distributed WLAN]: Known as a wireless mesh. A wireless mesh can be used to create a dynamic network in environments where cabling would be impossible.
+		
+	- [802.11 Group of Standard]: Defines the variety of connection type and standards for Layer 1 and Layer 2. 
+		802.11 (Legacy): Frequency-hopping spread spectrum, or FHSS, and direct sequence spread spectrum, or DSSS, modulation were used by these standards to control interference.
+		802.11a: The new OFDM modulation technique also further reduced issues with interference and increased the stability of wireless connections.
+		802.11n: Introduced a multi-input, multi-output physical layer, which uses multiple wireless signals to greatly increase the amount of bandwidth that can be transmitted simultaneously. 
+		![[Pasted image 20250318204153.png]]
+		- The standards at Layer 2 primarily control who may use the wireless channel at any point in time. The primary access method is Carrier Sense Multiple Access/Collision avoidance, or CSMA/CA. A wireless client cannot detect collisions while it is transmitting. So it relies on receiving positive acknowledgements from the access point to confirm that data was received. 
+			![[Pasted image 20250318204549.png]]
+		- In addition to CSMA/CA, Virtual Collision Detection, and Asynchronous Data Transfers, other important specifications at this layer control security — so access control authentication and encryption— roaming between access points, power save specifications, and Quality of Service.
+		![[Pasted image 20250318204925.png]]
+		- [Frame Control]: Contains a set of flags to indicate: Type and Subtype of frame, coming from or going to the distribution system, whether there are more fragments of a frame, whether access point has more frames to send, a retry of frame or not. It also have power management, protected frames and other flags.\
+			
+			- Common Control types: 
+				1. [Data frames]: Include regular data that is being transmitted and certain types of special messages intended for the access point.![[Pasted image 20250318210411.png]]
+				2. [Control frames]: Are things like request to send, clear to send, and acknowledgement frames.![[Pasted image 20250318210426.png]]
+				3. [Management frames]: Include things like beacons sent by access points to advertise the wireless network or probes sent by a client looking for a particular wireless network.![[Pasted image 20250318210438.png]]![[Pasted image 20250318210450.png]]
+			
+		- [Duration]: Specifies a time interval during which other clients that read this signal should not transmit data.
+			
+		- [Third Access]: Either the original source MAC address or the ultimate destination MAC address of this particular frame.
+			
+		- [Sequence Control]: Contains sequence and fragment numbers to help the receiving reassemble frames and fragmented frames in the intended order.
+			
+		- [Fourth Access]: Used only in what is called a "wireless distribution system" where data is actually being replaced between the access points.
+		
+	- [Passive Scanning]: A process to find access point by listening to access beacons.
+		
+	- [Active Scanning]: Probing for a particular network. The client then sends an association management frame to the access point. The access point responds with an association ID, accepting the association, then the client is on the network. 
+		
+	- [Roaming]: Sending re-association request and awaits for new association ID.
+		
+	- [Hidden Node Problem]: This problem can occur when there are two clients on either side of an access point which are within range of the access point, but which can’t actually hear each other’s transmissions.
+		
+		- The method is resolve this was CSMA/CA. Another method available in 802.11 is Virtual Collision Detection, which requires the use of the Request to Send (RTS) and Clear to Send (CTS) control frames. Wireless networks can be configured to use this method for frames that are larger than a certain threshold.
+		
+	-  [Frame Control Settings]:
+		
+		- [The RTS threshold]: Can be used to specify a size of frame above which the Request to Send/Clear to Send mechanism must be used.
+			
+		- [Retry counters]: Specify how many times a device should try resending a frame before discarding it. A different value can be set for frames smaller or larger than the RTS threshold.
+			
+		- [The fragmentation threshold]: Specifies what size of packet should be split into fragments, and the fragment lifetime specifies how long fragments should be kept while waiting for related fragments to arrive.
+		
