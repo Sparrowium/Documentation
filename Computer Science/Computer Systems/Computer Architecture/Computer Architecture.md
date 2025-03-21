@@ -751,3 +751,147 @@
 	
 - [Bus Hierarchies]: Multiple layers or buses, improves usability.
 	![[Pasted image 20250311192949.png]]
+
+## Memory
+### The Memory Hierarchy
+
+- The arrangement of memory in a system.
+	![[Pasted image 20250320162625.png]]
+	- [Registers]: Memory inside the CPU.
+		
+	- [Cache]: Memory outside but close to the CPU, which contains fast copies of primary memory.
+		
+	- [Primary Memory]: Memory stored in an address space that is directly accessible by the CPU’s load and store instructions.
+		
+	- [Secondary Memory]: Memory not directly accessible to the CPU via its registers and address space, but that can be moved into primary memory by I/O to enable such access.
+		
+	- [Tertiary Memory]: Memory that isn’t directly connected to the address space or to I/O, but that can be mechanically connected to I/O without human intervention.
+		
+	- [Offline Memory]: Memory that can be connected only to the computer with human intervention.
+### Primary Memory
+
+- Known as *system memory*, is memory stored in an address space that's directly accessible by the CPU's load and store instructions. This includes RAM and ROM.
+	
+- IN primary memory each memory location is given a unique address. Each address stores a fixed-size array of bits called a *word*. Often, but not always, the word length is chosen to be the same as the address length.
+	
+- [Bytes And Endianess]: 
+	
+	- [Byte]: Means 8-bit.
+		
+	- [Byte Addressing]: Addressing memory per byte.
+		
+	- [Endianess]: The order in which the these bytes should be stored in memory addresses.
+		
+	- [Big Endians]: The most significant byte of a multi-byte data is stored at the lowest memory address.
+		
+	- [Little Endians]: The least significant byte of a multi-byte data value is stored at the lowest memory address
+	
+- [Memory Modules]: A printed circuit board on which memory integrated circuits are mounted via bus. All bus modules—including memory and I/O modules—are usually manufactured to respond to some default address space, such as starting at address 0.
+	
+	- [Memory Controllers]: A device that listen to the bus for global addresses and route them to the appropriate module, converting to the module's own local address. This is because when they’re mounted onto a bus, these addresses need to be remapped to be unique when compared to the other modules.
+		
+- [Random-Access Memory (RAM)]: Random access means that any random location in memory can be chosen and accessed quickly, without some regions being faster to access than others. By modern convention, RAM refers to memory that’s not only random access but also both readable and writable, as well as volatile, meaning its data is lost when the machine is powered off.
+		
+	- [Static RAM]: RAM that are made out of flip-flops, that are fast and expensive. They have stable memory states, meaning they don’t have to be actively refreshed. They’re available for reading almost immediately after being written to. What sets SRAM apart from CPU registers is that SRAM is addressed, and CPU registers aren’t.
+			![[Pasted image 20250320174210.png]]
+		
+	- [Dynamic RAM]: Cheaper and more compact than SRAM, but slower. Instead of being made from flip-flops, it’s made using cheaper and slower capacitors. One bit of DRAM storage is made from just one transistor plus one capacitor. DRAM features the same addressing system as SRAM, and its circuit diagram has the same overall structure as SRAM, based on words stored at addresses. The difference is that the words are implemented with capacitors instead of flip-flops.
+			![[Pasted image 20250320174135.png]]![[Pasted image 20250320174221.png]]
+		
+	- Single in-line memory modules (SIMMs) have a 32-bit bus width, and they were standard in 1990s PCs. Double in-line memory modules (DIMMs) replaced SIMMs in the 2000s. They have a 64-bit bus width, and each stores many gigabytes. Double data rate (DDR) DRAM doubled the speed of DRAM through technology that enables data to transfer on both the rising and falling edges of the clock. This doubles the bandwidth (as bandwidth = bus width × clock speed × data rate).
+		
+	- [Error Correction Code RAM (ECC-RAM)]: Has extra chip on the DIMM that store extra copies or checksums of the data and use them to automatically correct such flips at the hardware level.
+	
+- [Read Only Memory (ROM)]: Traditionally refers to memory chips that can only be read from, not written to, and hat are pre-programmed with permanent collections of subroutines by their manufacturer. then mounted at fixed addresses in primary memory.
+		
+	- ROMs nowadays have evolved to allow increasing ease of rewriting, with programs stored in ROM that are able to be rewritten in some way now known as *firmware*.
+			![[Pasted image 20250320174805.png]]
+		
+	- [Masked ROM (MROM)]: Is ROM whose contents are programmed using photo-lithography by the manufacturer. It remains read-only forever and can't be overwritten.
+		
+	- [Programmable ROM (PROM)]: Manufactured to include a generic circuit with many fuses. The programmer can then selectively blow the fuses to create different structures. While PLAs enable arbitrary digital logic networks to be burned in this way, PROMs instead contain a fixed structure of addresses and words, and allow only the bits composing the words to be burned, to make a ROM. Usually each bit contains 1 when its fuse is intact and changes to 0 if its fuse is blown. Like PLAs, PROMs can never be erased once they’re programmed.
+		
+	- [Erasable Programmable ROM (EPROM)]: Like PROM, but the chip’s data can be erased using ultraviolet light. Then new data can be burned on. This cycle can be repeated many times.
+		
+	- [Electrically Erasable Programmable ROM (EEPROM)]: like EPROM in that you can wipe the entire chip and rewrite it, but here you only need to use electricity to erase and reprogram. This removes the need to physically manipulate the ROM; it can remain inside the computer. EEPROM is used today in ROMs that allow their firmware to be upgraded.
+		
+	- [Flash Memory]: is EEPROM that can be erased and rewritten block-wise, meaning you can selectively wipe and rewrite just one small part, or block, of the memory at a time. This way you can leave most of the ROM intact, unlike with regular EEPROM, where you have to wipe and rewrite an entire chip of ROM at a time, as in a firmware update.
+### Caches
+
+- An extra layer in the memory pyramid between the fast registers of the CPU and the slower RAM. It stores copies of the most heavily used memory contents, making them available for quick retrieval. Without a cache, RAM would connect straight to the CPU, either directly or using a bus with control (C), address (A), and data (D) lines.
+	![[Pasted image 20250320180533.png]]
+- The problem with this kind of cacheless architecture is that most programs need to access RAM frequently, but the capacitors that implement DRAM are slower than the flip-flops that implement the CPU’s registers. RAM thus becomes a major bottleneck for system speed. Adding an SRAM-based cache made from flip-flops between the CPU and RAM helps avoid these bottlenecks.
+	![[Pasted image 20250320182419.png]]
+- When the CPU needs to load some data, the cache checks if it has it, and returns it quickly if so. If not, the cache refers to the next memory level down (in Figure 10-8, RAM) and fetches the data from that level. Caching can also occur at all levels of the memory hierarchy, from registers to hard disks and jukeboxes. Initial designs began with a single cache, made from SRAM. More recent machines have made use of Moore’s law for transistor density to fill silicon with larger caches and more levels of cache. It’s common today to have at least three cache levels, called L1, L2, and L3. 
+	![[Pasted image 20250320182600.png]]
+- [Cache Concepts]: Caches are based on the principle of locality, which states that only a small amount of memory space is being accessed at any given time, and values in that space are being accessed repeatedly. It’s therefore useful to copy recently accessed values and their neighbors from larger, slower memory to smaller, faster memory.
+	
+	- [Temporal Locality]: Is the property that values tend to be accessed repeatedly at nearby times. 
+		
+	- [Sequential Locality]: Is the property that some sequences tend to be re-accessed in the same order multiple times.
+		
+	- [Spatial Locality]: Is the property that values nearby in memory tend to be accessed together. 
+		
+	- Cache memory is made of many cache lines. Each line contains a block with copies of several contiguous words from memory, as well as a tag, an address or other identifier describing which memory location has been copied into the block. Each line also has a dirty bit that tracks whether the CPU has changed the value in the cache, making it different from the equivalent value in memory.
+		![[Pasted image 20250320183404.png]]
+	- Each cache line shown in the table has a block of three 8-bit words, a tag consisting of the full address from a 16-bit address space, and a dirty bit. The 1 dirty bit for the first line indicates it’s been updated, while the 0 dirty bit for the second line indicates it hasn’t.
+		
+	- We don’t cache individual addresses, but rather lines because it’s very cheap to move around larger chunks of memory rather than individual words. By bringing in whole lines around a target word, we exploit spatial locality—data and programs in neighboring locations are likely to be used next. The line prepares for this.
+		
+	- Some cache systems use “hash functions” to choose a location in the cache for storing a piece of data, usually based on the data’s address in lower-level memory. A **hash function** is a many-to-one function that maps a big input number to a smaller output number, the hash value. It’s not usually possible to recover the original value from the hash value.
+		
+	- Finding an item in a cache is known as a **hit**. Not finding an item in a cache is known as a **miss**. When a miss occurs, we have to go back to the underlying memory and find the item there instead, usually making a new copy in the cache for future use. The **hit rate** is the ratio of hits to attempts (hits and misses together). This measures the proportion of cache lookups that are successful. The **miss rate** is the ratio of misses to attempts. This measures the proportion of cache lookups that are unsuccessful. The **hit time** is the time required to access requested data if a hit has occurred, and the **miss penalty** is the time required to process a miss.
+		
+	- A cache has only a limited number of lines, and they quickly fill up as we store cached copies of everything that we access from the underlying memory. Once the cache is full, we’ll continue to request new addresses. These will initially miss, but temporal locality suggests that these new addresses are more likely to be reused than the older ones in the cache. We should therefore choose lines in the cache to overwrite, discarding their previously cached addresses and replacing them with the new ones. The contents of the overwritten lines are called **victims**.
+	
+- [Cache Read Policies]:
+	
+	- [Direct Mapped]: Direct mapping is the simplest, easiest, and cheapest cache read policy to implement and understand. In essence, the line where we store or look for a tag is addressed using a fixed hash of the tag. A line with this tag will only ever be stored at a single location. If multiple lines compete for the location, the new one will replace the older one. The drawback is that direct mapping can’t keep multiple in-use addresses in cache if they share the same hash.
+		![[Pasted image 20250320184035.png]]
+	- [Fully Associative]: Contains a single set with B ways, where B is the number of blocks, including a comparator, multiplexer, and OR arrays. A memory address can map to a block in any of these ways. A fully associative cache is another name for a B-way set associative cache with one set.
+		![[Pasted image 20250320184654.png]]
+	- [Set Associative]: An attempt to get the best of both of the above methods. Here we partition the N-line cache into several smaller sets of lines. We use hashing on addresses to hash to a set number, rather than a line number. During caching we find the set number from this hash, similar to the direct mapping approach, then choose as the victim the line within this set that has the least usage, similar to the fully associative approach. During lookup we again find the set number from the hash, then we use parallel matching checks on all items in just the one set to quickly find the matching line.
+	
+- [Cache Write Policies]: Tends to be complex because store changes the state of memory.
+	
+	- [Write-Back]: The simpler cache writing method: it copies the contents of the cache block back to RAM only when the line is victimized.
+		
+	- [Write-Through]: a potentially faster alternative to write-back, although it uses more resources. In write-through, we don’t wait until our line is victimized to copy our line’s block back to RAM; rather, we do it multiple times, continually, in the background, using digital logic attached to the cache line and bus.
+		
+	- [Advanced Cache Architecture]:
+		![[Pasted image 20250320185210.png]]
+### Secondary and Offline Memory
+
+- [Secondary Memory]: Is memory that can quickly be brought into addressed memory space via I/O. Data items in secondary memory don’t have ad- dresses in the primary memory address space. Rather, they’re accessed via I/O, usually via an I/O module that does sit in the primary address space and relays requests to the secondary storage. Secondary storage is some- times called online storage to emphasize that it’s powered, active, and available whenever the computer is on.
+	
+- [Offline Memory]: Is that which can’t automatically be loaded into primary memory without manual human interventions. Often this includes secondary memory media that are physically ejectable and replaceable, such as tapes, discs, and USB devices. These media are secondary memory when connected to the computer, and offline memory when disconnected. Off- line memory is typically used for backup and archival purposes, as well as for transportation. The fastest way to move petabytes of data around the world is still to put it on a truck as offline memory and drive it to its destination.
+	
+- Secondary Memory are measured in bits and SI unit.
+	
+- [Tapes]: Are one-dimensional data stores that must be scrolled left or right to locate a required datum. Tapes aren’t random access because a reading device has a position at one point in the tape, and it takes longer to move the tape (or the reader) to access a far-away location than a nearby location.
+	
+- [Punch Cards]: Are the original computational secondary storage, as used in the Jacquard loom and Analytical Engine.
+	
+- [Punched Tape]: punch cards alternative.
+	
+- [Magnetic Tape]: Was developed in the 1920s for analog audio recording in studios, commercialized for home use as 8-track systems in the 1960s, then used widely in 4-track compact cassettes during the 1980s. Analog magnetic tape was also widely used in the 1980s for home video recordings, following one of the first modern data standards wars between competing VHS and Betamax formats.
+	
+- [Disks]: Are storage device for was cylinders, a device that record sound waves through the acoustic horn and are concentrated to vibrate a needle, etching the sound wave into a spiral around a hot wax cylinder as it rotates and is slowly moved left to right. When the wax cylinder is cool it can then be spun past the needle again to make it vibrate in the same ways, and have its motions amplified by the horn, replaying the sound.
+	
+- [Floppy Disk]: Magnetic disks use the same technology as magnetic tape to represent data, but they arrange the magnetizable material into a 2D disk rather than a 1D tape. The disk is read and written by a magnetic head on an arm, like a gramophone needle. Floppy disks are vulnerable to damage, so they’re usually encased in a plastic sheath.
+	
+- [Hard Disks]: Are made of nonflexible materials. They can store higher information densities and spin faster than floppies. These devices usually require sealing the head into a package with the disk. Hard drives usually contain multiple hard disks packaged together, each with its own head, with a single address space spanning all of them. This can help reduce access times, because the heads can all read and write together. The disks spin at speeds such as 90 to 250 Hz, which causes a layer of air to lift the head off the surface, so the head doesn’t physically contact the platter. This means there’s no physical wear to the head or the disk.
+	
+- [Optical Disk]: Optical discs are modern-day version of the Babylonian clay tablets.
+	
+- [Solid State Drives]: These are manufactured to have the same form factors and I/O interfaces, and similar capacities, as hard drives, but with no moving parts. This makes them faster, more reliable, lower power, quieter, smaller, and less prone to breakage when dropped. As there are no moving parts, they can be truly random access. SSDs are flash memory, as we’ve previously reviewed.
+### Tertiary Memory
+
+- A recently proposed level in the memory hierarchy. It lies below secondary memory but above offline memory, and has been created to describe memories that used to be offline—requiring humans to physically load and eject media such as discs and tapes—but is now automated by mechanical processes.
+### Data Centers
+
+- Thousands, or tens or hundreds of thousands, of secondary and tertiary memories together in a warehouse-sized building. Built with extreme security and resilience in mind.
+ 
+
+
+

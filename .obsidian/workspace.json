@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Networking/Computer Networking.md",
+                "file": "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Computer Networking"
+              "title": "Computer Architecture"
             }
           }
         ]
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "e5d9271595e93348",
@@ -163,19 +164,20 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "94c6bde8c47967b6",
+  "active": "d66096dfa22ae605",
   "lastOpenFiles": [
-    "assets/imgs/Pasted image 20250318210450.png",
-    "assets/imgs/Pasted image 20250318210438.png",
-    "assets/imgs/Pasted image 20250318210426.png",
-    "assets/imgs/Pasted image 20250318210411.png",
-    "assets/imgs/Pasted image 20250318210106.png",
-    "assets/imgs/Pasted image 20250318204925.png",
-    "assets/imgs/Pasted image 20250318204549.png",
-    "assets/imgs/Pasted image 20250318204153.png",
-    "assets/imgs/Pasted image 20250318202946.png",
-    "assets/imgs/Pasted image 20250318202824.png",
-    "assets/imgs/Pasted image 20250318201814.png",
+    "assets/imgs/Pasted image 20250320185210.png",
+    "assets/imgs/Pasted image 20250320184654.png",
+    "assets/imgs/Pasted image 20250320184035.png",
+    "assets/imgs/Pasted image 20250320183404.png",
+    "assets/imgs/Pasted image 20250320182600.png",
+    "assets/imgs/Pasted image 20250320182559.png",
+    "assets/imgs/Pasted image 20250320182419.png",
+    "assets/imgs/Pasted image 20250320180533.png",
+    "assets/imgs/Pasted image 20250320174805.png",
+    "assets/imgs/Pasted image 20250320174221.png",
+    "assets/imgs/Pasted image 20250320174210.png",
+    "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
     "Computer Networking/Computer Networking.md",
     "Computer Science/Computer Systems/Computer Networks/Computer Networks.md",
     "Computer Science/Computer Systems/System Software/System Software.md",
@@ -184,7 +186,6 @@
     "Computer Science/Computer Systems/System Software/Access Control.md",
     "Computer Science/Computer Systems/Microarchitecture/Microarchitecture.md",
     "Computer Science/Computer Systems/Computer Systems.md",
-    "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
     "Computer Science/Applied Disciplines/Software Engineering/Software Engineering.md",
     "Computer Science/Applied Disciplines/Software Engineering/Tools/Git.md",
     "Computer Science/Applied Disciplines/Image and Sound Processing/Image and Sound Processing.md",
