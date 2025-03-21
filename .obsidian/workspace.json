@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
+                "file": "Computer Networking/Computer Networking.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Computer Architecture"
+              "title": "Computer Networking"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#include",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "e5d9271595e93348",
@@ -166,25 +165,25 @@
   },
   "active": "d66096dfa22ae605",
   "lastOpenFiles": [
+    "Pasted image 20250320203445.png",
+    "Pasted image 20250320202450.png",
+    "Pasted image 20250320202418.png",
+    "Pasted image 20250320201412.png",
+    "Pasted image 20250320200313.png",
+    "Pasted image 20250320200248.png",
+    "Computer Science/Computer Systems/Microarchitecture/Microarchitecture.md",
+    "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
     "assets/imgs/Pasted image 20250320185210.png",
     "assets/imgs/Pasted image 20250320184654.png",
     "assets/imgs/Pasted image 20250320184035.png",
     "assets/imgs/Pasted image 20250320183404.png",
     "assets/imgs/Pasted image 20250320182600.png",
-    "assets/imgs/Pasted image 20250320182559.png",
-    "assets/imgs/Pasted image 20250320182419.png",
-    "assets/imgs/Pasted image 20250320180533.png",
-    "assets/imgs/Pasted image 20250320174805.png",
-    "assets/imgs/Pasted image 20250320174221.png",
-    "assets/imgs/Pasted image 20250320174210.png",
-    "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
     "Computer Networking/Computer Networking.md",
     "Computer Science/Computer Systems/Computer Networks/Computer Networks.md",
     "Computer Science/Computer Systems/System Software/System Software.md",
     "Computer Science/Computer Systems/System Software/Shell and Scripting.md",
     "Computer Science/Computer Systems/System Software/Linux.md",
     "Computer Science/Computer Systems/System Software/Access Control.md",
-    "Computer Science/Computer Systems/Microarchitecture/Microarchitecture.md",
     "Computer Science/Computer Systems/Computer Systems.md",
     "Computer Science/Applied Disciplines/Software Engineering/Software Engineering.md",
     "Computer Science/Applied Disciplines/Software Engineering/Tools/Git.md",

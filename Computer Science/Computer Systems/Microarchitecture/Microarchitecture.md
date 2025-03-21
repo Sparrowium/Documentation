@@ -608,3 +608,71 @@ Also Called **Computer Organization**
 	1. Compile the program
 	2. Load it with gdb, and then list the source code to see where to set the breakpoint.
 	3. Using the `ENTER` key repeats the previous command.
+
+<h2 style="color:#6290C3"><center> Programming in Assembly Language </center></h2>
+## Compiling a Program Written in C
+
+- [Preprocessing]: This step resolves compiler directives such as `#include` (ﬁle inclusion), `#define` (macro deﬁnition), and `#if` (conditional compilation) by invoking the program cpp. The compilation process can be stopped at the end of the preprocessing phase with the `-E` option, which writes the resulting C source code to standard out. 
+	
+	- Standard out is usually the terminal window. You can redirect the output to a file with the > operator, like this:
+		`$ gcc -Wall -O0 -masm=intel -E filename.c > filename.i`
+		
+	- The file extension `.i` denotes a file that does not require preprocessing.
+	
+- [Compilation]: Next, the compiler translates the source code that results from preprocessing into assembly language. The compilation process can be stopped at the end of the compilation phase with the `-S` option (upper- case S), which writes the assembly language source code to `filename.s.`
+	
+- [Assembly]: After the compiler generates the assembly language that implements the C source code, the assembler program, as, translates the assembly language into machine code. The process can be stopped at the end of the assembly phase with the `-c` option, which writes the machine code to an object file, named `filename.o`. Some call this assembler gas, for GNU assembler.
+	
+- [Linking]: The `ld` program determines where each function and data item will be located in memory when the program is executed. It then replaces the programmer’s symbolic names where each of these items is referenced with the memory address of the item. The result of this linking is written to an executable ﬁle. The default name of the executable file is a.out, but you can specify another name with the `-o` option.
+	
+- As you might know, if you don’t use any of the gcc options to stop the process at the end of one of these steps (-E, -S, -c), the compiler will perform all four steps and automatically delete the intermediate files, leaving only the executable program as the final result. You can direct gcc to keep all the intermediate files with the `-save-temps` option.
+	
+- The complement of being able to stop gcc along the way is that we can supply files that have effectively gone through the earlier steps, and gcc will incorporate those files into the remaining steps. If we supply only object files (.o), gcc will go directly to the linking step. An implicit benefit of this is that we can write programs in assembly language that call functions in the C standard library (which are already in object file format), and gcc will automatically link our assembly language with those library functions.
+## From C to Assembly Language
+
+- Programs written in C are organized into functions. Each function has a name that is unique within the program. After the C runtime environment is set up, the main function is called, so our program starts with main.
+	```
+	/* doNothingProg.c
+	 * Minimum compoents of a C program.
+	 */
+	 
+	int main(void)
+	{
+		return 0;
+	}
+	```
+- Even though this program accomplishes very little, some instructions need to be executed just to return 0. To see what takes place, we ﬁrst trans- late this program from C to assembly language with the following GNU/ Linux command: 
+	`gcc -O0 - Wall -masm=intel -S doNothingProg.c`
+	
+	- The `-O0` (uppercase O and zero) option tells the compiler not to use any optimization.
+		
+	- The `-Wall` option asks the compiler to warn you about questionable constructions in your code.
+		
+	- The `-masm=intel` option directs the compiler to generate assembly language using the Intel syntax instead of the default AT&T syntax.
+		
+	- The `-S` option directs the compiler to stop after the compilation phase and write the assembly language resulting from the compilation to a file with the same name as the C source code file, but with the .s extension instead of `.c`.
+	```
+		.file	"doNothingProg.c"
+		.intel_syntax noprefix
+		.text
+		.globl	main
+		.type	main, @function
+	main:
+	.LFB0:
+		.cfi_startproc
+		push	rbp
+		.cfi_def_cfa_offset 16
+		.cfi_offset 6, -16
+		mov	rbp, rsp
+		.cfi_def_cfa_register 6
+		mov	eax, 0
+		pop	rbp
+		.cfi_def_cfa 7, 8
+		ret
+		.cfi_endproc
+	.LFE0:
+		.size	main, .-main
+		.ident	"GCC: (GNU) 14.2.1 20250110 (Red Hat 14.2.1-7)"
+		.section	.note.GNU-stack,"",@progbits
+	```
+	- many of the identifiers begin with a `.` character. All of them, except the ones followed by a `:`, are **assembler directives**, also known as **pseudo-ops**. They are instructions to the assembler program itself, not computer instructions.

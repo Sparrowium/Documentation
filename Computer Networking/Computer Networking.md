@@ -240,4 +240,34 @@
 		- [Retry counters]: Specify how many times a device should try resending a frame before discarding it. A different value can be set for frames smaller or larger than the RTS threshold.
 			
 		- [The fragmentation threshold]: Specifies what size of packet should be split into fragments, and the fragment lifetime specifies how long fragments should be kept while waiting for related fragments to arrive.
+
+## Routing Basic
+
+- Small Router.![[Pasted image 20250320200248.png]]
+- Router in Network Diagram.![[Pasted image 20250320200313.png]]
+- In addition to a Layer 2 address brunt into it by the manufacturer, each NIC or network interface also has a Layer 3 address assigned to it by the network administrator.
+	
+- A Layer 3 device has 2 portions a network number and a host number.
+	
+- Network administrators assign Layer 3 addresses, specifically the network number, to all devices in a network to introduce order. Layer 3 addresses provide a way of grouping network devices, for ex Layer 3 addresses could be assigned to group network devices by building, by floor, or by functional group.
+	
+- [Broadcast Domain]: Is the group of devices that can be reached by sending a frame addressed to the broadcast MAC address.
+	![[Pasted image 20250320201412.png]]
+	- [Broadcast MAC Address]: The address that a device uses to send data to every device within a LAN either directly or by way of a bridge or a switch.
 		
+	- Each device in a broadcast domain has the same network portion of their Layer 3 address, and each has a unique host number.
+	
+- [Address Resolution]: The process of using Layer 3 address to determine Layer 2 address. 
+	
+	- First, it sends a broadcast frame to retrieve the target MAC address and then the target check whether it is the recipient. After that it reply by sending a frame back to the sender device along with it's information. Now since the two device knows each other addresses, it can now communicate via unicast for direct communication.
+		`Sender Frame:`
+		![[Pasted image 20250320202418.png]]
+		`Recipient Frame:`![[Pasted image 20250320202450.png]]
+	 
+- [Address Resolution Protocol (ARP)]: For TCP/IP network, ARP maps an IP address, which is Layer 3 address, to a Layer 2 address.
+	
+- [Routers]: Used to breaking up broadcast domains. Where switches allow communication within a broadcast domain, routers allow communication between broadcast domains. Each broadcast domains becomes a separate network. Within a group of interconnected networks, each network or broadcast domain must have a unique network number.
+	
+	- Within each network, each device has a Layer 3 address, consisting of its network number and unique host number within that network, and each device has a Layer 2 or MAC address. In addition, each port or interface on the router also requires a Layer 3 address and an associated Layer 2 address.
+		![[Pasted image 20250320203445.png]] 
+	- A router is a Layer 3 device and forwards data from a network to another
