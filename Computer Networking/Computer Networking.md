@@ -270,4 +270,15 @@
 	
 	- Within each network, each device has a Layer 3 address, consisting of its network number and unique host number within that network, and each device has a Layer 2 or MAC address. In addition, each port or interface on the router also requires a Layer 3 address and an associated Layer 2 address.
 		![[Pasted image 20250320203445.png]] 
-	- A router is a Layer 3 device and forwards data from a network to another
+	- A router is a Layer 3 device and forwards data from a network to another. To facilitate communication, the router must know how to reach other networks. Routers can learn this information dynamically through routing protocols such as Routing Information Protocol (RIP) or the Open Shortest Path First protocol or OSPF. In order to do so you must establish a routing table that includes the destination network number, the next hop along the way to the destination network, which port or interface on the router should reach the next hop. The "Next Hop" address either indicates that the destinated network is directly connected to the router or provides the address of another router on a directly connected network.
+		
+	- Many networks administrators usually set a default route which way to route the packet if it encounters one with a network number that is not listed in its own routing table.
+		![[Pasted image 20250322230200.png]]![[Pasted image 20250322230214.png]]
+	
+- [Default Gateway]: A device, such as a router, which serves as a door or an access point to another network. End-user devices send packet to their configured default gateway when the destination network number is not the same as their network number.
+	
+- [Different Layer Technology]: Ethernet, FDDI, Frame Relay, ATM have unique Layer 2 format. Since the router strip of the original Layer 2 frame, performs route lookup, routers can also connect different types of Layer 2 Networks.
+	
+- [FDDI Format]: A format that was used after the router strip off the original frame format it through a default gateway.
+	![[Pasted image 20250322232105.png]]
+- 
