@@ -641,6 +641,7 @@ Also Called **Computer Organization**
 		return 0;
 	}
 	```
+	
 - Even though this program accomplishes very little, some instructions need to be executed just to return 0. To see what takes place, we ﬁrst trans- late this program from C to assembly language with the following GNU/ Linux command: 
 	`gcc -O0 - Wall -masm=intel -S doNothingProg.c`
 	
@@ -675,4 +676,202 @@ Also Called **Computer Organization**
 		.ident	"GCC: (GNU) 14.2.1 20250110 (Red Hat 14.2.1-7)"
 		.section	.note.GNU-stack,"",@progbits
 	```
-	- many of the identifiers begin with a `.` character. All of them, except the ones followed by a `:`, are **assembler directives**, also known as **pseudo-ops**. They are instructions to the assembler program itself, not computer instructions.
+		
+	- Many of the identifiers begin with a `.` character. All of them, except the ones followed by a `:`, are **assembler directives**, also known as **pseudo-ops**. They are instructions to the assembler program itself, not computer instructions.
+	
+- [Unused Assembler Directives]: Are the `.cfi` that tell the assembler to generate information that can be used for debugging and certain error situations. The identifiers beginning with `.LF`, mark places in the code used to generate this information. To not include them write:
+	`gcc -O0 -Wall -masm=intel -S -fno-asynchronous-unwind-tables doNothingProg.c`
+	
+	- Even without the `.cfi` directives, the assembly language still includes an instruction and several directives that won't be used.
+		
+	- [Control-flow Enforcement Technology (CET)]: Providing better defense against types of security attacks of computer programs that hijack a program's flow.
+		
+	- [endbr64]: Used as the first instruction in a function to check whether program flow gets there. The instruction has no effect if the CPU does not include CET.
+		
+	-  The compiler also needs to include some information for the linker to use CET. This information is placed in a special section of the file that the assembler will create, denoted with the `.section .note.gnu.property`,"a" assembler directive, after the actual program code.
+		
+	- This commands strips advanced features:
+		`$ gcc -O0 -Wall -masm=intel -S -fno-asynchronous-unwind-tables \`
+		`> -fcf-protection=none doNothingProg1.c`
+	```
+		.file	"doNothingProg.c"
+		.intel_syntax noprefix
+		.text
+		.globl	main
+		.type	main, @function
+	main:
+		push	rbp
+		mov	rbp, rsp
+		mov	eax, 0
+		pop	rbp
+		ret
+		.size	main, .-main
+		.ident	"GCC: (GNU) 14.2.1 20250110 (Red Hat 14.2.1-7)"
+		.section	.note.GNU-stack,"",@progbits
+	```
+	
+- [Common Assembler Directives]: 
+	
+	- [.text]: Tells the assembler to place whatever follows in the text section.
+		
+	- In GNU/Linux, the object files produced by the assembler are in the Executable and Linking Format (ELF). The ELF standard speciﬁes many types of sections, each specifying the type of information stored in it. We use assembler directives to tell the assembler in which section to place the code.
+		
+	- The GNU/Linux operating system also divides memory into segments for speciﬁc purposes when a program is loaded from the disk. The linker gathers all the sections that belong in each segment together and outputs an executable ELF file that’s organized by segment to make it easier for the operating system to load the program into memory. The four general types of segments are as follows:
+		
+		- [Text]: The text segment is where program instructions and constant data are stored. The operating systems prevents a program from changing anything stored in the text segment, making it read-only.
+			
+		- [Data]: Global variables and static local variables are stored in the data segment. Global variables can be accessed by any of the functions in a program. A static local variable can be accessed only by the function it's defined in, but its value remains the same between calls to its function. Programs can both read form and write to variables in the data segment. These variables remain in place for the duration of the program.
+			
+		- [Stack]: Automatic local variables and the information that links functions are stored on the call stack. Automatic local variables are created when a function is called, and deleted when the function returns to its calling function. Memory on the stack can be both read from and write to by the program. It's allocated and deallocated dynamically as the program executes.
+			
+		- [Heap]: The heap is a pool of memory that's available for a program to use when running. A C program calls the `malloc` function to get a chunk of memory from the heap. It can be both read from and written to by the program. It's used to store data and is explicitly deallocated by calling `free` in the program.
+		
+	- [.globl]: Makes the name globally known so functions that are defined in other files can refer to this name. The code that sets up the C runtime environment was written to call the function named main, so the name must be global in scope.
+		
+	- [.type]: Has two arguments, `main` and `@function`. This causes the identifier `main` to be recorded in the object file as the name of a function.
+		
+	- [.intel_syntax noprefix]: Specifies the syntax of the assembly language.
+		
+	- None of these three directives gets translated into actual machine instructions, and none of them occupies any memory in the ﬁnished program. Rather, they’re used to describe the characteristics of the statements that follow.
+	
+- [Creating a Program in Assembly Language]: 
+	```
+	# doNothingProg.s
+	# Minimum components of a C program, in assembly language.
+		.intel_syntax noprefix
+		.text
+		.globl   main
+		.type    main, @function
+	main:
+		push     rbp              # save caller's frame pointer
+		mov      rbp, rsp         # establish our frame pointer
+		
+		mov      eax, 0           # return 0 to caller
+		
+		mov      rsp, rbp         # restore stack pointer
+		pop      rbp              # restore caller's frame pointer
+		ret                       # back to caller
+	```
+	
+	- [Assembly In General]: It is organized by lines. Only one assembly language statement is on each line, and none of the statements spans more than one line. It is advisable to write statements across multiple lines and indentation to emphasize the structure of the code. In assembly, blank lines are used to help separate parts of an algorithm, and comment on almost every line.
+		
+		- [# Syntax]: Denotes a comment.
+			
+		- [Blank Line]: Used for readability
+			
+		- Assembly language lines has 4 common fields but not all the lines will have entries in all the fields. The assembler requires at least one space or tab character to separate the ﬁelds. When writing assembly language, your program will be much easier to read if you use the Tab key to move from one ﬁeld to the next so that the columns line up.
+			`label:    operation    operand(s)    #comment`
+			
+			- [Label]: Allow us to give a symbolic name to any line in the program. Each line correspond to a memory location in the program, so other parts of the program can then refer to the memory location by name. A label consists of an identifier immediately followed by the `:` character. Identifiers are often made with a set of rules.
+				
+			- [Operation]: Contains either an *instruction operation code (opcode)* or *assembler directive (pseudo op)*. The assembler translates the opcode, along with its operands, into machine instructions, which are copied into memory when the program is to be executed.
+				
+			- [Operand]: Specifies the arguments to be used in the operation. The arguments can be explicit values, names of registers, or programmer created identifiers. The number of operands can be zero, one, two, or three, depending on the operation.
+				
+			- [Comment]: Everything on a line following with a `#` character is ignored by the assembler, thus providing a way for the programmer to provide human-readable comments. Since assembly language is not as easy to read as higher-level languages, good programmers will place a comment on almost every line.
+				
+			- Make sure comments state the purpose relative to solving the problem, not what it does.
+			
+		- The rules for creating an identiﬁer are similar to those for C/C++. Each identiﬁer consists of a sequence of alphanumeric characters and may include other printable characters such as `.`, `_`, and `$`. The ﬁrst character must not be a numeral. An identiﬁer may be any length, and all characters are signiﬁcant. Although the letter case of keyword identifiers (operators, operands, directives) is not signiﬁcant, it is significant for labels.
+			
+		- It’s a good idea to avoid beginning your own labels with the `.` or the `_` character so that you don’t inadvertently create one that’s already being used by the system.
+			
+		- It’s common to place a label on its own line, in which case it applies to the address of the next assembly language statement that takes up memory. This allows you to create longer, more meaningful labels while maintaining the column organization of your code.
+		
+	- [First Assembly Instructions]: Assembly language provides a set of mnemonics that correspond directly to the machine language instructions. A mnemonic is a short, English-like group of characters that suggests the action of the instruction.
+		
+		- The general format of an assembly language instruction in the assembler (Intel Syntax): 
+			`operation    destination,    source1,    source2`
+			
+		- Where *destination* is the location where the result of the *operation* will be store, and *source1* and *source2* are the locations where the input(s) to the *operation* are located. There can be from zero to two sources, and some instructions don't require that you specify a destination. The destination can be register or memory. A source value can be in a register, in memory, or *immediate data*. *Immediate data* is stored as part of the machine code implementation of the instruction and is hence a constant value in the program. 
+			
+		- The values specified by the operands must be the same. There are instructions for explicitly converting from one size to another.
+			
+		- The size (number of bits) of the value moved must be the same for the source and the destination. When the assembler program translates the assembly language instruction to machine code, it can figure out the size from the register name.
+			
+		- The variant that moves an immediate value to memory, `mov mem`, `imm`, doesn’t use a register. In this case, you have to tell the assembler the data size with a size directive placed before the `mem` operand.
+			![[Pasted image 20250323192032.png]]
+		- The size directive includes `ptr` because it specifies how many bytes the memory address points to. For immediate data, this address is in the `rip` register.
+			`mov    byte ptr x[ebp], 123`
+			`mov    qword ptr y[ebp], 123`
+			would store 123 in the one-byte variable, x, and 123 in the four-byte variable, y.
+			
+		- Notice that you can’t move data from one memory location directly to another memory location. You have to first move the data into a register from memory and then move it from that register to the other memory location.
+			
+		- The other three instructions are `push`, `pop`, and `ret`. These three instructions use the call stack. The `rsp` register always contains the address of the item on top of the call stack; hence it's called the *stack pointer*.
+			
+			- [push-Push onto Stack]: Moves a 64-bit source value to the top of the call stack. `push reg` places the 64-bit value in a `reg` on the call stack, changing the `rsp` register such that it has the memory address of this new item on the stack. `push mem` places the 64-bit value in `mem` on the call stack, changing the `rsp` register such that it has the memory address of this new item on the stack. The `push` instruction does not affect the status flags in the `rflags`.
+				
+			- [pop-Pop from Stack]: Moves a 64-bit value from the top of the call stack to a destination. `pop reg` copies the 64-bit value at the top of the stack to reg, changing the `rsp` register such that it has the memory address of the next item on the stack. `pop` `mem` copies the 64-bit value at the top of the stack to `mem`, changing the `rsp` register such that it has the memory address of the next item on the stack. The pop instruction does not affect the status flags in the `rflags` register.
+				
+			- [ret-Return from Function]: Returns from a function call. `ret` has no operands. It pops the 64-bit value at the top of the stack into the instruction pointer, `rip`, thus transferring program control to that memory address. The `ret` instruction does not affect the status flags in the `rflags` register.
+		
+	- [Minimal Processing in a Function]: Aside from the data processing that a function does, it needs to perform some processing just so it can be called and return to the calling function. The call stack is a great place for functions to temporarily store information. Each function uses a portion of the call stack for storage, which is called a `stack frame`. The function needs a reference to its stack frame, and this address is stored in the `rbp` register, usually called the `frame pointer`.
+		```
+		# doNothingProg.s
+		# Minimum components of a C program, in assembly language.
+			.intel_syntax noprefix
+			.text
+			.globl   main
+			.type    main, @function
+		main:
+			push     rbp              # save caller's frame pointer
+			mov      rbp, rsp         # establish our frame pointer
+					
+			mov      eax, 0           # return 0 to caller
+					
+			mov      rsp, rbp         # restore stack pointer
+			pop      rbp              # restore caller's frame pointer
+			ret                       # back to caller
+		```
+			
+		- The first thing a function must do is to save the calling function’s frame pointer so the calling function can use `rbp` for its own frame pointer and then restore the calling function’s frame pointer before returning. It does this by pushing the value onto the call stack. Now that we’ve saved the calling function’s frame pointer, we can use the `rbp` register as the frame pointer for the current function. The frame pointer is set to the current location of the stack pointer.
+			
+		- Make sure that every function you write in assembly language begins with these two instructions, in this order. Together, they make up the beginning of the **function prologue** that prepares the call stack and the registers for the actual computational work that will be done by the function. And we need to follow a strict protocol for preparing the call stack and registers for return to the calling function. This is accomplished with the **function epilogue**. The function epilogue is essentially the mirror image of the function prologue. The first thing to do is to make sure the stack pointer is restored to where it was at the beginning of the prologue. Make sure to restoring the stack pointers since in most functions it will be changed. Now that we’ve restored the stack pointer from the `rbp` register, we need to restore the calling function’s value in the `rbp` register. That value was pushed onto the stack in the prologue, so we’ll pop it off the top of the stack back into the `rbp` register. Finally, we can return to the calling function. Since this is the main function, this will return to the operating system.
+		
+	- [Using gdb to Learn Assembly Language]:
+		`as -–gstabs -o doNothingProg.o doNothingProg.s`
+		`gcc -o doNothingProg doNothingProg.o`
+		`./doNothingProg`
+		
+		- The `--gstabs` option (note the two dashes here) tells the assembler to include debugging information with the object file. The gcc program recognizes that the only input file is already an object file, so it goes directly to the linking stage. There is no need to tell gcc to include the debugging information because it was already included in the object file by the assembler.
+			
+		- The `gdb` debugger has a mode that’s useful for seeing the effects of each assembly language instruction as it’s executed one step at a time. The *text user interface* (TUI) mode splits the terminal window into a display area at the top and the usual command area at the bottom. The display area can be further split into two display areas.
+			
+		- Each display area can show either the source code (src), the registers (regs), or the *disassembled machine code* (asm). Disassembly is the process of translating the machine code (1s and 0s) into the corresponding assembly language. The disassembly process does not know the programmer-defined names, so you will see only the numerical values that were generated by the assembly and linking processes.
+			```
+			$ gdb ./doNothingProg
+			--snip--
+			Reading symbols from ./doNothingProg...
+			(gdb) set disassembly-flavor intel
+			(gdb) b main
+			Breakpoint 1 at 0x1129: file doNothingProg.s, line 8.
+			(gdb) r
+			Starting program: /home/bob/progs/chap11/doNothingProg_asm/doNothingProg
+			
+			Breakpoint 1, main () at doNothingProg.s:8
+			8    push    rbp    # save caller's frame pointer
+			(gdb) tui enable
+			```
+## AT&T Syntax
+
+```
+	# doNothingProg_att.s
+	# Minimum components of a C program, in assembly language.
+		.text
+		.globl   main
+		.type    main, @function
+	main:
+		pushq     %rbp              # save caller's frame pointer
+		mov       %rbp, %rsp        # establish our frame pointer
+		
+		mov       %0, %rax          # return 0 to caller
+		
+		mov       %rsp, %rbp        # restore stack pointer
+		pop       %rbp              # restore caller's frame pointer
+		ret                         # back to caller
+```
+	
+- The first difference that you probably notice is that a character specifying the size of the operand is added as a suffix to most instruction mnemonics. The next difference you probably see is that each register is prefixed with the % character. The most significant difference is that the order of the operands is reversed Instead of placing the destination first, it’s last. If you move between the two syntaxes, Intel and AT&T, it’s easy to get the operands in the wrong order, especially with instructions that use two registers. You also need to prefix an immediate data value with the $ character
+	![[Pasted image 20250323195732.png]]
+ 
