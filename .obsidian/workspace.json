@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Science/Computer Systems/Microarchitecture/Microarchitecture.md",
+                "file": "Computer Science/Computer Systems/System Software/Linux.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Microarchitecture"
+              "title": "Linux"
             }
           }
         ]
@@ -165,8 +165,11 @@
   },
   "active": "d66096dfa22ae605",
   "lastOpenFiles": [
-    "assets/imgs/Pasted image 20250323192032.png",
+    "Computer Science/Computer Systems/System Software/System Software.md",
+    "Computer Science/Computer Systems/System Software/Shell and Scripting.md",
+    "Computer Science/Computer Systems/System Software/Linux.md",
     "Computer Science/Computer Systems/Microarchitecture/Microarchitecture.md",
+    "assets/imgs/Pasted image 20250323192032.png",
     "assets/imgs/Pasted image 20250323195732.png",
     "Computer Networking/Computer Networking.md",
     "assets/imgs/Pasted image 20250322232105.png",
@@ -179,9 +182,6 @@
     "assets/imgs/Pasted image 20250320200313.png",
     "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
     "Computer Science/Computer Systems/Computer Networks/Computer Networks.md",
-    "Computer Science/Computer Systems/System Software/System Software.md",
-    "Computer Science/Computer Systems/System Software/Shell and Scripting.md",
-    "Computer Science/Computer Systems/System Software/Linux.md",
     "Computer Science/Computer Systems/System Software/Access Control.md",
     "Computer Science/Computer Systems/Computer Systems.md",
     "Computer Science/Applied Disciplines/Software Engineering/Software Engineering.md",
