@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Science/Computer Systems/System Software/Linux.md",
+                "file": "Computer Networking/Computer Networking.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Linux"
+              "title": "Computer Networking"
             }
           }
         ]
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "e5d9271595e93348",
@@ -165,21 +166,22 @@
   },
   "active": "d66096dfa22ae605",
   "lastOpenFiles": [
+    "assets/imgs/Pasted image 20250325183418.png",
+    "assets/imgs/Pasted image 20250325183143.png",
+    "assets/imgs/Pasted image 20250325173122.png",
+    "assets/imgs/Pasted image 20250325164659.png",
+    "assets/imgs/Pasted image 20250325161533.png",
+    "assets/imgs/Pasted image 20250325161241.png",
+    "assets/imgs/Pasted image 20250325161144.png",
+    "Pasted image 20250325183418.png",
+    "Pasted image 20250325183143.png",
+    "Pasted image 20250325173122.png",
+    "Pasted image 20250325164659.png",
+    "Computer Science/Computer Systems/System Software/Linux.md",
     "Computer Science/Computer Systems/System Software/System Software.md",
     "Computer Science/Computer Systems/System Software/Shell and Scripting.md",
-    "Computer Science/Computer Systems/System Software/Linux.md",
     "Computer Science/Computer Systems/Microarchitecture/Microarchitecture.md",
-    "assets/imgs/Pasted image 20250323192032.png",
-    "assets/imgs/Pasted image 20250323195732.png",
     "Computer Networking/Computer Networking.md",
-    "assets/imgs/Pasted image 20250322232105.png",
-    "assets/imgs/Pasted image 20250322230214.png",
-    "assets/imgs/Pasted image 20250322230200.png",
-    "assets/imgs/Pasted image 20250320203445.png",
-    "assets/imgs/Pasted image 20250320202450.png",
-    "assets/imgs/Pasted image 20250320202418.png",
-    "assets/imgs/Pasted image 20250320201412.png",
-    "assets/imgs/Pasted image 20250320200313.png",
     "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
     "Computer Science/Computer Systems/Computer Networks/Computer Networks.md",
     "Computer Science/Computer Systems/System Software/Access Control.md",

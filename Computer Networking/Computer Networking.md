@@ -91,6 +91,7 @@
 	
 - [Networking Addressing]: 
 	![[Pasted image 20250312221836.png]]
+
 ## Building Ethernet LANs
 
 - [PC's]: Are also known as end user's devices, hosts.
@@ -247,7 +248,7 @@
 - Router in Network Diagram.![[Pasted image 20250320200313.png]]
 - In addition to a Layer 2 address brunt into it by the manufacturer, each NIC or network interface also has a Layer 3 address assigned to it by the network administrator.
 	
-- A Layer 3 device has 2 portions a network number and a host number.
+- A Layer 3 device has 2 portions: a network number and a host number.
 	
 - Network administrators assign Layer 3 addresses, specifically the network number, to all devices in a network to introduce order. Layer 3 addresses provide a way of grouping network devices, for ex Layer 3 addresses could be assigned to group network devices by building, by floor, or by functional group.
 	
@@ -270,7 +271,7 @@
 	
 	- Within each network, each device has a Layer 3 address, consisting of its network number and unique host number within that network, and each device has a Layer 2 or MAC address. In addition, each port or interface on the router also requires a Layer 3 address and an associated Layer 2 address.
 		![[Pasted image 20250320203445.png]] 
-	- A router is a Layer 3 device and forwards data from a network to another. To facilitate communication, the router must know how to reach other networks. Routers can learn this information dynamically through routing protocols such as Routing Information Protocol (RIP) or the Open Shortest Path First protocol or OSPF. In order to do so you must establish a routing table that includes the destination network number, the next hop along the way to the destination network, which port or interface on the router should reach the next hop. The "Next Hop" address either indicates that the destinated network is directly connected to the router or provides the address of another router on a directly connected network.
+	- A router is a Layer 3 device and forwards data from a network to another. To facilitate communication, the router must know how to reach other networks. Routers can learn this information dynamically through routing protocols such as Routing Information Protocol (RIP) or the Open Shortest Path First protocol or OSPF. In order to do so you must establish a **routing table** that includes the destination network number, the next hop along the way to the destination network, which port or interface on the router should reach the next hop. The "Next Hop" address either indicates that the destinated network is directly connected to the router or provides the address of another router on a directly connected network.
 		
 	- Many networks administrators usually set a default route which way to route the packet if it encounters one with a network number that is not listed in its own routing table.
 		![[Pasted image 20250322230200.png]]![[Pasted image 20250322230214.png]]
@@ -281,4 +282,41 @@
 	
 - [FDDI Format]: A format that was used after the router strip off the original frame format it through a default gateway.
 	![[Pasted image 20250322232105.png]]
-- 
+
+## IP Addressing
+
+- [Internet Protocol]: The most common Layer 3 protocol. Layer 3 addresses known as IP Addresses. The Internet protocol uses these addresses to transmit data from a source network device to a destination network device. It also performs other services such as fragmentation and reassembly of data.
+	
+- [IPv4]: The most commonly used protocol. ![[Pasted image 20250325161144.png]]
+	
+- [IPv6]: Next-generation protocol. ![[Pasted image 20250325161241.png]]
+	
+- The major difference is the size of the 2 addresses.
+	
+- [IP Functionality]: When a computer needs to send data, the Internet Layer adds an IP header to the data to form an IP packet, also known as an IP datagram. In addition, it  includes many fields.
+	![[Pasted image 20250325161533.png]]
+	- [Source IP Address]: This field specifies the 32-bit IP Address of the originator of the IP packet.
+		
+	- [Destination IP Address]: This field specifies the 32-bit IP Address of the destination of the IP packet.
+	
+- [IP Address Portion]: Consists of 32-bit which includes A **Network Portion** and a **Host Portion**.
+	
+	- Routers uses addresses the different way, the dotted format was just a simpler format for human. Routers use addresses in binary format, which is their native format.
+		![[Pasted image 20250325164659.png]]
+	- Each number in the dotted decimal format represents an 8-bit binary number. Each one and zero is a single bit. So, an IP address is actually a 32-bit number that is separated into 4 groups of 8 bits each.
+		
+	- Some of them are used for Network Prefix and the rest are used for Host Prefix. They do not have fixed value.
+		
+	- [Network Mask, Netmasks, Address Mask, Subnet Masks]: Used to identify the network portion of an IP Address. Assigned my network administrator.
+		
+	- The IP address and network mask together identify which bits are used for the network prefix and which bits are used for the host portion. In a mask, if a bit is turned on—in other words, if it’s a ‘1’--the corresponding bit in the IP address is used for the network prefix. If a bit is turned off (or a ‘0’) in the network mask, the corresponding bit in the IP address is used for the host portion.
+		![[Pasted image 20250325173122.png]]
+	- IPv4 addresses use decimal numbers, MAC and IPv6 addresses use hexadecimal numbers.
+	
+- [Broadcast MAC Address]: Consists of 48 bits set to 1. In hexadecimal, ffff.ffff.ffff .
+	
+- [Network Number]: Determined by network mask, the bits that are turned on in the network mask designate the part of the address that is the network number. 
+	![[Pasted image 20250325183143.png]]
+	- When a device needs to determine its network number, it compares each bit in its IP address with each bit in its network mask. If both bits are a 1, the device sets the corresponding network bit to a 1. If either bit is a zero, the device sets the corresponding network bit to a zero. 
+		![[Pasted image 20250325183418.png]]
+	- [CIDR Notation]: 
