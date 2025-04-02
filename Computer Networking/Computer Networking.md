@@ -319,4 +319,89 @@
 	![[Pasted image 20250325183143.png]]
 	- When a device needs to determine its network number, it compares each bit in its IP address with each bit in its network mask. If both bits are a 1, the device sets the corresponding network bit to a 1. If either bit is a zero, the device sets the corresponding network bit to a zero. 
 		![[Pasted image 20250325183418.png]]
-	- [CIDR Notation]: 
+	
+- [CIDR Notation]: Classless Inter-Domain Routing, also known as the "slash notation", the address is still shown using dotted decimal, but it is followed by a "forward slash" and the number of bits used in the network prefix. The number after the slash is also known as he prefix length. It can also be used to indentify a range of addresses.
+	![[Pasted image 20250401155957.png]]
+	- [Classful and Classless Routing and CIDR Notation]: IP network numbers always fell on an octet boundary. This scheme divided the IP address space into different size chunks or classes of addresses based on how many octets are used for the network portion and how many are used for the host number.
+		![[Pasted image 20250401202116.png]]
+	- The address class is actually encoded into the first few bits of the IP address as shown in the table on screen. If the first bit was a zero, then it was a Class A network. If not, the router looked at the second bit. If this bit was a zero, then it was a Class B network. And finally, if the third bit was a zero, then it was a Class C network. This scheme came to be known as “classful” IP addressing where 192.168.1.0 is an example of a Class C network.
+		![[Pasted image 20250401202248.png]]![[Pasted image 20250401202321.png]]
+	- [CIDR Routing Table Entry]: Reduce the size of routing tables by summarizing many "classful" network numbers into a single table entry.
+		![[Pasted image 20250401202529.png]]
+	- [Network Mask with CIDR Notation]: Based on the network masked that was displayed using the CIDR notation, the machine determine the IP Address to whether the send data directly or to the default gateway.
+	
+- [Network Masks and Host Numbers]: Devices use network masks to determine their network prefix. But, a network mask also identifies the valid host numbers on a given network. In any network, the first address, where all host bits are set to 0, identifies the network number. The last address, where all host bits are set to 1, is always reserved as the broadcast address for the network. You might remember that a broadcast address is an IP address that allows information to be sent to all devices on a given network. All numbers except these two reserved numbers are valid host numbers.
+	![[Pasted image 20250401203103.png]]
+	- [Host Number Formula]: `2^(# of host bits) - 2`
+		
+	- If more host addresses are needed, a change in network  mask size is required.
+	
+- [IP Subnetting]: Means taking a single network number and splitting it into smaller networks-or subnets-which is short for sub-networks.
+	
+	- To create a subnet, you change the size of the network mask. More network bits means fewer host bits, more host bits mean fewer network bits.
+		![[Pasted image 20250401204054.png]]****
+	- The decimal equivalent for the last octet of network bits is equal the total of `2^n` that was flipped to 1, in this case was `128+64+32+16 = 240`. The full subnet mask, in this case `255.255.255.240` leaving the prefix length equal to 28.
+	
+- [Network Prefix on Octet Boundary]: If a network prefix does not falls on an Octet Boundary it is impossible to determine the actual subnet number without the mask.
+	
+- [ISP]: Internet Service Providers provides Companies or Organizations an IP Address. Some are reserved for specific uses. Companies are free to use IP addresses out of the private address space within their internal network, which is also known as an intranet. Companies must not use these networks outside their intranet, because these same private addresses are used by many other companies as well as home networks.
+	
+- [Loopback Interfaces]: A virtual software interface not associated with or connected to any hardware that a device uses to send a message back to itself. Mostly uses for testing and troubleshooting. It can be used to connect to a local server without actual network connection, useful for testing service without exposing them to the security risks of accessing them through the network.
+	
+- [Multicast IP Address]: To send the same data to a group of devices.
+	
+- Routers uses static routes and dynamic routing protocols such as OSPF (Open Shortest Path First) or IS-IS (Intermediate System to Intermediate System) to learn about remote networks and build their routing table.
+	
+- [Route Summarization]: Or Route Aggregation combines a group of network numbers into a single route. Route aggregation makes routing traffic across the network and the Internet much more efficient as there are fewer routes in the routing table and fewer routes to advertise. 
+	
+- [Longest Match Routing]: Is the matching based on the CIDR notation where the Routing Table Entry shows the longest and most specific match for the destination address.
+	![[Pasted image 20250401212641.png]]
+- [MTU]: Maximum Transmission Unit, the fixed upper limit on the size of a packet that can be sent in a single frame.
+	![[Pasted image 20250401214025.png]]
+- [IP Fragmentation]: If a packet is bigger than the MTU of the Layer 2 technology, a device might need to break the packet into several pieces or fragments. The fragments are then sent individually and reassembled into the original packet by the receiving device. Each fragment contains an IP header that duplicates most of the original header followed by as much data as can be carried to keep the total length smaller than the network’s MTU. The fragments are now sent as separate packets until they reach the destination host, where they are reassembled.
+	
+- [IPv4 vs IPv6]:
+	
+	- IPv6 has 4 times the size of IPv4, 128 bits to 32 bits. The larger address size meaning that the suppl for addresses wont exhaust for many years.
+		
+	- IPv6 eliminates the need for Network Address Translation thanks to its huge number of IP Address available. Reduces administrative overhead. Host can use stateless autoconfiguartion or DHCPv6 (Dynamic Host Configuration Protocol) to assign an IP address to themselves. Supports greater levels of security. Makes processing more efficient in several ways.
+		
+	- Fixed length header, solve the optional field consumption. Removed Header Checksum to simplify processing and push the error checking to Layer 4. Removed Identification, Flags, and Fragment Offset, since routers do not  fragment IPv6 packets, hosts are responsible to do all of this. Protocol is replaced with Next Header field.
+		![[Pasted image 20250401220011.png]]![[Pasted image 20250401215557.png]]![[Pasted image 20250401215614.png]]
+	- IPv6 introduce the addition of number of extension, however this does not decrease the processing speed, since these extensions are examined by endpoint devices not routers.
+		![[Pasted image 20250401215941.png]]
+	- New field: Flow Control, Used or QoS (Quality of Service) management.
+		
+	- [IPv6 Header]: ![[Pasted image 20250401220219.png]]
+- [IPv6 Addressing]: IPv6 presents a 128-bit address in eight 16-bit hexadecimal sections separated by colons. However, IPv6 does allow for abbreviation.
+	![[Pasted image 20250401220410.png]]
+	- Four consecutive zeros in an address can be identified as a single zero.
+		
+	- You can also omit leading zeros from the notation.
+		
+	- A double colon can replace consecutive zeros, leading zeros, or trailing zeros; however, you can not use a double colon twice in an address notation. Doing so will result in the misinterpretation of the IP address.
+		
+	- Are not case sensitive.
+		
+	- [RFC 5952 Requirement]: The document specifies that this format should be followed by people and systems when representing IPv6 addresses as text, but systems should be able to accept and handle any legitimate IPv6 format.
+		
+		1. Leading zeros MUST be suppressed.
+		2. The use of the double colon symbol must be used to its maximum capability.
+		3. All letters should be represented in lowercase.
+		4. When an alternative choice exists in the placement of a “::” (double-colon symbol), the longest run of consecutive 16-bit zero fields must be shortened.
+		5. The double colon symbol must NOT be used to shorten just one 16-bit field. When the length of the consecutive 16-bit 0 fields are equal, the first sequence of zero bits must be shortened using the double colon.
+		6. When the length of the consecutive 16-bit 0 fields are equal, the first sequence of zero bits must be shortened using the double colon.
+		
+	- Carry the same concept when it comes to Network Prefix and Host Portion. But Host portion is often called Interface ID. In the network prefix, it consist of 2, Global Routing Prefix, Subnet ID.
+	
+- [IPv6 Subnetting]: Can be achieve by changing the size of the Subnet ID.
+	
+	- Note that the first address ends with "001" not "000".
+		
+	- The first address in a subnet is the "anycast address". A packet sent to this address will be routed to the nearest interface in that subnet.
+		
+	- IPv6 does not use broadcast.
+	
+- [Reserved Prefix]: 
+	![[Pasted image 20250401221925.png]]
+- 
