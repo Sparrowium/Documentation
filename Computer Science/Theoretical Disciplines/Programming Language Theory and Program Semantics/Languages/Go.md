@@ -219,14 +219,14 @@ High level General Purpose Language
 	
 - [for, Four Ways]: A statement to loop. But it only looping keywords in the language. Go completed this by using the for keyword in four formats.
 	
-	- [C-style for]: 
+	- [C-style for]: Syntax Below.
 		```
 		for i := 0; i < 10; i++{
 			fmt.Println(i)
 		}
 		```
 		
-	- [Condition-Only for Statement]: 
+	- [Condition-Only for Statement]: Syntax Below.
 		```
 		i := 0
 		for ; i<10; i++ {
@@ -234,14 +234,14 @@ High level General Purpose Language
 		}
 		```
 		
-	- [The infinite for Statement]: 
+	- [The infinite for Statement]: Syntax Below.
 		```
 		for {
 			fmt.Println("Hello")
 		}
 		```
 		
-	- [break and continue]: 
+	- [break and continue]: Syntax Below.
 		```
 		for i := 1; i <= 100; i++ {
 			if i%3 == 0 && i%5 == 0 {
