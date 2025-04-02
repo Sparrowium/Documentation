@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "05409a94532f996d",
+        "id": "41f8592d6dffe6e1",
         "type": "tabs",
         "children": [
           {
-            "id": "d66096dfa22ae605",
+            "id": "80eb5f38656b0b1d",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -163,8 +163,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "d66096dfa22ae605",
+  "active": "80eb5f38656b0b1d",
   "lastOpenFiles": [
+    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Go.md",
+    "Computer Networking/Computer Networking.md",
+    "Computer Networking/Terminology.md",
+    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/SQL.md",
     "assets/imgs/Pasted image 20250401221925.png",
     "assets/imgs/Pasted image 20250401220410.png",
     "assets/imgs/Pasted image 20250401220219.png",
@@ -175,12 +179,8 @@
     "assets/imgs/Pasted image 20250401214025.png",
     "assets/imgs/Pasted image 20250401212641.png",
     "assets/imgs/Pasted image 20250401204054.png",
-    "assets/imgs/Pasted image 20250401203103.png",
-    "Computer Networking/Terminology.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Programming Language Theory and Program Semantics.md",
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Go.md",
     "Computer Science/Computer Systems/Microarchitecture/Microarchitecture.md",
-    "Computer Networking/Computer Networking.md",
     "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
     "Computer Science/Computer Systems/Computer Networks/Computer Networks.md",
     "Computer Science/Computer Systems/System Software/System Software.md",
@@ -197,7 +197,6 @@
     "Computer Science/Applied Disciplines/Artificial Intelligence/Artificial Intelligence.md",
     "Computer Networking",
     "Welcome.md",
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/SQL.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/HTML.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Languages.md",
     "().md",

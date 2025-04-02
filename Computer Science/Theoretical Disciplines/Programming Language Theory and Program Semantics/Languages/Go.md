@@ -474,7 +474,7 @@ High level General Purpose Language
 		```
 	- Go allows you to declare a type at any block level, from the package block down. However, you can access the type only from within its scope. The only exceptions are types exported from other packages.
 	
-- [Methods]: 
+- [Methods]: Go methods.
 	```
 	type Person struct {
 		FirstName string
