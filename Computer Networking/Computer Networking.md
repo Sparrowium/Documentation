@@ -404,4 +404,138 @@
 	
 - [Reserved Prefix]: 
 	![[Pasted image 20250401221925.png]]
-- 
+
+## WAN Technologies
+
+- LANs are built, owned, and operated by individual companies and organizations. WANs are own by third-party service providers.
+	
+- WANs service providers are sometimes called service providers, telcos, WAN carriers, or just "carriers".
+	
+- Like LANs, traditional WAN protocol operates at the Physical and Data Link Layer which is Layer 1,2. Each WAN technology, such as the Point-to-Point protocol or PPP or Frame Relay, uses a different Layer 2 format and provides different options for reliability and error recovery. 
+	
+- [Network Cloud]: Represent the WAN or the Internet through which a data travels to get from one LAN to another. A cloud is used to represent the WAN or Internet precisely because it's nebulous and hides the details of the service provider's network links and switching equipment. 
+	
+- [WAN Terminology and Basic Concepts]:
+	
+	- [Customer Premise Equipment (CPE)]: Is any communications equipment located on the customer's premises that is used to connect to the service provider's network. The customer can own the CPE or can lease it from the service provider. 
+		
+	- [Central Office]: The service provider's exchange or office. Often called the distribution center, sending data to other place along the path until it's final destination. A service provider may have several CO interconnected using high-speed fiber optic trunk lines. Some COs might connect to other service providers, such as international carriers. 
+		
+	- [Local Loop or Last Mile]: A copper or a fiber cable connect the CPE to the nearest CO.
+		
+	- [Data Terminal Equipment (DTE)]: The device generating the data.
+		
+	- [Data Communication Equipment (DCE)]: The device that actually puts the data on the local loop, such as a modem, ensures that the data is in the correct format for the local loop.
+	
+- [Components of a Local Loop]: A personal computer connects to a modem, which converts digital signal to analog signal. Routers are only for digital line but uses CSU (Channel Service Unit)/ DSU (Digital Service Unit).
+	
+	- [CSU/DSU]: Prepare the data traffic for digital files. These can either be separate or combined device. 
+		
+	- [CSU]: Provides termination for the digital signal and ensures connection integrity through error correction and line monitoring. 
+		
+	- [DSU]: Converts the digital frames used in the service provider's network into a frame format that the router can understand and vice versa.
+	
+- [Digital Line]: Can either be copper or fiber, but not the one that dictate the line. Rather it is the equipment being used o the line is analog or digital. 
+	
+- [WAN Layer Technology]:
+	
+	- [Layer 1]: Analog Telephone Lines, Digital Telephone Lines, Fiber-optic Connection.
+		
+		- [T1 Lines]: A high-speed digital telephone line, as a Point to Point connection. The "T" stands for T-carrier system, this system combines or "multiplexes" voice and data signals from different devices within a location into a single link using **Time Division Multiplexing** or TDM. With TDM, device take turns transmitting a fixed amount of data across the link using a specific timeslot or "channel". A T1 line divides a single line into 24 different channel where each "conversation", whether voice or data, is assigned to a specific timeslot. A channel consist of 8 bits, the total is 192 with an additional bit assigned for framing and synchronization which made up a "T1 Frame", timeslot are allocate by customers.
+			
+		- [DS0]: The basic digital signaling rate. DS stands for Digital Signal, and is a system classifying digital circuits according to the rate and format of the signal. 24 DS0 is DS1. A DS1 is a signal lives inside the T1 Line.
+			
+		- [T3 and DS3]: Same concept but larger rather than DS1 it contains DS3 which have 28 DS1s, which provides bit stuffing, alignment, error checking, and in-band management.
+			
+		- [E1 and E3]: Same concept, European configuration according to their standards. Not compatible with T1 and T3.
+			
+		- [Fiber Optic Lines]: have Synchronous Optical Network (SONET) for North America, Synchronous Digital Hierarchy (SDH) for the rest of the world. Both of these define a basic frame format and hierarchy of signaling speed, but it is not compatible to each other.
+			![[Pasted image 20250402150624.png]]![[Pasted image 20250402150644.png]]![[Pasted image 20250402150654.png]]
+			- [STS]: Synchronous Transport Signal, a SONET Frame Format being carried over electronically using coaxial cabling.
+				
+			- [OC]: Optical Carrier, a SONET signal being carried over a fiber optic network. OC Level express the speed of an OC-n line.
+				
+			- [STM]: Synchronous Transport Module, a SDH Frame Format.
+			
+		- [OTN]: Optical Transport Network, based on wavelength division multiplexing (WDM). It transmit incoming signals simultaneously over a fiber optic line by putting each signal into a different wavelength (color) of light, on the receiving end, a de-multiplexer recognizes each different wavelength of light and turn it back into signal it receives. OTN can handle more than SONET/SDH and can be integrated with existing systems, it also provides monitoring and fault handling.
+		
+	- [Layer 2]: Same concept as LAN technologies but using a different technologies such as PPP, Frame Relay, ATM, Carrier Ethernet.
+		
+		- [PPP]: Point to Point Protocol, can transport IP traffic as well as other Layer 3 protocols. Used over leased lines as well as dial-up, broadband, and cellular connections. A packet is only encapsulated into PPP when WAN is involve, when it reaches its destination it is re-encapsulated into Ethernet frame for routing over LAN, both routers on each end of the WAN must be configured to used PPP or else they wont understand. PPP is known for connection-oriented protocol, which mean that both device must ensure they are ready to communicate before sending data.
+			![[Pasted image 20250402152145.png]]
+		- Formal connection establishment process is required for to communicate via PPP. First, using the Link Control Protocol (LCP), it establish a connection and configure the link, it also test the point to point line and perform a "Negotiation". Two, Authentication process. Three, a Network Control Protocol (NCP) is used to configure the Layer 3 protocols in use on the link.
+			
+		- [Negotiation]: It begin by sending a Configure-Request message, if a Configure-Reject occur, a Configure-Request will be resent, if an option has an unacceptable value a Configure-Nak (Negative Acknowledgement) is sent and a Configure-Request is resent, finally, if all are accepted, an Configure-Ack is sent and the two device are now connected. But for the other device to deliver message, a negotiation must be initiated, despite the other device has already been accepted to deliver to the designated device, after that a "LCP Open" status is popped up and proceed to authentication phase.
+			
+		- [Authentication]: Verify the identity, if denied, the physical link is terminated, if success, proceeds to NCP. PPP Authentication protocol consists of PAP (Password Authentication Protocol), CHAP (Challenge Handshake Authentication Protocol), MS-CHAP (Microsoft Variant), EAP (Extensible Authentication Protocol). It const of three simple step, the Authenticator sends a "Challenge" message, the "Caller" receive, encrypt and sent "Response" message back, the "Authenticator" send a "Success/Failure" message. This is often called a "three-way handshake".
+			
+		- [Configure the Layer 3 Protocol in use on the link]: This process use a Network Control Protocol (NCP), to establish and configure the different Layer 3 protocol running over the connection. Device in IP-based Network uses IP Control Protocol. When establish connection, both sides of the WAN must agree on everything before the data can be transmitted on the link, including which IP address will be used.
+			
+		- [IPCP]: A process where a device sends Config-Request to another device and want that device to do all the work, then the other device respond with a Config-Nak with the alternate address, then the sender send an Config-Ack or Nak after accepting the other device address.
+			
+		- [Keepalives]: The connection is maintain by sending periodic messages.
+			![[Pasted image 20250402204919.png]]![[Pasted image 20250402204937.png]]![[Pasted image 20250402204949.png]]![[Pasted image 20250402204956.png]]![[Pasted image 20250402205002.png]]![[Pasted image 20250402205010.png]]![[Pasted image 20250402205017.png]]![[Pasted image 20250402205022.png]]
+		- [PPP Limitations]: Require a dedicated circuits between each location, which is expensive.
+			
+		- [Frame Relay]: Establish a virtual connection through a configured virtual circuits. Many virtual circuit can run over a physical connection, and each of them keep the customer traffic separated. However congestion may still happen.
+			
+		- [ATM]: Asynchronous Transfer Mode, A cell switching technology, means that Layer 3 packet are segmented into fixed length. This allow fast circuit to be built, because switches does not have to spend time determining the start and end of a variable length frame. The fixed cell size also ensure that delay-sensitive data is not adversely affected by long data frames. ATM enables transport of voice, video, and data on the same network with guaranteed performance or quality of service for each type of traffic. Allow many people to share a service provider's network resources and create private VPNs. 
+			
+		- [Carrier Ethernet]: Ethernet but Carrier grade, supa fast, does not require Frame Relay or ATM experts, specialized premise equipment. Offer multiple service using single interface to customer.
+	
+- [Metro Ethernet Forum]: Aims to help carrier Ethernet network.
+	![[Pasted image 20250402210849.png]]
+	- IEEE provides standards, ITU provides telecommunication standards and recommendations for carrier Ethernet.
+	
+- [MEF Three Layer Model]: Like Five-Layer model, but the functionality is more tightly integrated. 
+	![[Pasted image 20250402211328.png]]
+	- [Application Service Layer]: Support end-user applications.
+		
+	- [Ethernet Service Layer]: Carries the application.
+		
+	- [Transport Service Layer]: Uses various networking and media types to deliver the Ethernet service.
+	![[Pasted image 20250402211516.png]]
+	- [Data Plane]: Handles data according to the rules or logic in place.
+		
+	- [Control Plane]: Instruct the data plane on how to process data.
+		
+	- [Management Plane]: Provides administrative interface allowing for configuration.
+	
+- [MPLS]: Multiprotocol Label Switching, provides the privacy and security of a Frame Relay or ATM networks, yet allows foe the inherent any-to-any connectivity and flexibility typical of an IP-based network.
+	
+	- [MPLS Domain]: A domain.
+		
+	- MPLS sit between Layer 2 and Layer 3, often called Layer 2.5. An encapsulation and switching technique used to route data over a WAN. Can be used over any Layer 2 technology, PPP or Ethernet.
+		
+	- [LSP]: Label Switched Path, are used to connect location. These start and end on providers routers.
+		
+	- [LSR]: Label Switching Router, running the MPLS protocol. Makes a forwarding decision based on the MPLS Label switching table.
+		
+	- [LER]: Label Edge Router, a special type of LSR that is responsible for assigning appropriate MPLS label to a packet. It strip off the Layer 2 packet and adds a MPLS header. It can assign labels based on Destination IP Network, Destination IP Network and Application Type, Source and Destination IP Network, Specific QoS requirement.
+		
+	- [FEC]: Forwarding Equivalency Class, a group of packet that will be treated or forwarded the same way within the provider's MPLS domain.
+		
+	- [Transit Label Switching Router]: A transit LSR routes based on MPLS labels only.
+		
+	- MPLS label-based switching method allow routers to make forwarding decisions based on the contents of a simple label.
+	
+- [IP Routing vs MPLS Label Switching]: IP routing is a repetitive process. MPLS consist of 4 router:
+	
+	- [Ingress LSR]: Examine IP header, Assign to FEC, add MPLS header, encapsulate and forward.
+		
+	- [Transit LSR]: There are two which examine MPLS header, perform label look up and swap, encapsulate and forward.
+		
+	- [Egress LSR]: Remove MPLS header, examine IP header, perform longest match loop up, encapsulate and forward.
+	
+- [MPLS Header]: Sometimes called shim header.
+	![[Pasted image 20250402214147.png]]
+	- [MPLS Label]: Contains a 20 bit locally significant value specifying the packet belongs to a certain LSP.
+		
+	- [Experimental Bit]: Used for QoS. 
+		
+	- [Bottom of Stack Bit]: Indicate where an IP packet or another MPLS header follows the current MPLS header, if the bit is set to one, an IP header is next, if it is set to zero, another MPLS header follows.
+		
+	- [TTL]: Often called Time To Live, used to prevent looping MPLS packets in the network. Each LSR decrement this field by 1, when the value is zero, the LSR drop the packet. By default, the ingress LSR copies the IP header's TTL field when it adds the MPLS header. The egress LSR copies the MPLS TTL value back to the IP packet when the label is removed.
+	
+- [MPLS Services]: 
+	![[Pasted image 20250402214645.png]]
