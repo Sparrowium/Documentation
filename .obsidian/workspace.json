@@ -34,6 +34,18 @@
               "icon": "lucide-file",
               "title": "Terminology"
             }
+          },
+          {
+            "id": "820ea4184e3e1c59",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "Pasted image 20250402221449.png"
+              },
+              "icon": "lucide-image",
+              "title": "Pasted image 20250402221449"
+            }
           }
         ]
       }
@@ -92,8 +104,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "e5d9271595e93348",
@@ -180,17 +191,17 @@
   },
   "active": "d66096dfa22ae605",
   "lastOpenFiles": [
-    "assets/imgs/Pasted image 20250402214645.png",
-    "assets/imgs/Pasted image 20250402214147.png",
-    "assets/imgs/Pasted image 20250402211516.png",
-    "assets/imgs/Pasted image 20250402211328.png",
-    "assets/imgs/Pasted image 20250402210849.png",
-    "assets/imgs/Pasted image 20250402205022.png",
-    "assets/imgs/Pasted image 20250402205017.png",
-    "assets/imgs/Pasted image 20250402205010.png",
-    "assets/imgs/Pasted image 20250402205002.png",
-    "assets/imgs/Pasted image 20250402204956.png",
-    "assets/imgs/Pasted image 20250402204949.png",
+    "assets/imgs/Pasted image 20250403160430.png",
+    "assets/imgs/Pasted image 20250403160419.png",
+    "assets/imgs/Pasted image 20250403154907.png",
+    "assets/imgs/Pasted image 20250403154514.png",
+    "assets/imgs/Pasted image 20250403150403.png",
+    "assets/imgs/Pasted image 20250402222721.png",
+    "assets/imgs/Pasted image 20250402222416.png",
+    "assets/imgs/Pasted image 20250402222409.png",
+    "assets/imgs/Pasted image 20250402222330.png",
+    "assets/imgs/Pasted image 20250402221509.png",
+    "assets/imgs/Pasted image 20250402221449.png",
     "Computer Networking/Terminology.md",
     "Computer Networking/Computer Networking.md",
     "Computer Science/Computer Systems/System Software/Linux.md",

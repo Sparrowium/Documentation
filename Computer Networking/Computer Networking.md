@@ -539,3 +539,100 @@
 	
 - [MPLS Services]: 
 	![[Pasted image 20250402214645.png]]
+
+## Transport Layer Protocol
+
+- Data get route to the correct computer with the help of IP and other lower layer protocols, such as Ethernet. The Transport Layer protocols is getting the data from one application program to the correct application program on another, it enable true end-to-end or application-to-application communication.
+	
+- User Datagram Protocol (UDP), and the Transmission Control Protocol (TCP), bridge the gap between the lower layer, which are responsible for data delivery and the Application layer. These utilize software ports to help route data to the correct application, the destination port provides a way of getting the data to the correct Application Layer protocol and ultimately the correct application program. The source port uniquely identifies the connection on the sending side.
+	
+- Transport Layer also multiplexes data, which are provided by UDP and TCP. 
+	
+- Software ports are specific to the Transport Layer, and are used to route data to the appropriate Application Layer protocol and ultimately the correct application program. Hardware ports are also known as NICs (Network Interface Card), operates at Layer 1. IP Interfaces (Layer 3).
+	
+	- [Port Field]: A 16 bit field, allowing for port numbers ranging from 0-65535.
+		![[Pasted image 20250402221425.png]]![[Pasted image 20250402221440.png]]![[Pasted image 20250402221449.png]]![[Pasted image 20250402221509.png]]
+	
+- [Data Multiplexing]: Combines all the different types of data into a single stream, down to IP Interface. At Transport Layer, UDP/TCP add a header to data that includes the sources and destination port number. At Network Layer, the IP interface adds the source and destination IP addresses. At Data Link Layer, framing information was added. At Physical Layer, frames is converted to an electrical signal and transmitted. On the receiving end the process is reserved. At the end the single data stream is de-multiplexed into multiple stream going to the appropriate Application Layer Protocol.
+	
+- [UDP Protocol]: The simplest and fastest transport protocol. Includes 4 field, 2 of which are port numbers.
+	![[Pasted image 20250402222330.png]]![[Pasted image 20250402222409.png]]![[Pasted image 20250402222416.png]]
+	- Limited error checking, no recovery, checksum is optional, Application using UDP interact almost directly with IP in Network Layer. Since it only has 4 fields, it is often referred as a "datagram" rather than a segment, after an IP header was added, a packet was created.
+	![[Pasted image 20250402222721.png]]
+	- UDP is Connectionless Service, Unreliable Protocol. It transmit as fast as it could. Example of application uses UDP: DNS Domain Name System, TFTP Trivial File Transfer Protocol, SNMP Simple Network Management Protocol, Streaming video and audio application.
+		
+	- [DNS Server]: Known as server, searches its database for the requested name and sends back a response that includes the requested domain name and IP address. The DNS application on the sending computer waits for a reply from the DNS server. If it does not receive a DNS reply, it could got dropped, it tries again or sent to a different DNS server.
+	
+- [TCP Protocol]: Connection-Oriented, computer exchanges messages in a "three-way handshake". Ordered data, duplicate detection, and flow control.
+	![[Pasted image 20250403150403.png]]
+	- [Source Port]: The 16-bit field indicates the port number of the sending Application Layer protocol. Any replies should be sent to this port number.
+		
+	- [Destination Port]: The 16-bit field indicates the port number of the receiving Application Layer protocol.
+		
+	- [Sequence Number]: A 32-bit number field used to track and reorder segment. Specifically, the sequence number of the first byte of data in this segment. If the SYN (Synchronize Packet) flag is set, the sequence number is the initial sequence number or ISN.
+		
+	- [Acknowledge Number]: A 32-bit field identifying the next sequence number the sender expects to receive. Therefore, the number will be one more than the most recently received data byte.
+		
+	- [Data Offset]: This 4 bit field is the number of 32-bit words in the TCP header. It indicates where the data begins.
+		
+	- [Reserved]: 4 Bit that are allocated for future use. Set to 0 be default.
+		
+	- [8 Flag/Control Bit]: 
+		
+		- [CWR and ECE]: The Congestion Window Reduced, or CWR flag, and the Explicit Congestion Notification Echo, or ECE flag, are used to negotiate congestion notification capabilities.
+			
+		- [URG]: The urgent flag indicates that the Urgent Pointer is in use.
+			
+		- [ACK]: The acknowledge flag indicates that the Acknowledge Number field is in use.
+			
+		- [PSH]: The push flag tells the receiver to deliver or push this segment to the receiving Application Layer Protocol as soon as possible.
+			
+		- [RST]: The reset flag tells the receiver that the sender is ending the connection. All queued data and allocated buffers should be released.
+			
+		- [SYN]: The sender uses the synchronization flag during connection setup to synchronize the sequence number.
+			
+		- [FIN]: The finish flag indicates that the sender has no more data to transmit.
+		
+	- [Window]: This 16-bit field specifies the number of bytes that the sender of this segment can receive.
+		
+	- [Checksum]: A 16-bit field that validates the entire segment, both header and data.
+		
+	- [Urgent Pointer]: A 16-bit fields indicates where the urgent data is within the data field. Is only valid if Urgent flag is set.
+		
+	- [Options]: Control window size, maximum segment size, or additional functions required by the upper layer application generating the data.
+	
+- [Application Layer Protocol using TCP]: 
+	
+	- [Hypertext Transfer Protocol (HTTP)]: A communications protocol for the transfer of information on the internet and the World Wide Web.
+		
+	- [Simple Mail Transfer Protocol (SMTP)]: For sending electronic mail on the Internet.
+		
+	- [File Transfer Protocol (FTP)]: Used for transfer data from one computer to another through a network, such as over the Internet.
+	
+- [TCP in Action]:
+	![[Pasted image 20250403154514.png]]
+- [URLs]: Stand for Uniform Resource Locator, the address of a Webpage on the Internet.
+	![[Pasted image 20250403154907.png]]
+	- The firs part of the URL is the Application Layer Protocol. The second part of the URL, `www.juniper.net` is the domain name of the web server. The last part of the URL is the path, often refer to a file location of the file on the webserver.
+	
+- [TCP Three-Way Handshake]: 
+	![[Pasted image 20250403160430.png]]
+	- Client starts a TCP connection with initial sequence. 
+		
+	- Server responds with its own initial sequence, and the client's next sequence. And turn ACK flag to 1.
+		
+	- Client acknowledges server's next sequence and send back the ACK flag.
+	
+- Once the TCP connection is established, the PC's Web Browser application communicates with the Webserver using HTTP as the Application Layer protocol to send data across the TCP connection. 
+	![[Pasted image 20250403160419.png]]
+	- [HTTP Client]: Also known as the Web Browser.
+		
+	- [HTTP Server]: Known as the webserver.
+		
+	- The HTTP client first sends out a HTTP GET messages that includes the requested resources (Webpage), and the name of the server.
+		
+	- The HTTP Server then responds with a status message and response code. This response might indicate success or failure, or might redirect the client to a different webserver. A success message might include the requested resources or Webpage using HTML, or the client might need to send additional HTTP GET messages to the webserver to which the server responds.
+	
+- [Key TCP Operation]: Application Layer protocols send data to TCP as a continuous stream of bites. TCP group bits into bytes, and bytes into manageable chunks or segments that can be one byte or many bytes in length. Each byte of data sent over a TCP connection has a sequence number. Each byte is acknowledged. Sequence number are used for acknowledge which data has been received, determine if the data has been lost or damaged, put the data into the correct order.
+
+
