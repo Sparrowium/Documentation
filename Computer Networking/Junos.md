@@ -92,3 +92,19 @@
 	- Traffic Filtering, Anti-malware, antispam, antivirus, Advanced Threat Prevention service which includes anti malware service, traffic insights, threat profiling, Domain Name Security.
 	
 - [Virtual Junos OS]: Used for Cloud Environments, Virtual Labs, Hardware Routers with Virtual Capabilities.
+
+<h2 style="color:#6290C3"><center> SSH and Operation Mode </center></h2>
+## Understanding the Network
+
+- Internet connection is connected to the Router because the Router connect many subnets together while the switch connect devices within a subnet.
+## Using SSH to Remotely Connect to the Junos CLI
+
+- Using Protocol, Username, Password, Router's IP Address.
+	
+- There are two protocols that can create remote CLI connections:
+	
+	- [Telnet]: Unencrypted, insecure. Operates on TCP port 23.
+		
+	- [SSH (Secure Shell)]: Encrypted, secure. Operates on TCP port 22.
+	
+- When SSH or Telnet do a device, a user account is needed, which consist of username and password. Then you use terminal application to access the local command line
