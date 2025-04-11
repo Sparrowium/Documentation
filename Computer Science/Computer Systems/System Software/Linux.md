@@ -13,8 +13,7 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 
 <h2 style="color:#6290C3"><center> Linux Kernel </center></h2>
 - Provides the core functionality, on its own it is not the operating system, but a central part of it.
-
-## Linux Architecture
+### Linux Architecture
 
 ![[Pasted image 20250304193433.png]]
 
@@ -148,5 +147,124 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 		
 	- To list available modules type: 
 		`find /lib/modules/$(uname -r) -type f -name '*.ko*'`
+		
+	- To see what the kernel loads:
 		`lsmod`
+		
+	- To further manipulate kernel module:
 		`modprobe --show-depends async_memcpy`
+	
+- [eBPF]: Berkley Package Filter.
+	![[Pasted image 20250411043408.png]]
+	- Used as a CNI plug-ibn to enable pod networking in Kubernetes.
+		
+	- Used for Observability.
+		
+	- Used for network load balancing.
+
+<h2 style="color:#6290C3"><center> Shells and Scripting </center></h2>
+### Basics
+
+- [Terminals]: Or Terminal Emulator, Soft Terminal, is a program that provides a textual user interface. Terminal supports reading characters from  the keyboard and displaying them on the screen. They're simply apps.
+	
+	- In addition to basic character-oriented input and output, terminals support so called **escape sequences, or escape codes**, for cursor and screen handling and potentially support for colors. 
+		
+	- The environment variable, **TERM** has the terminal emulator in use, and its configurations is available via `infocmp`. Make sure to consult the `terminfo` database.
+	
+- [Shells]: A program that runs inside the terminal and acts as a command interpreter. Shells offer input and output handling via streams, supports variable, has some built-in commands you can use, deals with command execution and status, and usually supports both interactive usage as well as scripted usage.
+	
+	- Shell is formally defined in `sh`, we often come across the term **POSIX Shell**.
+		
+	- [bash Shell]: A word play on the original version, short for Bourne Again Shell.
+		
+	- To know what you are using type: `file -h /bin/sh`.
+	
+- [Streams]: Also known as Input.
+	
+	- The shell equips every process with three default file descriptors (FDs) for input and output.
+		`stdin (FD 0)`
+		`stdout (FD 1)`
+		`stderr (FD 2)`
+		![[Pasted image 20250411050018.png]]
+	- If you don't want to use the defaults the shell gives you, you can redirect the streams. This process involves `$FD> and <$FD`, with `$FD` being the file descriptors. Note that 1> and > are the same since `stdout` is the default. If you want to redirect both `stdout` and stderr, use &>, and when you want to get rid of a stream, you can use `/dev/null`.
+		
+	- Shells usually understand a number of special characters, such as: 
+		
+		- [Ampersand (&)]: Placed at the end of a command, executes the command in the background.
+			
+		- [Backslash (\)]: Used to continue a command on the next line, for better readability of long commands.
+			
+		- [Pipe (|)]: Connects `stdout` of one process with the `stdin` of the next process, allowing you to pass data without having to store it in files as a temporary place.
+	
+- [Variables]: Store and change a value.
+	
+	- Use cases:
+		
+		- When you want to handle configuration items that Linux exposes.
+			
+		- When you want to interactively query the user for a value in the context of a script.
+			
+		- When you want to shorten input by defining a long value once. This use case roughly correspond to a `const` value in a program language since you don't change the value after you have declared the variable.
+		
+	- There are two kinds of variables:
+		
+		- [Environment Variables]: Shell-wide settings; list them with `env`.
+			
+		- [Shell Variables]: Valid in he context of current execution; list with `set` in bash. Shell variables are not inherited by subprocesses.
+		
+	-  In bash, use `export` to create an environmental variable. When you want to access the value of the variable, put a $ in front of it, and when you want to get rid of it, use `unset`.
+		
+	- Common Shell and Environment variables:
+		![[Pasted image 20250411051732.png]]
+	
+- [Exit Status]: Is the status that is portrait the the completion of a command execution to the caller. It is expected that a Linux command returns a status when it terminates. This can either be a normal termination (happy path) or an abnormal termination (something ain't right). A 0 exit status means that the command was successfully run, without any errors, whereas a nonzero value between 1-255 signals a failure. To query the exit status, use `echo $?`. Be careful with exit status handling in a pipeline, since some shells make only the last status available, use `&PIPESTATUS` as a work around.
+	
+- [Built-in Commands]: Are pre-installed commands that are located in /usr/bin. Type `help` to list built-ins.
+	
+- [Job Control]: When you enter a command, it takes control of the screen and the keyboard, which we can usually call running in the foreground. If you don't want something to run interactively, enter job control and background jobs; to launch a process in the background, put an & at the end, or to send a foreground process to the background, press Ctrl+Z. Example:
+	`watch -n 5 "ls" &`
+	`jobs`
+	`fg`
+	
+	- If you want to keep a background process running, even after you close the shell you can prepend the `nohup` command. Further, for a process that is already running and wasn’t prepended with `nohup`, you can use `disown` after the fact to achieve the same effect. Finally, if you want to get rid of a running process, you can use the `kill` command with various levels of forcefulness.
+	
+- [Modern Commands]: Includes navigating folder (cd), listing directory contents (ls), finding files (find), and displaying the content of files (cat, less). Some of them are drop-in replacements, and others extend the functionality. All of them offer some‐ what sane default values for common operations and rich output that is generally eas‐ ier to comprehend, and they usually lead to you typing less to accomplish the same task. This reduces the friction when you work with the shell, making it more enjoyable and improving the flow.
+	
+	- Listing Directory with `exa`.
+		
+	- Viewing file contents with `bat`.
+		
+	- Finding content in files with `rg`.
+		
+	- JSON data processing with `jq`.
+	
+- [Common Tasks]: Used to speed up your tasks in the shell.
+	
+	- Shorten often-used commands via `alias`.
+		
+	- Navigating using keyboard shortcuts.
+		![[Pasted image 20250411054237.png]]
+	- File content management, using `echo, cat, sed diff`.
+		
+	- Viewing long files using `head` and `tail`. 
+		`head -5 /tmp/longfile`
+		`sudo tail -f /var/log/Xorg.0.log`
+		
+	- Date and time handling via `date`.
+### Terminal Multiplexer
+
+- [Multiplexing]: Using multiple terminal windows to perform many interdependent tasks. A process of overlaying a terminal with multiple windows.
+	
+	- [screen]: The original terminal multiplexer.
+		
+	- [tmux]: A flexible and rich terminal multiplexer that you can bend to your needs.
+		![[Pasted image 20250411055701.png]]
+		- [Sessions]: A logical unit that you can think of as a working environment dedicated to a specific task such as "working on project X" or "writing blog post Y". It's the container for all other units.
+			
+		- [Windows]: A tab in a User Interface (tab in a browser), belonging to a session. It's optional to use, and often one window per session.
+			
+		- [Panes]: These are your workhorses, effectively a single shell instance running. A pane is part of a window, and you can easily spilt it vertically or horizontally, as well as expand/collapse it (think:zoom) and close panes as you need them.
+			
+		- Has the ability to attach and detach a session.
+			
+		- 

@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "05409a94532f996d",
+        "id": "41f8592d6dffe6e1",
         "type": "tabs",
         "children": [
           {
-            "id": "d66096dfa22ae605",
+            "id": "80eb5f38656b0b1d",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "e5d9271595e93348",
@@ -164,27 +163,31 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "d66096dfa22ae605",
+  "active": "80eb5f38656b0b1d",
   "lastOpenFiles": [
-    "Computer Networking/Junos.md",
-    "Computer Networking/Computer Networking.md",
-    "Computer Networking/Terminology.md",
+    "Pasted image 20250411055701.png",
+    "Pasted image 20250411054237.png",
+    "Pasted image 20250411051732.png",
+    "Pasted image 20250411050018.png",
+    "Computer Science/Computer Systems/System Software/Shell and Scripting.md",
+    "Computer Science/Computer Systems/System Software/Linux.md",
+    "Pasted image 20250411043408.png",
+    "Pasted image 20250411043407.png",
     "assets/imgs/Pasted image 20250407214047.png",
     "assets/imgs/Pasted image 20250407214028.png",
     "assets/imgs/Pasted image 20250407205630.png",
     "assets/imgs/Pasted image 20250407205629.png",
     "assets/imgs/Pasted image 20250407204903.png",
-    "Pasted image 20250407214047.png",
-    "Pasted image 20250407214028.png",
-    "Pasted image 20250407205630.png",
-    "Pasted image 20250407205629.png",
-    "Pasted image 20250407204903.png",
-    "Computer Science/Computer Systems/System Software/Linux.md",
-    "Computer Science/Computer Systems/System Software/System Software.md",
-    "Computer Science/Computer Systems/System Software/Shell and Scripting.md",
+    "Computer Networking/Junos.md",
+    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/SQL.md",
+    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Go.md",
+    "Computer Networking/Computer Networking.md",
+    "Computer Networking/Terminology.md",
+    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Programming Language Theory and Program Semantics.md",
     "Computer Science/Computer Systems/Microarchitecture/Microarchitecture.md",
     "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
     "Computer Science/Computer Systems/Computer Networks/Computer Networks.md",
+    "Computer Science/Computer Systems/System Software/System Software.md",
     "Computer Science/Computer Systems/System Software/Access Control.md",
     "Computer Science/Computer Systems/Computer Systems.md",
     "Computer Science/Applied Disciplines/Software Engineering/Software Engineering.md",
@@ -196,12 +199,9 @@
     "Computer Science/Applied Disciplines/Artificial Intelligence/Artificial Intelligence.md",
     "Computer Networking",
     "Welcome.md",
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/SQL.md",
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Go.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/HTML.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Languages.md",
     "().md",
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/CSS.md",
     "assets/imgs",
     "assets",
     "Untitled 1.canvas",
