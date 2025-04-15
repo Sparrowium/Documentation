@@ -13,3 +13,9 @@
 	- ![[Pasted image 20250414192805.png]]
 		
 	- .10: Internal build number.
+	
+- 2001:db8 range: A range reserved for documentation according to Juniper Networks.
+	
+- [flapped]: The last time when it went down and came back up.
+	
+- [IRB]: Integrated Routing and Bridging

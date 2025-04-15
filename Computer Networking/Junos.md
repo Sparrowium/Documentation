@@ -171,3 +171,86 @@
 - If the first few letter words isn't unique, Junos CLI will gives a list of options that begin with that letter.
 	
 - Everything in Junos is hierarchical.
+
+<h2 style="color:#6290C3"><center> Network Interfaces </center></h2>
+## Junos Interface Naming Convention
+
+- [Network Interface]: Process all incoming and outgoing network traffic-including traffic due to the device as well.
+	
+- Every network interface in Junos has a name. The letters indicate the physical interface presentation. The numbers indicate the location on the chassis. Ex: `xe-0/0/1`.
+	
+	- The first interface will usually be named 0.
+		
+	- The names do not distinguish between copper and fiber. There are 4 Ethernet names: `fe-` Fast Ethernet (100Mbps), `ge-` Gigabit Ethernet (1Gbps), `xe-` 10Gbps Ethernet, `et-` Ethernet (40Gbps and above).
+		
+	- In `4/1/3`, number 4 indicates the Line card slot, number 1 means an interface card within a line card or a specific section of a line card, and the number 0 means the port number itself.
+	
+- [PICs]: Physical Interface Card, the interface card within a line card, or a specific section of a bigger line card.
+	
+- [FPCs]: Flexible PIC Concentrator, the actual line card itself.
+	![[Pasted image 20250415151116.png]]
+- The interface naming scheme is used on all Junos devices. Every single devices has one consistent naming convention, this also includes devices without line cards.
+
+## The show interface terse Command 
+via Operational Mode
+
+- [MTU]: Maximum Transmission Unit, the largest size packet or frame allowed on an interface.
+	![[Pasted image 20250415151713.png]]
+- Commands for viewing basic info, or viewing detailed statistics
+	![[Pasted image 20250415152432.png]]
+- Use `show interface terse` to verify the IP info and interface state.
+	![[Pasted image 20250415152242.png]]
+	- The local address is listed under Local.
+		
+	- The protocol is listed under Proto.
+		
+	- Junos uses *inet* for IPv4 and *inet6* for IPv6. The term inet stand for internet, which it self is short for internetwork. This word describes the process of connecting networks together, to create an even bigger network.
+		
+	- fe80 stands for link-local address. It is generated immediately by Junos, to talk with other devices on that link.
+		
+	- Admin means has this interface been shutdown through configuration, physical interface shutdown through configuration will make all logical interface shutdown, logical interface shutdown is separated. Link means is there a live cable plugged into this interface, if the physical is down, the logical will also be down.
+		
+	- Ex: `ex-0/1/1` is a physical interface. Handles Physical properties includes speed of the interface/duplex. copper or fiber setting, Layer 2 MTU.
+		
+	- Ex: `ex-0/1/1.0` is a logical interface. Handle protocol and addressing, vlan tags, and Layer 3 MTU.
+		
+	- Junos Interface always have at least one logical unit on a physical interface. Physical properties always go on the physical interface, logical properties always go on the logical interface. 
+	![[Pasted image 20250415155309.png]]
+	- This will show every interface on the device. The output also includes other interfaces such as internal, virtual, service, loopback, tunnel, management, and more.
+		
+	- You can use asterisk `*` as a wildcard to search for anything that begin with that text. Ex: `xe-0/1/*`.
+		![[Pasted image 20250415155722.png]]
+	
+- Type `show interfaces descriptions` to add text descriptions to physical interfaces and logical units.
+	![[Pasted image 20250415155904.png]]
+
+## Reading show interfaces Command Output
+via Operational Mode
+
+- Type `show interfaces`. The output is split into 2 section. 
+	
+	- The first section is the Physical Interface Output. This includes Interface speed and status, Layer 2 MTU, MAC Address, The last time the interface flapped, and more.
+		![[Pasted image 20250415161732.png]]
+	- The second section is the Logical Unit Output. This includes IPv4 & v6 address info, Layer 3 MTU, Traffic statistics-packets in and out, and more.
+		![[Pasted image 20250415161751.png]]
+	
+- Type `show interfaces extensive`, will show you everything about an interface. This includes status, traffic stats, traffic port priority, error counters, ip settings, and more. But it is recommended for troubleshooting, logging, and monitoring.
+
+## Filtering Output with CLI Pipe
+
+- Ex: `show interfaces terse | ?`
+	
+- Using pipe `|` to filter the output of any command. This includes filter the output to only show lines containing certain text, exclude lines containing certain text, save the output to a text file, count the number of lines of output, drill down to only the exact output.
+	
+- Use `match` to show only lines of output that contain certain text. Ex: `show interfaces terse | match "text"`. The search is not case sensitive.
+	![[Pasted image 20250415163044.png]]
+	- You can even search for multiple strings of text at once. In order to do this put a pipe between each string of text and wrap the whole thing in quotes. Ex: `show interfaces terse | match "physical|flapped"`. The pipe in quotes is a logical *OR*, this means that a line matches if it contains either word.
+		![[Pasted image 20250415163107.png]]
+	
+- Use `except` to filters out any lines that contain your text. Ex: `show interfaces terse | except "text"`.
+	![[Pasted image 20250415163318.png]]![[Pasted image 20250415163344.png]]
+- Use `count` to count the lines of output. Ex: `show interfaces terse | count`.
+	![[Pasted image 20250415163540.png]]
+- Use `find` to start the output at the first occurrence of your text. Ex: `show interfaces terse | find "text"`
+	![[Pasted image 20250415163729.png]]
+- In Junos you can **pipe as much as you want**.
