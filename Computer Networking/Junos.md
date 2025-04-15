@@ -1,4 +1,6 @@
+[[Junos Lab]]
 <h2 style="color:#6290C3"><center> Introduction </center></h2>
+
 ## Advantages of Junos CLI
 
 - [Junos OS]: Juniper Network Operating Systems for Junos Devices including Switches, Routers, and Firewalls. It manages the power and cooling of the chassis runs the protocols that power the network, and offers various different user interfaces that you can use to manages the device.
@@ -107,4 +109,65 @@
 		
 	- [SSH (Secure Shell)]: Encrypted, secure. Operates on TCP port 22.
 	
-- When SSH or Telnet do a device, a user account is needed, which consist of username and password. Then you use terminal application to access the local command line
+- When SSH or Telnet do a device, a user account is needed, which consist of username and password. Then you use terminal application to access the local command line.
+	
+- For remote connection you will need a Protocol, Username, Password, Router's IP. To SSH to a device, it can be done via Terminal Application.
+	
+- Syntax: `ssh username@{ipv4 address}`.
+	![[Pasted image 20250414185052.png]]
+	- A successful SSH session will show The Last Login Date, The JunOS version, A shell prompt.
+		
+	- When SSH to a device for a first time a warning will appear.
+		![[Pasted image 20250414185403.png]]
+	- If this warning appear when a device is already trusted. It could be a hardware fault, or a fake device. 
+
+## Junos CLI: Operation Mode
+
+- Are the default mode if you SSH with a non-root username. You can verify and troubleshoot almost anything in operational mode, this includes clear statistics and perform administrative tasks such as rebooting the device. Whenever the CLI program ends in a **greater-than sign (>) you are in operational mode**, you will also get a new blank shell prompt every time you press the return key.
+	
+	- [Verification]: Confirm an interface is working, verify any protocols, read the configuration, verify system/hardware status, ...
+		
+	- [Administration]: Upgrade device software, shut down/reboot the device, clear up old files, generate "support information", ...
+		
+	- [Troubleshooting]: Ping and trace-route to IPs, read log files, clear interface counters, view protocol traffic in real time, ...
+		
+	- However, configuration can't be changed.
+	
+- To configure the device, you go into a dedicated "configuration mode".
+	![[Pasted image 20250414190534.png]]
+	- The configuration mode is separated from the operational mode to prevent deploying changes by mistake, keeping different commands in different mode.
+	
+- [Four Important Operational Mode Command]: The basic and essentials command for Junos CLI. 
+	
+	- [show and monitor]: To verify things, such as, Interface info, device status, protocol state, ... The commands begin with `show` or `monitor`, followed by the name of the protocol, and perhaps an extra keyword to specify the information.
+		
+		- The show commands show information about an interface such as: error counters at the initial state, total count of packets in and out at initial state.
+			![[Pasted image 20250414191147.png]] 
+		- The monitor commands show the interface throughput at real time and see the actual messages that protocols are sending and receiving in real time.
+			![[Pasted image 20250414191336.png]]
+		
+	- [clear and request]: Are used in advanced situations such as troubleshooting, performing admin tasks.
+		![[Pasted image 20250414191522.png]]![[Pasted image 20250414191529.png]]
+	
+- Some useful show commands: 
+	
+	- `show system uptime`
+		![[Pasted image 20250414192213.png]]
+	- `show system information`
+		![[Pasted image 20250414192302.png]]
+	- `show route`: Show the routing table.
+	
+- [LLDP]: Link Layer Discovery Protocol. Discovers directly connected devices. Devices can send LLDP messages to advertise their hostname, port-names, macs, poe, vendor name, ...
+	![[Pasted image 20250414193413.png]]
+
+## CLI Built-in Command Reminders, Auto-Completion, Junos Hierarchy
+
+- Pressing up and down to browse your command history.
+	
+- Type `show system ?` to view available commands.
+	
+- Typing the first few letters and then pressing *tab* or *space*, junos will auto complete the rest. *tab* also auto-completes objects you've configured-firewall rules, named lists of IPs, ...
+	
+- If the first few letter words isn't unique, Junos CLI will gives a list of options that begin with that letter.
+	
+- Everything in Junos is hierarchical.
