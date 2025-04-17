@@ -1,4 +1,4 @@
-[[Junos Lab]]
+Associate Routing and Switching.
 <h2 style="color:#6290C3"><center> Introduction </center></h2>
 
 ## Advantages of Junos CLI

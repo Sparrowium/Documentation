@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Networking/Junos.md",
+                "file": "Computer Networking/Juniper/JNCIA-Junos.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Junos"
+              "title": "JNCIA-Junos"
             }
           },
           {
@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Networking/Terminology.md",
+                "file": "Computer Networking/Computer Networking.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Terminology"
+              "title": "Computer Networking"
             }
           },
           {
@@ -41,15 +41,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Networking/Junos Lab.md",
+                "file": "Computer Networking/Juniper/JNCIA-Design.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Junos Lab"
+              "title": "JNCIA-Design"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -191,8 +192,15 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "f5cb88da55555265",
+  "active": "8df0eccd2041ab37",
   "lastOpenFiles": [
+    "Computer Networking/Juniper/JNCIA-DevOps.md",
+    "Computer Networking/Juniper/JNCIA-Junos.md",
+    "Computer Networking/Computer Networking.md",
+    "Computer Networking/Juniper/JNCIA-Design.md",
+    "Computer Networking/Terminology.md",
+    "Computer Networking/Juniper/Junos Lab.md",
+    "Computer Networking/Juniper",
     "assets/imgs/Pasted image 20250417160407.png",
     "assets/imgs/Pasted image 20250417160320.png",
     "assets/imgs/Pasted image 20250417160157.png",
@@ -203,11 +211,6 @@
     "assets/imgs/Pasted image 20250417153503.png",
     "assets/imgs/Pasted image 20250417152958.png",
     "assets/imgs/Pasted image 20250417152738.png",
-    "assets/imgs/Pasted image 20250417152545.png",
-    "Computer Networking/Junos.md",
-    "Computer Networking/Terminology.md",
-    "Computer Networking/Junos Lab.md",
-    "Computer Networking/Computer Networking.md",
     "Computer Science/Computer Systems/System Software/Linux.md",
     "Computer Science/Computer Systems/System Software/Shell and Scripting.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/SQL.md",
@@ -229,7 +232,6 @@
     "Computer Networking",
     "Welcome.md",
     "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/HTML.md",
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Languages.md",
     "assets/imgs",
     "assets",
     "Untitled 1.canvas",
@@ -239,7 +241,6 @@
     "Computer Science/Computer Systems/Computer Systems",
     "Computer Science/Applied Disciplines/Software Engineering",
     "Computer Science/Applied Disciplines/Image and Sound Processing",
-    "Computer Science/Applied Disciplines/Human - Computer Interaction",
-    "Computer Science/Applied Disciplines/Computer Graphics and Visualization"
+    "Computer Science/Applied Disciplines/Human - Computer Interaction"
   ]
 }
