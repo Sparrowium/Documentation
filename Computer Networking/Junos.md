@@ -254,3 +254,55 @@ via Operational Mode
 - Use `find` to start the output at the first occurrence of your text. Ex: `show interfaces terse | find "text"`
 	![[Pasted image 20250415163729.png]]
 - In Junos you can **pipe as much as you want**.
+
+<h2 style="color:#6290C3"><center> Reading a Junos Configuration </center></h2>
+## Hierarchy View and Set View
+
+- [Active Configuration]: The configuration that is currently running/"active" on the device. This config is stored in a database but it is viewed as a text file. 
+	
+- When a configuration changes was made, they are not immediately deployed and saved until a "commit" was operated.
+	
+- Two common ways to display Junos Configuration:
+	
+	- [Hierarchy View]: Displays the configuration as a series of indented tabs. Config is nicely spaced out, so individual elements get a chance to stand out.
+		![[Pasted image 20250417145348.png]]
+	- [Set View]: Displays the actual commands that you type to configure the device via `set`. Easy to read small configs, displays lots of info at once.
+		![[Pasted image 20250417145425.png]]
+	
+- Type `show configuration` to view the config in hierarchy view. If you export the config to a back up server as a text file, it is exported as a hierarchy view.
+	![[Pasted image 20250417160030.png]]
+	- This shows the system login user account.
+		![[Pasted image 20250417160157.png]]
+	- This shows the interfaces via `show configuration interfaces`.
+		![[Pasted image 20250417160320.png]]![[Pasted image 20250417160407.png]]
+	
+	
+- Type `show configuration | display set` to view the config in set view.
+	![[Pasted image 20250417150408.png]]
+	- In addition, you can specify pieces of the configuration hierarchy via `show configuration {text}`.
+		
+	- To show system configuration type `show configuration system`.
+		
+	- This show the hostname in set system. 
+		![[Pasted image 20250417152457.png]]
+	- This show the management protocols in the services sub-hierarchy.
+		![[Pasted image 20250417152545.png]]
+	- This shows the user accounts.
+		![[Pasted image 20250417152738.png]]
+	- This shows the final pieces of set view configuration. Including the password for root account and log files.
+		![[Pasted image 20250417152958.png]]
+	- To show interface configuration type `show configuration interface`.
+	
+	- These four lines define the interface settings of an interface.
+		![[Pasted image 20250417153503.png]]
+		- In some settings the configuration might be customized such as `family inet mtu 900` (means the IPv4 traffic on this interface will have a Layer 3 MTU of 900 bytes), or `family inet6` (means that IPv6 will be configure to have link-local address only, without also requiring an explicit address.)
+		
+	- In some interfaces they might have a different MTU configuration. The first line affects the physical MTU. The second line affect the IPv6 MTU on the logical unit.
+		![[Pasted image 20250417154701.png]]
+	- To show protocols configuration type `show configuration protocols`. Note that interfaces hierarchy is for settings on the interface it self, while protocols is for protocols that you enable on an interface.
+		![[Pasted image 20250417155455.png]]
+	- To enable protocols in Junos. Log in via configuration mode and type `set protocols {protocol name} interface {interface name}`.
+		![[Pasted image 20250417155620.png]]
+	- To display configuration for an interface of your choice, type `show configuration | display set | match {interfce name}`.
+	
+- By reading a configuration file in set view, you're learning the exact same configuration statements you'll type to configure the device. By reading a configuration file in hierarchy view, you're learning the actual structure and layout of the configuration. It is best to learn and master both type of view.
