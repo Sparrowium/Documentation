@@ -636,6 +636,5 @@
 - [Key TCP Operation]: Application Layer protocols send data to TCP as a continuous stream of bites. TCP group bits into bytes, and bytes into manageable chunks or segments that can be one byte or many bytes in length. Each byte of data sent over a TCP connection has a sequence number. Each byte is acknowledged. Sequence number are used for acknowledge which data has been received, determine if the data has been lost or damaged, put the data into the correct order.
 
 <h2 style="color:#6290C3"><center> Computer Networking Vendors </center></h2>
-- [[Juniper]]: Often called **Juniper Networks**, is an American multinational corporation headquartered in Sunnyvale, California. The company develops and markets networking products, including routers, switches, network management software, network security products, and software-defined networking technology. 
-	
-- 
+
+- [[Juniper]]:  Often called **Juniper Networks**, is an American multinational corporation headquartered in Sunnyvale, California. The company develops and markets networking products, including routers, switches, network management software, network security products, and software-defined networking technology
