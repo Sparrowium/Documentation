@@ -4,8 +4,8 @@
   "showTags": false,
   "showAttachments": false,
   "hideUnresolved": false,
-  "showOrphans": false,
-  "collapse-color-groups": true,
+  "showOrphans": true,
+  "collapse-color-groups": false,
   "colorGroups": [
     {
       "query": "path:\"Computer Science/Applied Disciplines\"  ",
@@ -25,20 +25,34 @@
       "query": "path:\"Computer Science/Theoretical Disciplines\"  ",
       "color": {
         "a": 1,
-        "rgb": 11460690
+        "rgb": 11657298
+      }
+    },
+    {
+      "query": "path:\"Computer Networking/Juniper\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 392965
+      }
+    },
+    {
+      "query": "path:\"Computer Engineering\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 5431473
       }
     }
   ],
   "collapse-display": true,
-  "showArrow": false,
+  "showArrow": true,
   "textFadeMultiplier": 0,
   "nodeSizeMultiplier": 1,
   "lineSizeMultiplier": 1,
   "collapse-forces": false,
-  "centerStrength": 0.505208333333333,
-  "repelStrength": 10.3125,
+  "centerStrength": 0.518713248970312,
+  "repelStrength": 10,
   "linkStrength": 1,
-  "linkDistance": 240,
-  "scale": 0.211340877814063,
-  "close": true
+  "linkDistance": 250,
+  "scale": 0.6757621765136719,
+  "close": false
 }
