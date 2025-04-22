@@ -10,6 +10,11 @@
 	
 - Computer engineering usually deals with areas including writing software and firmware for embedded microcontrollers, designing VLSI chips, analog sensors, mixed signal circuit boards, thermodynamics and Control systems. 
 
+## Major Focus
+
+- [Computer Hardware Engineer]: An engineer or architect who encompass the electronics engineering and electrical engineering fields, with subspecialities in analog, digital, or electromechanical systems.
+	
+- [Computer Software Engineer]: An engineer who applies a software development process, which involves defining, implementing, testing, managing, and maintaining software systems, as well as developing the software development process itself.
 ## Specialty Areas
 
 - [[Processor Design]]: A subfield of computer science and computer engineering that deals with creating processor, a key component of computer hardware.
@@ -18,4 +23,16 @@
 	
 - [[Compilers]] and [Operating Systems]: Focuses on compilers and operating systems design and development.
 	
-- 
+- [[Computational Science and Engineering]]: An emerging discipline that deals wit the development and application of computational models for engineering, known as Computational Engineering Model (CEM).
+	
+- [[Computer Networks]], [[Mobile Computing]], and [[Distributed Computing]]: In this specialty, engineers build integrated environments for computing, communications, and information access.
+	
+- [[Computer Architecture]], [[Parallel Computation]], and [[Dependability]]: Researching projects that allow for reliable, secure, and high-processing computer systems.
+	
+- [[Computer Visions]] and [[Robotics]]: Focus on developing visual sensing technology to sense an environment, representation of an environment.
+	
+- [[Embedded Systems]]: Design technology for enhancing the speed, reliability, and performance of systems.
+	
+- [[Integrated Circuits]] and [[VSLI Design]]: Enhancing the speed, reliability, and energy efficiency of next-generation very-large-scale integrated (VLSI) circuits and microsystems.
+	
+- [[Quantum Computing]]: This area integrates the quantum behavior of small particles such as superposition, interference and entanglement, with classical computers to solve complex problems and formulate algorithms much more efficiently. Individuals focus on fields like Quantum cryptography, physical simulations and quantum algorithms.

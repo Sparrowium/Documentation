@@ -8,39 +8,20 @@
         "type": "tabs",
         "children": [
           {
-            "id": "b08055e04ad4c4d8",
+            "id": "2e865cdbf6387eb4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Engineering/Computer Engineering.md",
+                "file": "Computer Science/Computer Systems/System Software/Linux.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Computer Engineering"
-            }
-          },
-          {
-            "id": "d0cebfb64e2892d6",
-              "title": "JNCIA-Junos"
-          },
-          {
-            "id": "52d449743d172a47",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Computer Science/Computer Science.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Computer Science"
+              "title": "Linux"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -182,21 +163,34 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "52d449743d172a47",
+  "active": "2e865cdbf6387eb4",
   "lastOpenFiles": [
-    "Communication and Wireless Networks.md",
-    "Computer Engineering/Computer Engineering.md",
-    "Computer Science/Computer Science.md",
-    "Computer Science/Computer Systems/Computer Systems.md",
+    "Computer Science/Computer Systems/System Software/Access Control.md",
     "Computer Science/Computer Systems/Distributed Computing/Distributed Computing.md",
-    "Computer Science/Computer Systems/Microarchitecture/Microarchitecture.md",
-    "Computer Science/Computer Systems/System Software/System Software.md",
-    "Computer Science/Computer Systems/System Software/Linux.md",
+    "Computer Science/Computer Systems/Database/Database.md",
+    "Computer Science/Computer Systems/Data Mining/Data Mining.md",
+    "Computer Science/Computer Systems/Concurrency/Concurrency.md",
     "Computer Science/Computer Systems/Computer Networks/Computer Networks.md",
     "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
-    "Computer Networking/Junos.md",
-    "Computer Networking/Junos Lab.md",
+    "Computer Science/Applied Disciplines/Applied disciplines.md",
+    "Computer Science/Applied Disciplines/Software Engineering/Tools/Git.md",
+    "Computer Science/Applied Disciplines/Software Engineering/Software Engineering.md",
+    "Computer Science/Applied Disciplines/Computer Graphics and Visualization/Computer Graphics and Visualization.md",
+    "Computer Science/Applied Disciplines/Computational Science & Engineering/Computational Science & Engineering.md",
+    "Computer Engineering/Computer Engineering.md",
+    "Computer Networking/Juniper/JNCIA-Junos.md",
+    "Computer Networking/Juniper/JNCIA-DevOps.md",
+    "Computer Networking/Juniper/JNCIA-Design.md",
+    "Computer Networking/Juniper/Junos Lab.md",
+    "Computer Networking/Juniper/Juniper.md",
     "Computer Networking/Terminology.md",
+    "Computer Science/Computer Science.md",
+    "Computer Science/Computer Systems/System Software/System Software.md",
+    "Computer Science/Computer Systems/System Software/Linux.md",
+    "Computer Science/Computer Systems/Microarchitecture/Microarchitecture.md",
+    "Computer Networking/Computer Networking.md",
+    "Communication and Wireless Networks.md",
+    "Computer Science/Computer Systems/Computer Systems.md",
     "assets/imgs/Pasted image 20250415164132.png",
     "assets/imgs/Pasted image 20250415163729.png",
     "assets/imgs/Pasted image 20250415163540.png",
@@ -207,40 +201,7 @@
     "assets/imgs/Pasted image 20250415161751.png",
     "assets/imgs/Pasted image 20250415161732.png",
     "assets/imgs/Pasted image 20250415155904.png",
-    "Computer Networking/Computer Networking.md",
-    "Computer Networking/Juniper/JNCIA-Junos.md",
-    "Computer Networking/Juniper/Juniper.md",
-    "Computer Networking/Computer Networking.md",
-    "Computer Networking/Juniper/JNCIA-Design.md",
-    "Computer Networking/Juniper/Junos Lab.md",
-    "Computer Science/Computer Science.md",
-    "Computer Science/Computer Systems/Computer Systems.md",
-    "Computer Science/Theoretical Disciplines/Theoretical disciplines.md",
-    "Computer Engineering/Computer Engineering.md",
-    "Computer Networking/Juniper/JNCIA-DevOps.md",
-    "Computer Networking/Terminology.md",
     "Computer Networking/Juniper",
-    "assets/imgs/Pasted image 20250417160407.png",
-    "assets/imgs/Pasted image 20250417160320.png",
-    "assets/imgs/Pasted image 20250417160157.png",
-    "assets/imgs/Pasted image 20250417160030.png",
-    "assets/imgs/Pasted image 20250417155620.png",
-    "assets/imgs/Pasted image 20250417155455.png",
-    "assets/imgs/Pasted image 20250417154701.png",
-    "assets/imgs/Pasted image 20250417153503.png",
-    "assets/imgs/Pasted image 20250417152958.png",
-    "assets/imgs/Pasted image 20250417152738.png",
-    "Computer Science/Computer Systems/System Software/Linux.md",
-    "Computer Science/Computer Systems/System Software/Shell and Scripting.md",
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/SQL.md",
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Go.md",
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Programming Language Theory and Program Semantics.md",
-    "Computer Science/Computer Systems/System Software/Access Control.md",
-    "Computer Science/Applied Disciplines/Software Engineering/Software Engineering.md",
-    "Computer Science/Applied Disciplines/Software Engineering/Tools/Git.md",
-    "Computer Science/Applied Disciplines/Image and Sound Processing/Image and Sound Processing.md",
-    "Computer Science/Applied Disciplines/Human - Computer Interaction/Human - Computer Interaction.md",
-    "Computer Science/Applied Disciplines/Computational Science & Engineering/Computational Science & Engineering.md",
     "Computer Networking",
     "assets/imgs",
     "assets",
