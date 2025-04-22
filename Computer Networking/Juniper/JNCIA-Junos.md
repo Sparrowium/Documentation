@@ -306,3 +306,10 @@ via Operational Mode
 	- To display configuration for an interface of your choice, type `show configuration | display set | match {interfce name}`.
 	
 - By reading a configuration file in set view, you're learning the exact same configuration statements you'll type to configure the device. By reading a configuration file in hierarchy view, you're learning the actual structure and layout of the configuration. It is best to learn and master both type of view.
+
+<h2 style="color:#6290C3"><center> Configuring JunOS </center></h2>
+## The JunOS Candidate Configuration
+
+- Junos Configuration is done in configuration mode, the config is written into a text file.
+	
+- The configuration mode is a barrier that separates the actual configuration.
