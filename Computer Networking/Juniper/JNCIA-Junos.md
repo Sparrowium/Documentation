@@ -310,6 +310,64 @@ via Operational Mode
 <h2 style="color:#6290C3"><center> Configuring JunOS </center></h2>
 ## The JunOS Candidate Configuration
 
-- Junos Configuration is done in configuration mode, the config is written into a text file.
+- Junos Configuration is done in configuration mode, the config is written into a text file and it is stored in a separate location called the Candidate Configuration.
 	
-- The configuration mode is a barrier that separates the actual configuration.
+- The configuration mode is a barrier that separates the actual configuration. If offers the chances to verify your syntax and fix your mistakes, the ease of scrapping changes, and deploying multiple changes at exactly the same time.
+	
+- Type `configure` or `edit` in Operation mode (Default) to enter configuration mode. The CLI will display `Entering configure mode` and `[edit]` box that display your current position in the hierarchy. Second, you will see that the greater-than sign `>` after the host-name has changed. It is now a `#` sign.
+	
+	- In this mode you will be able to Add and Delete configurations, Change and Rename things, Move and Copy things, Deactivate, ...
+	
+- [Changing the Hostname]: In configuration mode type `set system host-name [name]`.
+	![[Pasted image 20250501192353.png]]
+- [Viewing Propose Changes]: Type `show | compare`. Notice that the `+` signs means added, and the `-` means removed.
+	![[Pasted image 20250501191744.png]]
+- [Scrapping Proposed Changes]: Type `rollback`.
+	![[Pasted image 20250501192542.png]]
+## Utilizing the Commit and Rollback Commands
+
+- [Deploying Changes]: Type `commit` or `commit and-quit` to exit to Operational Mode.
+	![[Pasted image 20250501192903.png]]
+- [Showing Previous commit]: Type `show system commit`.
+	![[Pasted image 20250501193516.png]]
+	- Junos save up to 49 previous configuration starting with 0 (latest) to 49 (oldest). Any new commit will deleted the 49th commit. 
+	
+- [Rolling Back to a Historical Configuration]: Type `rollback [n]`, with n being the previous config number you wanted. Typing `rollback` is the same as `rollback 0`, meaning that you are rolling back the latest config.
+	![[Pasted image 20250501193803.png]]
+- [Comparing Current and Old config]: Type `show configuration | comapre rollback [n]` in operational mode, with n is the previous config you wanted to compare.
+	![[Pasted image 20250501194157.png]]
+- Junos checks syntax as you type but it does not check variables. This checking is perform during the commit staging, if an error is found, the commit will fail.
+	![[Pasted image 20250501194442.png]]
+- [Validating Commit]: Type `commit check` to verifies the current changes on the candidate configuration. This command does not save the configuration or updates it. Useful in long and complicated changes.
+	![[Pasted image 20250501194737.png]]
+- [Configuring New Interfaces]: Type `set interfaces [interface_name] unit [number] family inet/inet6 address [IP address]`.
+	![[Pasted image 20250501195203.png]]![[Pasted image 20250501195218.png]]
+- Some commands in Junos is redacted due to screen display limitation or terminal sizing limitation. Just simply press `<-` key and it will show the first half of what has been type.
+	
+	- Or simply type `set cli screen-width 1000` to adjust the screen width. The limit is 80-1024 characters. This command is only available during the current session, it is not saved internally.
+	![[Pasted image 20250501195632.png]]
+- [Adding Changes]: Type `set` to add configuration to a list or overwrite existing configuration. 
+	![[Pasted image 20250501200352.png]]
+- When dealing with IP Addresses, typing `set` will just simply add more Addresses since an interfaces can have multiple IP addresses.
+	
+	- [Removing Configuration]: To avoid this problem simply remove the unwanted config via `delete`.
+	![[Pasted image 20250501200841.png]]
+	
+- When using `delete` commands remember to specify the level of hierarchy that you wanted. Because the `delete` operates on the deepest level of hierarchy you specify.
+	![[Pasted image 20250501201611.png]]
+	
+- [Confirming a Commit]: Type `commit confirmed [number]` to set a timer in minutes to confirmed the commit in a certain time intervals, if a commit is not confirmed, it is automatically rolled back.
+	![[Pasted image 20250501202427.png]]
+	- Pressing `Enter` will show the remaining time before reverting back to the latest commit.
+		![[Pasted image 20250501202552.png]]
+	- To confirm the commit simply type any variant of commit to cancel the rollback. Bare in mind that using commit confirmed will save the commit 2 times, so use commit check instead.
+		![[Pasted image 20250501202713.png]]
+	
+- [Commenting a Commit]: Type `commit comment "[content]"` to add comments to your commit.
+	![[Pasted image 20250501203005.png]]
+- [Running Operational Commands in Configuration]: Type `run`, useful for prototyping/probing in home-labs cases, avoid in production.
+	![[Pasted image 20250501203516.png]]
+
+ 
+
+
