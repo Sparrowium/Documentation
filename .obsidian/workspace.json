@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Networking/Juniper/JNCIA-Junos.md",
+                "file": "Computer Networking/Juniper/JNCIA-Design.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "JNCIA-Junos"
+              "title": "JNCIA-Design"
             }
           }
         ]
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "e5d9271595e93348",
@@ -165,6 +166,8 @@
   },
   "active": "41fb4ee49089c150",
   "lastOpenFiles": [
+    "Computer Networking/Juniper/JNCIA-Junos.md",
+    "Computer Networking/Juniper/JNCIA-Design.md",
     "assets/imgs/Pasted image 20250501203516.png",
     "assets/imgs/Pasted image 20250501203005.png",
     "assets/imgs/Pasted image 20250501202713.png",
@@ -175,8 +178,6 @@
     "assets/imgs/Pasted image 20250501200352.png",
     "assets/imgs/Pasted image 20250501195632.png",
     "assets/imgs/Pasted image 20250501195218.png",
-    "assets/imgs/Pasted image 20250501195203.png",
-    "Computer Networking/Juniper/JNCIA-Junos.md",
     "Computer Engineering/Computer Engineering.md",
     "Computer Science/Computer Science.md",
     "Communication and Wireless Networks.md",
@@ -193,7 +194,6 @@
     "Computer Networking/Computer Networking.md",
     "Computer Networking/Juniper/Juniper.md",
     "Computer Networking/Computer Networking.md",
-    "Computer Networking/Juniper/JNCIA-Design.md",
     "Computer Networking/Juniper/Junos Lab.md",
     "Computer Science/Computer Systems/Computer Systems.md",
     "Computer Science/Theoretical Disciplines/Theoretical disciplines.md",
