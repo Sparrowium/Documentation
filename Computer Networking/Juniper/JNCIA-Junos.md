@@ -367,7 +367,66 @@ via Operational Mode
 	![[Pasted image 20250501203005.png]]
 - [Running Operational Commands in Configuration]: Type `run`, useful for prototyping/probing in home-labs cases, avoid in production.
 	![[Pasted image 20250501203516.png]]
+## Way To Lock the Candidate Configuration
 
- 
+- The candidate configuration is shared among user's. Many engineers can add configuration at the same time, meaning a bigger change. When another user enter the candidate configuration, the system will automatically display all user that is currently in the candidate configuration.
+	
+- During candidate configuration, other's commit will also affect the state of the current candidate configuration of others, this will involve unexpected changes and behavior.
+	
+	- [Locking the Candidate Configuration]: Type `configure exclusive` to lock the candidate configuration. This will prevent others user to commit other's incomplete configuration, they still be able to enter the configuration mode but unable to make changes.
+	![[Pasted image 20250504175333.png]]
+	- [Privatizing Candidate Configuration]: Type `configure private` to create a unique candidate configuration. This will enable multiple users to configure **different** hierarchy at the same time. These commit are temporary and will be discarded when exit happens.
+	![[Pasted image 20250504175836.png]]![[Pasted image 20250504175955.png]]
+	- [Commit at a Different Time]: Type `commit at` to deploy the commit at a chosen time. To clear the pending commit type `clear system commit`.
+	![[Pasted image 20250504180154.png]]
+## Deactivate and Disabling Different Pieces of the Configuration 
 
+- [Disabling a Physical Interface]: Can be as easy as unplug the cables or turn it off and on again. Another method would be shut it down through configuration known as putting the interface into an "admin-down" state `set [content] disable`.
+	![[Pasted image 20250504180537.png]]
+	- Remembers that in `show interfaces terse` will show which device has been shut down through configuration (admin column) and which device is actually live and working (link column).
+	![[Pasted image 20250504181415.png]]
+	- To bring a status back up type `delete [content] disable`.
+	![[Pasted image 20250504181622.png]]
+	- You can also disable individual logical unit.
+	![[Pasted image 20250504181913.png]]
+	- Reminder that the **Admin** output tells you about the administrative state, **Link** tells about the physical interface status.
+	
+- You can disable many other things such as protocol.
+	
+- [Deactivating a Hierarchy]: Type `deactivate [content]` to deactivate any piece of hierarchy. It just like commenting out a piece of configuration without affecting the rest. Even though it is still technically up, but its logical unit and content have all disappeared. In some platforms, Junos might inserts a dummy unit on empty interfaces.
+	![[Pasted image 20250504182823.png]]![[Pasted image 20250504182835.png]]
+- [Activating a Hierarchy]: Type `activate [content]` to reactivate/activate a configuration.
+	![[Pasted image 20250504183113.png]]
+- Reminder: Use `rollback` if the configuration goes out of hand.
+	![[Pasted image 20250504183203.png]]
+## Deploying Configuration within a Hierarchy
 
+- [Using Hierarchy to Deploy Shorter Commands]: Type `edit [hierarchy-level]` to edit at a deeper hierarchy, this will short up commands.
+	![[Pasted image 20250504193046.png]]
+- [Moving Back Up the Hierarchy]: Type `up [number]` to move back up. Or just `top`.
+	![[Pasted image 20250504193240.png]]
+- Keep in mind that `show | compare` will only show the changes in that certain hierarchy level.
+	![[Pasted image 20250504193422.png]]
+	- `commit` is unaffected in terms of hierarchy's depth. But in `configure private` mode, `commit` is only allowed at the top of the hierarchy level.
+	![[Pasted image 20250504193619.png]]
+## Using rename and replace Commands to Edit the Configuration
+
+- [rename]: Changes one occurrence of a user-defined element in the configuration. 
+	![[Pasted image 20250504194301.png]]
+- [replace pattern]: Changes all mentions of a user-defined element, anywhere in the configuration. But it is hierarchy-sensitive.
+	![[Pasted image 20250504194340.png]]
+	- It is used to change the names of firewall filters and policies that apply to routing protocols. It is also used to search for an incorrect IP and subnet mask and replace it with the correct IP and subnet mask.
+	
+- In large routers that host services for multiple customers, `rename` is the preferred method in case of IP overlap used by customers.
+## Keyboard Shortcuts
+
+- Useful Keyboard short cut.
+	![[Pasted image 20250504195803.png]]
+	- `ctrl-w` delete a whole word.
+		
+	- `ctrl-a` move the cursor to the start of the command line.
+		
+	- `ctrl-e` move the cursor to the end of the command line.
+		
+	- `ctrl-k` delete everything from the cursor to the end of the command line.
+	![[Pasted image 20250504200157.png]]

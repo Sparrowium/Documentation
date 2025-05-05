@@ -8,7 +8,21 @@
         "type": "tabs",
         "children": [
           {
-            "id": "41fb4ee49089c150",
+            "id": "e5ae86d8dc1d6f23",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Computer Networking/Juniper/JNCIA-Junos.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "JNCIA-Junos"
+            }
+          },
+          {
+            "id": "a87219dfe898a03d",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -164,20 +178,22 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "41fb4ee49089c150",
+  "active": "e5ae86d8dc1d6f23",
   "lastOpenFiles": [
-    "Computer Networking/Juniper/JNCIA-Junos.md",
+    "assets/imgs/Pasted image 20250504200157.png",
+    "assets/imgs/Pasted image 20250504195803.png",
+    "assets/imgs/Pasted image 20250504194340.png",
+    "assets/imgs/Pasted image 20250504194301.png",
+    "assets/imgs/Pasted image 20250504193619.png",
+    "assets/imgs/Pasted image 20250504193422.png",
+    "assets/imgs/Pasted image 20250504193240.png",
+    "assets/imgs/Pasted image 20250504193046.png",
+    "assets/imgs/Pasted image 20250504183203.png",
+    "assets/imgs/Pasted image 20250504183113.png",
+    "assets/imgs/Pasted image 20250504182835.png",
+    "Computer Networking/Juniper/JNCIA-DevOps.md",
     "Computer Networking/Juniper/JNCIA-Design.md",
-    "assets/imgs/Pasted image 20250501203516.png",
-    "assets/imgs/Pasted image 20250501203005.png",
-    "assets/imgs/Pasted image 20250501202713.png",
-    "assets/imgs/Pasted image 20250501202552.png",
-    "assets/imgs/Pasted image 20250501202427.png",
-    "assets/imgs/Pasted image 20250501201611.png",
-    "assets/imgs/Pasted image 20250501200841.png",
-    "assets/imgs/Pasted image 20250501200352.png",
-    "assets/imgs/Pasted image 20250501195632.png",
-    "assets/imgs/Pasted image 20250501195218.png",
+    "Computer Networking/Juniper/JNCIA-Junos.md",
     "Computer Engineering/Computer Engineering.md",
     "Computer Science/Computer Science.md",
     "Communication and Wireless Networks.md",
@@ -197,7 +213,6 @@
     "Computer Networking/Juniper/Junos Lab.md",
     "Computer Science/Computer Systems/Computer Systems.md",
     "Computer Science/Theoretical Disciplines/Theoretical disciplines.md",
-    "Computer Networking/Juniper/JNCIA-DevOps.md",
     "Computer Networking/Terminology.md",
     "Computer Networking/Juniper",
     "Computer Science/Computer Systems/System Software/Linux.md",
