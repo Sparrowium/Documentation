@@ -101,3 +101,53 @@ Associate Design
 	![[Pasted image 20250504214036.png]]
 	- Some of the key features include the ability to set up, configure, and manage EX and QFX switches from Mist Cloud. It also utilizes open APIs for automation across third-party integrations, and offers AI-driven insights into switch performance.
 
+<h2 style="color:#6290C3"><center> Security and Wireless </center></h2>
+## Juniper Security
+
+- To assist customers in creating a network that's aware of potential threats. Keep in mind that means that the network is aware, which means you don't have to examine the network for threats 24 hours a day manually. It does this by extending security measures to every point of connection on the network, allowing for better protection of users, devices, applications, and also infrastructure.
+	
+- Instead of focusing solely on traditional network chokepoints for attack detection and mitigation, we use routers, switches, and access points to strengthen network defense. By making the entire network an integral part of its own protection, attacks can be identified and addressed more rapidly, leaving more room for legitimate traffic to flow smoothly.
+	
+- [SRX Series]: Are high-performance with advanced security features on a dependable platform. There are models designed for small enterprises and branch offices, mid-size enterprises and data centers, large data centers, and service providers.
+	
+	- Virtual version called vSRX, which offers the same features in a virtualized format for added flexibility. Moreover, the cSRX containerized firewall delivers advanced security for applications running in containers and microservices.
+	
+- [NGFW Series]: Integrates extra security services like IPS, SSL inspection, URL filtering, and unknown threat detection.
+	
+- [Juniper ATP]: An effective security solutions hat protects against advanced malware and cyberthreats. Deployable on cloud or as an on-site appliance, and its integrates smoothly with SRX series devices to deliver threat intelligence, malware analysis, and mitigation capabilities.
+	![[Pasted image 20250506185052.png]]
+- [Juniper Network Cloud Workload Protection]: A security solution aimed at safeguarding application workloads in any cloud or on-premises environment. It actively defends against attempts to exploit application vulnerabilities, including the OWASP Top 10 and memory-based attacks.
+	![[Pasted image 20250506185107.png]]
+	- By controlling application execution and monitoring the application's behavior and context, it compares the intended actions with what's happening in real-time. This approach helps ensure that applications always have a safety net against vulnerability exploits, keeping important business services connected and protected. What's more, Juniper Cloud Workload Protection automatically defends against targeted vulnerabilities without requiring any administrator intervention.
+	
+- [Juniper SecIntel]: Keeping your network secure by offering threat intelligence at every point of connection. This covers the WAN edge, wired and wireless LANs, and enforcement points within the network, helping you block harmful traffic and create a more secure network environment. And so, by aggregating data from various sources, including Juniper devices and third-party sources, SecIntel provides curated, consolidated, and actionable intelligence. This information is then delivered to SRX, MX, EX, QFX, and Mist devices.
+	![[Pasted image 20250506185128.png]]
+- [Juniper Secure Analytics (JSA)]: A fantastic tool for managing and analyzing security events. It helps you sort through loads of data from different devices, endpoints, and applications in real time. Thanks to its advanced big data analysis capabilities, it's quick at spotting potential threats.
+	
+- [Juniper Secure Connect]: An SSL VPN application that helps remote workers securely access their corporate and cloud resources. It's compatible with a range of devices like Windows, MacOS, Android, and iOS.
+## Juniper Wireless
+
+- [Mist  AP]: Mist Access Point, are designed to work with Juniper Mist Cloud Services and Mist AI. They support 802.11ax (Wifi 6), 802.11ac Wave 2, BLE, and IoT.
+	
+- [Mist Edge]: Extends the microservices platform to the campus, bringing agility and scale while also enabling new applications at the edge. This solution is deployed as a standalone appliance, available in multiple variants for different-sized deployments. This way, organizations can easily manage and monitor their wireless APs.
+	
+- [Mist Cloud Service]: Designed to simplify network management and automate business operations. They come with a range of programmable features using open APIs, making it easy to integrate them with your IT applications.
+	![[Pasted image 20250506184948.png]]
+	- It is a versatile and entirely programmable solution that can be integrated with IT applications to streamline both network and business operations. Thanks to open APIs, you can access all Mist Cloud functions, like provisioning, monitoring, and alerts, with the API, giving you full control over your network.
+		
+	- [Wi-fi Assurance]: A cloud-based service that leverages machine learning and Mist AI to make Wi-Fi more predictable, reliable, and measurable while providing unique visibility into user service levels.
+		
+	- [Wired Assurance]: Another feature that introduces Mist AI to access layer switching, improving the experience of devices connected through EX and QFX switches.
+		
+	- [WAN Assurance]: Simplifies operations, enhances visibility into end-user experiences, and shortens the mean time to repair for both wired and wireless devices.
+		
+	- [Marvis]: A virtual network assistant, uses Mist AI to proactively transform network operations for enterprise WLANs, LANs, and WANs.
+		
+	- [Mist Premium Analytics]: Provides network visibility and business intelligence.
+		
+	- [User Engagement Cloud Service]: Utilizes Virtual BLE array technology and cloud-based machine learning to boost the accuracy of real-time indoor location services.
+		
+	- [Asset Visibility]: Makes locating key assets and people simple.
+		
+	- [Risk Profiling]: Brings network security to the distributed access network edge by evaluating the risks associated with each connecting device and implementing access and security policies.
+
