@@ -151,3 +151,61 @@ Associate Design
 		
 	- [Risk Profiling]: Brings network security to the distributed access network edge by evaluating the risks associated with each connecting device and implementing access and security policies.
 
+<h2 style="color:#6290C3"><center> SDN and Network Management </center></h2>
+## Juniper SDN
+
+- [SDN]: Software Defined Networking, an approach to network virtualization and containerization that seeks to optimize network resources and quickly adapts networks to changing the business needs, applications and traffic.
+	
+	- With SDN, the functions of network orchestration, management, analytics, and automation become the job of the SDN controllers. Because these controllers are not networking devices, they can take advantage of the scale, performance, and availability of modern cloud computing and storage resources.
+	
+- [Contrail Service Orchestration]: A powerful software platform bridging many enterprise and multitenant service provider solutions including SD-WAN, NFV, telco cloud, as well as others. It also available as an on-premises and as a cloud-managed service.
+	
+	- Contrail Service Orchestration designs, secures, automates, and runs the entire SD-WAN service life cycle across SRX and NFX devices. And it integrates with Mist Cloud for seamless Wi-Fi management. It also a service orchestrator for the vSRX in public cloud marketplaces such as AWS and Azure.
+	
+- [Contrail Networking]: Solves networking challenges for different cloud environments. With its scale-out microservices architecture and distributed control and data planes, Contrail Networking orchestrates virtual networks and network services at the performance and scale required of the largest, most dynamic clouds. service providers, enterprises, SaaS providers, and hosting and cable providers. These networks use Contrail Networking to connect heterogeneous cloud environments, accelerating the deployment of cloud applications and services.
+	
+- [NFX Series]: Are designed to enhance the flexibility and security of a network, with helpful features like ZTP and advanced network security.
+	
+	- A notable feature of NFX is its role as a key component in Juniper's automated SD-WAN and next-gen firewall solutions. It's a universal CPE platform that's capable of handling multiple Juniper and third-party VNFs on a single device, simplifying the deployment of new applications and services across an organization.
+## Juniper Network Management
+
+- [Paragon Automation]: A suite of software tools designed to help businesses optimize their network services. Regardless of whether you're working in a private data center or public or private clouds.
+	![[Pasted image 20250506184756.png]]
+	- A standout feature of Paragon Automation is its use of AI and machine learning. Think of these as your behind-the-scenes techs, working around the clock to identify and fix problems before they impact your business. This allows businesses to adopt a more proactive approach to maintaining their network services, helping to prevent disruptions and keep everything running smoothly.
+		
+	- [Paragon Insights]: Designed to keep a network performing at its best by providing consistent and comprehensive operational intelligence. The easy-to-use interface comes with widgets for configuration and dashboards for data visualization and network monitoring. It's designed to be approachable, so you can get the most out of it without a steep learning curve. At the heart of Paragon Insights is its ability to collect data from multiple sources. It can pull from JTI, SNMP, syslog, and OpenConfig telemetry. This tool doesn't just gather a lot of data; it aggregates it to provide a multi-faceted view of your networks and services. But it doesn't stop at data collection. Paragon Insights is equipped to analyze this data in real-time and turn it into actionable insights. It's like having a personal network analyst at your disposal, continuously working to ensure your network is optimized.
+		
+	- [Pathfinder Controller]: Focuses on simplifying the often complex world of traffic engineering. It collects a bunch of information from your network, including topology, configurations, LSP state information, and telemetry data. The data is made available through the user interface, reports, or the API. With this clear and comprehensive view of the network, operators can manage LSP design in a way that aligns with their specific goals. A important aspect of the Pathfinder controller is its close working relationship with Paragon Planner. It feeds regular snapshots of the network into the Paragon Planner, allowing for offline modeling.
+		
+	- [Paragon Planner]: Designed to assist network operators in ensuring their networks perform optimally. It's a traffic management solution compatible with various types of networks and protocols, including IP, MPLS, and segment routing. It allows you to forecast how these changes will affect your network without any disruption to your ongoing operations. In addition, you get a transparent view of your entire network and the ability to visualize routing paths, model video-on-demand flows, define Class of Service based application flows, and create VPN models.
+		
+	- [Paragon Active Assurance]: Designed to simplify network management and orchestration. It is composed of two main software components: the Control Center and virtual test agents.
+		![[Pasted image 20250506185446.png]]
+		- [The Control Center]: Serves as the central hub for managing the entire system. It can be delivered as a SaaS solution, or if SaaS isn't suitable for your needs, it can also be deployed on-premises. Functionally, both options are identical, offering the same set of features. 
+			
+		- The Control Center supports northbound APIs like NETCONF and YANG, as well as REST APIs. These APIs simplify integration with network automation tools which can orchestrate the solution and gather results from Paragon Active Assurance for analytics and fault correlation with other sources like Paragon Insights.
+			
+		- Moreover, the Control Center features a web interface that includes dashboards that display the results of the measurements you conduct and allow you to define templates for easy management and orchestration of the solution.
+			
+		- [Test Agent]: Are deployed across the network. These lightweight agents are versatile and can be deployed in a variety of scenarios and environments, including on KVM Hypervisor or VMware, in private clouds like OpenStack, or on public clouds with cloud-specific images. They can also function as containers in Docker or be integrated within a Kubernetes environment.
+			
+		- Test agents work by sending synthetic traffic across the network and then measuring the quality of the links between the client and server agents. Alternatively, they can utilize the reflection capabilities of endpoints on third-party devices using a protocol like the two-way active measurement protocol, or TWAMP. This method, particularly useful for monitoring mobile backhaul as a single test agent to cover thousands of receivers and report any issues.
+	
+- [Juniper Apstra]: A software-based, intent-driven networking solution that relies on closed-loop automation and assurance, coupled with multi-vendor support, to deliver a comprehensive fabric management solution. This solution can be implemented on any virtual machine or server, and is capable of connecting to and managing devices through agents installed either directly on the devices or remotely. It simplifies and accelerates the processes involved in designing, deploying, and operating data center networks.
+	
+	- Apstra gives you the flexibility to define multiple logical devices and racks during the network design phase, which can then be assembled into a template. 
+		
+	- Aspects such as rack types, routing policies, EVPN/VXLAN, IPv4, IPv6, among other resources can be incorporated into these templates and associated with compatible physical device profiles. One amazing thing about Apstra is the multi-vendor support it has. Vendors like Juniper, Cisco, Arista, Cumulus, and many others are all supported.
+	
+- [Junos Space]: A comprehensive network management solution that has been developed by Juniper to aid in the management of your routing, switching, and security devices.
+	![[Pasted image 20250506191234.png]]
+	- [Security Director]: Is an application designed to streamline the management of network security. And it acts as an on-premises solution. Its main function is to maintain the security of your network by automating the implementation and orchestration of security policies. This is applicable across a range of devices such as SRX devices, both physical and virtual, EX and QFX switches, MX routers, and even Mist APs. Furthermore, it can also manage third-party network devices.
+		
+	- Another valuable feature of Security Director is its ability to log and correlate events, generating easy-to-understand charts. This data can then be used to produce reports that are delivered directly to your organization's stakeholders. This insight lets decision-makers develop precise security policies based on user and security trends observed over time. Basically, Security Director is a powerful tool that simplifies the task of managing your network security.
+	
+- [Security Director Cloud]: A cloud-hosted version of Security Director that allows companies to manage their security policies irrespective of the location of their users, devices, and applications. By using Security Director Cloud, you can establish policies once and implement them across the board, thereby reducing the need for multiple rule sets and simplifying the overall security management process.
+	![[Pasted image 20250506191731.png]]
+	- One of the major advantages of Security Director Cloud is its ability to synchronize bi-directionally with on-premises and cloud-based firewalls. This helps businesses to have a unified management experience as they shift towards the cloud. The feature of unified policy management ensures that security policies continue to follow the user, device, and application even when they change locations. This eliminates the necessity to manually copy or recreate rule sets, thereby providing a consistent security experience for all users, regardless of their location.
+	
+- [Juniper Sky Enterprise]: A cloud-based management platform that simplifies network complexity for branch and campus users. With Sky Enterprise, customers can do away with the need to buy, install, and maintain servers and management software on their own. This flexibility allows enterprises to adjust capacity according to their business needs. Sky Enterprise is regularly updated with the latest software and features, allowing the network to be managed centrally with minimal involvement from IT staff. This allows them to concentrate on key business activities, ultimately leading to considerable cost savings. The platform automates tasks such as pre-staging or applying configurations. And new managed devices are securely onboarded automatically and constantly monitored to ensure optimal network performance.
+	![[Pasted image 20250506192317.png]]
