@@ -13,7 +13,7 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 
 <h2 style="color:#6290C3"><center> Linux Kernel </center></h2>
 - Provides the core functionality, on its own it is not the operating system, but a central part of it.
-### Linux Architecture
+## Linux Architecture
 
 ![[Pasted image 20250304193433.png]]
 
@@ -47,7 +47,7 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 	
 - [User Mode]: Means comparatively slower but safer and more convenient abstractions. 
 
-### CPU Architectures
+## CPU Architectures
 
 - Linux runs on a large number of different CPU architectures. For each architecture, it contains a architecture specific code, which allows it to port Linux and make it available on new hardware quickly.
 	
@@ -68,7 +68,7 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 	
 - [RISC-V Architecture]: An open RISC standard.
 
-### Kernel Components
+## Kernel Components
 
 - Linux Kernel is a monolithic one--that is, all the components discussed are part of a single library--there are functional areas in the code base that we can identify and ascribe dedicated responsibility.
 	
@@ -139,7 +139,7 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 	- Use `strace ls`, `strace -c\` to troubleshoot or looking at the history log of syscalls.
 	![[Pasted image 20250304212544.png]]![[Pasted image 20250304213022.png]]
 
-### Kernel Extensions
+## Kernel Extensions
 
 - [Module]: A program that you can load into a kernel on demand. That is, you do not necessarily have to recompile the kernel and/or reboot the machine. 
 	
@@ -163,7 +163,7 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 	- Used for network load balancing.
 
 <h2 style="color:#6290C3"><center> Shells and Scripting </center></h2>
-### Basics
+## Basics
 
 - [Terminals]: Or Terminal Emulator, Soft Terminal, is a program that provides a textual user interface. Terminal supports reading characters from  the keyboard and displaying them on the screen. They're simply apps.
 	
@@ -186,7 +186,7 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 		`stdout (FD 1)`
 		`stderr (FD 2)`
 		![[Pasted image 20250411050018.png]]
-	- If you don't want to use the defaults the shell gives you, you can redirect the streams. This process involves `$FD> and <$FD`, with `$FD` being the file descriptors. Note that 1> and > are the same since `stdout` is the default. If you want to redirect both `stdout` and stderr, use &>, and when you want to get rid of a stream, you can use `/dev/null`.
+	- If you don't want to use the defaults the shell gives you, you can redirect the streams. This process involves `$FD> and <$FD`, with `$FD` being the file descriptors. Note that `1>` and `>` are the same since `stdout` is the default. If you want to redirect both `stdout` and stderr, use &>, and when you want to get rid of a stream, you can use `/dev/null`.
 		
 	- Shells usually understand a number of special characters, such as: 
 		
@@ -228,7 +228,7 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 	
 	- If you want to keep a background process running, even after you close the shell you can prepend the `nohup` command. Further, for a process that is already running and wasn’t prepended with `nohup`, you can use `disown` after the fact to achieve the same effect. Finally, if you want to get rid of a running process, you can use the `kill` command with various levels of forcefulness.
 	
-- [Modern Commands]: Includes navigating folder (cd), listing directory contents (ls), finding files (find), and displaying the content of files (cat, less). Some of them are drop-in replacements, and others extend the functionality. All of them offer some‐ what sane default values for common operations and rich output that is generally eas‐ ier to comprehend, and they usually lead to you typing less to accomplish the same task. This reduces the friction when you work with the shell, making it more enjoyable and improving the flow.
+- Modern Commands Includes navigating folder (cd), listing directory contents (ls), finding files (find), and displaying the content of files (cat, less). Some of them are drop-in replacements, and others extend the functionality. All of them offer some‐ what sane default values for common operations and rich output that is generally eas‐ier to comprehend, and they usually lead to you typing less to accomplish the same task. This reduces the friction when you work with the shell, making it more enjoyable and improving the flow.
 	
 	- Listing Directory with `exa`.
 		
@@ -238,7 +238,7 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 		
 	- JSON data processing with `jq`.
 	
-- [Common Tasks]: Used to speed up your tasks in the shell.
+- Common Tasks used to speed up your tasks in the shell.
 	
 	- Shorten often-used commands via `alias`.
 		
@@ -251,20 +251,122 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 		`sudo tail -f /var/log/Xorg.0.log`
 		
 	- Date and time handling via `date`.
-### Terminal Multiplexer
+## Terminal Multiplexer
 
 - [Multiplexing]: Using multiple terminal windows to perform many interdependent tasks. A process of overlaying a terminal with multiple windows.
 	
-	- [screen]: The original terminal multiplexer.
+-  [screen]: The original terminal multiplexer.
+	
+- [tmux]: A flexible and rich terminal multiplexer that you can bend to your needs.
+	![[Pasted image 20250411055701.png]]
+	- [Sessions]: A logical unit that you can think of as a working environment dedicated to a specific task such as "working on project X" or "writing blog post Y". It's the container for all other units.
 		
-	- [tmux]: A flexible and rich terminal multiplexer that you can bend to your needs.
-		![[Pasted image 20250411055701.png]]
-		- [Sessions]: A logical unit that you can think of as a working environment dedicated to a specific task such as "working on project X" or "writing blog post Y". It's the container for all other units.
+	- [Windows]: A tab in a User Interface (tab in a browser), belonging to a session. It's optional to use, and often one window per session.
+		
+	- [Panes]: These are your workhorses, effectively a single shell instance running. A pane is part of a window, and you can easily spilt it vertically or horizontally, as well as expand/collapse it (think:zoom) and close panes as you need them.
+		
+	- Has the ability to attach and detach a session.
+		
+	- tmux uses `Ctrl+b` as the default keyboard shortcut, also called prefix or trigger. Using `Ctrl+b+d`, you can detach sessions.
+	![[Pasted image 20250506200645.png]]
+	- [tmux-resurrect]: Allows you to restore sessions with `Ctrl+s` (safe) and `Ctrl+r` (restore)..
+		
+	- [tmux-continuum]: Automatically saves/restores a sessions (15 minute interval).
+## Scripting
+
+- Most of the scripts are written in **bash**.
+	
+- Scripting Basics:
+	
+	- [Advanced Data Types]: While shells usually treats everything as string. they do support some advanced data types such as arrays.
+		```
+		os=('linux' 'macos' 'windows')
+		echo "${os[0]}"
+		numberofos="${#os[@]}"
+		```
+	- [Flow Control]: Allows you to branch (if) or repeat (for and while) in your script, making the execution dependent on a certain condition.
+		```
+		for afile in /tmp/* ; do
+			echo "$afile"
+		done
+		
+		for i in {1..10}; do
+			echo "$i"
+		done 
+		
+		while true; do 
+			...
+		done
+		```
+	- [Functions]: Allow you to write some modular and reusable script. You have to define the function before you use it since the shell interprets the script from top to bottom.
+		```
+		sayhi() {
+			echo " Hi $1 hope you are well"
+		}
+		
+		say hi "Michael"
+		```
+	- [Advanced I/O]: With `read` you can read user input from `stdin` that you can use to elicit runtime input. Further, rather than using `echo`, consider `printf`, which allows you fine-grained control over the output, including colors. `printf` is also more portable than `echo`.
+		```
+		read name
+		printf "Hello %s" "$name"
+		```
+	
+- Writing Portable bash Scripts:
+	
+	- Portable script meaning that it will run on many different systems. But beware that not all features work the same way across different version of a shell.
+		
+	- [Executing Portable Script]: Portable script are just text files, that may have `.sh` extension. First it needs to declare the interpreter in thee first line, using what is called `shebang` (hasbang), which is written as `#!`. Then, you need to make the script executable using `chmod +x`, which allows everyone to run it, or even better, `chmod 750`, which is more along the lines of the least privileges principles, as it allows only the user and group associated with the scrip to run it.
+		
+	- A skeleton template: 
+		```
+		#!/usr/bin/env bash
+		set -o errexit
+		set -o nounset
+		set -o pipefail
+		
+		firstargument="${1:-somedefaultvalue}"
+		
+		echo "$firstargument"
+		```
+	- Good practices: 
+		
+		- [Fail fast and loud]: Avoid silent fails, and fail fast; things like `errexit` and `pipefail` do that for you. Since bash tends to fail silently by default, failing fast is almost always a good idea
 			
-		- [Windows]: A tab in a User Interface (tab in a browser), belonging to a session. It's optional to use, and often one window per session.
+		- [Sensitive Information]: Don't hardcode any sensitive information such as passwords into the script. Such information should be provided at runtime, via user input or calling out to an API. Also, consider that a `ps` reveals program parameters and more, which is another way that sensitive information can be leaked.
 			
-		- [Panes]: These are your workhorses, effectively a single shell instance running. A pane is part of a window, and you can easily spilt it vertically or horizontally, as well as expand/collapse it (think:zoom) and close panes as you need them.
+		- [Input Sanitization]: Set and provide sane defaults for variables where possible, and sanitize the input you receive from users or other sources.
 			
-		- Has the ability to attach and detach a session.
+		- [Check Dependencies]: Don't assume that a certain tool or command is available, unless it's a built-in or you know your target environment. Just because your machine has `curl` installed doesn't mean the target machine has. If possible, provide fallbacks.
 			
-		- 
+		- [Error Handling]: When your script fails (and it's not a matter of if but when and where), provide actionable instructions for your users.
+			
+		- [Documentation]: Document your scripts inline (using # Some doc here) for main blocks, and try to stick to 80-column width for readability and diffing.
+			
+		- [Versioning]: Git.
+			
+		- [Testing]: Lint and test the scripts.
+	
+	
+- [Linting and Testing Scripts]: While you're developing, you want o check and lint your scripts, making sure that you're using commands and instructions correctly. There's a nice way o do that, with the program **ShellCheck**. Also, consider formatting your script with `shfmt`. It automatically fixes issues that can be reported later by `shellcheck`.
+	
+	- Before you check your script into a repo, consider using `bats` to test it. `bats`, short for Bash Automated Testing System, allows you to define test files as a bash script with special syntax for test cases. Each test case is simply a bash function with a description, and you would typically invoke these scripts as a part of a CI pipeline.
+
+<h2 style="color:#6290C3"><center> Access Control </center></h2> 
+## Basics
+
+- Resources and Ownership:
+	
+	- Linux is a multiuser operating system and as such has inherited the concept of a user form UNIX. Each user is associated with a user ID that can be given access to executables, files, devices, and other Linux assets. A human user can log in with a ser account, and a process can run as a user account. Then there are resources, files, which are any hardware or software components available to the user.
+	![[Pasted image 20250506210929.png]]
+	- [Users]: Launch processes and own files. A process is a program (executable file) that the kernel has loaded into main memory and runs.
+		
+	- [Files]: Have owners; by default, the user who creates the files owns it.
+		
+	- [Processes]: Use files for communication and persistency. Of course, users indirectly also use files, but they need to do so via processes.
+	
+- [Sandboxing]: A vaguely defined term and can refer to a range of different methods, from jails to containers to virtual machines, which can be managed either in the kernel or in user land. Usually there is something that runs in the sandbox-typically some application-and the supervising mechanism enforces a certain degree of isolation between the sandboxed process and the hosting environment.
+	
+- Types of Access Control:
+	
+	- 
