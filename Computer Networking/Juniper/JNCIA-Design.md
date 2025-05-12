@@ -209,3 +209,74 @@ Associate Design
 	
 - [Juniper Sky Enterprise]: A cloud-based management platform that simplifies network complexity for branch and campus users. With Sky Enterprise, customers can do away with the need to buy, install, and maintain servers and management software on their own. This flexibility allows enterprises to adjust capacity according to their business needs. Sky Enterprise is regularly updated with the latest software and features, allowing the network to be managed centrally with minimal involvement from IT staff. This allows them to concentrate on key business activities, ultimately leading to considerable cost savings. The platform automates tasks such as pre-staging or applying configurations. And new managed devices are securely onboarded automatically and constantly monitored to ensure optimal network performance.
 	![[Pasted image 20250506192317.png]]
+
+<h2 style="color:#6290C3"><center> General Requirements </center></h2>
+## RFP Requirements
+
+- [RFP (Request for Proposal)]: A mechanism that customers use to request network design proposals from potential vendors. Each RFP is unique, reflecting the specific requirements of each customer. An RFP can be brie or lengthy. An RFP includes:
+	
+	- Design requirements that detail business objectives, scope, and information about the existing network environments.
+		
+	- The solution required in the design, such as wireless, high availability, and security.
+		
+	- Warranty conditions for your products and any legal terms related to the solution.
+		
+	- Should be prompt, comprehensive, honest, and adhere to the customer's requested format.
+	
+- [RFI (Request for Information)]: Similar to RFP, it tends to be broad and generally covers only the technical elements of the design request.
+	
+- RFP Key Elements:
+	
+	- [Business Elements]: Portray what type of business the customer is in, planning for future expansion, and a rationale for the necessity of the new design.
+		
+	- [Environmental Requirements]: Facility specifications, number of users and workstations, server room specifications.
+		
+	- [Modular Requirements]: Hierarchical design consideration, reduction of information within each module, functionality of each module within the design.
+		
+	- [Connectivity and Throughput Requirements]: Number of wireless and wired connections needs, traffic analysis, calculation for theoretical and overhead traffic.
+		
+	- [Business Continuity]: Network efficiency, quality of service requirements, load balanced and highly available networks.
+## Scoping the Network Design
+
+- Every RFP is unique and you're likely one of several potential vendors. Your initial response is absolutely crucial to remain in the ring for the design contract. Aim to highlight your proposal's benefits in response to each RFP requirement, using the customer's specified format and familiar terminology. An RFP response should include things like:
+	
+	- [Executive Summary]: Concise outline of your design proposal emphasizing its advantages.
+		
+	- [Network Topology]: Logical and physical design of the proposed network.
+		
+	- [Design Details]: Details on devices, protocols, and technologies in the proposed design.
+		
+	- [Implementation Plan]: How and when the design will be implemented.
+		
+	- [Training]: Plan for employee training as the new network rolls out. The last thing you want is for the customer not to know how to use the new equipment.
+		
+	- [Support]: Support and maintenance strategy for the operational design. Something is always going to go wrong.
+	
+- Defining Key Stakeholders:
+	
+	- Understanding the Corporate Structure, figure out who holds the decision-making power. Understand their preferences to increase your design's chances of being accepted.
+		
+	- Engaging with the right individuals. Doing this ensures that there is alignment with the customer's needs, which is crucial for a successful proposal. Be proactive in seeking information about the existing network and the required technical aspects for the new network.
+		
+	- Navigate Corporate Dynamics, some might prefer other vendors or political divisions might obstruct consensus. Beware of potential resistance from employee if your design affects roles within the company. Being sensitive to the company culture is key.
+	
+- [Gathering Data]: Employ questionnaires, surveys, and interviews to learn what's critical to them and how they utilize the network daily. Gaining access to job aids detailing users' routines can provide helpful insights too. If possible, you should get copies of these job aids.
+	
+	- Consider goals, needs, and employee feedback, like a detective, distinguish facts from opinions. Understanding current network limitations and future requirements is crucial. Utilization and performance reports, historical trends, and even a traffic flow analysis can provide valuable insights for your proposal. If the client uses Juniper products, you can utilize them for network analysis. Junos devices offer troubleshooting tools like 'traceoptions' for logs and packet capturing. The data collected can be sent to Security Information and Event Management (SIEM) servers, such as Juniper Secure Analytics (JSA), which collects and parses events and flows, identifying threats and assets. JSA also supports a variety of third-party devices likely present in the client's network.
+	
+- [Identifying Applications]: Understand what applications are used. Record these applications in a spreadsheet or a table to understand their use and planned future use, also prioritizing traffic based on importance. This is particularly vital for bandwidth-hungry applications.
+	
+- [Understanding Scope]: When assessing the company's infrastructure, you must grasp the full scope of the design project. Even if the network initially seems small, it can grow significantly. Your design should foresee any capacity changes. And designing with modularity can help accommodate any network requested by the customer.
+	![[Pasted image 20250511211403.png]]
+- [Validating the Data]: The process of collecting, deciphering data until you understand the client's needs, a team consultation is also required.
+	![[Pasted image 20250511211720.png]]
+- [Analyzing the Existing Environment]: Design projects that usually new/existing systems, the main goal is to considering all the data analysis factors.
+	
+	- [Brownfield Projects]: Design projects that usually involve upgrades to existing systems. This is common due to factors like timing, training, and cost. If a customer's network is designed modularly, new requests can be added with minimal disruption.
+		
+	- [Greenfield Projects]: Design a network from scratch. These projects have fewer constraints, yet you can face challenges like infrastructural limitations or cost-prohibitive wiring.
+	
+- [Identifying Resources]: Include an equipment list or the Bill of Materials (BOM) detailing the components needed for the network design. For complex designs, BOMs may be modular or multi-level, associating costs with design functionalities.
+	
+	- Ideally, you want the customer to specify the budget. Understand it as you develop your proposal; aim to match the customer's needs and budget. Keep in mind the budget might change, necessitating constant communication with the customer. Consider other costs like staffing, testing, training, and potential changes in job roles. Communicate these possibilities to the customer for further instructions.
+
