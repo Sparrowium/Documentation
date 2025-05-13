@@ -18,4 +18,6 @@
 	
 - [flapped]: The last time when it went down and came back up.
 	
-- [IRB]: Integrated Routing and Bridging
+- [IRB]: Integrated Routing and Bridging.
+	
+- [LLDP]: Local Link Discovery Protocol.
