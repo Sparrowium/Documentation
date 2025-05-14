@@ -514,7 +514,7 @@ via Operational Mode
 		
 	- The `*` (asterisk) indicate active routes, and the last active routes or the most recently active route. The `>` involved in indicating which route is the active route, in addition to the asterisk. The `>` is also used to indicate the best path.
 		
-	- Make sure to use the exact keyword at the end of the command if you only want to see the exact prefix you're searching for.
+	- Make sure to use the `exact` keyword at the end of the command if you only want to see the exact prefix you're searching for.
 		
 	- Note that `/32` is listed as a Local route. This means that the IP is indeed configured on the actual interface itself. The address is local to the device. This sometime protect you against an incorrect static route.
 	
@@ -523,3 +523,65 @@ via Operational Mode
 - The process for viewing and reading the `inet6.0` is identical to `inet.0`. 
 	![[Pasted image 20250513203358.png]]
 	- Noted that `/64` give the first half for network portion, second half for host identifiers. `/128` refers to a specific host address, since IPv6 is 128 bits long.
+
+<h2 style="color:#6290C3"><center> Static Routes </center></h2>
+## Advantages and Trade-offs
+
+- Advantages: Simple to create, easy to understand, useful in small networks, ideal if there is only one path to the destination prefix.
+	
+- Important trade-offs:
+	
+	- Statics routes cannot react intelligently to changes in the topology.
+		
+	- If a new subnet is added, you must manually update each router in the network with a new static route pointing to that subnet.
+		
+	- Routers do not communicate to verify that their static routing knowledge is accurate. If you forgot to configure a router, then it will drop the packet sent by another router. To be more precise they send a ICMP, which is purely informational, for routers to communicate. In situation where the router receives packets to a destination it does not know, it will send a ICMP Destination Unreachable to the sender and drop the packet. 
+		
+	- These are consequences to use static routes correctly, not to avoid it.
+	
+- Static Routes use case:
+	
+	- Very Small Networks
+		
+	- Low-Powered Routers.
+		
+	- Situations where there is only one path to a destination.
+## Configuration and Verification
+
+- [ping]: Type `ping` to test connectivity at the end of the link. Pings are very small packets that gives you the visibility of whether end-to-end connectivity is successful.
+	
+	- Pings runs forever until `ctrl + c` is pressed.
+		
+	- Use `count` to limit the ping result.
+	
+- By default, the source address of a ping is taken from the outgoing interface. To override use the `source` options, which lets you specify a directly connected interface IP address to use as the source of the ping. This is useful for testing configuration.
+	![[Pasted image 20250513221147.png]]
+- [IPv4 Routing Syntax]: Type `set routing-options static route [ip address] next-hop [ip address]`. This will create a static routes (next-hop) to another routers that contains the IP address.
+	![[Pasted image 20250513222041.png]]
+- [RIB]: Routing Information Base. A formal term for routing table.
+	
+- [FIB]: Forwarding Information Base. A formal term for forwarding table.
+	
+- [IPv6 Routing Syntax]: Type `set routing-options rib inet6.0 static route [ip address] next-hop [ip address]`.
+	![[Pasted image 20250513222631.png]]
+## Default Routes
+
+- Two prefixes that contains every single IP address possible for IPv4 and IPv6:
+	![[Pasted image 20250513223039.png]]
+	- `0.0.0.0` is the first theoretical IPv4 address. The `/0` subnet means "every single IP address". If there isn't a more specific entry in the routing table, then a packet's destination address will math this entry.
+		
+	- When you see 2 colons. It means that you expand the address to however many zeroes are required. In this case it is 32 zeroes in a row.
+		
+	- This special kind of prefix is used to create a default route.
+	
+- Configuring Default Static Routes.
+	![[Pasted image 20250513223525.png]]
+- In real world, some devices do not respond to `ping` by default, and some devices are explicitly configured to ignore pings. If your pings fail, this does not necessarily mean there is a routing or IP problem.
+	
+	- A ping failure could be an indication of incorrectly configured Network Address Translation (NAT, the process of converting private IPs to public, and vice versa), or that the destination does not reply to ping traffic, or any number of problems.
+	
+- Type `show route protocol static` to display all static routes on a device.
+	![[Pasted image 20250513224044.png]]
+
+
+ 

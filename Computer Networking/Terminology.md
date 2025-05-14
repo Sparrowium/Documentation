@@ -21,3 +21,7 @@
 - [IRB]: Integrated Routing and Bridging.
 	
 - [LLDP]: Local Link Discovery Protocol.
+	
+- [ICMP]: Internet Control Message Protocol, it offers a series of errors and informational messages for router to communicate.
+	
+- [NAT]: Network Address Translation, the process of translating private IPs to public, and vice versa.
