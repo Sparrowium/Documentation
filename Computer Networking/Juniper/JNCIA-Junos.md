@@ -430,3 +430,96 @@ via Operational Mode
 		
 	- `ctrl-k` delete everything from the cursor to the end of the command line.
 	![[Pasted image 20250504200157.png]]
+
+<h2 style="color:#6290C3"><center> Routing Tables, Route Preference, and Longest Prefix Matches </center></h2>
+## Directly Connected, Static, and Dynamics Routes
+
+- Routes define how to get to a destination. As such they are the combination of a subnet, and knowledge of how to get to that subnet. Routes contains information for what is known as the "next hop" in the path, destination subnet, outgoing interface, IP address of the next-hop router.
+	
+- Routers does not magically learn all subnets in the network, even if they are directly connected. These are the methods to create a route:
+	
+	- Configure subnet on a local interface, If the interface is up this creates something called a directly connected route. The routers has learned about the existence of a subnet because it has interface that is directly connected to that subnet.
+		
+	- Configure a route to a remote destination. Configured routes that point to a next-hop router are called static routes.
+		
+	- Enabling routing protocol. These protocols automatically learn and advertise subnets in the network, The routes that these protocols learn are known as dynamic routes. These protocols are rarely enabled by default - you need to choose a protocol and then configure it yourself.
+	
+- [Directly Connected Routes]: Are routes to subnets that are configured on local interfaces that are up and working. If an interface on a router is up, and the interface is given an IP address and a subnet mask, then the router clearly knows that this entire subnet can be found out of that interface. As long as these interfaces are up, your router learns that these subnets exist out of these interfaces. If the interface goes down, then these routes disappear until the interface comes back up.
+	
+- [Static Routes]: Are routes to remote subnets that were added through configuration. You have to manually telling a router to get to a remote subnet, in other word forward all traffic destined from a subnet to another subnet. 
+	
+	- Static routes are simple to deploy, easy to understand. They're ideal in small networks.
+	
+- [Host]: Are just any device that can be given an IP address.
+	
+- [Dynamic Routes]: Enabling your router to learn subnets automatically. By doing this your router will advertise its own local subnets, and it will re-advertise remote subnets that they've learned about from other routers.
+	
+	- They adapt dynamically to topology changes.
+		
+	- There are many routing protocols, each with its own different features and advantages, and trade-offs. 
+		
+	- Some protocols are open standard, meaning anyone can use them. 
+		
+	- Some are proprietary, specifically on particular devices. 
+		
+	- Some are designed for specialist for specific situations. 
+		
+	- Some protocols are quick to react to network changes, but have limited scope in what they can learn. These protocols can learn a lot of information about one single network, but they cannot scale to learn very single subnet on the entire internet.
+		
+	- Other protocols are much slower to react to changes, but this is a good thing because it gives them the ability to learn multiple routes to every single subnet on the public internet.
+		
+	- Four well known protocols: OSPF, IS-IS, BGP, RIP.
+## Route Preference
+
+- When a router learns how to get to a subnet, engineers call the subnet a "prefix". This is a more precise word to describe a block of IPs, specifically in the context of routing.
+	
+- Take `192.168.10.0/24`. 
+	
+	- Routers only care about the "network part" of this subnet, in other words, the section of the address that actually refers to the subnet itself, which is `192.168.10`.
+		
+	- The `.0` is the "host identifiers" which can be anything from `.0` to `.255`, but the first and the last are preserved. 
+		
+	- The `/24` is the prefix length which is used to defines the number of bits used by the prefix. The IPv4 are 32 bits long, so a prefix of `/24` means that the first are used for the prefix, which is `192.168.10`, and the rest for the host identifier.
+	 
+- `subnet` are used most often when talking about the actual allocation of block of IPs to a part of the network. `prefix` in regards to routing information. Most of the time, they are interchangeably and loosely used by engineers.
+	
+- [Routing Table]: Junos routing tables store all known prefixes, learned from all sources. There are separate tables for IPv4, IPv6, and many advanced features.
+	![[Pasted image 20250513193629.png]]
+- Once the routing table has received all information from all sources, Junos then analyzes this information, and choose the one single best way  to get to a particular destination. This best routes, the winner out of all the possibilities , is known as the "active route".
+	
+	- [Concept of Route Preferences]: By default, Junos assigns a unique number to every method of learning a route. This includes all routing protocols, as well as static routes, and directly connected routes. If a router learns exactly the same prefix from two different protocols, then the route preference number is used as a tie-breaker to decide which route is best. In other words, this number indicates how believable the protocol is. The numerically lower the preference, the more believable that protocol is.
+	![[Pasted image 20250513194629.png]]
+	- If the Direct route goes down, other routes will be used for forwarding.
+		
+	- It is important to use **numerically lowest route preference**.
+## Longest Prefix Match Lookup
+
+- You can divide the subnet into even smaller subnets.
+	![[Pasted image 20250513195141.png]]
+- An important rule of routing is that the **most specific route always win**. Take this case as an example.
+	![[Pasted image 20250513195619.png]]
+	- As `/25` is more specific than `/24`, `/25` is chosen for forwarding if the host identifiers lies within .0 to .127. If it exceeds .127, `/24` is chosen for forwarding since it is out of scope for `/25`.
+		
+	- This process is called **longest prefix match lookup** because `/25` in binary is longer than `/24`.
+	![[Pasted image 20250513195916.png]]
+	
+- [Forwarding Table]: Responsible for looking up the destination IP of incoming packets, and deciding how to forward it. The forwarding table is create by importing all of the active routes in the routing table and ports it onto the forwarding table. Junos utilize the routing table and then decide the best path and give it to the forwarding table, where transit traffic is actually processed.
+## The inet.0 and inet.6 Routing Tables
+
+- The table `inet.0` contains all known IPv4 prefixes, learned from all protocols, and the table `inet6.0` performs the same job for IPv6 prefixes. Tables names like `inet.1`, `inet.2`, `inet.3`, and so on are used in more advanced networks such as networks that use multicast or MPLS (multi-protocol label switching).
+	
+- Type `show route`, which will first show you the `inet.0` table then `inet6.0` table. Specifying `show route table [content]` will show the specified table only. Typing `show route [ip address]` will also work.
+	![[Pasted image 20250513201552.png]]![[Pasted image 20250513201749.png]]
+	- You can also see the length of time that route has been in the table. This can be helpful for troubleshooting IP problems in your network. If a route has only been there for a very short amount of time, then perhaps there is a chance that the route is appearing and disappearing very rapidly. 
+		
+	- The `*` (asterisk) indicate active routes, and the last active routes or the most recently active route. The `>` involved in indicating which route is the active route, in addition to the asterisk. The `>` is also used to indicate the best path.
+		
+	- Make sure to use the exact keyword at the end of the command if you only want to see the exact prefix you're searching for.
+		
+	- Note that `/32` is listed as a Local route. This means that the IP is indeed configured on the actual interface itself. The address is local to the device. This sometime protect you against an incorrect static route.
+	
+- Type `show route table [content] protocol direct` to see all directly connected routes. 
+	![[Pasted image 20250513203035.png]]
+- The process for viewing and reading the `inet6.0` is identical to `inet.0`. 
+	![[Pasted image 20250513203358.png]]
+	- Noted that `/64` give the first half for network portion, second half for host identifiers. `/128` refers to a specific host address, since IPv6 is 128 bits long.

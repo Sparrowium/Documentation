@@ -4,47 +4,59 @@
     "type": "split",
     "children": [
       {
-        "id": "fc1628240f459d6e",
+        "id": "20995f3bc7ad0c50",
         "type": "tabs",
         "children": [
           {
-            "id": "19b710d4fcb95b15",
+            "id": "e5ae86d8dc1d6f23",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Networking/Juniper/Junos Lab.md",
+                "file": "Computer Networking/Juniper/JNCIA-Junos.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Junos Lab"
+              "title": "JNCIA-Junos"
             }
           },
           {
-            "id": "fd053b76245fbb63",
+            "id": "a87219dfe898a03d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Networking/Terminology.md",
+                "file": "Computer Networking/Juniper/JNCIA-Design.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Terminology"
+              "title": "JNCIA-Design"
             }
           },
           {
-            "id": "26729207e5240b1e",
+            "id": "60192b7081df2f10",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "Pasted image 20250513094001.png"
+                "file": "Computer Networking/Juniper/JNCIA-DevOps.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "Pasted image 20250513094001"
+              "icon": "lucide-file",
+              "title": "JNCIA-DevOps"
+            }
+          },
+          {
+            "id": "027acdfc2351405c",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -189,45 +201,45 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "19b710d4fcb95b15",
+  "active": "e5ae86d8dc1d6f23",
   "lastOpenFiles": [
-    "Pasted image 20250513094609.png",
-    "Pasted image 20250513094546.png",
-    "Pasted image 20250513094533.png",
-    "Computer Networking/Terminology.md",
-    "Pasted image 20250513094001.png",
-    "Computer Networking/Juniper/Junos Lab.md",
-    "Pasted image 20250513093913.png",
-    "Pasted image 20250513093641.png",
-    "Pasted image 20250513093305.png",
-    "Pasted image 20250513093155.png",
-    "Pasted image 20250513092929.png",
-    "Pasted image 20250513092918.png",
-    "Pasted image 20250513092905.png",
-    "Computer Networking/Juniper/JNCIA-Junos.md",
-    "Computer Networking/Juniper/Juniper.md",
+    "assets/imgs/Pasted image 20250513203358.png",
+    "assets/imgs/Pasted image 20250513203035.png",
+    "assets/imgs/Pasted image 20250513201749.png",
+    "assets/imgs/Pasted image 20250513201552.png",
+    "assets/imgs/Pasted image 20250513195916.png",
+    "assets/imgs/Pasted image 20250513195619.png",
+    "assets/imgs/Pasted image 20250513195617.png",
+    "assets/imgs/Pasted image 20250513195141.png",
+    "assets/imgs/Pasted image 20250513194629.png",
+    "assets/imgs/Pasted image 20250513193629.png",
+    "Pasted image 20250513203358.png",
     "Computer Networking/Juniper/JNCIA-Design.md",
-    "Computer Science/Computer Systems/System Software/Linux.md",
-    "Computer Science/Computer Systems/Microarchitecture/Microarchitecture.md",
-    "Computer Science/Computer Systems/Distributed Computing/Distributed Computing.md",
-    "Computer Science/Computer Systems/System Software/System Software.md",
-    "Computer Science/Computer Systems/System Software/Access Control.md",
-    "Computer Science/Computer Systems/Computer Networks/Computer Networks.md",
-    "Computer Science/Computer Systems/Concurrency/Concurrency.md",
-    "Computer Science/Computer Systems/Data Mining/Data Mining.md",
-    "Computer Science/Computer Systems/Database/Database.md",
-    "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
     "Computer Networking/Juniper/JNCIA-DevOps.md",
     "Computer Engineering/Computer Engineering.md",
+    "Computer Networking/Juniper/JNCIA-Junos.md",
+    "Computer Networking/Juniper/Junos Lab.md",
     "Computer Science/Computer Science.md",
     "Communication and Wireless Networks.md",
     "Computer Science/Computer Systems/Computer Systems.md",
+    "Computer Science/Computer Systems/Distributed Computing/Distributed Computing.md",
+    "Computer Science/Computer Systems/Microarchitecture/Microarchitecture.md",
+    "Computer Science/Computer Systems/System Software/System Software.md",
+    "Computer Science/Computer Systems/System Software/Linux.md",
+    "Computer Science/Computer Systems/Computer Networks/Computer Networks.md",
+    "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
     "Computer Networking/Junos.md",
     "Computer Networking/Junos Lab.md",
+    "Computer Networking/Terminology.md",
     "Computer Networking/Computer Networking.md",
+    "Computer Networking/Juniper/Juniper.md",
     "Computer Networking/Computer Networking.md",
     "Computer Science/Computer Systems/Computer Systems.md",
+    "Computer Science/Theoretical Disciplines/Theoretical disciplines.md",
+    "Computer Networking/Terminology.md",
     "Computer Networking/Juniper",
+    "Computer Science/Computer Systems/System Software/Linux.md",
+    "Computer Science/Computer Systems/System Software/Shell and Scripting.md",
     "Computer Networking",
     "assets/imgs",
     "assets",
