@@ -583,5 +583,127 @@ via Operational Mode
 - Type `show route protocol static` to display all static routes on a device.
 	![[Pasted image 20250513224044.png]]
 
+<h2 style="color:#6290C3"><center> Dynamic Router </center></h2>
+##  Routing Protocols, and The Problem They Solve
 
- 
+- The advantages:
+	
+	- They automatically find the best path to all destinations.
+		
+	- They dynamically react to changes in the network.
+		
+	- They know the routing info of their next-hop router.
+		
+	- Routing protocols also bring integrity to the routing knowledge in a network. Before routers exchange prefixes, they first agree on how the protocols works, this includes timers, packet size, and other important configurations. If the routers agree, they "form an adjacency", also known as "becoming neighbors".
+	
+- The trade-offs:
+	
+	- First, routing protocols can be more complicated to learn. Having said that, the basics of most protocols are still very easy. There is additional knowledge you need to learn when compared to static routes but this extra knowledge is trivial compared to the advantages that you get from a routing protocol, such as the ability for your router to automatically find alternative paths in response to changes in the network.
+		
+	- Second, routing protocols use up more of your router's CPU and memory resources, when compared to static routes.
+		
+	- Third, it may not be necessary to run a routing protocol in a very small network, or if you only have one path to a remote subnet.
+## Interior and Exterior Gateway Protocols
+
+- There are protocols for different situations, with different advantages.
+	
+- [IGP (Interior Gateway Protocols)]: Are designed for use internally, within one single organization's network. It is use for your routers to learn everything about the subnets and the best paths within your own network. IGPs are often said to learn your "infrastructure prefixes", this is opposed to the prefixes in the global internet;s routing table.
+	
+	- These protocols react very fast to network changes. They can also discover detailed information about the paths available in the network. However, the speed of these IGPs comes at a cost-these protocols are not designed to advertise or learn the entire internet's routing information.
+		
+	- Two IGP categories: Distance Vector Protocols, Link-State Protocols.
+	
+- [Distance Vector Protocols]: Very basic. They only care about how many hops it takes to get to a prefix. The best path is the shortest number of hops away regardless of link speed. For this reason they are mostly considered legacy in the modern era.
+	
+	- The word "vector" comes from graph theory.
+	
+	
+- [Link-State Protocols]: Offer more features and intelligence. These protocols learn the topology of the network, including the speed of the links. This gives them the ability to find the best path based on this network visibility. They care about the number of hops, but also how believable those hops are. Given the choice between a path with fast links and more hops, or slow links and less hops, a link-state protocol is very likely to choose the path that offers more bandwidth.
+	
+- [RIP (Routing Information Protocols)]: First routing protocols.
+## Link-State Protocols
+
+- Each routers generates and advertises data about its place in the network such as the prefixes connected to that router, and the connections it has to other routes. They can be refer as "jigsaw pieces", and if all "jigsaw pieces" do the same thing, the results is that each router can put the pieces together and form the full topology back together.
+	
+- "Jigsaw Pieces" contains unit of data that advertise various pieces of information about that router's place in the network. It includes: a unique router ID number, the prefixes connected to the router, the router's links to other routers, and the metrics on the links. The metric is a representation of how good and believable the link is.
+	
+- The metric number on each link is used to decide the best path to any destination. The lower the metric the better  and more believable the link. In other words, the best path has the lowest total end-to-end metric.
+	
+	- It is advise and important to use metric in representation of link speed. The lower the metric the higher the link speed, because of unit differences in link speed (bps).
+		
+	- You should configure your devices to override the default metric allocations, so that the metric is calculated based on the extremely fast link speeds of the modern era.
+	
+- These metaphorical "jigsaw puzzle" are flooded throughout the network. At the end of the process, each router has its own copy of all the information that has been generated. They then put them together to build the full topology, this results that they all have the same view of the network since they do it in exactly the same way.
+	
+	- This makes each router has the same map of the network in its memory. This is called **LSDB**, Link-State Database.
+		
+	- Each router can calculate the shortest path to get to any particular prefix using this network map. This path is guaranteed to be loop-free, because each router is able to see where loops might occur. This process is suitably called Shortest-Path-First Algorithm, SFP for short.
+	
+- Two link-state protocols:
+	
+	- [OSPF( Open Shortest Path First)]: "Open" means it's open standard. Popular in enterprises, service providers, and data centers.
+		
+	- [IS-IS (Intermediate System to Intermediate System)]: An older term for router to router. Popular in service providers and data centers.
+		
+	- Both protocols use "jigsaw pieces" to build a full view of the topology, assign metrics to links so the SPF algorithm can calculate loop-free paths, can react quickly to topology changes (despite being slow on default, config is needed), have ways of dividing large networks into smaller topologies (useful for small, less powerful router).
+		
+	- OSPF calls "jigsaw pieces" LSAs (Link-State Advertisements), IS-IS calls them LSPs (Link-State PDUs (Protocol data unit/chunk of data)).
+## Configuring and Verifying a Basic IPv4 OSPF Deployment
+
+- Deleting Static Routes
+	![[Pasted image 20250515204506.png]]
+	- The next-hop is hierarchically so by deleting the prefix, you also deletes the next-hop.
+	
+- When configuring OSPF you need to put them into an area. OSPF area enables you to divide a topology into smaller sections. This is helpful if have a lower-powered routers, because it means that the router does not need to learn the entire topology. Instead they just learn a small portion of it.
+	
+	- However, multiple areas is not needed. One single OSPF Area 0 is enough for hundreds of routers.
+		
+	- IS-IS call this concept as "levels". IS-IS Equivalent is Level 2.
+	
+- For IPv4 type `set protocols ospf area 0 [content]`.
+	![[Pasted image 20250515205431.png]]
+	- Area 0 is converted to Area 0.0.0.0. Area numbers are 32 bits just like IP address but they are not IP address.
+		
+	- This mostly lies under protocols hierarchy. The interface is under Area 0, which is under OSPF. And OSPF is under protocols.
+	
+- When you commit your OSPF configuration. The devices send a `OSPF HELLO`, this is the name given to a periodic series of small packets that the router regularly transmits to discoverer other OSPF speakers on the link. By default, these hello message are sent every 10 seconds. 
+	![[Pasted image 20250515210932.png]]
+	- In addition to discovering other potential OSPF neighbors, it is also used to maintain existing neighbors.
+		
+	- The mechanism sent packets to the address `224.0.0.5`, which is a special reserved address called the "All OSPF Routers" multicast address (one to many).
+		
+	- These hello messages contain various pieces of information that both routers must agree on before they can exchange routing information.
+	![[Pasted image 20250515210943.png]]
+	
+- Type `show ospf neighboor` to see OSPF neighbor. `Full` status mean the process is completed.
+	![[Pasted image 20250515211133.png]]
+	- The `Dead` column is a countdown for the Dead Interval Timer, when it reaches 0, your router assumes that the neighbor has disappeared and that the OSPF neighbor should be torn down. 
+		
+	- The `ID` is a unique number that identifies each OSPF device in the topology, `Pri` is short for priority which is a number used on Ethernet Interfaces that helps to improve OSPF efficiency when there are more than two routers connected to the same subnet, via a switch.
+	
+- Verifying OSPF type `show route protocol ospf`.
+	![[Pasted image 20250515212052.png]]
+	- OSPF has priority of 10.
+	
+- Remember that routing protocols do not just automatically advertise every single prefix in the routing table. OSPF only advertise what the user tells it to advertise.
+	
+	- Do not send OSPF through LAN interface.
+	
+- Use `passive` keyword to enable OSPF without hello messages.
+	![[Pasted image 20250515212827.png]]
+## Configuring and Verifying a Basic IPv6 OSPF Deployment
+
+- IS-IS can advertise both IPv4 and IPv6. OSPFv2 Advertise IPv4 only via `ospf`. OSPFv3 advertise both or separated via `ospf3`.
+	
+	- OSPFv2 and OSPFv3 is identical.
+	
+- Type `set protocols ospf3 area 0 [content]` to configure OSPFv3.
+	![[Pasted image 20250515213451.png]]
+- Type `show ospf3 neighbor` to see neighbor.
+	![[Pasted image 20250515213557.png]]
+	- Note that device configure for OSPFv2 will not be recognized on OSPFv3.
+	
+- Type `show route protocols ospf3` to verify.
+	![[Pasted image 20250515213735.png]]
+- Additional Changes that is advantageous:
+	![[Pasted image 20250515214003.png]]
