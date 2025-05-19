@@ -280,3 +280,125 @@ Associate Design
 	
 	- Ideally, you want the customer to specify the budget. Understand it as you develop your proposal; aim to match the customer's needs and budget. Keep in mind the budget might change, necessitating constant communication with the customer. Consider other costs like staffing, testing, training, and potential changes in job roles. Communicate these possibilities to the customer for further instructions.
 
+<h2 style="color:#6290C3"><center> Organizing Data </center></h2>
+## Processing Data and Requests
+
+- Process of planning the initial design.
+	![[Pasted image 20250516234507.png]]
+	- The data falls into three main categories: customer information, requirements, and project boundaries.
+	
+- Six main categories that are often vital areas, like functional sections and user groups.
+	![[Pasted image 20250516234654.png]]
+- Security Requirements
+	![[Pasted image 20250516234933.png]]
+	- [Network Access Control]: Juniper Identity Management Service (JIMS) or Integrated Firewall.
+		
+	- [Management]: Security Director or Security Cloud Director.
+		
+	- [Compliance]: JSA product which is a SIEM device.
+		
+	- [Bring your own]: Mist Wireless with Wifi Assurance.
+	
+- Availability Requirements:
+	![[Pasted image 20250516235246.png]]
+	- [Archival and Backup]: Security Director, Apstra, PyEZ scripts.
+		 
+	- [Resiliency]: JTAC.
+		
+	- [Failover]: SRX if its about security, EVPN/VXLAN with IP fabrics if it is for data center.
+		
+	- [Capacity]: More devices (scaling).
+	
+- Scalability Requirements:
+	![[Pasted image 20250516235629.png]]
+	- [User Base]: All about future growth. Modularity is the key. Some sort of network pod is recommended.
+		
+	- [Applications]: Vague, requires more information. Sometimes over-sized devices are the key to make sure the network can handle the next generation of bandwidth-hungry apps.
+		
+	- [Hardware]: Vague, requires more information. Modularity is the key.
+		
+	- [Performance]: Providing scaling numbers, or improving latency, such as using edge-routed bridging instead of centrally-routed bridging in a data center.
+	
+- Manageability Requirements:
+	![[Pasted image 20250519090458.png]]
+	- [Monitoring]: Paragon or JSA.
+		
+	- [Automation]: Automate with ZTP or other on-box or off-box scripting, maybe Security Director.
+		
+	- [Configuration]: Mist, or Security Director, or Apstra for managing configuration. This could also be about archiving configuration.
+		
+	- [Auditing]: Event logs, syslog, or administrative logs. These messages can all be sent to a centralized location, such as JSA or Security Director.
+	
+- Performance Requirements:
+	![[Pasted image 20250519091038.png]]
+	- [Bandwidth]: SSR device with SD-WAN, but most products support high bandwidth capacity.
+		
+	- [Latency]: Most Juniper products solves this problem.
+		
+	- [Quality of Service]: All Juniper devices support QOS with class-of-service feature such as DSCP, MPLS EXP.
+		
+	- [Optimization]: Offer a design that uses EVPN/VXLAN with IP Fabrics.
+## Boundaries and Scope of the Design Proposal
+
+- A step in organizing data is recognizing existing boundaries, that is, factors in customer requirements that may limit or change your design. Some of the common boundaries include things like:
+	![[Pasted image 20250519091634.png]]
+	- Defining the current and future user groups, their applications, data flows, and types.
+		
+	- Pinpointing the necessary parts of the network like campus, WAN, remote office locations, and data centers.
+		
+	- Documenting the current environment, if there is one, to know what to keep or change.
+		
+	- Factoring budget constraint. It doesn't do much good to pitch a design that is completely out of budget.
+		
+	- Recognizing unknown boundaries. These may involve hidden employees agendas, unidentified governmental laws, or limitations on existing physical media. Maybe something like running additional Ethernet cables in an old building doesn't make sense, wireless maybe the better options.
+	
+- Greenfield vs Brownfield:
+	
+	- Designing in a greenfield, like painting on a blank canvas, allows a fresh, modular design. However, these are really rare, given most customers already have a network component. Even when expanding to a new branch or data center, there's usually an existing network at the main campus.
+		
+	- Brownfield deployments, on the other hand, are far more common. Unless you're dealing with a start-up with no network, you'll probably encounter an existing network. You'll need to consider all aspects of the existing environment, such as building design, existing physical media layout, devices from other vendors, and any proprietary protocols used.
+	
+- User Groups and Applications:
+	![[Pasted image 20250519094455.png]]
+	- Different user groups may impose restrictions on your design. Balancing security enforcement, accessibility, user-friendliness, and performance benchmarks is absolutely necessary.
+	
+- Data Flow:
+	![[Pasted image 20250519094532.png]]
+	- Security, speed, and simplicity are important as resources are accessed via WAN connections, affecting data flow.
+		
+	- Identify the network's communication types using flow analysis tools. Traffic patterns may include user-to-user, user-to-machine, and machine-to-machine communications. Recognizing these existing traffic patterns and estimating future data flow is absolutely key to a successful network design.
+	
+- Exceeding Known Boundaries:
+	
+	-  Strive for designs that not only meet customer needs but surpass their expectations. Highlight areas where Juniper can offer substantial benefits.
+		
+	- There could be multiple solutions fitting the customer's needs, often separated by cost. Offering several options, good, better, and best, keeps you competitive when customers are considering various vendors. If a customer finds your "good" solution affordable, they might find extra funding for the "best" option.
+## Creating Design Proposal
+
+- Keep your design simple, create the logical structure before the physical structure, consider security throughout the design process, understand the design boundaries and scope, remember that every choice has a trade-off, ensure that your proposal is clearly documented.
+	
+- [Keeps Thing Simple]: Avoid overly complex designs that could be hard to implement or even understand. Document your design clearly and simply. Even if you believe your design is the best, if it's hard to comprehend, the customer may view it as too complicated, time-consuming, and costly to implement.
+	
+	- Always prioritize modularity in your design. It provides a better network structure, facilitates troubleshooting, and supports future growth. Modularity offers a hierarchical structure to your design, with each "module" serving a specific function.
+	
+- [Logical Design before Physical Design]: Regardless of the complexity inherent in most projects, make it easy for the customer with a logical network diagram followed by a physical one, both of which are crucial to your documentation.
+	![[Pasted image 20250519095425.png]]
+	- Embrace a "top-down" design method when crafting your design. This approach, guided by the OSI model, begins with the client data, documented requirements, and recognized boundaries. As you traverse from the OSI model's top down, you'll identify protocols, stability needs, and the needed network devices and physical media. This top-down method is preferable due to its improved scalability and modularity, unlike the "bottom-up" approach, which tends to focus on temporary fixes and overlooks the customer's true needs.
+	
+- [Incorporating Security]: Always security.
+	![[Pasted image 20250519100617.png]]
+- [Choices and Trade-off]: There will always be trade-offs.
+	![[Pasted image 20250519100841.png]]
+- [Capacity Planning]: Formulate a discussion group. The group should have broad representation from the customer and should help figure out acceptable and unacceptable network uses.
+	
+	- Then, measure user behavior. Identify all user populations and their locations. Summarize major user groups and their applications.
+		
+	- Next, gauge application behavior. Identify performance-affecting applications, their servers, and client devices locations and performance. Use this to determine key performance constraints.
+		
+	- Establish a network baseline. Profile the network behavior using packet traces, transaction rates, event logs, and statistics. 
+		
+	- Then, make traffic Projections. Gather data from a stable network, including bandwidth utilization, packet type, protocol, packet and frame size distribution, and error rates.
+		
+	- Finally, summarize the input data for the design. Consider the budget, categorize of all sites, user populations, and key applications and their behavior.
+	
+- [Design Stage: Design Specification]: A solid network design proposal comes with great documentation. This serves as a reference for design modifications, as changes are inevitable throughout the design process. The documentation should cover finalized design choices, changes, and their reasons. Since the document will go from a draft state to a final state, you should include a change log to track these changes for future maintenance. This document guides the implementation of the network, so ensure it's concise and easy to read.
