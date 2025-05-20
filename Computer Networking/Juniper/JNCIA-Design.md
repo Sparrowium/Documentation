@@ -32,7 +32,7 @@ Associate Design
 		
 	- Understand the criteria or a successful design. Know where the risks are and consequences for failure.
 	
-- **Expect some Back-and-Forth.**
+- --Expect some Back-and-Forth.--
 ## Creating a Network Design
 
 - [Juniper Network's Lifecycle Service]: Consist of three main phases and it's often cyclical throughout the design's lifetime.
@@ -402,3 +402,124 @@ Associate Design
 	- Finally, summarize the input data for the design. Consider the budget, categorize of all sites, user populations, and key applications and their behavior.
 	
 - [Design Stage: Design Specification]: A solid network design proposal comes with great documentation. This serves as a reference for design modifications, as changes are inevitable throughout the design process. The documentation should cover finalized design choices, changes, and their reasons. Since the document will go from a draft state to a final state, you should include a change log to track these changes for future maintenance. This document guides the implementation of the network, so ensure it's concise and easy to read.
+
+<h2 style="color:#6290C3"><center> Securing the Network </center></h2>
+## Basics
+
+- While an indispensable tool, the Internet also opens the door for attackers across the globe to target your network. It takes just one overlooked vulnerability for the bad guys to breach your defenses. As network professionals, our job doesn't stop at just guarding the entrance; we must secure every potential point of weakness, both incoming and outgoing.
+	![[Pasted image 20250519102220.png]]
+	- Keep in mind that threats donâ€™t only come from the outside; internal risks are equally critical. There's a saying that our networks are 'Crunchy on the outside, soft and chewy on the inside,' this means that despite tough external defenses, the insider threat remains a concern.
+		
+	- Today's network landscape is besieged by security threats: viruses, trojans, worms, and the actions of cybercriminals intent on theft of intellectual property. These can impact any part of our networks, from WAN to data centers. Beyond these, we're also facing sophisticated social engineering and phishing techniques, SQL injections, ransomware, and targeted phishing threats like spear-phishing.
+	
+- Think back to a time not so long ago when the boundaries of managed networks were distinct and well-defined. The simplicity of network security during that era might seem enviable now. We had a robust firewall standing guard at the perimeter, straightforward user management protocols dealing with credentials and permissions, and the standard deployment of antivirus software. All these security measures were within the realm of our internal resources.
+	![[Pasted image 20250519102332.png]]
+- Let's consider today's network landscape, which has evolved dramatically. We're now overseeing a huge amount of devices from VoIP phones and conferencing systems to smartphones and tablets. Moreover, the surge of unmanaged devices and the ubiquity of remote work through VPNs has further complicated our security framework.
+	![[Pasted image 20250519102441.png]]
+	- Some of the intensified risks we face are things like:
+		
+	- The convenience of remote access, which introduces additional security vulnerabilities.
+		
+	- The rise of wireless devices demands robust security protocols.
+		
+	- Enforcing a comprehensive antivirus policy is increasingly complex, particularly with mobile devices where user awareness can be low.
+		
+	- The integration of virtual servers opens up new security considerations.
+		
+	- External storage devices like USB sticks bring their own set of challenges for data protection.
+		
+	- Security, in this dynamic environment, requires vigilance and adaptability as risks continue to evolve.
+	
+- [Assessing Security in Network Design]: When planning on the design of a network, it's crucial to start with a thorough 'assessment' of the current network security status. This foundational step encompasses grasping the customer's specific needs, establishing the project's boundaries, and meticulously reviewing the data provided by the customer. Right from this early 'assess' stage, security must be at the forefront of our design considerations. It's imperative that we pinpoint and fully comprehend the essential security aspects before moving forward with the network design.
+	![[Pasted image 20250519102710.png]]
+## Security Appliances
+
+- Network Security is foundational, built into every fabric of the network from the outset.
+	![[Pasted image 20250519103129.png]]
+- [SRX Solutions]: A highlight of Juniper's security portfolio, goes beyond traditional firewall capabilities. It's at the core of Juniper's Security Intelligence, scaling with the needs of the business, capable of handling over a million custom threat data entries, and focused on enforcing the most pertinent intelligence. This means Juniper's customers get prompt, accurate threat mitigation with minimal false positives, embodying the smart, proactive defense they need.
+	![[Pasted image 20250519103505.png]]![[Pasted image 20250519103618.png]]
+- [Juniper Security Director]: offering a robust platform for managing security functions. It's a modular, scalable, user-friendly solution that not only simplifies operations but also paves the way for new business opportunities through application development and hosting that enhance network services and automation.
+	![[Pasted image 20250519103714.png]]
+	- This platform stands out for making security policy management more accessible and precise, offering a comprehensive web interface that covers the full policy lifecycle. It's equipped with advanced features for application control, content security, IPS, NAT, and VPN management.
+		
+	- With Security Director, network admins gain broad policy control, enabling consistent and compliant security across multiple SRX devices. This results in a more reliable network security posture that's easier and less costly to manage, cutting down on errors and streamlining administrative tasks.
+	
+- [Software Defined Secure Network (SDSN)]: Offers a unified approach to cybersecurity. This platform centralizes and streamlines protection, allowing for dynamic policy and enforcement across the network treated as one cohesive domain.
+	![[Pasted image 20250519103836.png]]
+	- The SRX devices, in conjunction with Security Director and Juniper Advanced Threat Protection (ATP) Cloud, orchestrate a swift, effective defense mechanism against threats, leveraging real-time communication to deploy necessary policies quickly.
+		
+	- SDSN adapts to emerging threats through Security Director Insights, which directs potential malware to ATP Cloud's sandbox for analysis. Upon confirmation of malicious activity, SD Insights promptly updates network defenses, enabling firewalls and switches to counteract the threat immediately.
+	
+- [ATP Cloud]: A robust cloud-based security solution. It benefits from the cloud's scalability and a shared intelligence model, delivering up-to-the-minute threat intelligence to all users.
+	
+	- Seamless integration with SRX devices or Secure Edge to bolster firewall efficacy.
+		
+	- Defense against zero-day threats through a sophisticated toolkit designed to combat advanced and elusive threats.
+		
+	- Inbound and outbound traffic analysis with policy enhancements to halt malware, isolate compromised systems, and prevent both data leaks and internal threat spread.
+		
+	- Ensured service continuity thanks to its high availability.
+		
+	- Capability to scale in response to greater demand for computing power, network bandwidth, and increased storage for malware archives.
+		
+	- In-depth inspection, actionable insights, and proactive blocking of malicious activity within web and email vectors.
+		
+	- Encrypted Traffic Insights that allow for threat detection in encrypted traffic streams without needing to decrypt them.
+	
+- [Juniper Network Secure Analytics (JSA)]: Serves as a pivotal network security management tool, offering an unparalleled view of network activity. It allows businesses to streamline operations with a comprehensive, web-based interface. JSA simplifies various aspects of network security management, through things like:
+	![[Pasted image 20250519104056.png]]
+	- Targeted threat detection, ensuring timely analysis of pertinent security threats.
+		
+	- Advanced log management, enabling secure, scalable log storage ranging from GBs to TBs.
+		
+	- Efficient log retention, allowing for easy archiving or integration with existing storage systems for enduring log preservation and accessibility.
+		
+	- Tailored compliance reporting with the ability to generate and schedule reports from a library of over 1300 templates.
+## WAN and Edge
+
+- Modern Enterprises have Complex WAN Networks.
+	![[Pasted image 20250519170120.png]]
+	- It is difficult to balance security, performance, and cost considerations.
+	
+- [Trouble Shooting Branch Issues]: Finding the root cause can devolve into a complex log parsing exercise. Juniper Mist AI Assurance can detect the cause of each of these issues.
+	
+- [From Have Branch To Heavy Cloud]: It is no longer realistic to run all security services at the branch.
+	![[Pasted image 20250519171343.png]]
+- [Secure Access Service Edge]:  Represents a shift to a cloud-centric security architecture, tailored to the demands of modern enterprises. It transcends traditional product boundaries, focusing instead on a holistic security framework.
+	![[Pasted image 20250519171551.png]]
+	- Central to Juniper's vision of SASE are two principles: First, it brings security into the cloud, closer to where applications reside, integrating protection directly into the network. Second, it offers adaptive, secure access to users, assessing risks in real-time to ensure consistent security regardless of location.
+		
+	- In essence, Juniper's SASE isn't just a set of security tools; it's a strategic shift to a network design that's secure by default, flexible, and in tune with today's cloud-oriented business environment.
+	
+- Juniper's approach to SASE integrates Mist AI-driven SD-WAN for network management with Juniper Secure Edge for security. Together, they form a cohesive SASE framework. Mist AI oversees network device configuration and health, from access points to on-premises equipment such as SRX or SSR devices. Secure Edge basically ensures robust security measures are in place.
+	![[Pasted image 20250519171625.png]]
+	- The operational flow is streamlined via Security Director Cloud, which is where you craft and manage policies. This platform also provides a unified view of devices through its integration with Mist, ensuring a harmonized and efficient SASE deployment.
+## Cloud Approach
+
+- [Zero Trust Access]: The Gartner model for cloud security is built around the concept of zero-trust network access, ensuring secure connections for users anywhere to applications everywhere. This model prioritizes context, which at its core considers user identity, application identity, connection type, and location all fundamental to Zero Trust Access (ZTA).
+	![[Pasted image 20250519171809.png]]
+	- Zero Trust Network Access, a broader term, extends ZTA principles, securing not just user-to-application interactions but also user access to internal resources, applying the same context-based security measures.
+		
+	- A critical piece not yet touched upon is the growing complexity of user identity management within modern networks. The diversity of user roles, locations, and access levels means authentication surpasses basic yes/no criteria. Security policies now must be dynamic, reflecting user identity alongside their location and connection method. A user at a corporate site may face different security policies than one using public Wi-Fi at a cafe.
+	
+- [Secure Web Gateway]: A critical security asset, merging firewall and proxy capabilities to monitor and safeguard your network's web traffic. It executes deep packet inspection, shielding against viruses, malware, and phishing threats. It also includes URL and content filtering to shield users from harmful or unsuitable material. As an SSL proxy, it decrypts sessions for deeper application insights and conducts malware checks on files, enhancing application-specific QoS and filtering.
+	
+- [FWaaS (Firewall as a Service)]: Provides all features of next-generation firewall delivered as a cloud service.
+	
+	- Layer 7 security policy enforcement, IPS/IDP, IPsec VPNs, Deep Packet Inspection, Integration with Advanced Threat Prevention (ATP).
+	
+- [Cloud Access Security Broker]: A CASB Provides a merged point of security enforcement between enterprise users and cloud services.
+	![[Pasted image 20250519203558.png]]
+- [Data Loss Prevention]: A combination of tools and best practices to prevent exfiltration of sensitive data.
+	
+	- Detect and encrypts sensitive data, machine learning based user and platform risk evaluation.
+		
+	- Dedicated tool for regulatory compliance such as HIPAA (Health Insurance Portability and Accountability Act), GDPR (General Data Protection Regulation), PCI DSS (Payment Card Industry Data Security Standard), CCPA (California Consumer Privacy Act).
+	
+- [Juniper Secure Edge]: A comprehensive tool kit for securing a cloud-based enterprise, delivered through a single service framework.
+	
+	- Single policy framework for managing security policies for all users, centralized policy management; POPs provide security enforcement closest to the protected users and applications, comprehensive user-aware and application-aware policy enforcement.
+	
+- [Secure Edge Architecture]: 
+	![[Pasted image 20250519204158.png]]
+
