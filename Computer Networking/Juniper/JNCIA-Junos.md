@@ -735,5 +735,65 @@ via Operational Mode
 	- The default VLAN creates one large broadcast domain. If one device in the Guest VLAN sends a broadcast, it will send out to other ports that are suppose to be in the VLAN. 
 	
 - Type `show configuration vlans` to show all VLAN. Each VLAN is associated with a name and a tag number.
+	![[Pasted image 20250520092935.png]]
+- Type `set vlan {vlan name} vlan-id {number}` to configure a VLAN.
+	![[Pasted image 20250520093713.png]]
+## Configuring Access Port and Verifying MAC Tables
+
+- [Access Port]: When a physical ports belong to only one VLAN. By default all port on a switch are access port.
+	![[Pasted image 20250520094628.png]]![[Pasted image 20250520094712.png]]
+- Type `set interface {interface name} unit {number} family ethernet-switching vlan members {vlan name}` to add an interface to a VLAN.
+	![[Pasted image 20250520094951.png]]
+- Type `show ethernet-switching table` to view all MACs on all ports, on all VLANs.
+	![[Pasted image 20250520095455.png]]![[Pasted image 20250520095229.png]]
+	- Noted that "D" in the MAC Flags column stands for dynamic, which means that all MAC address are learned by listening to incoming traffic.
+## Trunk Ports
+
+- [Trunk Ports]: Belongs to multiple VLANs at once, and traffic in and out of the trunk port is tagged with relevant VLAN number. The tags map incoming frames to the relevant VLAN-and therefore, the relevant broadcast domain.
 	
-- 
+	- Access port have no need to tag traffic with a VLAN number, because the outgoing traffic only belong to one VLAN. By contrast, VLAN tags are the magic that makes trunk interfaces works.
+	
+- Type `edit interface {interface name}` to edit a deeper of the hierarchy that is only related to that interface. Then type `set unit {number} family ethernet-switching interface-mode trunk` to turn the interface to a trunk port.
+	![[Pasted image 20250520104033.png]]
+	- Type `set unit {number} family ethernet-switching vlan members {vlan name}` to add VLAN to the trunk port.
+	![[Pasted image 20250520104156.png]]
+	- Another way to do this is to utilized `[ list of vlan names separate by space]` to add multiple VLAN to a trunk port. Or alternatively type `all` but avoid this since it could possible configure every single existing VLAN, this is catastrophic if a broadcast storm appears and affect every single trunk link.
+	![[Pasted image 20250520104817.png]]
+- Type `show configuration interfaces {interface name}` to verify the trunk port.
+	![[Pasted image 20250520105020.png]]![[Pasted image 20250520105158.png]]
+	- Noted that it doesn't matter if you add the VLAN members manually or in terms of a group, they will always appear inside the `[]` brackets.
+	
+- When it comes to Link Layer Discovery Protocol. They are enabled by default on all interfaces. Switches comes with LLDP by default because there are some hosts that rely on LLDP information to automatically configure their network settings in the most optimal way.
+	![[Pasted image 20250520105440.png]]
+## Configuring Multiple Logical Unit on IP Interfaces
+
+- Verifying The Router LAN configuration.
+	![[Pasted image 20250520110010.png]]
+- To add multiple LAN configuration onto a single interface, we utilize multiple Logical Unit to separate those LAN configuration. Then you bind each Logical Unit with the VLAN tag number, and place IPs on each unit.
+	![[Pasted image 20250520111239.png]]
+- To configure a single interface with multiple unit, you first need to delete existing interfaces that you wanted to add to that unit by simple `delete` or `deactive` as an alternative.
+	![[Pasted image 20250520111445.png]]
+- Type `set interfaces {interface name} vlan-tagging` this enables the interface to process VLAN tags. To be more precise, this command strictly enforces the use of frames that have only one VLAN tag. 
+	![[Pasted image 20250520113132.png]]
+	- There are also two other options. First is `stacked-vlan-tagging`, which strictly enforces the use of two VLAN tags on a frame. Second is `flexible-vlan-tagging`, which gives an interface the ability to accept either one or two VLAN tags on a frame.
+	
+- When using `show configuration | display set | match {interface name}[]` you can use `[]` to list the number of interfaces you want.
+	![[Pasted image 20250520135101.png]]
+- [STP (Spanning Tree Protocol)]: Used to avoid catastrophic problems in your network caused by switching loops.
+	
+- [Port Security and Storm Control]: It shutdown switch port if certain conditions are met.
+	
+- [Link Aggregation Group (LAG)]: Increase bandwidth by bundling multiple cables into one logical link.
+## Juniper EX and QFX Switches
+
+- [EX Series Switches]: High performance devices that can sit at the access layer and at the aggregation/core layer. These switches are "cloud ready", meaning they can be utilize by Mist AI.
+	![[Pasted image 20250520141655.png]]![[Pasted image 20250520141702.png]]
+	- EVPN Ethernet Virtual Private Network, VXLAN Virtual Extensible LAN.
+	
+- [QFX Series Switches]: Commonly used as **leaf devices**, switches that offer connectivity to servers. They can also be used as **spine switches**, devices that connect leaf switches together.
+	
+- [Mist]: A management platform. It offers complete visibility, control, and automation. It learns your network using AI (Artificial Intelligence) and ML (Machine Learning). And finally, it monitors all traffics, and identifies problems and deploy fixes before you even notice.
+	
+	- It can correlate seemingly unconnected events. Mist AI can learn when Wifi drivers are causing poor signal strength, it can identify when a laptop software update produces connectivity problems, it can bounce problematic interfaces, and it can keep track of configuration inconsistencies.
+	
+- [Marvis]: A natural language interface that is powered by AI.
