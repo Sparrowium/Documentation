@@ -707,3 +707,33 @@ via Operational Mode
 	![[Pasted image 20250515213735.png]]
 - Additional Changes that is advantageous:
 	![[Pasted image 20250515214003.png]]
+
+<h2 style="color:#6290C3"><center> Junos OS Switches </center></h2>
+## Introduction
+
+- The Switches usually has 3 PIC, PIC 0 and PIC 2 are in the front, PIC 3 are in the back and mostly used for VC (Virtual Chassis).
+	
+- [VC (Virtual Chassis)]: Gives you the ability to configure two or more switch as if they were one logical switch, with one management IP and one configuration. 
+	
+- The T in "EX4300-24T", means Copper Twisted Pair Ports.
+## Configuring and Verifying VLANs
+
+- All Modern Jun OS switches are Layer 3, which means that they have the capabilities to forward traffic on both Layer 2 (Ethernet) and Layer 3 (IP). 
+	
+- [Management Interface]: An interface where you can give it an IP address, and you can send management traffic to it, such as SSH or Telnet. 
+	
+	- Some interface have this IP address, but the interface is not a part of the network. This is called **out-of-band** which means that it does not take part in regular transit network.
+	
+- Type `show vlans` to view all existing VLANs.
+	
+	- [VLAN Name]: A column that show VLAN names. Default is a default VLAN name that will always exists.
+		
+	- [Tag]: Unique number. That identifies the VLAN
+		
+	- Asterisk next to the port, means that it is up.
+		
+	- The default VLAN creates one large broadcast domain. If one device in the Guest VLAN sends a broadcast, it will send out to other ports that are suppose to be in the VLAN. 
+	
+- Type `show configuration vlans` to show all VLAN. Each VLAN is associated with a name and a tag number.
+	
+- 
