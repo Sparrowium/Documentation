@@ -8,7 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "027acdfc2351405c",
+            "id": "e5ae86d8dc1d6f23",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -19,6 +19,20 @@
               },
               "icon": "lucide-file",
               "title": "JNCIA-Junos"
+            }
+          },
+          {
+            "id": "027acdfc2351405c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Computer Networking/Terminology.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Terminology"
             }
           }
         ]
@@ -164,24 +178,24 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "027acdfc2351405c",
+  "active": "e5ae86d8dc1d6f23",
   "lastOpenFiles": [
-    "assets/imgs/Pasted image 20250520141655.png",
-    "assets/imgs/Pasted image 20250520135101.png",
-    "assets/imgs/Pasted image 20250520113132.png",
-    "assets/imgs/Pasted image 20250520111445.png",
-    "assets/imgs/Pasted image 20250520111239.png",
-    "assets/imgs/Pasted image 20250520110010.png",
-    "assets/imgs/Pasted image 20250520105440.png",
-    "assets/imgs/Pasted image 20250520105158.png",
-    "assets/imgs/Pasted image 20250520105020.png",
-    "assets/imgs/Pasted image 20250520104817.png",
-    "assets/imgs/Pasted image 20250520104156.png",
-    "Computer Networking/Terminology.md",
-    "Computer Networking/Juniper/JNCIA-Design.md",
-    "Computer Networking/Juniper/JNCIA-Junos.md",
+    "assets/imgs/Pasted image 20250520221052.png",
+    "assets/imgs/Pasted image 20250520220833.png",
+    "assets/imgs/Pasted image 20250520220459.png",
+    "assets/imgs/Pasted image 20250520220401.png",
+    "assets/imgs/Pasted image 20250520220357.png",
+    "assets/imgs/Pasted image 20250520215542.png",
+    "assets/imgs/Pasted image 20250520215323.png",
+    "assets/imgs/Pasted image 20250520215233.png",
+    "assets/imgs/Pasted image 20250520214918.png",
+    "assets/imgs/Pasted image 20250520214631.png",
+    "assets/imgs/Pasted image 20250520213548.png",
     "README.md",
+    "Computer Networking/Juniper/JNCIA-Junos.md",
+    "Computer Networking/Terminology.md",
     "Computer Networking/Juniper/JNCIA-DevOps.md",
+    "Computer Networking/Juniper/JNCIA-Design.md",
     "Computer Engineering/Computer Engineering.md",
     "Computer Networking/Juniper/Junos Lab.md",
     "Computer Science/Computer Science.md",

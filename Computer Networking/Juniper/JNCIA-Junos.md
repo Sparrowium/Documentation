@@ -797,3 +797,108 @@ via Operational Mode
 	- It can correlate seemingly unconnected events. Mist AI can learn when Wifi drivers are causing poor signal strength, it can identify when a laptop software update produces connectivity problems, it can bounce problematic interfaces, and it can keep track of configuration inconsistencies.
 	
 - [Marvis]: A natural language interface that is powered by AI.
+
+<h2 style="color:#6290C3"><center> Jun OS Device Configuration </center></h2>
+## Out-of-Band Management Interfaces
+
+- [In-Band-Management Traffic]: This means that your SSH traffic shares the same network as your data traffic. This is fine when your network is healthy. Indeed, the majority of SSH sessions are usually in-band.
+	
+- [Out-of-Band Management Traffic (OOB)]: This interface is designed to provide the user remote access to a device, even when network connectivity is down. This interface has it own subnet, which is totally separate from your transit network. 
+	![[Pasted image 20250520200524.png]]
+	- One way to make a use of out this interface is to connect it to a dedicated management network,. This network could also host monitoring servers or backup servers. Your entire management network is protected from any issues on the data network, which gives you a greater chance of accessing the devices you need to restore access in times of crisis.
+		
+	- Junos does not allow traffic to travel between the management interface and any network interfaces. The out-of-band network cannot communicate with the in-band network.
+	![[Pasted image 20250520200713.png]]
+- The name and the physical presentation can vary between devices. It is usually presented as a copper port.
+	`EX Series: me0, vme`
+	`SRX Series: fxp0, ge-0/0/0`
+	
+- No special configuration is needed to configure the management interface-you configure it just like any other interface.
+	![[Pasted image 20250520201241.png]]
+	- To test the interface connect a computer to it and `ssh` into it.
+	![[Pasted image 20250520201334.png]]![[Pasted image 20250520201348.png]]
+- Real world use of the Management Interface:
+	
+	- First, you can configure the interface and leave it unplugged, and connect a computer directly into it whenever you need it.
+		
+	- Second, you could connect the management interface into a separate, dedicated internet connection. This solution is useful when you can only access your device remotely. This options comes with an additional expense for the cost of the WAN link, and potentially with the cost of an additional router to terminate the WAN connection, and potentially a firewall to offer additional security-but depending on how crucial this device is, the cost may be worth it.
+		
+	- Third, you could connect the management interface to a separate management LAN. This is a good option if you have a lot of devices that have dedicated management interfaces. It is also goof choice if you have multiple devices that deal with management in some way.
+## Accurate Time on a Jun OS Device
+
+- Internal logs and configuration changes all have timestamps-and this information is crucial to troubleshooting process. By contrast, when the device is working off of an incorrect time, this incorrect time will be stored with every commit on the box. This would make it much more difficult to establish if a particular commit caused the network fault-especially if you are troubleshooting across multiple devices, each with a slightly different time.
+	
+- The "time" on a device is characterized by three elements: the date, the time, and the time zone. There are two ways to set this information:
+	
+	- First, is to configure the time manually, this will create a permanent time. The advantages is that it is easy. The disadvantages is that time will slowly become out-of-sync over time, it is also difficult to set precisely the same time on multiple devices simultaneously.
+		
+	- Second, acquire time through NTP (Network Time Protocol). This method is always precisely accurate, across all of your devices. But you need a reliable NTP servers, whether it be on your local LAN or our on the Internet.
+	
+- Type `set system time-zone {time zone}` and `set date {year/month/day/hour/minute}` to set timezone and time.
+	![[Pasted image 20250520205124.png]]
+- Type `show system uptime` to show current time.
+	![[Pasted image 20250520205237.png]]
+- Type `set system ntp server {server ip  address}` to configure the NTP server on your device. When you commit the work, the Router becomes an NTP client. It synchronizes with the NTP server to find the correct time. This server is on the Internet, but it could also be on tour local LAN.
+	![[Pasted image 20250520205445.png]]
+- Type `show system uptime` and `show ntp associations` to verify the configured time.
+	![[Pasted image 20250520205547.png]]![[Pasted image 20250520205720.png]]
+	- The `st` column, which is short for stratum. This is the number of NTP servers you are away from an authoritative atomic clock. The lower the better.
+## DNS Solution Process
+
+- [DNS]: Domain Name System, a distributed database that translate domain names to IP addresses and vice versa.
+	
+	- It is distributed because there are thousands of name servers all around the internet that collectively host all of this information. Name servers are responsible for hosting the authoritative answer to a particular DNS request.
+	
+- [FQDN (Fully Qualified Domain Name)]: Consist of a sub domain `www`, domain name `juniper.net`.
+	
+- The device will end the DNS query to something called a DNS resolver, this server is tasked with receiving queries from multiple devices, finding answer from name servers, and also caching those answers for a short time so that the DNS requests from other devices can be answered in the most optimal way.
+	
+- Type `set system name-server {dns server address}` to configure DNS server. It is best to have at least 2 DNS servers.
+	![[Pasted image 20250520210829.png]]
+	- Use `ping` to test the responsiveness.
+	![[Pasted image 20250520210844.png]]
+## Creating User Account
+
+- Showing user account.
+	![[Pasted image 20250520212543.png]]
+- Ways to set a password in the authentication section:
+	![[Pasted image 20250520213102.png]]
+	- First, use `authentication plain-text-password`. You use this option when you want to type the password in plain text directly into the CLI. Noted that the CLI will not show your password when you type it in. When you have confirmed the password, Junos encrypts this password for you. You type `plain-text-password` but Junos changes it into `encrypted-password` in the configuration file.
+		
+	- Second, use `encrypted-password` directly. You use this when you already got a user configured on one device, and you want to quickly add them to another device by copying and pasting the configuration.
+	
+- [Hash]: The final encrypted string of text. This is the result of an encryption algorithm. A hash is a kind of way mathematical function cannot reverse. Junos uses SHA-512, Secure Hash Algorithm, refers to the length of the hash measured in bits. The `$6$` indicates SHA-512.
+	![[Pasted image 20250520213430.png]]
+- Type `set system login user employee authentication {password type}` to change existing password on a user. It also require a confirmation by typing the same password again.
+	![[Pasted image 20250520213548.png]]
+## Setting User Permissions
+
+- [Login Classes]: Collection of permissions that you assign to user, to permit or restrict access to any part of your device.
+	![[Pasted image 20250520214631.png]]
+	- You can configure a user with only one class. Custom class is allowed.
+	
+- Every single command and configuration statement is placed into a category, these are used to create custom classes. There are called "permissions flags". 
+	![[Pasted image 20250520214918.png]]
+- A user may have the correct username and password, but they might not have permission to access every single device. If you want to access and modify anything on a device, configure your user with `super-user` class. If you don't want a user to do anything just configured them with `unauthorized` class, this is useful when it comes to members that are new to the network that are taking assessment.
+	![[Pasted image 20250520215233.png]]
+- `operator` class is designed for basic troubleshooting.
+	![[Pasted image 20250520215323.png]]
+- `read-only` class is only for viewing the status of the network via `show`.
+	
+- Type `set system login user {username} class {class options} authentication {password type}` to configure a user privileges. 
+	![[Pasted image 20250520215542.png]]
+## J-Web Graphical Interface
+
+- A graphical interface that offers management and monitoring. It has less feature than the CLi, but it is more simplistic and easier to use.
+	![[Pasted image 20250520220401.png]]
+- J-Web Menu Bar.
+	![[Pasted image 20250520220459.png]]
+- SRX Series comes with J-Web, other devices need to enable J-Web through configuration.
+	
+- [HTTP and HTTPS]: HTTP Hypertext Transfer Protocol, the name of the protocol that your web browser uses to request and download Web pages-in other word, the protocol that enables two-way communication between you and a web server. The S in HTTPS stand for secure, its the same but with additional security layers.
+	![[Pasted image 20250520220833.png]]
+- Type `set system services web-management {http/https}` to configure J-Web on a device. A `system-generated-certificate` is needed when configuring for HTTPS.
+	![[Pasted image 20250520221052.png]]
+	- HTTP is using the standard TCP port of 80 for unencrypted web traffic, HTTPS using the standard TCP port of 443 which requires a digital certificates which can be obtain through a third party authority or self-signed.
+	
+- To verify type `https://` or `https://` along with the IP address of the interface you are using to access J-Web.
