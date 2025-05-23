@@ -990,3 +990,98 @@ via Operational Mode
 	- In addition, the DHCP messages contain a field called "DHCP Options", which are a series of numbered items that can be requested and offered. Ex: Option 1 is subnet mask, 3 is default gateway, 51 is length of time that this information is valid before it is refreshed, ...
 		
 	- Using these DHCP options, a DHCP server can communicate everything that is needed. To be clear, the software and the configuration does not need to be on the DHCP server itself. Instead, these pieces are usually hosted elsewhere in the network.
+
+<h2 style="color:#6290C3"><center> Junos OS Architecture </center></h2>
+## The Routing Engine
+
+- A routing engine is a regular computer that has CPU and Memory. It performs a variety of tasks such as running and maintains monitoring, management, system settings, chassis settings, protocols, and more.
+	![[Pasted image 20250522203019.png]]![[Pasted image 20250522203043.png]]
+	- Routing Engine can be found on the two main types of device: Modular Chassis which has dedicated line card slot for RE, and Fixed Port Device.
+	
+- The RE is not responsible for processing transit traffic, but only for creating and maintaining the forwarding table.
+	![[Pasted image 20250522203537.png]]
+## The Packet Forwarding Engine
+
+- [PFE (Packet Forwaring Engine)]: The pieces of infrastructure that have designed to forward traffic in the most optimal way. The PFE performs Layer 2 (Ethernet) and Layer 3 (IP) packet switching, frame switching, lookups, data manipulation, and packet forwarding. The PFE chooses the next-hop for incoming traffic, it rewrites and manipulates packet and frame headers as needed at lightning speed.
+	
+	- By contrast, the PFE is the muscle of the device. It forwards traffic as fast and efficiently as possible. It has very little intelligence of its own. Instead, the job of the PFE is to follow the instructions given by the RE. But it does have its own table.
+	
+- The engine of the PFE is a special chip that is known as ASIC.
+	 
+	- [ASIC]: Application Specific Integrated Circuit, are purpose-built to perform a very specific task, and to perform it in the fastest and most optimal way possible. EX: the PFE.
+	![[Pasted image 20250522205530.png]]
+- The main job of the PFE is to look up each incoming frame or packet against the forwarding table and decide how to forward the traffic. Another job of the PFE is to manipulate packets and frame in transit.
+	
+	- The PFE takes care of services that have an impact on transit traffic, such as rate-limiters, firewall filters, and the ability to prioritize one kin of traffic over another during times of heavy network congestion.
+		
+	- The PFE ASICs also report back to the RE with hardware and environmental status message so the RE can act on them as appropriate. Actually, the PFE doesn't talk to the RE directly, this is doe via an onboard line card CPU.
+	
+- [Control Plane]: Refers to the function performed by the routing engine, which is the hardware. 
+	
+- [Forwarding Plane/Data Plane]: The processing of transit traffic, the abstract idea of the functions performed by the PFE.
+	
+- The Separation of the Control Plane and Data Plane:
+	![[Pasted image 20250522210746.png]]![[Pasted image 20250522211723.png]]
+- Broadly and Specifically of PFEs:
+	![[Pasted image 20250522211915.png]]
+	- Sometimes, you will hear the term "PFE Complex". In fact, advancements in hardware mean that some ASICs nowadays are "sliced" into two. Each receives a copy of the forwarding table, and each slice offers its own dedicated bandwidth.
+## Transit Traffic and Exception Traffic
+
+- [Line Card CPU]: Responsible for managing the components on that PFE, and for connecting the PFE to the Routing Engine. It sends counters, status, and logs up to the RE, and receives the copy of the forwarding table from the RE. The line card CPU will install it into all of the ASICs that it controls on that line card. In other words, if a lie card had multiple forwarding ASIC chips, this one CPU would be responsible for managing all of them.
+	
+	- It can also refer to a single fixed line card inside a chassis.
+	
+- [Transit Traffic]: Describes the packets that pass through a networking device, from a remote source to a remote destination. If a packet enters one ingress port, is looked up in the PFE's forwarding table, and then exits out of an egress interface, then it is called transit traffic, this includes multicast traffic which may egress out of multiple interfaces.
+	![[Pasted image 20250522212847.png]]
+- [Exception Traffic]: Refers to traffic that needs to be sent to the Routing Engine for processing, using the internal link.
+	![[Pasted image 20250522212932.png]]![[Pasted image 20250522213112.png]]
+	- Thanks to advancement, some exception traffic can be processed on the line card cpu itself, this help the routing engine to focus on more important task and de-load the routing engine tasks.
+		
+	- Things that are not considered as a Exception Traffic:
+		
+		- Transit Packets that comes in on one network interface and go out of another network interface. These packets are processed only by the forwarding plane. and require no special handling above and beyond the kind of processing that is required to forward traffic to a destination, or the kind of processing that is required to perform the usual rewrite and manipulation tasks on the data.
+			
+		- Internal Control Packets, like the kind of traffic that is sent between the line card CPU and the Routing Engine CPU. This includes traffic containing updates to the forwarding table, and it also includes interface traffic statistics and counters, logs, environmental information about the line card.
+	
+- Useful Exception Traffic Knowledge:
+	![[Pasted image 20250522213903.png]]
+## FreeBSD and How It Relates to Junos OS
+
+- Junos OS is based on FreeBSD kernel. The code is based on FreeBSD, and runs on top of FreeBSD.
+	
+- Junos gives you direct access to the Junos FreeBSD shell via `start shell` if in operational mode. When you're in the shell, you can access Unix commands to verify the underlying device.
+	![[Pasted image 20250522214430.png]]
+- Each version of Junos OS is based on a particular version of FreeBSD.
+	
+	- First, the Junos file naming convention may change between FreeBSD versions.
+		
+	- Second, when you upgrade Junos, there is an option to roll back to a previously installed version of Junos. However, this options is sometimes removed then the underlying FreeBSD kernel also been upgraded. If the underlying FreeBSD kernel has radically changed, then Junos rollback may not be possible.
+		
+	- Third, sometimes FreeBSD version change is so significant that you may need to do incremental upgrades to get from one Junos version to another.
+## Junos OS Daemons
+
+- [Daemons]: Background process that always runs. These individual processes each run in their own protected memory space, which mean that a failure of one daemon will not affect the rest of the system. Indeed, individual daemon can be restarted, which is more convenient than restarting the entire device.
+	
+- Networking functionality in Junos is a set of daemons that run on top of the kernel. The kernel then handles all the communication between these applications along with OS functionality, such as memory allocation and scheduling.
+	
+- [Monolithic Architecture]: The entire OS is like one single application, running in a single flat memory space, with the entire single OS using all the resources.
+	
+- Type `show log messages` to view logs.
+	![[Pasted image 20250522215646.png]]
+- [rpd]: The Routing Protocol Daemon. It controls routing protocols, maintain routing tables, determines the active routes, and creates the forwarding table. It also implements routing policy, which is a configuration that controls what prefixes are learned and advertised. Each routing protocols runs as a separate task within this daemon.
+	
+- [mgd]: Management Daemon. This controls more than just the CLI-it's the glue that binds together all management methods, including the J-Web and external code or controllers. It enables all of these methods to interact with the true underlying architecture of the device, which uses something called XML.
+	
+- [dcd]: Device Control Daemon. Responsible for pushing physical interface configuration to the actual ports on the device. A handy feature of this daemon is that it gives you the ability to configure interfaces that don't yet exist.
+	
+- [chassisd]: Chassis Daemon. Handles chassis, alarm, and environmental processes, detects the line cards and interfaces, and monitors the hardware, power, temperature, and cooling. Under extreme temperature conditions, this daemon may also shutdown components to avoid damage.
+	
+- [snmpd]: Simple Network Management Protocol Daemon. Generates SNMP message that can be sent to external monitoring systems.
+	
+- [ppmd]: Periodic Packet Management Daemon. Process that enables the line card CPU to handle some trivial tasks that were once exclusively the job of the Routing Engine.
+## Junos OS Evolved
+
+- FreeBSD is replaced with Linux. Not tied to underlying hardware. Can be integrate with third-party applications since it run on hypervisor Linux.
+	
+- Daemon are now individual applications, no longer tied to the kernel. Data are stored in a distributed database that applications can access, no longer internally and locally.
+	![[Pasted image 20250522221507.png]]
