@@ -902,3 +902,91 @@ via Operational Mode
 	- HTTP is using the standard TCP port of 80 for unencrypted web traffic, HTTPS using the standard TCP port of 443 which requires a digital certificates which can be obtain through a third party authority or self-signed.
 	
 - To verify type `https://` or `https://` along with the IP address of the interface you are using to access J-Web.
+
+<h2 style="color:#6290C3"><center> Setting Up Brnad New Junos Device </center></h2>
+## Default Junos Configuration
+
+- Each platform comes with different default settings from the factory. You must log in, read the default config, and choose that to change
+	
+	- Beware that firewalls will have additional security and configurations compared to routers. 
+	
+- Some devices come pre-configured with protocols that make sens only on that platform.
+	
+	- Switches usually comes with RSTP (Rapid Spanning Tree Protocol) preconfig to prevent loops on Layer 2.
+## Using the Console Port, and Implementing the Mandatory Configuration on Jun OS Devices
+
+- Connect to the CLI using the console port, using a special cable called console cable, and sometimes called a serial cable.
+	![[Pasted image 20250522165433.png]]
+	- The console port does not use IP and nor does it use Ethernet. When you connect your computer to the console port, you can think of this as a direct connection into the Routing Engine-directly into the brains of the device directly onto the CLI.
+		
+	- The console port uses RS-232, stands for **Recommended Standard**. 
+	
+- There are few ways to open up serial connection from your computer to the console port of a device. 
+	
+	- Terminal Apps, some terminal apps have a button that you can click to access your computer's serial port such as PuTTY.
+		
+	- [Baud Rate]: Unit for symbol rate of modulation rate in symbols per second for serial communication. 9600 Baud rate is the standard for RS-232.
+		
+	- For other connectors, like DB9, USB, additional software is required.
+	
+- After setting up the connection, press Enter/Return to enter the CLI environment.
+	![[Pasted image 20250522170537.png]]
+	- When the device is new, and has a factory-default configuration, you CLI login prompt will contain the word **Amnesiac**, meaning it does not have a host name.
+		
+	- To log in for the first time on a brand new device, simply type `root`. To set a password, simply type `set system root-authentication` in configuration mode.
+	
+- Jun OS is based on FreeBSD.
+	
+	- Noted that when you log in Jun OS via root, it will log into the UNIX Shell. Type `cli` will log into JunOS CLI.
+		
+	- Type `exit` will log out of Junos CLI and brought you back to UNIX Shell. Type it again will log out completely.
+	
+- Root password must be establish before configuring the system.
+## Recommended Initial System Settings
+
+- Some useful settings for new device.
+	![[Pasted image 20250522171352.png]]
+- It is recommended to set up a message banner when someone is attempting to log in.
+	
+	- Type `set system login message "{content}"` to show a banner before the user logs in.
+		
+	- Type `set system login announcement "{content}"` to show a banner after login.
+		
+	- Text/string formatting is available.
+	
+- Type `load factory-default` to load it into the candidate configuration and restore the "configuration" back to factory default, this does not restore it to factory settings as files and keys remain untouched.
+	![[Pasted image 20250522192113.png]]
+	- Make sure to `delete system commit factory-settings` to fully restore to factory configuration.
+	![[Pasted image 20250522192459.png]]
+- [Rescue Configuration]: A configuration where you can roll back in-case something catastrophic happens. This rescue configurations tends to be basic/safe enough to handle most of the user cases. Type `request system configuration rescue save` to take a snap shot to create a rescue config, `rollback rescue` to roll back to rescue commit, `request system configuration rescue delete` to delete the rescue rollback.
+	![[Pasted image 20250522192857.png]]
+- Two ways to reboot or shutdown via the CLI:
+	
+	- Type `request system reboot` to reboot the device. This process can vary between devices in total length of time. If you're connected via SSH, you will need to create a new SSH connection after the device completes the reboot. If you are connected via the console port, you will eventually be greeted with a new login prompt.
+	![[Pasted image 20250522193158.png]]
+	- Type `request system halt` to gracefully shutdown Junos OS, so that you can then safely power-off the device at its source of electricity or by pressing the power-off button on the device. You will receive a message on the CLI telling you when the shutdown is complete, and the it is safe to power off the device.
+		
+		- If you have a modular chassis with two routing engine, use the command `request system halt both-routing-engines`. This will shut the primary RE then the backup RE.
+		
+	- Another options is to `request system power-off`, which you can do remotely if the device have a physical button. If not it will remain the same status as `request system halt` and remain powered.
+## Zero Touch Provisioning
+
+- [ZTP (Zero Touch Provisioning)]: A way for a new Junos device to automatically find a server on a network that can tell it how to get a configuration file, and whether there is a new version of Junos that it can upgrade to. If there is, then the ZTP server will reply with the requested info.
+	
+	- This configuration file can be a regular configuration, or it can be a script that gives you much more flexibility in terms of device specific configuration pieces. This can happen at the moment the device is physically connected to the network, whether it be via the management port or via a network port. Some Junos devices are configured out-of-the-box to attempt this automatic ZTP discovery process.
+		
+	- The ZTP server itself doesn't usually give the device its configuration and Junos upgrade directly. Instead, the server tells the device where to find this information on the network. And if a ZTP server does not exist on a network, then the device boots in the usual way, with its standard factory-default configuration.
+	
+- [DHCP (Dynamic Host Configuration Protocol)]: A protocol that automatically offers network configuration to hosts on a network. A protocol that drives ZTP.
+	
+	- DHCP server receive DHCP requests, and reply with IP information about the network, such as an IP address for the machine, a subnet mask, a default gateway, and the IPs of any DNS servers that can translate domain name into IPs. 
+		
+	- DHCP servers are configured with a block of IP addresses that they can allocate to machine that need one. This block is often called a "pool"-and unlike a regular subnet you can chose any starting and ending address that you like for your pool of IPs.
+	
+- DHCP is a 4 step process.
+	![[Pasted image 20250522195711.png]]
+- When a ZTP-enabled Junos device joins a network, it sends out a DHCP message asking for the various IP pieces that are required for it communicate on the network. This IP information is not permanent-it's there as long as it takes to make the full ZTP process works.
+	
+	- In addition, the DHCP messages contain a field called "DHCP Options", which are a series of numbered items that can be requested and offered. Ex: Option 1 is subnet mask, 3 is default gateway, 51 is length of time that this information is valid before it is refreshed, ...
+		
+	- Using these DHCP options, a DHCP server can communicate everything that is needed. To be clear, the software and the configuration does not need to be on the DHCP server itself. Instead, these pieces are usually hosted elsewhere in the network.
