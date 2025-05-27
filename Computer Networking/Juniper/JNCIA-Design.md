@@ -617,3 +617,70 @@ Associate Design
 	
 - A note about Nomenclature: Data centers use an alternative naming scheme.
 	![[Pasted image 20250527091737.png]]
+
+<h2 style="color:#6290C3"><center> Campus WAN Design </center></h2>
+## Components of the Campus WAN
+
+- A WAN is a network covering a broad area used to interconnect business locations and resources. A WAN is a key tool permitting businesses to function effectively.
+	![[Pasted image 20250527092215.png]]
+- Campus WAN connectivity functions:
+	![[Pasted image 20250527092309.png]]
+	- [Internet Edge]: Typically seen in campuses, branches, and data centers, the Internet edge function serves as a gateway for users and applications. Sometimes, this function is remotely hosted for branch offices, like in a WAN site or a data center. It allows corporate Internet access, Web application connectivity, DMZ-hosted services, remote work access, backup WAN connection for the branch office, and Internet.
+		
+	- [WAN Aggregation]: Usually located in a regional campus or data center, the WAN aggregation function links remote branches to the enterprise WAN, typically in a hub-and-spoke layout. This design allows for policy management, offering modularization for easier deployment and problem-solving.
+		
+	- [Private WAN]: Links all enterprise sites via WAN aggregation, basically forming a company-managed backbone for the network. This backbone, often a hub-and-spoke or even a full mesh setup, includes devices like routers, switches, and firewalls, mostly managed by corporate network personnel, not the service provider offering the circuits and connections.
+		
+	- [DCI Function (Data Center Interconnection)]: Links data centers together. This connection usually employs a standards-based Layer 2 or Layer 3 solution using MPLS, like Ethernet VPN Virtual Extensible LAN (EVPN/VXLAN). Reasons for multiple, often mirrored, data centers and their interconnection include things like disaster recover and business continuity, DC consolidation and virtualization, geo-clustering, and other Layer 2 extensions.
+## Practices and Consideration for Campus WAN
+
+- Campus WAN design goals should be easy to deploy, flexible and scalable, resilient and secure, easy to manage, and service ready.
+	![[Pasted image 20250527092855.png]]
+- The preferred WAN connectivity might not be feasible at all locations. You might have to propose an alternate method for these sites. Although some locations might need exceptions to standard products and solutions, aim to keep these to a minimum.
+	
+- WAN connectivity between branch locations and the WAN aggregation device can be classified as: Private WAN, public internet, and provider-managed MPLS services.
+	![[Pasted image 20250527093324.png]]
+	- The private WAN is maintained by the enterprise, and typically deployed across dedicated Ethernet fiber links, with the potential for multiple QoS classes for traffic prioritization.
+		
+	- The Public Internet is a widespread and low-cost business-class Internet, deployed via something like fiber or Metro Ethernet. And with this, since it's public, you need an IPsec VPN to secure and authenticate traffic.
+		
+	- A Provider-Managed MPLS Service is a private VPN service by a provider that can replace the need for IPsec VPNs. However, just because your traffic is not regular internet traffic, it is still not encrypted by default.
+	
+- [WAN Device Roles]: WAN aggregation's main role is to merge connections from multiple sites to a central site. It provides access to central sites or data center services. The aggregation hub can be at a regional office, data center, or a service provider central office for localized core transport termination. Three typical router roles in an aggregation hub: WAN aggregation, Internet gateway, and VPN termination.
+	![[Pasted image 20250527093613.png]]
+	- The WAN aggregation role is an internal role that doesn't typically have a direct Internet connection. It is the termination point for private leased lines and private Layer 3 and Layer 2 VPN services managed through an attached service provider. Services like Web caching are hosted here.
+		
+	- The Internet gateway role is an external role that peers with the public Internet. Remote enterprise locations reach the IPsec tunnel termination router via the Internet gateway router.
+		
+	- The IPsec termination role terminates IPsec tunnels from Internet-connected remote locations. It's recommended to place tunnel endpoints in an Internet-facing virtual-routing instance.
+	
+- [Need for Routing]: Regardless of the WAN connection type used, a need for routing exists between the enterprise locations. Traffic destined to enterprise resources typically passes through the WAN aggregation site. Traffic destined to external resources may or may not pass through the WAN aggregation site depending on the connection type.
+	
+- [Determining Throughput Requirements]: The number of users and devices as well as applications and their associated traffic flows determine throughput requirements. When figuring out the WAN bandwidth for WAN aggregation sites and data centers, also consider remote users' bandwidth needs. Also, customers might want spare ports for future needs, avoiding delays in purchasing and installing new devices.
+	![[Pasted image 20250527103046.png]]
+- [Performance Considerations]: The WAN speed and latency are often the main bottlenecks between sites in an enterprise network. Applications like voice, video, and cloud computing need low latency, typically under 100 milliseconds. The major sources of latency include WAN propagation delay, serialization delay, and encryption/decryption delays. A hub-and-spoke VPN design may be impractical if latency is high due to double encryption/decryption and multiple serialization delays.
+	![[Pasted image 20250527103036.png]]
+- [VPN Design Considerations]: Tunneling packets in IPsec increases packets size, this make additional overhead can exceed 36 bytes, must limit the size of the packets pre-encryption, enforced by limiting the MTU size of IPsec traffic.
+	![[Pasted image 20250527103017.png]]
+- [Need for Quality of Service]: Even with careful consideration and planning, you will likely encounter oversubscription in the network. A well-planned QoS implementation is necessary to manage voice, video, and data convergence and differentiate applications and user types. Guaranteeing bandwidth to specific users or applications optimizes the use of available bandwidth, especially on congested links.
+	![[Pasted image 20250527103338.png]]
+- [Need for Security]: Identify the untrusted domains and determine a plan to monitor manage, and mitigate all security risks.
+	![[Pasted image 20250527103500.png]]
+- [Using Virtual Routers]: Great as they provide traffic isolation. 
+	
+	- Several enterprise scenarios exist where using VRs is beneficial. Such as: Separate WAN and edge routing from LAN routing domains when multiple protocols are running; Isolating guest networks with separate WAN connections for Internet access; and Separate point-of-sale networks and routing over a specific VPN.
+		
+	- Some other scenarios include things like: Merging organizations; Multi-tenant buildings; High-security facilities; and University campuses with lots of departments.
+## Design Options for Campus WAN
+
+- [Active/Passive Design]: A single WAN aggregation router has one of two data center links, with link cost and route preference dictating the choice. The active/passive approach often fits when the secondary path offers lower performance due to link speed or less direct routing. In this instance, the secondary path through another aggregation router is less direct. Ideally, both WAN aggregation sites balance traffic from branch offices, and all transit traffic for the data center uses the local, more direct path.
+	![[Pasted image 20250527103926.png]]
+- [Active/Active Design]: A remote branch's WAN router maintains two active connections with distinctly different Layer 3 VPN providers. The branch router uses default routes to the PE routers, balancing traffic across both links.
+	![[Pasted image 20250527103959.png]]
+- [VPN Design Options]: 
+	![[Pasted image 20250527104039.png]]
+	- First, a 2-tier hub-and-spoke IPsec VPN design connects branch offices (spokes) to one or more WAN aggregation sites or data centers (hubs). Its simplicity comes from the few tunnels needed per branch. However, traffic between branches must route via a hub, potentially doubling latency. If you want to use this deployment option, you need to find out if this latency is acceptable, especially with voice, video, or other latency-sensitive applications. In an MPLS-VPN design, branches often have direct connectivity within the MPLS network.
+		
+	- Second, a 3-tier hub-and-spoke IPsec VPN design has branches connecting to regional WAN sites and data centers. Devices between regions route through regional hubs, possibly adding more latency. This design has similar considerations as the last one.
+		
+	- Third, a fully-meshed VPN design provides direct routes from each branch to others, and to the WAN sites and data centers. Though it minimizes hops and latency, it increases complexity and configuration size as tunnels grow with branch count. Due to this, many enterprises shift to provider-MPLS networks for fully-meshed branch connectivity. If used, a best practice is to limit VPN tunnels to come up on demand. Dynamic routing protocols like OSPF or BGP are preferable over static routing due to scalability challenges.
