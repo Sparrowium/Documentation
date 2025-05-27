@@ -523,3 +523,97 @@ Associate Design
 - [Secure Edge Architecture]: 
 	![[Pasted image 20250519204158.png]]
 
+<h2 style="color:#6290C3"><center> Campus Design </center></h2>
+## Components of the Campus Network
+
+- Campus comes in different shapes and sizes that has all the buildings and floors connected to share data centers resources, which could be off or on campus. A campus can also connect to other campuses, the Internet, regional sites, or branches via LAN. 
+	![[Pasted image 20250525215744.png]]
+	- Modern campus has evolve from supporting traditional client/server traffic to managing real-time applications like VoIP, video conferencing, and other unified communications tools while handling increasing users and devices. 
+	
+- Campus Topologies:
+	![[Pasted image 20250525220732.png]]
+- [Legacy Three Tier Design]: Overly complex, inefficient, and also costly. The 3-tier design approach was utilized due to oversubscribed interfaces, requiring more devices and hence more maintenance and management.
+	![[Pasted image 20250525221409.png]]
+- [Consolidating Security]: Enhances efficiency by reducing latency and device connections. Fewer devices also decrease power, cooling, and space costs. Instead of security embedded in the network, consolidation embraces security virtualization on a minimal amount of devices, providing it as a network service.
+	![[Pasted image 20250525221637.png]]
+- [Collapsing Layers]: Using Virtual Chassis, you can link up to ten switches, forming a single logical entity managed like a single switch. Virtual Chassis cuts operational complexity by minimizing the amount of managed switches.
+	![[Pasted image 20250527082534.png]]
+	- Then, we condense the core and distribution layers, flattening the network. By removing a layer, we get performance enhancements. With fewer devices to manage, operations are simplified. Core and aggregation layer consolidation also cuts down on the number of uplinks, easing cabling needs. Again, fewer devices translate to lower capEx, power, space, and cooling.
+	
+- [Modern Campus Network]: Uses a three-tier hierarchical network design which is different from the legacy three-tier structure we previously examined. The advantage of this modern design is that we can replicate it across a large network as pods. And then, each pod can connect to form a bigger network. It's common in campus networks to connect individual hierarchical pods to a core. Changes in a pod usually remain confined to that pod rather than the entire network.
+	![[Pasted image 20250527082657.png]]
+- [Segmentation]: Segmenting traffic into different broadcast domains is essential for security. Many hacks occur because a public device shares network segments with devices with sensitive data. Basically, if there's a vulnerability with the public device that gets exploited, then the hackers have access to the sensitive devices.
+	![[Pasted image 20250527082815.png]]
+	- You can use VLANs to segment traffic functionally. However, this has some limitations, given a Layer 2 network only supports 4094 VLANs. Security-wise, firewalls may need to sit between traffic flows to enforce security policies, potentially complicating network management as the network expands.
+## Practices and Considerations for Campus Design
+
+- General guidelines to consider when designing campus networks:
+	![[Pasted image 20250527083034.png]]
+- Traditional Campus Network Limitations:
+	![[Pasted image 20250527083106.png]]
+- [EVPN-VXLAN]: An Ethernet VPN, is a Layer 2 overlay mechanism using an IP underlay. Virtual Extensible LAN, is a overlay solution that expands the Layer 2 network space from 4096 broadcast domains to 16 millions.
+	
+- Modern Design with EVPN-VXLAN:
+	![[Pasted image 20250527083701.png]]
+	- Extends down to the access tier, offering Layer 3 benefits while maintaining Layer 2 device connectivity.
+		
+	- Widely adopted, standards-based tech in data centers as it can be readily designed, deployed, and managed within enterprises.
+		
+	- Isn't limited to two devices like MC-LAGs. You get scalability by simply adding devices.
+		
+	- With its Layer 3 underlay, EVPN-VXLAN leverages faster convergence technologies like BGP and BFD and enables microsegmentation without proprietary solutions like PVLANs.
+		
+	- Group-based policy (GBP) is compatible with EVPN-VXLAN. GBP summarizes policies across the network, translating them to network devices. GBP's segmentation is beneficial on campuses for creating network access policies, which simplifies the design and implementation of network applications and device security policies.
+	
+- [Making the Design Modular]: Embedding modularity in your network design reduces the data each device processes and eases the burden of designing, deploying, managing, and troubleshooting the network. In a modular design, devices have distinct roles. It promotes scalability and other benefits within the campus environment. Ex:
+	![[Pasted image 20250527084209.png]]
+	- Access switches grouped in a virtual chassis in a specific wiring closet, on a floor, in a building, serving a user or device group. Another virtual chassis depicted services with a different user and device group in a different location. Since all virtual chassis devices in the access layer perform the same function, they can have a similar configuration, making this modular element repeatable and familiar to those managing the network. This approach is also applied to the core layer with individual chassis-based systems or virtual chassis deployments.
+	
+- [Security Through Isolation]: A typical method is to associate unauthorized users with a unique VLAN, often termed a guest VLAN. Along with separating authorized and unauthorized users at Layer 2 via unique VLANs, it's recommended to segregate them at Layer 3 using unique VRF instances. This isolation is usually implemented at the first Layer 3 device, ensuring traffic stays in that isolated VRF until reaching the device at the Internet edge.
+	![[Pasted image 20250527084542.png]]
+- [VLAN Connectivity]: Standardize the design of your VLANs, create a standard VLAN schema used on all access switches.
+	![[Pasted image 20250527084857.png]]
+- [Subnet Design]: Map your VLANs to designated subnets.
+	![[Pasted image 20250527085113.png]]
+- [Device Naming Conventions]: A standardized naming convention that outlines the device's role, function, and location simplifies understanding of the network structure and assists in troubleshooting.
+	![[Pasted image 20250527085306.png]]
+- [Access Control Design]: The 802.1X Extensible Authentication Protocol (EAP) is suitable for wired and wireless users with an 802.1X client. It can authenticate users with an external RADIUS or LDAP server, such as Microsoft Active Directory, and enable dynamic VLAN assignment based on user or group attributes.
+	![[Pasted image 20250527085631.png]]
+	- For devices that don't support 802.1X, such as some IP phones or legacy devices, MAC address auth can secure specific device traffic on a switch port. However, MAC auth can be very challenging to manage in large deployments.
+		
+	- Devices like IP phones support LLDP-MED, which is used for automatically assigning IP phones to a voice VLAN and providing location data. 
+		
+	- Finally, decide which ports require 802.1X authentication and which devices will use MAC authentication.
+	
+- [CoS in the Campus Network]: Class-of-service often becomes essential due to the merging of voice, video, and data networks and the need to differentiate applications and user types. It optimizes bandwidth use by guaranteeing it to certain users or applications, especially on busy links.
+	
+	- CoS decisions shouldn't rely solely on packet drops on interfaces but should also consider user quality of experience and specific service requirements. Factors like application timeouts, delays, or voice/video issues, like choppy transmissions or buffering streams, should also influence the decision.
+	
+- [Using the Top-Down Design Approach]: Knowing users, applications, traffic types, and traffic patterns can help determine the best network design. Identifying baseline traffic flows throughout the network and assessing an acceptable quality of experience level for each flow type will provide you an idea of how the physical network that support those flows should be designed.
+	
+- [Oversubscription Ratios]: Identify the ingress-to-egress link bandwidth in a north-to-south-direction in the network.
+	![[Pasted image 20250527090633.png]]
+## Architectural Design Options for the Campus
+
+- Legacy Campus Architecture:
+	![[Pasted image 20250527090852.png]]
+- [Mist Campus]: Three EVPN-VXLAN architectures that Juniper suggests:
+	![[Pasted image 20250527091112.png]]
+	- EVPN Multihoming or collapsed core is the first recommended architecture. It combines standalone switches or VC in the access tier and merges core and distribution tiers. By utilizing EVPN Multihoming, STP is completely eliminated via uplink aggregation from the VCs to distribution switches. This design is ideal for small and medium campuses with less than 5000 users.
+		
+	- The second design, is the campus fabric core-distribution architecture. Here, a Layer 3 fabric exists between the core and distribution tiers. The access tier comprises standalone switches or VCs, while EVPN-VXLAN is used in distribution and core tiers. This is suitable for larger setups, like multi-building campuses or universities with 5,000 to 10,000 users.
+		
+	- The final recommended architecture is campus fabric IP Clos. Here, EVPN-VXLAN extends from the core to the access. The access tier can include standalone switches or VCs, participating in EVPN-VXLAN with Layer 2 and 3 gateways. This design, recommended for very large deployments, allows EVPN-VXLAN usage from access to distribution and core, ensuring quick convergence and mobility.
+	
+- [Validated Fabric Designs]: 
+	![[Pasted image 20250527091539.png]]
+	- The EVPN multi-homing design, especially when utilizing ESI-LAG, is a practical tool often adopted in small-to-medium campus settings. It efficiently handles inter-campus traffic in collapsed core/distribution configurations. Serving a critical role in network infrastructure. One of its strong points is that it effectively removes the need for STP, simplifying overall network management. Additionally, if you're already using Virtual Chassis or MC-LAG, you'll find the migration to EVPN multi-homing with ESI-LAG relatively straightforward and beneficial.
+		
+	- The Campus Fabric Core-Distribution design, utilizing Centrally-Routed Bridging (CRB), is a beneficial approach for managing networks in smaller to medium-sized campuses, especially when dealing with inter-campus traffic. A key advantage of this setup is its simplicity: your L2/L3 gateway happens solely at the core, streamlining your network operations. This design even accommodates distribution switches that aren't capable of handling an L3 VXLAN gateway, offering more flexibility for different network equipment. This design excels when the majority of your traffic is north-south traffic.
+		
+	- The Edge-Routed Bridging (ERB) method, as part of the Campus Fabric Core-Distribution design, is great for medium-sized campuses dealing with a lot of intra-campus traffic. ERB provides notable advantages, such as lessening the need for gateway re-learning and minimizing the blast radius, which makes network management more efficient. Plus, it improves multi-vendor interoperability, allowing you to integrate various network equipment more smoothly. This approach not only enhances your network's effectiveness but also promotes flexible and diverse technology use within your campus. This design excels when the majority of your traffic is east-west traffic.
+		
+	- With the Campus Fabric IP Clos design, the End-to-End VPN technology is a great option for medium to large campuses dealing with intra-campus traffic, especially when Layer 3 is at the access. This technology works well when it comes to managing mobility and IoT devices, because of its efficient access layer segmentation feature. It efficiently isolates different user groups or device types, ensuring enhanced security and optimal network performance. This makes it an excellent choice for modern campuses that prioritize secure, efficient, and innovative network management.
+	
+- A note about Nomenclature: Data centers use an alternative naming scheme.
+	![[Pasted image 20250527091737.png]]
