@@ -1175,3 +1175,91 @@ via Operational Mode
 	![[Pasted image 20250527191629.png]]
 - Type `help reference ?` to reveals help configuration syntax options and `help reference {configuration options}` to displays a complete list of related configuration options and it also offers other details and things to bear in mind.
 	![[Pasted image 20250527191853.png]]
+
+<h2 style="color:#6290C3"><center> Junos OS Firewall Filters </center></h2>
+## Stateful Security Policies and Stateless Firewall Filters
+
+- [Stateful Traffic Rules]: It have the ability to look across multiple packets to understand which packets belong to the same session (called a flow in Junos).
+	![[Pasted image 20250527201332.png]]
+	- They do this by recording information about each packet in a session table. They then compare every new packet to the information already recorded. In other words, they keep track of the state of these sessions, hence the name stateful rules.
+		
+	- This stateful tracking means that stateful rules can bring some intelligence to your configuration. 
+		
+	- These rules are typically used on hardware firewalls, and on virtual software firewalls. This is because the stateful maintenance requires additional processing of each packet as it transit the device. It's important to have specialist hardware that is up to the task performing this additional processing-or, to allocate enough additional memory and processor capacity for accommodate for this additional processing.
+		
+	- Another reason is that it is common for a hardware firewall to perform many more security checks, other than simply checking source and destination IPs and ports.
+	
+- [Stateless Traffic Rules]: Process each individual packet on its own merit. In other words, stateless rules do not care what traffic has come before or what is going to come afterward. 
+	![[Pasted image 20250527204430.png]]
+	- Stateless rules have no idea if the packet belongs to an existing session. Each packet is processed in isolation, and no state is tracked.
+		
+	- In fact, stateless rules are rarely used to control every single aspect of the traffic flow through a device. This is really the function and purpose of a firewall, rather than a router or a switch. Instead, you use stateless rules to perform "quick and easy" filtering. Meaning that there is no need for extensive data processing here, or to keep track of some kind of stable table, just drop it and move on.
+	
+- Stateful rules are called security policies as they are created under a dedicated `security` configuration. Stateless rules are called firewall filters, as they are configured under a dedicated `firewall` hierarchy.
+## Firewall Filter Terms, and the Actions They Take on Packets
+
+- Basically just a tons of `if/then` statements, but in Junos they are `from/then` statements. Each statement is called a `term`, a firewall can contain as many terms as you like, each term is processes from top to bottom.
+	![[Pasted image 20250527205402.png]]
+	- A term contains zero or more match conditions, and one or more actions.
+	
+- [Match Conditions]: You specify your match conditions using the `from` keyword. Firewall filters can match on almost any field in any header.
+	![[Pasted image 20250527205648.png]]
+	- You can even match multiple elements on one term. Some conditions are logical `AND` others are a logical `OR`.
+	![[Pasted image 20250527205759.png]]
+- [Terminating Actions]: You use the `then` statement inside your term to decide your actions. You can divide all of the available actions into two categories. The first category contains something called terminating actions. 
+	![[Pasted image 20250527210031.png]]
+	- If you use one of these actions, then processing ends, and no more terms are analyzed. In other words, the processing of the firewall filter is terminated.
+		
+	- Reason to favor `discard` is it is easier to drop the packet (lower the work load), and preventing malicious attacks by sending back a reply.
+	
+- Firewall filters give you total control over how packets are processed and manipulated.
+	![[Pasted image 20250527210325.png]]
+- [Nonterminating Actions]: These actions still terminate processing by default. This is because these actions all come with a default, implicit actions of `accept`, and they also offer you the ability to use an action of `next term`. 
+	![[Pasted image 20250527211111.png]]
+	- However, if you were to configure both `log` and `next term` then the traffic would be logged, but the processing would continue to the next term. You could use this to log a wide range of traffic, regardless of whether another term decides to accept or deny it.
+	![[Pasted image 20250527211309.png]]
+## Processing Terms in a Firewall Filter
+
+- Firewall filters are made active by applying them to an interface. You can either apply them inbound or outbound. When a firewall filter is active, every single packet is inspected against each individual term in the filter. This happens in the order that the terms are configured, from the first filter to the last.
+	
+- If an interface has a firewall filter applied to it in a particular direction, then every packet in that direction will be inspected against the firewall filter. If a packet does not match any term, it will be dropped. This is because firewall have an implicit term at the very end which matches all traffic, and has an action of `discard`. If you want to allow all other traffic, you will need to configure an explicit final term with an action of `accept`.
+## Junos OS Firewall Filter Configuration
+
+- All stateless filters are configured within the `firewall` hierarchy. Within that you configure the firewall filter within the address `family` of your choosing. This is very help for keeping tour filters organized. It also means Junos will only offer you match conditions that make sense for that address family. The firewall filter is then given a unique name of tour choosing.
+	![[Pasted image 20250527213245.png]]
+	- Within one term, there are two sections-you have a `from` section for your match conditions and a `then` sections for your actions.
+		
+	- Type `set firewall family {ip version} filter {filter name} term {term name} from {match conditions}` to set up match conditions for a term. and `set firewall family {ip version} filter {filter name} term {term name} then {actions}` to set an actions for that term.
+	![[Pasted image 20250527213550.png]]![[Pasted image 20250527213628.png]]
+-  When it comes to well-known applications, Junos gives you the ability to refer to many of them by name in your `from` conditions. 
+	![[Pasted image 20250527214232.png]]
+	- In additions, it's good to know the options of how to apply this. As you can see, you can choose to filter just one the `source-port`, or just on the `destination-port`. You can also say `from port` if you want to match either.
+		
+	- It's worth saying that when you refer to a port number, then your configuration actually matches both TCP and UDP traffic. You can choose to be more specific by using the `from protocol {tcp/udp}` options. Indeed, there is a good argument to say that you definitely should mention the protocol alongside the port, so that you don't accidentally allow traffic through that you intended to block.
+	
+- Type `show configuration firewall family {IP version} filter {filter name} | display set relative` to show the set commands as if you were at that point in the hierarchy.
+	![[Pasted image 20250527214437.png]]![[Pasted image 20250527214451.png]]
+- Type `set firewall family {IP version} filter {filter name} term {term name} then accept` to explicitly allows all other traffic since it has no `from` conditions.
+	![[Pasted image 20250527214708.png]]
+- You can choose to apply the filter to either inbound traffic or outbound traffic. If you want to filter both kinds of traffic, then it's a good practice to make two separate firewall filters-one for each directions. 
+	
+	- As a general rule, you should apply your filters as close to the traffic as possible. The reason for this is that it gives you the opportunity to block forbidden traffic as early as possible.
+	
+- Options to apply filters:
+	
+	- Apply the filter outbound on the WAN Interface. This is a good choice when you need to refer to multiple sources of LANs that come  into the router on multiple different interfaces. You can use one single firewall filter that applies to all traffic outbound to the internet. However, the downside is that it does not filter your traffic as early as possible. When you think about it, packets will enter from a LAN interface and will be processed in the forwarding table. It's only when the packet is almost ready to leave the WAN interface that the packet is dropped.
+		
+	- Create multiple firewall filter. Mistakes, inconsistency might happens. It allow you to drop traffic as early as possible.
+		
+	- Apply same firewall filter to multiple LAN interfaces. This makes your device to have a finite amount of room in its PFE to store firewall filters.
+	
+- Type `set interfaces {interface name} unit {number} family {IP version} filter {output/input} {filter name}` to create either an outbound or inbound to an interface. Note `output` means that it will be processed at the point when the traffic is almost ready to leave the interface, `input` is vice versa and for inbound firewall filter.
+	![[Pasted image 20250527220019.png]]
+- Use `ping` to test and verify the firewall filter traffic.
+	
+- Type `show firewall counter {counter name} filter {filter name}` as an alternative to verify your traffic via counter. 
+	![[Pasted image 20250527220227.png]]
+## The insert Command
+
+- Use `insert family {ip version} filter {filter name}` to move terms within a filter. You use it in combination with the `before` and `after` keyword to insert the term before or after any other term of your choice.
+	![[Pasted image 20250527220624.png]]
