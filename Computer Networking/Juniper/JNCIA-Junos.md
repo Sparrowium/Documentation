@@ -1085,3 +1085,93 @@ via Operational Mode
 	
 - Daemon are now individual applications, no longer tied to the kernel. Data are stored in a distributed database that applications can access, no longer internally and locally.
 	![[Pasted image 20250522221507.png]]
+
+<h2 style="color:#6290C3"><center> Logging, Troubleshooting, and Monitoring </center></h2>
+## Viewing Log Files
+
+- [Syslog]: A way of logging events on Unix-like systems. There are three broad elements to creating a syslogs:
+	
+	- The facility describes the class of events that you want to log.
+		
+	- The severity levels is a number between 0 and 6 for different log levels. Each level signifying increasingly detailed logging information. You can also use log level 7 to represent all levels.
+		
+	- The destination of the log could be a local file, an external syslog server, or your CLI session.
+	
+- Type `show log {file name}` to view logs files. `show log messages` to view general system events.
+	![[Pasted image 20250527154605.png]]
+	- Notice that each log entry starts with a timestamp. New log are added at the end of the file, and hey are listed from the earliest to latest. You can also pipe this command for further uses. 
+	
+- Type `show log interactive-commands` to track all typed CLI commands. Make sure to pipe `match user` to show cleaner logs or show commands that are produced by other users. You can also pipe with the keyword `last` to limit the amount of output.
+	![[Pasted image 20250527155023.png]]
+- When a log file is full, Junos archives the files and compressed it, then a new file is created. The compression that Junos use is Gzip `.gz`. In addition, Junos also has default limits to the number of archive files that it will create. Mind you that these log files are custom-able. To show all existing log files type `show log mess?`.
+	![[Pasted image 20250527155535.png]]
+- Type `show configuration system` to see all default syslog information that is configured under the `system syslog` hierarchy.
+	![[Pasted image 20250527155820.png]]
+	- On each new line, the first word is the facility level being logged. The second word is the logging level.
+	
+- Example of syslog facility options in Junos.
+	![[Pasted image 20250527160023.png]]
+- Example of syslog severity levels.
+	![[Pasted image 20250527160159.png]]
+	- Note that notice is more than enough for everyday events since it doesn't place unneeded strain on the routing engine.
+	
+- Type `set system syslog file {file name} {facility name} {severity name}` to create a new syslogs. You can also use archive the define the number of files, size of files, and whether all users can view it.
+	![[Pasted image 20250527161720.png]]
+- Type `monitor start {file name}` to view log in real-time, `monitor stop` to end process or `esc-q` to halt and resume the real-time output.
+	![[Pasted image 20250527161915.png]]
+- Type `help syslog {syslog code}` to decode a message code, or show a detail explanation of a message code.
+	![[Pasted image 20250527162016.png]]
+- Type `set system syslog host {ip address} {severity levels}` to stream logs to an external server. It is very helpful when storing logs because it prevents rogue actors from getting the chance to delete the logs, and therefore delete the evidence of their wrongdoing. 
+	![[Pasted image 20250527162309.png]]
+	- Or you can send logs directly to the CLI using the `user` option.
+	![[Pasted image 20250527162318.png]]
+## Network Connectivity Troubleshooting Commands
+
+- Adding the keyword `rapid` to the `ping {ip address}` to send many rapid pings in a very quick succession. This will send the next ping as soon as a reply has been received for the previous ping. If a response is not received, Junos waits up to a maximum of 500ms before declaring the ping has timed out, and then sending the next ping.
+	![[Pasted image 20250527163014.png]]
+	- You can combine this with the `count` option to send hundreds of quick pings to the remote destination, and perhaps even thousands, ...
+	![[Pasted image 20250527163308.png]]
+	- Although it is important that the control planes of some devices do not prioritize the generation of ICMP replies. As such, if the device at the other end of the link happens to be busy processing a large and important routing update, there;s a chance that your pings will not receive a reply. This does not indicate any kinds of problem on the link itself because transit traffic will not be affected.
+		
+	- Similarly, remember that Junos applies rate-limiting to the link between the Packet Forwarding Engine and the Routing Engine. This is a good thing because it protects you from denial of service attacks. It also means that there's a chance of your rapid pings being dropped by a remote Junos device and indeed by any device with a similar architecture.
+	
+- You can also use `ping` to check for MTU problems. Make sure to use the `size` to specify how big the payload of the ping should be.
+	![[Pasted image 20250527164127.png]]
+	- Additionally, use the `do-not-fragment` options to set this flag in the IP header. This is perfect for testing MTU problems with some downstream device because it will guarantees that the ping will not be fragmented in transit if the Layer 3 MTU is smaller than the packet. If you don't set this option, it might succeed and you will tested nothing from this test.
+	![[Pasted image 20250527164145.png]]
+- [Traceroute]: Gives he visibility of each hop in the path from source to destination. It sends three packets with a TTL (IPv4) or Hop Limit (IPv6) of 1. These packets contain a UDP payload on most vendors, and an ICMP ping payload on Windows. When the next hop receive the packet, it sets the TTL to 0, and then generates an "ICMP Time-to-Live Exceeded" that it sends back to the source IP in the packet of this reply. And with that you know the first hop in the path. Each round of three packets increases the TTL/Hop Limit by 1 until the traceroute finally reaches the destination. In doing so you get visibility of every hop in between the source and the destination.
+	![[Pasted image 20250527184815.png]]
+- Common misunderstandings about `traceroute {ip address}`:
+	
+	- Sometimes the hop is configured to not accept or reply to traceroute traffic, if it was faulty then the whole traceroute would fail.
+		
+	- Sometimes the hop is slower then the rest of the result. This does not indicate that the responding hop is the blame for slow speed,because if it is then all the hops after that hop would be slow. But in fact it is configured to not prioritize traceroute replies. If all the bandwidth afterwards are fast, then it is not the bandwidth bottleneck.
+		
+	- Remember that a traceroute shows the path from source to destination-but the return traffic could have taken a completely different path. To successfully diagnose problems you need both ends of a connection to run a traceroute to each other.
+	
+- Checking ARP and NDP is an easy way to verify hosts on the LAN. For IPv4 use `show arp` to check all IPV4/MAC bindings learned by a Junos gateway. Notice that the entries are listed in numerical order of the IPv4 address.
+	![[Pasted image 20250527185749.png]]
+	- For IPv6 type `show ipv6 neighbors` to check IPv6/MAC bindings. THis reveals all MACs learned via NDP.
+	![[Pasted image 20250527185849.png]]
+- SSH from Junos itself. 
+## Viewing Live Traffic Statistics and Exception Traffic
+
+- Type `monitor interface traffic` to show live traffic stats across all interfaces and will help you find the one interface that requires further exploration.
+	![[Pasted image 20250527190305.png]]
+	- Note that type `monitor interface {interface name}` shows you information about the interface that you want to monitor. It offers general packets statistics and error counters.
+	![[Pasted image 20250527190535.png]]
+- Note that `monitor` give you live statistics (real time), `show` give you snapshots (initial).
+	
+- Type `monitor traffic {interface name}` for a summary of all the control plane traffic on the interface that you specify, both in and out of the interface. You can also add the keyword `detail` and `extensive` options on this command to look inside the contents of the messages to get full visibility.
+	
+	- In addition, you can also use the `write-file {file name}` options to save the packets to a packet capture file, so that you can export it to your computer and open it up in a packet capture viewer such as Wireshark.
+		
+	- By default, Junos will try to be helpful by performing a reverse DNS lookup search on any IPs to find their hostname. It is recommended that you turn this off using the `no-resolve` option in the command. This will speed up your output.
+## Built-in Help Documents
+
+- Type `help apropos {keyword}` to reveal every single command that contains your keyword. 
+	![[Pasted image 20250527191519.png]]
+- Type `help topic ?` to browse for a topic and `help topic {topic name}` to learn about a topic.
+	![[Pasted image 20250527191629.png]]
+- Type `help reference ?` to reveals help configuration syntax options and `help reference {configuration options}` to displays a complete list of related configuration options and it also offers other details and things to bear in mind.
+	![[Pasted image 20250527191853.png]]
