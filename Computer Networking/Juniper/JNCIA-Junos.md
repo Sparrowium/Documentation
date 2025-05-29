@@ -1263,3 +1263,72 @@ via Operational Mode
 
 - Use `insert family {ip version} filter {filter name}` to move terms within a filter. You use it in combination with the `before` and `after` keyword to insert the term before or after any other term of your choice.
 	![[Pasted image 20250527220624.png]]
+
+<h2 style="color:#6290C3"><center> Configuring JunOS: A Deeper Dive </center></h2>
+## Annotate, Lock, and Redact Parts of the Configuration
+
+- Type `show configuation | no-more` to list all of the output of the command at once, without pressing the keyboard to reveal further lines.
+	![[Pasted image 20250529144902.png]]
+- Add the keyword `apply-flags omit` to hidden a command.
+	![[Pasted image 20250529150325.png]]
+- Type `show configuration | display omit` or `show confiuration | display set` to reveal contents that are hidden/ redacted.
+	
+- Type `protect {content}` to lock portions of the hierarchy.
+	![[Pasted image 20250529150547.png]]![[Pasted image 20250529150612.png]]
+	-  Type `unprotect content` to unlock portions of the hierarchy. 
+	![[Pasted image 20250529150700.png]]
+- Type `annotate {content} {text}` to comment a portions of the hierarchy.
+	![[Pasted image 20250529150754.png]]
+## Creating and Managing Files
+
+- Type `file list` to show all the files currently in the home directory. 
+	![[Pasted image 20250529151034.png]]
+	- Type `file show {file name}` to read the contents of a text file in your home directory.
+		
+	- Type `file delete {file name}` to delete a file from your home directory.
+	
+- Pipe `save {file name}` to save any CLI output to a text file in your home directory. 
+	![[Pasted image 20250529151955.png]]
+	- This is useful for storing command output before and after maintenance work.
+	
+- Pipe `compare {file name}` to compare the local text file to the current active configuration.
+	![[Pasted image 20250529152200.png]]
+- Type `file compare files {file number 1} {file number 2}` to compare files.
+	![[Pasted image 20250529152320.png]]
+	- Note that The list of numbers and random characters under the commit message indicates the lines that have been either added, changed, or deleted. The `<` indicates the first file, `>` the second file.
+	
+- Type `file copy {source file} {destination folder}` to copy a source file and send it to the destination folder using either FTP (File Transfer Protocol) or SCP (Secure Copy).
+	![[Pasted image 20250529161123.png]]
+## Using load Commands for Larger Configurations
+
+- Type `load override terminal` to past hierarchical configuration directly to the CLI. The word `override` means that this command completely replaces the existing candidate configuration with your new configuration. The word `terminal` means that you are using the CLI to paste your configuration into the device.
+	![[Pasted image 20250529162147.png]]
+- Type `load merge terminal` to load configuration to the existing configuration.
+	![[Pasted image 20250529162628.png]]
+- Type `load override {file name}` to load/import your configuration in a local text file directly to the candidate configuration.
+	![[Pasted image 20250529163102.png]]
+- When loading `set` commands in bulk, the command might fail because of syntax checking delays the paste process and shell prompt execution adding additional delays. This will put a lot of load onto the buffers and might cause the buffer to run out and drop the rest of the paste process. User might not notice since terminal text transferring is faster than the console processing.
+	
+- Type `load {command} terminal` to load bulk command into the CLI and bypass the syntax checking.
+	![[Pasted image 20250529163938.png]]
+## Automating Aspects of a Junos OS Configuration
+
+- Type `set system archival configuration {options}` to automatically back up configurations to an external server. The `transfer-on-commit` or `transfer interval` options save the configuration to the backup server whenever you commit the changes. `archive-sites {server address} password {password}` options save the configuration to the backup server of your choosing.
+	![[Pasted image 20250529164554.png]]
+- [Configurations Groups]: Enable you to create a named group that contains configuration statements. Crucially, the configuration in these groups usually contain at least one generic piece, so that the configuration can be applied to anything matching your search criteria. Syntax: `set groups {group name} interfaces {interfaces name} {options} {options content}`.
+	![[Pasted image 20250529165041.png]]
+	- Creating a group does not in itself do anything. The group is only activated when you apply it, using the `apply-groups` configuration statements. You can use this statement at any point in the hierarchy, which gives you the ability to make some very precise groups. Wherever you apply it, the group will only affect that part of the hierarchy that you apply it at.
+	![[Pasted image 20250529165330.png]]
+- Type `show configuration interfaces {interface name} | display inheritance` to show the inherited configuration from your configuration groups. Typing `show configuration` does not show the inherited part/configuration.
+	![[Pasted image 20250529165622.png]]
+- Add `no-comments` to the pipe to hide comments. This might also hide comments that you don't want to hide.
+	![[Pasted image 20250529165709.png]]
+- Pipe `display inheritance` to see your inherited configuration in set view.
+	![[Pasted image 20250529165820.png]]
+- Use `apply-groups-except` to exclude an interface out of inheritances.
+	![[Pasted image 20250529165943.png]]
+- Add `interface-range {interface name range}` to configure multiple interface by adding it to the `member-range` or `member`.
+	![[Pasted image 20250529172232.png]]
+- Type `wildcard delete {content}` to delete all matching content in the config. This only affects the candidate configuration.
+	![[Pasted image 20250529172352.png]]
+
