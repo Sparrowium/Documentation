@@ -684,3 +684,155 @@ Associate Design
 	- Second, a 3-tier hub-and-spoke IPsec VPN design has branches connecting to regional WAN sites and data centers. Devices between regions route through regional hubs, possibly adding more latency. This design has similar considerations as the last one.
 		
 	- Third, a fully-meshed VPN design provides direct routes from each branch to others, and to the WAN sites and data centers. Though it minimizes hops and latency, it increases complexity and configuration size as tunnels grow with branch count. Due to this, many enterprises shift to provider-MPLS networks for fully-meshed branch connectivity. If used, a best practice is to limit VPN tunnels to come up on demand. Dynamic routing protocols like OSPF or BGP are preferable over static routing due to scalability challenges.
+
+<h2 style="color:#6290C3"><center> SD-WAN Design </center></h2>
+## Approach
+
+- [Distributed Services vs Centralized Control]: Packet forwarding is an inherently distributed process (physically moving signals around the globe). Traditionally every router has a local control plane to make forwarding decisions. By delegating routing decisions to a central authority we are distributing the data plane, and centralizing control plane.
+	
+- [SD-WAN]: Software-Defined WAN, an automated, programmable WAN that dynamically an securely routes traffic based on application policies, network conditions, or WAN circuit priority. It centralizes the control of all routing devices in a network to a single controller. This gives the controller a full view of the network, allowing it to dynamically update the forwarding tables of all routing devices.
+	![[Pasted image 20250602232331.png]]
+	- One cool feature of some SD-WAN systems is application-specific forwarding decisions. Unlike traditional routers, which find this task pretty tough and time-consuming, SD-WAN makes it simple. This means we can pick the best paths based on what each application needs. As network conditions shift, application-based routing can adjust the forwarding tables almost instantly, keeping everything running smoothly.
+	
+	- Key concepts: 1st, SD-WAN creates an 'overlay' network. This means it works on top of your existing network infrastructure, making it smarter without changing the underlying 'underlay'. 2nd, There's something called a 'local breakout'. This is like an exit point at the edge of your network, where data can go directly to the internet. There's the 'central breakout'. 3rd, Imagine a hub-and-spoke system, where internet-bound traffic from various branches (spokes) travels through a central hub before heading out to the internet.
+		
+	- Benefits: 1st, it allows for multiple, secure, high-performance connections, which is a big step up from traditional MPLS networks. 2nd, it boosts performance by spreading traffic across various connections and adapting to changing network conditions. 3rd, network changes, like adding VPNs or firewalls, become much simpler and automated as we have zero-touch provisioning (ZTP). 4th, adding a Juniper Secure Edge integrates a secure access service edge (SASE) architecture, enhancing security with zero-trust authentication. 5th, the network becomes more secure overall, with encrypted traffic and segmented networks to contain any potential breaches.
+	
+- [Juniper Networks Session Smart Router]: Focus on stateful, session-aware routing. This means it chooses paths based on what each specific application needs.
+	
+	- This router is key to tunnel-free SD-WAN and comes packed with essential features as it ensures that active sessions don't lose data, even if there's a need to switch over to a backup path. It's always keeping an eye on performance, ensuring everything runs smoothly. It balances loads dynamically, so no single link gets overloaded. It optimizes the WAN for better performance. It provides Elastic Quality of Service (QoS) to prioritize and manage network traffic efficiently.
+		
+	- It stands out for its software-based design, which emphasizes openness and adaptability. This approach means it's not tied down to specific hardware as it's hardware-agnostic. So, what does that mean for you? It means you can deploy this router on a variety of platforms, giving you lots of flexibility.
+		
+	- Juniper Networks offers a specialized range of security appliances that come with the Session Smart Router software already installed. But the beauty of this router is that you're not limited to these devices. You can also run this software on generic hardware, commonly known as 'white boxes', or even integrate it as a virtualized network function (VNF). This versatility extends to different environments, too, as it works just as well in both private and public cloud settings.
+	
+- [Session Smart Router WAN Assurance Models]: Two models for Juniper Session Smart Routing and Mist AI.
+	![[Pasted image 20250602233246.png]]
+- [The Mist Predictive Analytics and Correlation Engine (PACE)]:  uses data science and machine learning to get a deep understanding of how users interact with the network. It focuses on   seven key metrics to ensure everything runs smoothly, that is: 
+	
+	- How quickly users can connect.
+		
+	- The speed of data transfer (throughput).
+		
+	- Network coverage quality.
+		
+	- Network capacity.
+		
+	- How well devices switch between access points.(roaming).
+		
+	- Rate of successful connections.
+		
+	- Health and performance of Access Points.
+	
+- [WAN Assurance SLEs]: Metrics that measure the performance and health of your WAN, helping you understand how your network is affecting user experience. These metrics, such as WAN Edge Health, WAN Link Health, and Application Health, provide insights into potential issues and guide troubleshooting.
+	![[Pasted image 20250602233421.png]]
+	- SLEs pinpoint the root cause of issues in the WAN that affect user communication.
+		
+	- They simplify operations and give a clearer view of user networking, leading to faster problem-solving.
+		
+	- They provide insights for optimizing user, device, and application performance in various locations.
+		
+	- They represent the most advanced AI for IT operations in SD-WAN.
+		
+	- You can use the dashboard or ask Marvis, "Why isn't Teams working?", to quickly diagnose problems.
+	
+- [BFD Telemetry]: This tool monitors jitter, loss, latency, and the Mean Opinion Score (MOS), which are essential for assessing your network's performance.
+	![[Pasted image 20250602233954.png]]
+- The combo of SLEs and Mist Marvis AI offers precise insights into your network, such as pinpointing a bad cable. It can detect other things like MTU mismatches or problems with a bad WAN uplink. These three examples are just the tip of the iceberg. SLEs and Mist Marvis AI can actually reveal many more insights, acting as a powerful tool for diagnosing and resolving network issues efficiently.
+## Inter-site Connectivity
+
+- In a traditional network setup, we usually see a three-tier structure: access, core, and distribution, all leading to a single firewall at the WAN edge. This setup is straightforward to manage when it comes to policy enforcement and control, but it hits a snag with scalability, especially with older MPLS connections. Expanding these connections can be both costly and logistically difficult. As remote sites often rely on private circuits to connect back to the main hub via MPLS and many remote offices lack Direct Internet Access. Also, MPLS connections can be quite expensive.
+	![[Pasted image 20250602234123.png]]
+- The network's edge has expanded beyond a single point to include multiple WAN edges. Plus, with the rise of remote work, many sites now need to accommodate remote workers. SD-WAN addresses these evolving needs by offering more flexibility and scalability in network management.
+	
+- Modern SD-WAN gives us a network where multiple branches connect to redundant data centers and hubs. These hubs support front-end applications like Office 365 cloud workloads. The network also uses both local and central breakouts for internet access, avoiding reliance on a single failure point at the hub.
+	![[Pasted image 20250602234253.png]]
+	- Distributed Enterprise is oriented around distribution and cloud. As it spans remote sites globally. Some sites function as data centers or hubs. It uses a hybrid cloud approach, combining private and public cloud services. The transition from MPLS relies on broadband. Workloads are increasingly moving from the data center to the public cloud.
+	
+- Juniper Mist AI WAN Assurance offers two types of SD-WAN: Session Smart Secure Vector Routing (SVR), and the more traditional SD-WAN routing over IPsec/GRE on the SRX. It's important to understand how each of these works.
+	
+	- The Session Smart Router is all about creating dynamic pathways directly to applications. On the other hand, the SRX focuses on directing traffic to specific destination zones, where the sequence of policies plays a crucial role. This difference is significant. The SRX operates on a set of rules to form filters and policies and always needs traffic steering to direct network traffic.
+		
+	- In contrast, the Session Smart Router simplifies things. It only requires traffic steering when the data is leaving the network. Plus, it's designed to use the most specific matches for routing, which means local traffic steering isn't needed. This makes the Session Smart Router a more straightforward and efficient option in many scenarios.
+	
+- [SRX Series]: The SRX Series Gateway stands out as a secure SD-WAN router, perfect for global enterprises with remote sites. It's a zone-based firewall designed for reliable, secure tunneling, using ordered policies for efficient traffic management in Mist environments.
+	![[Pasted image 20250602234920.png]]
+	- Key differences from the Session Smart Router include the SRX's use of the Juniper Junos operating system, handling various routing protocols like IPv4 or IPv6, OSPF, BGP, and multicast. For WAN Assurance, the SRX employs industry-standard IPsec tunnels.
+		
+	- The SRX is adept at automating ZTP and supports Python scripts for agile security operations. Managing the SRX involves handling multiple policies and filters for precise routing. Mist AI WAN Assurance simplifies this with an intent-driven model that automatically creates the necessary policies and filters.
+	
+	- Key features of the SRX Series Gateway include things like: Mist AI WAN Assurance for simplified operations and enhanced visibility. Secure SD-WAN that manages various network interfaces, including MPLS, broadband, and 4G LTE. Flexible WAN modules. Network Segmentation for customized security and management policies.
+	
+- When you set up a Juniper SRX with WAN Assurance, you're bringing together the power of Mist AI automation and Juniper's Secure SD-WAN solution. The SRX comes equipped with Junos-based streaming telemetry, providing in-depth insights into your gateway's health and detecting any anomalies. This feature thoroughly analyzes gateway metrics right down to the port level, covering aspects like CPU and memory usage, data transfer amounts, traffic utilization, and power consumption. Plus, Mist AI-driven WAN Assurance can record gateway events, from configuration tweaks to system alerts, and offers detailed views into WAN and IPsec utilization by comparing tunnel traffic volumes with local breakout traffic.
+	![[Pasted image 20250602234853.png]]
+- [SSR Series]: The Session Smart Router-centric approach allows for precise monitoring of network aspects, such as jitter, latency, and loss, even in specific applications like Microsoft Teams calls. If a link doesn't meet its SLA, sessions smoothly transition to a better path with minimal disruption, ensuring critical apps maintain connectivity.
+	![[Pasted image 20250602235120.png]]
+	- The Session Smart Router is great at zero-trust dynamic routing. It routes packets by assessing their origin and destination and communicates with other Session Smart Routers to determine the best next hops. This process includes BFD for path health checks and a metadata exchange to inform routing choices.
+	
+- [Session Smart WAN Assurance]: The Session Smart approach to WAN Assurance is centered on how the Session Smart Router dynamically identifies the best next steps for applications or traffic destinations. As a native router, it uses the most specific matches, which means it doesn't require local traffic steering, making things simpler and more efficient.
+	![[Pasted image 20250602235419.png]]
+	- This approach brings together all life-cycle automation and ZTP within a single, easy-to-use dashboard. Additionally, the Session Smart Router is specifically designed for SD-WAN, enhancing its capabilities. When managed and orchestrated through the Juniper Mist AI Cloud, the Session Smart Router transforms into a robust SD-WAN solution, offering streamlined WAN Assurance.
+	
+- [WAN Design]: Like assembling a Lego project. Each piece, or 'block', plays a crucial role in creating the final, functional structure.
+	![[Pasted image 20250602235500.png]]
+- [WAN Assurance Design]: These are crucial components that come together to ensure an efficient and reliable WAN. Understanding each element can give us a better grasp of how WAN assurance works.
+	![[Pasted image 20250602235627.png]]
+	- 1st. **Topology**: This is all about the structure of your network. It's the blueprint that shows how different parts of your network are connected. Think of it as a map that guides the flow of data.
+		
+	- 2nd. **Core Routing Integration**: This aspect deals with how your network's core routing functions are integrated. It's like the main highway of your network, ensuring smooth and efficient data travel from one point to another.
+		
+	- 3rd. **Steering**: This refers to the direction of network traffic. Steering is crucial in managing the flow of data, ensuring it takes the most efficient route to its destination, much like traffic lights and signs on roads.
+		
+	- 4th. **Connectivity**: This is the backbone of your network. It's about how everything in your network is connected, ensuring that all parts can communicate with each other effectively.
+		
+	- 5th. **Application Policy**: Think of this as the rules of the road for your network. Application policies govern how different applications should be treated on the network, ensuring priority for critical apps and efficient resource allocation.
+		
+	- 6th. **Applications**: Finally, the applications themselves are key highlights. They're the reason why the network exists in the first place â€“ to support various applications that users need to perform their tasks effectively.
+		
+	- By focusing on these design highlights, WAN assurance can provide a more reliable, efficient, and user-friendly network experience. Each component plays a vital role in ensuring the network performs at its best, catering to the specific needs of the users and the organization.
+	
+- Design Consideration Summary:
+	![[Pasted image 20250603000015.png]]
+	- 1st. **Topology**: This is the layout or the structural design of your network. It's like a blueprint that shows how different components of your network are connected and interact with each other. A well-planned topology is crucial for smooth data flow and network stability.
+		
+	- 2nd. **Data Center Affinity**: This refers to the relationship and connectivity between your network and the data centers it relies on. It's about ensuring that your network aligns well with the data centers, facilitating efficient access and data exchange.
+		
+	- 3rd. **Underlay Routing**: Think of this as the foundation of your network's routing structure. It's the basic network infrastructure over which your higher-level services and routing protocols operate. Getting this right is crucial for the overall performance of your network.
+		
+	- 4th. **Transport Optimization**: This aspect focuses on making the most out of your network's transport capabilities. It involves optimizing the way data is transferred across the network, ensuring that it's done in the most efficient and cost-effective manner.
+		
+	- 5th. **Application SLAs**: This is about defining and adhering to the service level agreements for various applications running on your network. It ensures that each application receives the necessary resources and priority to function optimally, according to the agreed standards.
+		
+	- By paying attention to these design considerations, you can create a network that not only performs well but also aligns perfectly with the needs and goals of your organization. Each of these elements plays a vital role in ensuring that the network is robust, efficient, and capable of supporting the demands placed upon it.
+	
+- [SD-WAN and SSE Comprise SASE]: Emphasizes the advantages of integrating an AI-driven SD-WAN with Juniper's Secure Services Edge, offering a suite of features that enhance network security and management.
+	![[Pasted image 20250603000126.png]]
+	- 1st. **Firewall as a Service**: This provides cloud-based firewall protection, ensuring robust security against external threats while being flexible and easy to manage.
+		
+	- 2nd. **Secure Web Gateway**: SWG acts as a security filter for internet traffic, safeguarding against harmful web content and ensuring safer web browsing.
+		
+	- 3rd. **Cloud Access Security Broker (CASB)**: It serves as an intermediary for secure and compliant interactions between network users and cloud services, enforcing security policies for cloud-based applications.
+		
+	- 4th. **Data Loss Prevention (DLP)**: It focuses on protecting sensitive data within the network, preventing unauthorized access or sharing, and maintaining data privacy and compliance.
+		
+	- 5th. **Zero Trust Network Access (ZTNA)**: ZTNA adopts a stringent verification approach for every user and device attempting network access, significantly reducing internal threats and data breaches.
+		
+	- Combining these features creates a more secure and efficient network environment, offering a comprehensive and adaptive security framework.
+	
+- [SD-WAN and Security Positioning]: Here are some designs
+	![[Pasted image 20250603000306.png]]
+	- 1st, SD-WAN. Here we have On-Box Security, where the Session Smart Router is used at branches and hubs, equipped with URL Filtering and IDP capabilities built-in. This setup provides essential security directly on the router, filtering harmful content and detecting threats effectively.
+		
+	- 2nd, SD-WAN + Advanced Security. Here we have security in the Data Center. This setup combines the Session Smart Router at branches and hubs with the SRX at the Data Center or Public Cloud. Managed by the customer, this setup enhances security, particularly for sensitive data in data centers or cloud environments.
+		
+	- 3rd, SD-WAN + Secure Service Edge (SSE). Here we have SSE Integration with SD-WAN. In this model, the Session Smart Router at branches and hubs is complemented by cloud-delivered SSE components like CASB, DLP, RBI, FWaaS, SWG, and ZTNA. Offering a comprehensive cloud-based security solution. It addresses various security aspects, from data protection to zero-trust network access.
+		
+	- Each setup offers a different level of security with SD-WAN, ranging from basic on-router security to advanced, cloud-based solutions, allowing you to choose the best fit for your network's security requirements.
+	
+- [NAT Traversal]: 
+	![[Pasted image 20250603000459.png]]
+	- Mist AI WAN Assurance operates on a hub-and-spoke model, which is a common structure for SD-WAN networks. In this setup, the spokes initiate traffic to the hubs to create connections. However, not every SD-WAN device connected to the Internet has a static public IPv4 address, which can be costly and sometimes hard to get. Hubs need known static public IPv4 addresses, so spokes know where to connect. Typically, an SD-WAN network has fewer hubs but many spokes. This setup helps reduce overall service costs since only a few static public IPv4 addresses are needed, and spokes can function behind NAT.
+		
+	- Carrier-grade NAT, often used in 5G and 4G mobile connections, may include multiple layers of NAT. For Mist AI NAT, this is important because it operates on a one-to-one basis, regardless of the source and destination ports. This means overriding the destination IP address and ensuring it exits through the correct interface. The same applies in reverse for incoming traffic, where anything coming from that address is mapped back to the source IP.
+		
+	- In the context of the WAN edge for enterprises, both on-premises and cloud providers have their established network edges. While a static public IPv4 address is ideal, Mist also supports deploying hubs behind a 1:1 NAT. In the WAN settings, you can use the `Override` option and input the public IP. This tells Mist to direct spokes to that IP address instead of the one listed in the IP address field.
