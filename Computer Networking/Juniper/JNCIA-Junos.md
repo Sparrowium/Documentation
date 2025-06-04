@@ -1332,3 +1332,28 @@ via Operational Mode
 - Type `wildcard delete {content}` to delete all matching content in the config. This only affects the candidate configuration.
 	![[Pasted image 20250529172352.png]]
 
+<h2 style="color:#6290C3"><center> APIs and Automation </center></h2>
+## XML APIs
+
+- [API (Application Programming Interface)]: An API enables software to interact with other software processes. 
+	
+	- The term is particularly used when two different pieces of software need to communicate. If a device or application offers APIs, then it means that you can either buy software or create software that can interact with that device or application. 
+	
+- To manage JunOS via an API, you need to important thing:
+	
+	- A reliable connection protocol-SSH, HTTPS, ...
+		
+	- A structured language for your software to communicate with the networking device.
+		
+	- The second point distinguishes human-focused user interfaces from software-focused APIs.
+	
+- [XML (Extensive Markup Language)]: A way of structuring data for transmission and storage.
+	![[Pasted image 20250604081943.png]]
+	- Various information are enclosed semantics tags just like HTML.
+		
+	- This data is structured, hierarchical, predictable, clean, and human-readable.
+	
+- JunOS built the CLI around the API.
+	![[Pasted image 20250604083043.png]]
+- Automation Methods and Technology to interact with JunOS.
+	![[Pasted image 20250604083210.png]]![[Pasted image 20250604083341.png]]
