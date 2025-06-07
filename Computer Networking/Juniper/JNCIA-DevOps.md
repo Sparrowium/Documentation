@@ -63,3 +63,82 @@ Associate Automation and DevOps
 - DevOps enables quicker integration of new software, especially software upgrades and patches. It enables developers to deliver software in smaller portions using a faster cadence. The overall result of adapting DevOps practices is faster time to market for new functionality, and an overall increase in organizational performance, product quality, and security. The DevOps practice of maintaining identical development, testing, staging, and production environments creates confidence that the new software will deploy successfully.
 	![[Pasted image 20250605234957.png]]
 
+<h2 style="color:#6290C3"><center> Junos Automation </center></h2>
+## Junos Automation APIs
+
+- The main Junos processes responsible for automation are the management process `mgd` and the Juniper Extension Toolkit (JET) service process `jsd`. The `mgd` process handles automation requests received using the Junos XML API, Yet Another Next Generation (YANG) language, and Representational State Transfer (REST) APIs, as well as some SNMP functions.
+	![[Pasted image 20250606225951.png]]
+- Junos works well in development and operations (DevOps) environments for these reasons. Junos has a rich set of APIs. Junos uses transactional configuration updates (the Junos commit model). Junos configuration and operational data are based on a consistent XML data model, such as internal Data Definition Language (DDL) and Output Definition Language (ODL), YANG, and OpenConfig. Junos supports popular IT automation and configuration management systems such as Ansible, Salt, and Terraform. In addition to remote management through APIs, Junos supports on-box scripts and applications.
+	
+- [Junos Extensible Markup Language (XML) API]: Is an XML representation of Junos configuration statements and operational mode commands. The client applications use Junos XML Management Protocol, an XML-based protocol, to manage the configuration on Junos devices. Client applications request information and change the configuration on a switch, router, or security device by using the Junos XML management protocol and the Junos XML API to encode the request and send it to the Junos XML protocol server on the device. The Junos XML protocol server is integrated into the Junos OS. The Junos XML protocol server directs the request to the appropriate software modules within the device, encodes the response, and returns the result to the client application.
+	
+- The Junos XML API provides on-box automation (commit, operation, event, and SNMP scripts), as well as off-box automation using third-party automation tools. To retrieve data from the Junos XML API, off-box solutions must leverage a protocol to transmit XML documents. NETCONF is one protocol used for Junos off-box automation.
+	![[Pasted image 20250606230509.png]]
+- The `mgd` is the nexus of the Junos OS user interface. The `mgd` process is central to the NETCONF-based automation of Junos devices.
+	
+- [NETCONF]: Is an open, standards-based protocol (RFC 6241, Network Configuration Protocol [NETCONF]), and is used by multiple vendors. NETCONF contains mechanisms that provide full programmatic access to Junos devices. Using XML documents and remote procedure calls (RPCs), you can transport configuration data and operational commands to network devices. NETCONF has been Juniper Networks' automation protocol of choice for many years, and is supported on all Junos devices.
+	![[Pasted image 20250606230943.png]]
+	- It is the foundation upon which many Juniper automation technologies are built including, Junos PyEZ, YANG, and OpenConfig. In most cases, NETCONF uses SSH as the transport protocol, although RFC 6241 enables other options (for example, Transport Layer Security [TLS]).
+	![[Pasted image 20250606231039.png]]
+- [REST API]: Provides HTTP clients access to objects that correspond to unique URLs on a REST server. REST clients use HTTP methods, such as GET, PUT, and POST, and data in the request body to perform actions on the REST server. REST is considered stateless because no client context is stored on the REST server. All session state is maintained on the REST client.
+	![[Pasted image 20250606231218.png]]
+	- Each request from a REST client contains all the information necessary to process the request. You can access a REST API using any program or programming language capable of generating HTTP commands. Tools like Postman or cURL are commonly used for testing. For actual programming, libraries have been developed for many programming languages, like Python, that simplify the generation of REST API requests.
+		
+	- Junos provides a REST API on Juniper Networks® MX Series Universal Routers, Juniper Networks® PTX Series Routers, Juniper Networks® QFX Series Switches, and Juniper Networks® SRX Series Firewalls, including the Juniper Networks® vSRX Virtual Firewall. It exposes Junos configuration and operational mode capabilities to REST HTTP clients.
+	![[Pasted image 20250606233408.png]]
+- [JET]: Is an evolution of the Junos software development kit (SDK), that provides a modern and programmatic interface for developers of third-party Junos applications. Using JET, Junos devices can host one or more third-party applications, such as monitoring tools, a Git client, or even a X client that generates tweets when triggered by specific device events.
+	
+	- The JET applications interact with Junos OS through request-response and notification services over standard-based transport channels. JET contains tools that aid in programming the Junos control plane. The Junos control plane has always been programmable, but JET makes it easier and faster. Customers can use JET to create customized CLI commands and SNMP MIBs, instead of waiting for Juniper to add the functionality to Junos OS. The flexibility of JET broadens the ability of Junos to meet market demands for Juniper and customers.
+	
+- All communication generated using the CLI, NETCONF, and the REST API passes through the management (mgd) process. An additional automation process is available in Junos called the JET Service process (jsd). The jsd process aggregates the individual APIs belonging to the routing protocol process (rpd), the Firewall Filter Daemon (dfwd), and other Junos processes, and exposes those APIs with a consistent look and feel. It exposes the same APIs that Juniper programmers use for internal development and provides another set of APIs to use for automation. Remote procedure calls that utilize jsd are transported using the gRPC protocol instead of NETCONF.
+	![[Pasted image 20250606233718.png]]
+	- Some of the benefits of the JET APIs include faster commit times, improved device telemetry, and a wider range of possible languages available for automation.
+	![[Pasted image 20250606233836.png]]
+	- JET supports multiple programming languages for off-box application development. On-box JET applications can be developed in Python, C, or C++. If an application that you plan to develop has a dependency on C or C++ modules or the application needs to be signed, then you can use the JET virtual machine provided by Juniper to develop the application. As mentioned earlier, JET uses gRPC, an RPC framework, as a mechanism to provide the request and response service. The gRPC server is part of the j.sd process.
+		
+	- To keep up with the rapid configuration changes that automation systems can generate, JET applications can configure the ephemeral configuration database. The Ephemeral database can commit over 1,000 configuration changes per second. To reach this magnitude of commits per second, commits are not validated. This means that you need to ensure that the app is pushing a valid configuration.
+## Junos Automation API Overview
+
+- Junos OS enables you to customize the behavior of a device with commit, operation, event, and SNMP scripts that run on the Junos device. These scripts take XML input, process it, call the Junos functions specified in the script, and output the instructions to Junos. The type of input accepted and the information returned is different for each of the different script types.
+	![[Pasted image 20250606234158.png]]
+	- The programming languages used for Junos on-box scripting are Extensible Stylesheet Language Transformations (XSLT), Stylesheet Language Alternative Syntax (SLAX), and Python.
+		
+	- [XSLT]: Is a standards-based language for processing XML data. XSLT was developed by the World Wide Web Consortium (W3C).
+		
+	- [SLAX]: Is an open-source language that mimics the semantics of C and Perl languages. SLAX is a pre-processor that converts its SLAX syntax to XSLT. Therefore, scripts written in SLAX are executed the same way as scripts written in XSLT.
+		
+	- The Junos OS supports Python on-box scripting. This also includes support for the Junos PyEZ library on-box.
+	
+- On-box Junos Scripts: Types.
+	![[Pasted image 20250606234316.png]]
+- Junos PyEZ is a powerful open-source Python library that is easy to learn and use. It enables you to automate all aspects of Junos device management including configuration, monitoring, software upgrades, file system maintenance, and so on using Python.
+	![[Pasted image 20250606234401.png]]
+	- Junos PyEZ enables you to retrieve or upload the device configuration in several formats, including text, XML, JavaScript Object Notation (JSON), or Junos set commands. It parses all XML remote procedure call (RPC) outputs automatically. Multiple utilities are also included to help with maintenance tasks.
+	
+- Automation management systems, also known as IT automation platforms or configuration management systems, refer to software used in DevOps environments. Junos integrates with some of the most widely used automation management systems in the industry, including Ansible and Salt. An automation management system provides multiple benefits: 
+	
+	- Manages hundreds or thousands of devices.
+		
+	- Enables you to take a declarative approach to configuring your network. You define the desired final state of the system, and the automation management system performs the low-level configuration.
+		
+	- Most automated management systems support some type of configuration templating. The automated management system renders the templates to create the actual configuration that is uploaded to managed devices.
+		
+	- Operations like software upgrades, file uploads, file downloads, and so on, are also typically available.
+		
+	- Platforms such as Salt enable you to react to events, and take actions based on the event type and severity.
+		
+	- Note that all automation management systems use the Junos XML API and Network Configuration Protocol (NETCONF) over SSH to manage Junos devices.
+	
+- [Ansible]: Is an automation platform that makes deploying and managing Junos devices easy. Ansible enables you to avoid writing complex scripts or custom code. Instead, Ansible enables you to automate using simple to understand YAML Ain't Markup Language files. Another Ansible advantage is that no agent is required on the managed devices.
+	![[Pasted image 20250606234811.png]]
+	- Ansible can perform operational and configuration tasks on devices running Junos OS, including, installing and upgrading Junos OS, deploying devices in the network, loading configuration, retrieving information, and resetting, rebooting, or shutting down managed devices.
+	
+- [Salt]: Is a powerful configuration management platform that was created and maintained by the SaltStack company. It was purchased by VMware in 2020. Salt enables you to define the desired state of a system and enforce that state on managed devices. You can also use Salt to execute commands on remote devices. It is Python-based and utilizes a Salt Proxy minion to connect to Junos devices.
+	![[Pasted image 20250606234940.png]]
+	- The Salt Proxy minion supports the ability to gather facts from Junos devices, manage and commit configurations, execute RPCs and CLI commands, install software, and copy files. Salt is event-driven and popular for use with Junos platforms because of its ability to perform event-driven closed loop automation.
+	
+- [Junos Snapshot Administrator in Python (JSNAPy)]: Captures and audits runtime environments of network devices running Junos OS. It automates network state verification by capturing and validating the status of a device. It takes pre-modification and post-modification snapshots and compares them based on provided test cases. JSNAPy can also be used to audit the runtime environment of a device against pre-defined criteria. JSNAPy is an open-source project, and the source code is available on the GitHub website.
+	![[Pasted image 20250606235056.png]]
+- [Zero-Touch provisioning (ZTP)]: Enables you to setup new devices in your network without manual intervention. When you connect a device to the network and boot it with a default configuration, it attempts to upgrade the Junos OS software and load a pre-existing configuration file from the network. The device uses information that you configure on a Dynamic Host Configuration Protocol (DHCP) server to determine whether to perform these actions and to locate the necessary software image and configuration files on the network. If you do not configure the DHCP server to provide this information, the switch boots with the pre-installed software and default configuration.
+	![[Pasted image 20250606235151.png]]
+
