@@ -142,3 +142,87 @@ Associate Automation and DevOps
 - [Zero-Touch provisioning (ZTP)]: Enables you to setup new devices in your network without manual intervention. When you connect a device to the network and boot it with a default configuration, it attempts to upgrade the Junos OS software and load a pre-existing configuration file from the network. The device uses information that you configure on a Dynamic Host Configuration Protocol (DHCP) server to determine whether to perform these actions and to locate the necessary software image and configuration files on the network. If you do not configure the DHCP server to provide this information, the switch boots with the pre-installed software and default configuration.
 	![[Pasted image 20250606235151.png]]
 
+<h2 style="color:#6290C3"><center> XML and XPath </center></h2>
+## XML Document Format
+
+- [XML]: A standards-based way of structuring and communicating data. It was developed by the World Wide Web Consortium also known as W3C.
+	![[Pasted image 20250611225441.png]]
+	- XML appears similar to HTML because it uses tags in a similar fashion. XML is a language that is used to define a collection of markers known as tags.
+		
+	- These tags are applied to a data set or a document to define the function of individual elements and codify the hierarchical relationships between them. An XML document has three elements—tag elements, attributes, and namespaces.
+	
+- [XML Tags]:XML has three types of tags: opening tags, closing tags, and empty tags. XML tags are enclosed in angle brackets and are case-sensitive. XML appears similar to HTML because it uses tags in a similar fashion. XML documents are strictly hierarchical, so opening and closing tags showing the start and end of the data to which an XML tag applies must always be present. In HTML, there are exceptions to hierarchical statements.
+	![[Pasted image 20250611230554.png]]
+	- A tag element refers to a three-part set: opening tag, data, and closing tag. The data can be an alphanumeric character string. Here, is the XML data representing the course name between opening and closing tags. The text node is the formal identification of the XML data, whereas the element node includes the tags.
+		
+	- In some cases, there is no data to place between the opening and closing tags for a particular level in an XML hierarchy.
+	
+- [XML Hierarchy]: Just like HTML.
+	![[Pasted image 20250611230635.png]]
+- [XML Attribute]: XML elements can contain associated properties as attributes, that specify additional information about an element. Attributes appear in the opening tag of an element and consist of the attribute name and value pair.
+	![[Pasted image 20250611230805.png]]
+	- The attribute syntax consists of the attribute name followed by an equal sign and then the attribute value enclosed in quotation marks. An XML element can have multiple attributes. Multiple attributes are separated by spaces and can appear in any order.
+	
+- [XML Namespace]: XML namespaces are used to guarantee uniqueness for element names and data values in an XML document. Before using a tag, attribute, or function, include the namespace Uniform Resource Identifier (URI) in the style sheet declaration. Since the URI is often lengthy, a short prefix is mapped to the URI. The example shows an XML document namespace defined using the xmlns attribute for the URI "[http://xml.example.com/CBT](http://xml.example.com/CBT)".
+	![[Pasted image 20250611230953.png]]
+	- It is recommended that you define a unique document namespace because XML document data is frequently collected and merged into larger data sets and applications. Each document's unique namespace greatly reduces the probability of an element name or element value collision when the data is merged. In the example XML document, the `<course>` element node and all nodes that are within the `<course>` element node share the same namespace.
+		
+	- XML support more than one namespace, any elements that does not explicitly include the namespace prefix, uses the default namespace.
+	![[Pasted image 20250611231223.png]]
+- [XML schema definition (XSD)]: A file that ensures that everyone working with an XML document uses a standard set of tags to communicate the information. The XSD is what makes the XML document meaningful. XSD, like XML, is a standard developed by World Wide Web Consortium (W3C). XSD documents are themselves XML documents using a specific structure defined in the W3C standard.
+	![[Pasted image 20250611231355.png]]![[Pasted image 20250611231412.png]]
+## XML in Junos OS
+
+- When you enter an operational mode command in Junos CLI, the CLI converts the command into XML format for processing. After processing the command, Junos OS returns the output in an XML document, which the CLI converts back into a readable format for display. XML encoding enables remote Junos automation apps to handle operations and configurations. The Junos XML API has XML equivalents for all Junos OS configuration statements and most operational mode commands. Each operational mode command with a Junos XML counterpart maps to a request tag element, and if necessary, a response tag element.
+	![[Pasted image 20250611231719.png]]![[Pasted image 20250611231736.png]]
+- Junos OS CLI commands query Junos OS infrastructure using XML.
+	![[Pasted image 20250611231833.png]]
+	- Then Junos XML API responds to CLI queries with XML document and converts the XML response to CLI output.
+	![[Pasted image 20250611231956.png]]
+- Pipe `display XML` to view in XML.
+	![[Pasted image 20250611232107.png]]![[Pasted image 20250611232128.png]]
+- - Juniper publishes XML schema definition (XSD) documents for every Junos software release. Download archived XSD files from the Junos OS XML API download site
+    
+    - XML schema for configuration data. Retrievable from a Junos OS device using Network Configuration Protocol (NETCONF) or available as a free download `config-24.2.xsd`
+        
+    - XML schema for operational data `operational-command-24.2.xsd`
+    
+- Junos OS CLI output can show which XSD version to use.
+	![[Pasted image 20250611232501.png]]
+## Navigating XML using XPath
+
+- The Junos on-box scripts, such as commit, op, event, and SNMP, can be written in Extensible Stylesheet Language Transformations (XSLT), which is a standard for processing XML data. On a Junos device, XSLT performs XML-to-XML transformations, turning one XML hierarchy into another. The XSLT engine reads a script and an XML document. It uses the instructions in the script to process the XML document by traversing the document's hierarchy. Usually, the script shows what portion of the XML document tree to be traversed, how it should be inspected, and what XML should be generated at each point. For Junos on-box scripts, the XSLT engine is a function of the Junos OS management process.
+	![[Pasted image 20250611232652.png]]
+	- XSLT uses the XPath standard to specify and locate elements in the input document's XML hierarchy. XPath enables you to define complex criteria for selecting certain portions of the XML input document.
+	
+-  [XPath]: Is a standard way to identify and locate elements in an XML document. XPath's expression syntax enables you to define complex matching criteria for elements in an XML document. XPath views different parts of an XML document as nodes. The XPath node types are document nodes, element nodes, text nodes, and attribute nodes. Extensible Stylesheet Language Transformations, Stylesheet Language Alternative Syntax (SLAX), Python, and other automation programming languages that interact with Junos OS using XML use XPath.
+	![[Pasted image 20250611232924.png]]
+	- Because XML is applied in a wide range of use cases, XML defines a document object model (DOM) to ensure XML documents are parsed consistently. Different parts of an XML document are represented as nodes.
+	
+- [The XML Path Languages Path]: All elements within the document hierarchy are treated as nodes in XPath. Nodes are considered to be arranged in specific axes.
+	![[Pasted image 20250611233142.png]]
+	- An ancestor axis points from a node up through its series of parent nodes. A sibling relationship means that two elements have the same parent. A child axis points down the list of an element node's direct child nodes. The descendant axis contains all the descendants of a node. The attribute axis points through the list of an element node's set of attributes.
+		
+	- Each XPath expression is evaluated from a particular node, which is referred to as the context node (or simply context). A context node is the node at which the language processor is currently focused. Languages like XSLT change context as a document hierarchy is traversed, and XPath expressions are evaluated from that context node.
+		
+	- XPath supports standard logical operators, comparison operators, and numerical operators.
+	
+- [Element Node]: An XML element node comprises matching opening and closing tags and any data appearing between those tags. An element node may contain additional nested data including additional elements. Element nodes can be nested multiple levels deep. An XML document can only contain one root element.
+	![[Pasted image 20250611233328.png]]
+- [XPath Path]: The XPath expression provides two types of syntax—path syntax and predicate syntax. The XPath uses path expressions to select nodes in an XML document and specifies which node to inspect in the document hierarchy. The examples show different XPath expressions used to inspect a node. For example, the configuration is the root element in the document. When you specify `configuration`, it specifies all the nodes with "`configuration`". Similarly, when you specify `configuration/system`, it selects system elements that are children of the configuration element. However, it does not pick system elements under other hierarchies, for example, a system element `under/configuration/groups`. To specify all system elements anywhere in the hierarchy, you can use `//system`.
+	![[Pasted image 20250611233626.png]]
+	- You can also use XPath expressions path syntax. You can refer the current node by using the `/` notation. You can refer the parent node by using `../` notation. You can refer an attribute by using `@` notation.
+	
+- [XPath Predicate]: The XPath predicate syntax performs test at each node selected by the path syntax. Predicate syntax is used to match a specific node or node that has a specific value. Only nodes that pass the test are included in the result set. The example shows XPath predicate expressions. A predicate appears inside a square bracket ( [ ] ) after a path node.
+	![[Pasted image 20250611233759.png]]
+- [Node Preferences]: XPath syntax specifies which nodes to inspect in terms of their path locations on one of the axes in the document's hierarchy. You identify the XML node to access by specifying each level of the nodes' location in the XML hierarchy separating each hierarchy level using a forward slash. The method is similar to the way you specify the path to a specific file system directory on a UNIX host.
+	![[Pasted image 20250611234007.png]]
+- [Adding Selection Criteria]: The XPath predicate syntax allows you to perform tests for each node selected by the XPath path syntax. Only nodes that pass the test are included in a result set. A predicate appears inside square brackets following a path node.
+	![[Pasted image 20250611234129.png]]
+- [Elements vs Attributes]: Attribute are key identifiers in elements.
+	![[Pasted image 20250611234256.png]]
+- There are two important XML attributes that are commonly used in commit scripts to validate configuration changes before they are applied. Commit scripts are processed during a device commit operation. The candidate configuration in the XML format is used by a commit script as input. 
+	![[Pasted image 20250611234607.png]]
+	- In the XML candidate configuration, the `junos:changed` attribute is attached to element nodes that have changed compared to current active configuration. 
+		
+	- The `junos:group` attribute is attached to nodes that have inherited configuration settings from a configuration group.
