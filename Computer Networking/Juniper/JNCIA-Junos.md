@@ -1332,6 +1332,64 @@ via Operational Mode
 - Type `wildcard delete {content}` to delete all matching content in the config. This only affects the candidate configuration.
 	![[Pasted image 20250529172352.png]]
 
+<h2 style="color:#6290C3"><center> Interfaces: A Deeper Dive </center></h2>
+## IRB and Loopback Interfaces
+
+- [Loopback Interfaces]: A virtual interface that is always up. You can give it an IP address, and you can then advertise this IP address in tour routing protocol of choice. Syntax 
+	![[Pasted image 20250619100157.png]]
+	- The loopback interface in Junos is called `lo0`. The configuration is simple. You create at least one logical interface which is `lo0.0` and `unit 0` by default.
+	![[Pasted image 20250619100246.png]]
+	- You can protect your entire control plane by simply adding a firewall filter to your loopback interface.
+		
+	- Control plane firewall filter define what traffic is allowed into your Routing Engine.
+	![[Pasted image 20250619100638.png]]
+- Adding a loopback IPv4 address might restart your adjacencies  because the router will re-advertise itself with the new router ID. Some protocols do this in such a way that there is some kind of graceful switchover, will other protocol will be more destructive in their approach. Therefore you should configure router ID manually.
+	
+- [IRB Interfaces]: Integrated Routing and Bridging. This help Layer 3 switches to offer a default gateway to all hosts in a LAN. And as the name suggests, the IRB interface is used at Layer 2 so that hosts can send traffic to their default gateway so that the Layer 3 switch can receive the traffic and forward it at Layer 3 from one subnet to another.
+	
+	- IRB interfaces are placed inside a VLAN, as a virtual interface that is accessible via any switchport in the VLAN. In this respect, IRB interfaces are quite similar to LB, in that they are a virtual interface that is not necessarily tied to any one physical interface. 
+		
+	- But IRB are not guaranteed to be up. If all interfaces are down, IRB is down.
+	
+- Type `set interfaces irb unit {number} family inet address {address}` to configure IRB interface.
+	![[Pasted image 20250619104519.png]]
+	- Binding to a VLAN via `set vlans {vlan name} 13-interface {irb unit number}`".
+	![[Pasted image 20250619104646.png]]
+	- Verifying IRB interface.
+	![[Pasted image 20250619104730.png]]
+	- Verifying IRB in VLAN via `show vlans {vlan name} detail`.
+	![[Pasted image 20250619104839.png]]
+## Primary and Preferred IP Address
+
+- Pipe `find inet | except cache` to filter out unimportant information and focuses on the addresses only.
+	![[Pasted image 20250619155428.png]]
+	- `Is-Preferred` mean that this address is chosen to be the preferred address in their respective subnets, which is by default the lowest numbered IP address in the subnet.
+		
+	- `Is-Primary` mean that this address is chosen to be the source address for any traffic destined to the addresses from outside of the subnet.
+	
+- Add the tags/keyword `preferred/primary` to the configuration to override the default behavior and set your own preferences.
+	![[Pasted image 20250619155546.png]]
+## Load Balancing and Link Aggregation Groups
+
+- If two routes have equally conditions, the routes preferences are randomized. This only happen on a per-prefix basis.
+	
+- [Load Balancing]: Traffic will not be exactly balanced between the two equally good paths, but it will be balanced in a way that is certainly better than putting all traffic onto just one of the path.
+	
+- [ECMP]: Equal-Cost Multipath. 
+	
+- An alternative to Load Balancing is putting multiple interfaces into the Link Aggregation Groups (LAGs). This can be done by configuring each physical interface to be part of a logical bundle, then configure the logical bundle just like any other interfaces.
+	
+- Type `set chassis aggregated-devices ethernet device-count {number}` to enable the LAG interface `ae{number}`.
+	![[Pasted image 20250619161522.png]]
+- Configuring LAG interface is the same as configuring other interfaces. 
+	![[Pasted image 20250619161916.png]]
+	- It is also recommended to enable the LACP (Link Aggregation Control Protocol) via `set interfaces ae{number} aggregated-ether-options lacp active`. This is an industry standard protocol for checking that the device at the other end of the link also believes that this link is a part of the LAG bundle. LACP send regular packets to check that all links in the bundle are up, and to verify the general health of the bundle.
+	![[Pasted image 20250619162049.png]]
+- Type `set interfaces {interfaces name} gigether-options 802.3ad ae{number}` to put individual links into the bundle.
+	![[Pasted image 20250619162500.png]]
+- To verify pipe `match ae{number}`.
+	![[Pasted image 20250619162601.png]]
+
 <h2 style="color:#6290C3"><center> APIs and Automation </center></h2>
 ## XML APIs
 

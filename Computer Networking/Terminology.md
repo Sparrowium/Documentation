@@ -25,3 +25,9 @@
 - [ICMP]: Internet Control Message Protocol, it offers a series of errors and informational messages for router to communicate.
 	
 - [NAT]: Network Address Translation, the process of translating private IPs to public, and vice versa.
+	
+- [802.3]: Ethernet.
+	
+	- [802.3ad]: Link Aggregation Standard.
+	
+- [802.11]: Wireless LAN.
