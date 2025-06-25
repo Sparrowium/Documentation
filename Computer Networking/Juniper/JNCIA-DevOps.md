@@ -261,4 +261,3 @@ Associate Automation and DevOps
 	![[Pasted image 20250624235644.png]]![[Pasted image 20250624235709.png]]
 - [SLAX]: A programming language developed by Juniper Engineers to simplify the automation of Junos. It is now an open-source language. Unlike XSLT, SLAX is easier to use while maintaining the same capabilities. You can convert between SLAX and XSLT, as SLAX code is ultimately translated into XSLT before being processed by the XSLT engine. Programmers who are unfamiliar with XSLT often prefer SLAX because it allows them to focus on their programming tasks without needing to learn XSLT's complex syntax.
 	![[Pasted image 20250624235832.png]]![[Pasted image 20250624235850.png]]
-- 

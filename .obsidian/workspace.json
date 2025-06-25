@@ -20,18 +20,6 @@
               "icon": "lucide-file",
               "title": "JNCIA-DevOps"
             }
-          },
-          {
-            "id": "57b265d1549762d5",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "Pasted image 20250624235311.png"
-              },
-              "icon": "lucide-image",
-              "title": "Pasted image 20250624235311"
-            }
           }
         ]
       }
@@ -178,18 +166,18 @@
   },
   "active": "e5ae86d8dc1d6f23",
   "lastOpenFiles": [
-    "Pasted image 20250624235850.png",
-    "Pasted image 20250624235832.png",
-    "Pasted image 20250624235709.png",
-    "Pasted image 20250624235644.png",
-    "Pasted image 20250624235308.png",
-    "Pasted image 20250624235311.png",
+    "assets/imgs/Pasted image 20250624235850.png",
+    "assets/imgs/Pasted image 20250624235832.png",
+    "assets/imgs/Pasted image 20250624235709.png",
+    "assets/imgs/Pasted image 20250624235644.png",
+    "assets/imgs/Pasted image 20250624235311.png",
+    "assets/imgs/Pasted image 20250624235130.png",
+    "assets/imgs/Pasted image 20250624235007.png",
+    "assets/imgs/Pasted image 20250624234913.png",
+    "assets/imgs/Pasted image 20250624234219.png",
+    "assets/imgs/Pasted image 20250624233737.png",
+    "assets/imgs/Pasted image 20250624233626.png",
     "Computer Networking/Juniper/JNCIA-DevOps.md",
-    "Pasted image 20250624235130.png",
-    "Pasted image 20250624235007.png",
-    "Pasted image 20250624234913.png",
-    "Pasted image 20250624233957.png",
-    "Pasted image 20250624234219.png",
     "Computer Networking/Terminology.md",
     "Computer Networking/Juniper/JNCIA-Junos.md",
     "README.md",
