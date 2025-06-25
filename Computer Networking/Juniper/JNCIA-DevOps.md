@@ -226,3 +226,39 @@ Associate Automation and DevOps
 	- In the XML candidate configuration, the `junos:changed` attribute is attached to element nodes that have changed compared to current active configuration. 
 		
 	- The `junos:group` attribute is attached to nodes that have inherited configuration settings from a configuration group.
+
+<h2 style="color:#6290C3"><center> XML and NETCONF </center></h2>
+## NECONF
+
+- [NETCONF]: A standards-based protocol used for communication with network devices. Communication is usually SSH. With NETCONF you can perform action like locking, reading, modifying, deleting, and unlocking devices.
+	![[Pasted image 20250624233626.png]]
+- [Message Layer]: Provides a simple, transport-independent framing mechanism for encoding RPCs and notifications.
+	![[Pasted image 20250624233737.png]]
+	- The `<rpc>` element encapsulates all RPCs sent to a NETCONF server. The `<rpc-reply>` element encapsulates all RPC replies from a NETCONF server including returned data and any OK, error, or warning messages. The `<notification>` element is a one-way message sent asynchronously to NETCONF clients that initiates a `<create-subscription>` RPC to the NETCONF server.
+	
+- [Operations Layer]: Defines commands used to perform operations on a network device. These Operations layer commands are encapsulated within one of the Messages layer tags
+	![[Pasted image 20250624234219.png]]
+	- The different Operations layer commands are as follows: `<lock>`, which obtains a lock on a device configuration file before modifying it. `<unlock>`, which unlocks a configuration after modifying it. `<get>`, which retrieves data from the running configuration database or device statistics. `<get-config>`, which retrieves the configuration from a device. `<edit-config>`, which modifies device configuration. `<copy-config>`, which creates or replaces an entire configuration. `<commit>`, which commits a candidate configuration. `<discard-changes>`, which is used to roll back a candidate configuration to the current running configuration. `<delete-config>`, which deletes a device configuration file. `<validate>`, which ensures that the device can load the specified configuration. `<create-subscription>`, which creates a NETCONF subscription for notifications. `<close-session>`, which gracefully closes a NETCONF session. `<kill-session>`, which closes a NETCONF session other than the one you are currently using.
+	
+- [Content Layer]: Is where specific RPC parameters are encapsulated and sent to a NETCONF server. The XML API provided by the Junos `mgd` process on the server accepts and processes the incoming RPCs and generates an RPC response that is returned to the client.
+	
+- To enable NETCONF service (to use default port 830) over SSH as the Transport layer protocol on a Junos device, issue the set `system services netconf ssh` configuration mode command.
+	
+	- You can also configure a specific port number for NETCONF-over-SSH sessions. Use the `set system services netconf ssh port port-number` statement and replace the port-number with a desired port number you want to configure. You may choose any port number ranging from 1 through 65535, however avoid configuring access on a port that is normally assigned for another service. Once you configure the port other than the default port 830, the configured port accepts only NETCONF-over-SSH sessions and rejects regular SSH session requests.
+		
+	- To enable both NETCONF and SSH sessions, include SSH statement such as `set system services ssh`. The statement enables SSH access to device for all users and applications.
+## Junos RPCs
+
+- Type `netconf` to start a session in the Junos CLI.
+	![[Pasted image 20250624234913.png]]![[Pasted image 20250624235007.png]]
+- To establish a NETCONF session and execute commands, you issue NETCONF RPCs (Remote Procedure Calls) that perform operational mode commands and modify device configurations. All NETCONF RPC requests must be enclosed within XML `<rpc>` tags and terminate with the `]]>]]>` delimiter to mark the end of the message.
+	![[Pasted image 20250624235130.png]]
+- Pipe `| display xml rpc` Junos CLI command option provides insight into the appropriate Remote Procedure Call (RPC) for a given operation, but it should not be considered the definitive reference. The authoritative sources for RPC specifications are the Junos XML Schema Definition (XSD) files, which are included with each new release of the Junos OS. These XSD files contain the official schema definitions and serve as the primary reference for NETCONF RPCs in Junos.
+	![[Pasted image 20250624235311.png]]
+## Junos XML API Programming Languages
+
+- [XSLT]: The basic model consists of an XSLT engine or processor that accepts as input a script or stylesheet and an XML document. The XSLT engine uses the instructions in the script to process the XML document’s hierarchy. The script identifies interesting portions of the XML document, how it should be inspected, and what XML output should be generated. Because XSLT was created to support generic XML-to-XML transformations, it is a natural choice for both inspecting Junos configuration syntax and for generating errors and warnings.
+	![[Pasted image 20250624235644.png]]![[Pasted image 20250624235709.png]]
+- [SLAX]: A programming language developed by Juniper Engineers to simplify the automation of Junos. It is now an open-source language. Unlike XSLT, SLAX is easier to use while maintaining the same capabilities. You can convert between SLAX and XSLT, as SLAX code is ultimately translated into XSLT before being processed by the XSLT engine. Programmers who are unfamiliar with XSLT often prefer SLAX because it allows them to focus on their programming tasks without needing to learn XSLT's complex syntax.
+	![[Pasted image 20250624235832.png]]![[Pasted image 20250624235850.png]]
+- 
