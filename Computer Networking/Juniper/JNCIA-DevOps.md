@@ -261,3 +261,11 @@ Associate Automation and DevOps
 	![[Pasted image 20250624235644.png]]![[Pasted image 20250624235709.png]]
 - [SLAX]: A programming language developed by Juniper Engineers to simplify the automation of Junos. It is now an open-source language. Unlike XSLT, SLAX is easier to use while maintaining the same capabilities. You can convert between SLAX and XSLT, as SLAX code is ultimately translated into XSLT before being processed by the XSLT engine. Programmers who are unfamiliar with XSLT often prefer SLAX because it allows them to focus on their programming tasks without needing to learn XSLT's complex syntax.
 	![[Pasted image 20250624235832.png]]![[Pasted image 20250624235850.png]]
+
+<h2 style="color:#6290C3"><center> Python Fundamentals </center></h2>
+## Python Basics
+
+- This flow chart demonstrates the actions that are taken when a Python script or program is executed. When the Python code is executed, the Python interpreter analyzes the program or script. If there are no syntax issues, the interpreter begins to translate the Python code into a byte code. In some scenarios, the Python code is translated and stored as a Python byte code `.pyc` file.
+	![[Pasted image 20250625233155.png]]
+	- Storing Python modules and packages in this manner speeds up execution because the interpreter doesn’t need to evaluate the Python code every time the module or package is referenced. Finally, the byte code is passed to the Python runtime, known as the Python virtual machine (pvm), that executes the byte code instructions.
+	
