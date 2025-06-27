@@ -269,3 +269,52 @@ Associate Automation and DevOps
 	![[Pasted image 20250625233155.png]]
 	- Storing Python modules and packages in this manner speeds up execution because the interpreter doesn’t need to evaluate the Python code every time the module or package is referenced. Finally, the byte code is passed to the Python runtime, known as the Python virtual machine (pvm), that executes the byte code instructions.
 	
+## Python Modules, Packages, and Libraries
+
+- [Module]: Is the smallest component of the package in the form of a Python script that comprises functions and methods to implement various features of the package. 
+	
+- [Package]: Consists of modules, resource file and is often developed using other packages to support various features. These supporting packages are called dependencies. 
+	
+- [Library]: Is a collection of packages. Libraries offer users a ready-to-use feature or a pre-written code so that no additional packages are needed. 
+	
+	- [Data Serialization Tools]: The Python libraries used for serializing and structuring data are JavaScript Object Notation (JSON), YAML parser and emitter for Python (PyYAML), and xmltodict. For example, you can parse JSON, YAML, or XML and convert it into a Python object.
+		
+	- [Configuration Management Tools]: Configuration management tool libraries enable you to automate network devices. You can configure, manage, and monitor devices as well as identify and troubleshoot network issues.
+		
+	- Libraries such as Ansible support multi-vendor devices and can quickly and easily retrieve network information to manage large networks. Network Automation and Programmability Abstraction Layer with Multi-vendor support (NAPALM) provides an API that enables users to write scripts and applications to interact with devices.
+		
+	- The other libraries useful for automating networks are Scapy for packet manipulation, Pycrypto for encryption algorithms and hash functions, and Requests for sending HTTP requests using Python.
+		
+	- Python libraries such as Network Configuration Protocol (NETCONF), Paramiko, and Netmiko SSH handling libraries that automate SSH connections to network devices. Juniper recommend these libraries for running remote shell commands or transferring files.
+	
+- [Framework]: Is the collection of libraries to build an application. An application is a final software product that performs certain tasks using Python codes, functions, and libraries.
+	
+- [Netmiko Libraries]: Netmiko is one of the most used Python libraries for network automation. The Paramiko library implements SSHv2 protocol. The Netmiko library is built on top of Paramiko. The functionality and implementation of Paramiko is based on OpenSSH. 
+	
+	- Even though Paramiko provides full implementation, such as connection protocols, user authentication, and secure file transfer protocol (SFTP), it runs as a solid service. But user authentication is provided using different applications running on a separate device or server. In such cases using Paramiko, you can establish an SSH session with the device; however, the device is not authenticated.
+		
+	- Netmiko provides multivendor support using the `netmiko.ConnectHandler` function. You can provide various parameters, such as device information, device IP address, username, key pair, and algorithm with the `ConnectHandler` function.
+		
+	- The Netmiko module for Juniper devices is `netmiko.juniper`. The `netmiko.juniper` module has four major classes namely `JuniperBase`, `JuniperFileTransfer`, `JuniperSSH`, and `JuniperTelnet`.
+	![[Pasted image 20250626230803.png]]
+	- Syntax for connecting via Netmiko:
+	![[Pasted image 20250626230857.png]]
+	- Syntax for displaying interfaces via Netmiko:
+	![[Pasted image 20250626230954.png]]![[Pasted image 20250626231110.png]]
+	- Syntax for Configuring Junos via Netmiko:
+	![[Pasted image 20250626231240.png]]![[Pasted image 20250626231315.png]]![[Pasted image 20250626231316.png]]
+	- Syntax for parsing XML in Netmiko:
+	![[Pasted image 20250626231343.png]]![[Pasted image 20250626231400.png]]
+- [PyEZ Libraries]: Junos PyEZ is a Python microframework used to manage and automate Junos platforms. A microframework is a package or library providing code that is useful for other larger applications.
+	
+	- Junos PyEZ is designed and maintained by Juniper to provide the same capabilities as the Junos CLI and to make automating and managing Junos devices using Python easy.
+		
+	- Common Modules: The `device` module provides the Python code capable of connecting to Junos platforms and printing device facts. The `utils` modules are Python utilities used to manage device configuration, securely copy files, perform file system operations, and install Junos software. The `command` and `op` module provides the predefined tables and views used to extract specific information from the operational mode output returned from devices. The `exception` modules provide Python exception handling capabilities.
+	![[Pasted image 20250626231903.png]]
+	- Common Submodules: The `config` module performs Junos device configuration operations. The `fs` module manages the Junos filesystem. The `scp` module securely transfers files such as software images and logs. The `ftp` module has capabilities similar to SCP using the FTP protocol. The `start_shell` module accesses the Junos device shell, and the `sw` module performs automated software upgrades.
+	![[Pasted image 20250626232128.png]]
+	- Syntax for installing `pip3 install junos-eznc`.
+	![[Pasted image 20250626232238.png]]
+- Python Script Examples:
+	![[Pasted image 20250626232325.png]]![[Pasted image 20250626232341.png]]
+	
