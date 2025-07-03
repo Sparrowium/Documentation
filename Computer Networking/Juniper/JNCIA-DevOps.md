@@ -317,4 +317,46 @@ Associate Automation and DevOps
 	![[Pasted image 20250626232238.png]]
 - Python Script Examples:
 	![[Pasted image 20250626232325.png]]![[Pasted image 20250626232341.png]]
+
+<h2 style="color:#6290C3"><center> Querying Junos Devices Using Junos PyEZ </center></h2>
+
+## Connecting Junos Devices Using Junos PyEZ
+
+- Junos PyEZ connects to Junos platform using a serial console, Telnet, or NETCONF over SSH. It also supports SSH connections that are initiated by the Junos device.
+	![[Pasted image 20250703100000.png]]
+- Connecting to Junos devices requires authentication. When a Junos PyEZ script attempts to connect to a device to performs action, it must authenticate using an account with sufficient permission to perform action. Junos operating systems uses login classes to enforce administration privileges and permissions. The Junos built-in `super-user` class provides sufficient permission for PyEZ to performs all supported actions, a custom class is also supported.
+	![[Pasted image 20250703100505.png]]
+	- Remote management protocol are configured con Junos devices to enable remote PyEZ connections. By default, PyEZ connects using NETCONF over SSH on TCP port 830.
+	![[Pasted image 20250703100642.png]]
+- Junos device authenticates the user using the Junos PyEZ default method.
+	![[Pasted image 20250703100844.png]]
+- Connecting with the Python context manager `with/as` syntax open and close the device connection automatically. 
+	![[Pasted image 20250703104923.png]]
+- The most secure and convenient method to authenticate device connections is by using public keys. To authenticate using publics keys, a public/private key pair is generated on the management workstation. The public key is copied to the managed Junos devices and automatically used during Junos PyEZ device connection process to authenticate the connecting user.
+	![[Pasted image 20250703105224.png]]
+- Configure the authentication and authorization parameters for the Junos user account on all relevant devices. Make sure to configure `SSH-public-key-based` authentication by specifying the file path of the public key that is copied to the device.
+	![[Pasted image 20250703110828.png]]![[Pasted image 20250703110830.png]]
+- When using a `non-password-protected` key pairs, the connection automatically uses thee key pair associated with the logged in user for authentication. Since no key pair password is configured, authentication is automatic. 
+	![[Pasted image 20250703111237.png]]
+	- When using the `password-protected` key pairs, the Python `getpass` module is used to generate a prompt for the user to enter the key passphrase. The prompt is for SSH ky passphrase rather than a user login password. If you did not configure an SSH key passphrase when the SSH keys were generated, you can omit the `passwd` argument.
 	
+- Storing usernames and passwords in Python scripts is not secure. If public key authentication is not an option, you can configure a Python script that prompts a user for credentials when the Python script is run. Import the built-in Python `getpass` module and define login prompt variables. Reference the login prompt variables in the connection portion of the script. When the script is run, the user is presented with username and password prompts during authentication.
+	![[Pasted image 20250703111608.png]]
+## Performing Junos PyEZ Device Operations
+
+- Junos PyEZ perform operational tasks: Reboot and power off platforms, secure copy files, upgrade Junos software, access the Unix and Junos device shell, ...
+	
+	- `jnpr.junos.utils.sw` module `SW` class provides `reboot()` and `poweroff()` methods to manage the device run time. The operation can be performed immediately (default) or scheduled for later. If the script is connected to he device using NETCOND over SSH, you will need to call the device object `open()` method again to reconnect.
+	![[Pasted image 20250703145752.png]]![[Pasted image 20250703145812.png]]
+		- The `SW` class also provides the methods that enable yo to install or upgrade Junos software through `install()`. This includes standalone devices with a single routing engine, standalone devices equipped with dual routing engines, EX/QFX series Virtual Chassis in mixed-mode and non-mixed-mode configurations, Mixed EX and QFX Virtual Chassis, VM host upgrades on routing engines with VM Host Support, and deployment configurations that have some form of in-service features enabled, such as unified in-service software upgrade (ISSU) or nonstop software upgrade (NSSU).
+		![[Pasted image 20250703150610.png]]![[Pasted image 20250703150740.png]]
+	- `jnpr.junos.utils.scp` module defines the `SCP` class that is used to establish Secure Copy Protocol (SCP) sessions with Junos platforms. This object class is commonly used during the Junos software image file to target devices. Files, such as device logs, can also be securely copied from the target devices. Junos PyEZ also includes the `jnpr.junos.utils.fpt` module `FTP` class that provides similar capabilities using FTP.
+	![[Pasted image 20250703151221.png]]![[Pasted image 20250703151235.png]]![[Pasted image 20250703151309.png]]
+	- `jnpr.junos.utils.start_shell` module defines the `StartShell` class. The `StartShell` class enables Python applications to initiate an SSH connection to a Junos device and access the Junos or Unix shell. The `StartShell` object `run()` method enables a Python application to execute Unix shell and Junos CLI commands and retrieve responses.
+	![[Pasted image 20250703151637.png]]![[Pasted image 20250703151701.png]]
+## Automating Junos Device Operations
+
+- Network Administrator use Junos PyEZ to execute remote procedures calls (RPCs) on Junos devices and perform the same operational tasks traditionally performed using the Junos CLI. PyEZ uses the same XML API used by the CLI to send retrieve data to and from the Junos management daemon `mgd`. You can determine  the RPC corresponding to a particular Junos CLI command by issuing the CLI and including the `| displat xml rpc` command operator.
+	![[Pasted image 20250703154036.png]]![[Pasted image 20250703154133.png]]![[Pasted image 20250703154147.png]]
+
+
