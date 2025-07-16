@@ -359,4 +359,57 @@ Associate Automation and DevOps
 - Network Administrator use Junos PyEZ to execute remote procedures calls (RPCs) on Junos devices and perform the same operational tasks traditionally performed using the Junos CLI. PyEZ uses the same XML API used by the CLI to send retrieve data to and from the Junos management daemon `mgd`. You can determine  the RPC corresponding to a particular Junos CLI command by issuing the CLI and including the `| displat xml rpc` command operator.
 	![[Pasted image 20250703154036.png]]![[Pasted image 20250703154133.png]]![[Pasted image 20250703154147.png]]
 
+<h2 style="color:#6290C3"><center> Configuring Junos Devices Using Junos PyEZ </center></h2>
+## Automating Device Configuration
 
+- `jnpr.junos.utils.config` modules defines the `Config` class. The utility enables you to retrieve, load, rollback, and compare Junos device configuration. PyEZ supports both unstructured and structured configuration changes.
+	
+	- Unstructured configuration changes consist of static or templated configuration data that is formatted using ASCII text, Junos XML elements , Junos set commands, or JavaScript Object Notation (JSON). Unstructured changes can leverage Python `Jinjia2` templates to deploy configuration containing unique device-specific configuration values. 
+		
+	- Structured configuration changes use PyEZ tables and view to define the configure specific resources.
+	
+- Some common Junos PyEZ Config Object method.
+	![[Pasted image 20250703155734.png]]
+- Simple script that demonstrates how to modify a private copy of the candidate configuration. Note that for networks that uses extensive automation, it is recommended that you perform configuration management using a private configuration database because locking the shared configuration can affect other automation tools. 
+	![[Pasted image 20250703155956.png]]
+- Retrieve Junos Configuration.
+	![[Pasted image 20250703160047.png]]
+- The Junos `Config` class provides `pdiff()` and `diff()` methods that can perform the same functions as the Junos CLI `show | compare` command. The `pdiff()` method returns the difference as standard command output. The `diff()` method returns the difference as an object.
+	![[Pasted image 20250703160338.png]]![[Pasted image 20250703161304.png]]
+	- The `rollback()` method supports an `rb_id` option that is used when performing configuration rollback operations. These operations are equivalent to a Junos CLI configuration mode `rollback` command.
+	![[Pasted image 20250703161437.png]]![[Pasted image 20250703161654.png]]![[Pasted image 20250703161755.png]]
+	- The `rescue()` method leverages the `save` action to generate a new rescue configuration.
+	![[Pasted image 20250703161928.png]]![[Pasted image 20250703162015.png]]
+	- The `load()` method to load configuration data from a file. Configuration files can be located on the management workstation, on the Junos device, or at a URL that is reachable from the Junos device. The configuration data can be formatted as ASCII text, Junos XML elements, Junos OS `set` commands, or JSON. Make sure to use `path` and `url` options to specify the location of the configuration file to load, `lock()` and `unlock()` method to lock and unlock candidate configuration.
+	![[Pasted image 20250703163137.png]]![[Pasted image 20250703163242.png]]![[Pasted image 20250703163809.png]]
+	- The `commit()` method supports commit operations that are equivalent to the options provided by the Junos CLI.
+	![[Pasted image 20250716100851.png]]![[Pasted image 20250716100939.png]]
+	For Redundant Routing Engines.
+	![[Pasted image 20250716101323.png]]
+## Exception Handling
+
+- Exceptions are errors that happens in the runtime, causing the operations to fail.
+	
+- `jnpr.junos.exception` Modules handle PyEZ runtime exceptions. It defines Junos-specific exceptions, including connection errors (ex: auth errors), configuration errors, commit errors, protocol timeout errors, and permission errors.
+	![[Pasted image 20250716101846.png]]
+## Jinja2 Templates
+
+- Jinja2 templates is utilize to configure device with unique values.
+	
+	- Identify device configuration that you want to turn into template variable values.
+	![[Pasted image 20250716102219.png]]
+	- Creating the Jinja2 templates. The variable values are enclosed in curly brackets. 
+	![[Pasted image 20250716102609.png]]
+	- Creating a YAML file  for each device containing the unique variables. Make sure to match the variable name used in Jinja2 templates.
+	![[Pasted image 20250716102804.png]]
+	- Creating a script using the Jinja2 Template.
+	![[Pasted image 20250716102937.png]]
+## Junos XML API Automation
+
+- Example.
+	![[Pasted image 20250716103511.png]]
+- [XML Parsing]: Used to optimize operation memory and processing speed.
+	![[Pasted image 20250716103721.png]]
+- Parsing the next hop.
+	![[Pasted image 20250716103854.png]]
+- 
