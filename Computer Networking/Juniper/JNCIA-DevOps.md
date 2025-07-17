@@ -412,4 +412,54 @@ Associate Automation and DevOps
 	![[Pasted image 20250716103721.png]]
 - Parsing the next hop.
 	![[Pasted image 20250716103854.png]]
-- 
+
+
+<h2 style="color:#6290C3"><center> Data Serialization-JSON and YAML </center></h2>
+## JSON and YAML: Data Structures
+
+- JSON Dictionary.
+	![[Pasted image 20250717094751.png]]
+- [JSON]: A lightweight data-interchange format. It is human-readable but is easier for machines to parse than human. It is language-independent but uses conventions like C,C++,JAVA,JAVASCRIPT,PERL, and PYTHON. It first appeared as a lightweight alternative to XML and quickly became popular.
+	
+	- JSON is simple and universal but sacrifice human readability.
+	![[Pasted image 20250717095607.png]]
+	- JSON is often used as an alternative for XML. Retrieving operational and configuration data using Junos CLI or NETCONF, uploading content, and REST API.
+		
+	- JSON is case-sensitive, uses curly braces {} for data structures, ignore white spaces, does not offer a way to add comments, only has two data structures which is objects and arrays which are nesting available.
+	![[Pasted image 20250717100237.png]]![[Pasted image 20250717100353.png]]
+	- [JSON Objects]: Begin and ends with curly braces and contain at least one key-value pair. The key-value pair are enclosed in quotes and separated by colon. A single object can contain a series of key-value pair that are separated by commas. An empty object is also allowed, but keys in JSON are always a string data types.
+	![[Pasted image 20250717100626.png]]
+	- [JSON Arrays]: An ordered collection of values. Array structures begin with square brackets and contain zero, one, or more values separated by commas.
+	![[Pasted image 20250717100852.png]]
+	- Nested Objects and Arrays.
+	![[Pasted image 20250717100948.png]]
+	- JSON Junos Configuration via `show | display json`.
+	![[Pasted image 20250717101309.png]]
+	 
+- [YAML]: A unicode-based data serialization language designed around common native data types found in agile programming languages. It is very human-readable and is useful for a variety of tasks, including-configuration files, internet messaging, object persistence, and data auditing. It uses indentation to show structures. It was designed as a superset of JSON, offering improved human readability and a more complete information model. Every JSON file is also a valid YAML file but not vice versa.
+	
+	- YAML is more complex but increase human readability.
+	![[Pasted image 20250717095622.png]]
+	- YAML is used in Junos Automation to define Junos PyEZ tables and views, which are used to map portions of a remote procedure call (RPC) response into a Python data structure. It is also used in Ansible to create playbooks that automate Juniper devices. 
+		
+	- YAML is case-sensitive uses indentation for structure, uses spaces instead of tabs, YAML documents start with three dashes, string do not need quotes unless they include special characters, comments begin with #, and has two basic structures which is mappings and sequences.
+	![[Pasted image 20250717104508.png]]![[Pasted image 20250717104530.png]]
+	- Nested YAML uses indentations to create structures.
+	![[Pasted image 20250717104608.png]]
+## Junos Automation with JSON and YAML
+
+- Python and Jinja2.
+	![[Pasted image 20250717104810.png]]
+- Ansible.
+	![[Pasted image 20250717104835.png]]
+- Junos PyEZ tables and views in YAML.
+	![[Pasted image 20250717104922.png]]![[Pasted image 20250717104939.png]]
+	- Creating users with custom Tables and Views involves three main files—`ConfigTables.py`, `ConfigTables.yml`, and the `users.py` Python script. You need to follow certain steps to create Tables and Views and import them into Junos PyEZ application.
+		![[Pasted image 20250717105404.png]]
+	- First, you need to define Tables and Views in the YAML file with the `.yml` extension. Then, create a file that has the same base filename as the Table file but that uses `.py` extension. The ConfigTables.py file uses the Junos PyEZ loadyaml() routine to load the YAML file and then import it into the global namespace of the module.
+		![[Pasted image 20250717105525.png]]
+	- Now add `ConfigTables.yml` and `ConfigTables.py` files in a folder. Include an `__init__.py` file if the files are in the sub-directory.
+		
+	- Create a Python script `users.py`. The Python script imports `UserConfigTable` and configures values for the username, `userclass`, and password fields. You use the `append()` method to build the corresponding Junos XML configuration and add it to the `lxml` object that stores the primary set of configuration changes. You can load the configuration into the shared configuration database on the device. Using the set() method, you can automatically call the lock(), load(), commit(), and unlock() methods.
+		![[Pasted image 20250717105754.png]]![[Pasted image 20250717105849.png]]
+	- 
