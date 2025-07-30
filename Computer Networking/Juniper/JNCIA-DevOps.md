@@ -462,4 +462,36 @@ Associate Automation and DevOps
 		
 	- Create a Python script `users.py`. The Python script imports `UserConfigTable` and configures values for the username, `userclass`, and password fields. You use the `append()` method to build the corresponding Junos XML configuration and add it to the `lxml` object that stores the primary set of configuration changes. You can load the configuration into the shared configuration database on the device. Using the set() method, you can automatically call the lock(), load(), commit(), and unlock() methods.
 		![[Pasted image 20250717105754.png]]![[Pasted image 20250717105849.png]]
-	- 
+
+<h2 style="color:#6290C3"><center> Automating Junos Device Using REST API </center></h2>
+## Junos REST API Functionality
+
+- Benefits: 
+	
+	- Securely execute configuration.
+		
+	- Simple configuration.
+		
+	- Network Configuration Protocol and SSH are not required.
+		
+	- Juniper provides a GUI REST API Explorer.
+		
+	- Supports data in ASCII text, JSON, and XML formats.
+	
+- Junos REST API Architecture:
+	
+	- After the REST service is enabled, a `lighttpd` server launches and begins listening to incoming connections.
+		
+	- A REST client makes HTTPS Junos RPC requests.
+		
+	- The `lighttpd` server receive and processes the HTTP GET or POST request and forwards the client RPC request to the `mod_juise` plug-in.
+		
+	- The `mod_juise` plug-in invokes the Junos User Interface Scripting Environment (JUISE) to process the Junos RPC and authentication.
+		
+	- The RPC request is passed to the Junos management process (mgd).
+		
+	- The `mgd` returns the data back to the JUISE, which formats the data for the `lighttpd` web server, which the passes the response back to the REST Client.
+		
+	- #Note: `lighttpd`, `mod_juise`, and JUISE run inside a `chroot` environment for increased security. A environment that processes cannot access files outside of a designated directory structure.
+	
+- [Enabling Junos REST API over HTTP]: `set system services rest http port 3000`, 3000 is the default HTTP port. Or `http addresses [x.x.x.x y.y.y.y]`. Junos REST API supports IPv4 only.
