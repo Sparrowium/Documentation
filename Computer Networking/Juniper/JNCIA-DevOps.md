@@ -462,4 +462,123 @@ Associate Automation and DevOps
 		
 	- Create a Python script `users.py`. The Python script imports `UserConfigTable` and configures values for the username, `userclass`, and password fields. You use the `append()` method to build the corresponding Junos XML configuration and add it to the `lxml` object that stores the primary set of configuration changes. You can load the configuration into the shared configuration database on the device. Using the set() method, you can automatically call the lock(), load(), commit(), and unlock() methods.
 		![[Pasted image 20250717105754.png]]![[Pasted image 20250717105849.png]]
-	- 
+
+<h2 style="color:#6290C3"><center> Rest API </center></h2>
+## Rest API Architecture
+
+- [API]: Communicates and exchanges data with two different software.
+	
+	- The client such as the mobile user or the Web user, sends the request to the application server through the API gateway. After receiving the request, the API gateway makes a call to the server and receives the response. The API then responds to the client request. The API client-server architecture provides two-way communication.
+		
+	- [REST]: Representational State Transfer. The REST uses different HTTP method to create, read, update, and delete data.
+		
+	- [SOAP]: Simple Object Access Protocol. Web application employ SOAP messages, which are formatted in XML, to facilitate communication between each other. 
+		
+	- [RPCs]: Remote Procedure Call. RPCs such as JSON-RPC, and XML-RPC uses JavaScript Object Notation (JSON) and XML for data transfer. XML-RPC API is mostly used in networking for exchanging information between networks.
+	
+- [RESTful Web Services]: Are created following the REST architecture. The software developer builds a mobile app that interacts with the server hosting an application. 
+	
+	- The REST API provides an interface between the back=end application server and the mobile app. The separated client-server architecture provides easy implementation, scalability, flexibility, and portability of the application. 
+	
+- [REST API]: A standard method for clients to access data objects that are stored on a REST API server. A REST API client communicates with a REST API server using HTTP(S) methods to retrieve and manipulate data that is stored on the server.
+	![[Pasted image 20250722093301.png]]
+	- [REST API Client]: Uses URLs and the HTTP request body to identify the data to access and operations to perform. REST is considered to be stateless, because no client context is stored on the REST API server. Each request from a client must contain all the information necessary to process the request. All session state is maintained by the client. You can access a REST API using any program or programming language capable of generating HTTP(S) requests. 
+	
+- [CRUD]: Create, Read, Update, and Delete a resources.
+	![[Pasted image 20250722093358.png]]
+- Six Guiding Principles of REST API:
+	
+	- [Uniform Interface]: Applying the software engineering principle of generality to the component interface simplifies the overall system architectures and enhances the clarity of interactions. To establish a consistent interface, the inclusion of multiple architectural constraints is necessary to govern the actions of components. REST is defined by four interface constraints which include identification of resources, manipulation of resources through representations, self-descriptive messages, and hypermedia as the engine of application state.
+		
+	- [Client-Server]: The separation of user interface concerns from data storage concerns not only enhances the portability of the user interface across different platforms but also simplifies the server components, thereby improving scalability.
+		
+	- [Stateless]: Each request must include all necessary information and cannot rely on server context. Session state is therefore kept entirely on the client.
+		
+	- [Cacheable]: To comply with cache constraints, it is necessary to indicate whether the data in response to a request is cacheable or non-cacheable response, a client cache is permitted to reuse the response data for equivalent requests in the future.
+		
+	- [Layered System]: The layered system offers a architectural framework that consists of hierarchical layers. This framework restricts the behavior of components, ensuring that each component only interacts with its immediate layer.
+		
+	- [Code On Demand]: REST offers the ability for clients to extend their functionality by downloading and execution of code in the form of applets or scripts. This simplifies, client communication by reducing the number of features required to be previously implemented.
+	
+- [HTTP Methods]: Informs the server to perform an action.
+	
+	- [GET Method]: Client uses this method to access the resource on thee server. You can access a specific resources by providing parameters in the GET request.
+		
+	- [PUT Method]: To update and replace the existing resource on the server. You must provide the HTTP header data in the client request to update the resource.
+		
+	- [PATCH Method]: Updates the resources partially. You must provide the HTTP header data in the client request to append the existing resources.
+		
+	- [POST Method]: Creates a new resource. You must provide the HTTP header data in the client request to create a new resource.
+		
+	- [DELETE Method]: Deletes the resources. You must provide the HTTP header parameters in the client request to delete the resource.
+	
+- REST API Components: 
+	![[Pasted image 20250722112013.png]]
+- [REST API HTTP Authentication Methods]: There are four common authentication methods.
+	
+	- [Basic Auth]: Uses username and password. When the client sends an HTTP method for CRUD operations, the request header sends the username and password. The API request validates the status of the connection and performs the requested actions.
+		
+	- [Bearer Auth]: Uses an API token to perform the CRUD operations. You can generate a bearer token using the POST method by providing the user credentials in the request body.
+		
+	- [API Keys]: Uses unique API keys to verify the client. The server assigns a unique API to the client. The API keys method is not widely used as it is less secure.
+		
+	- [OAuth]: A secure method as it combines passwords and tokens. You must provide a password and then the token to complete the authorization. You must link your account to an OAuth provider before using this method.
+	
+- [HTTP Client Request]: The request comprises the HTTP method, URL, and HTTP headers.
+	
+	- The HTTP methods, such as GET, PUT, POST, PATCH, and DELETE, are used to perform the CRUD operations.
+		
+	- The URL indicates the locations of the resources and consists of three elements-scheme, authority, and path. The scheme is the protocol being used (HTTP or HTTPS). The authority in the URL is the domain name or the IP address along with the port number that the server is hosting. The path is the unique last part of the URL that may have a single end point or multiple end points.
+		![[Pasted image 20250731130715.png]]
+	- HTTP headers are the metadata exchanged between the client and the server that indicates the format of request and response, and provides the information about the request status. You can provide the data in the HTTP header using POST, PUT, and PATCH to create, replace, and update the resource. The parameters in HTTP header provide path parameter to query and list a specific resource, authorization token, and so on.
+	
+- [HTTP Response]: Includes various components.
+	
+	- The first component is the Status. The status component in the response indicates the success or failure of the client request. There are five classes of status code.
+		
+		- 1xx indicates information response.
+			
+		- 2xx indicates that the request is successfully accepted. 201 indicates that the new resource is successfully created.
+			
+		- 3xx indicates the request redirection that is you need to take an action in order to complete the request.
+			
+		- 4xx indicates client error. 400 indicates an error due to incorrect syntax. 401 indicates missing user authentication information in the request. 404 indicates that the resource is not found on the server.
+			
+		- 5xx indicates server errors due to resource or processing or code issues.
+		
+	- The second component is the Response body. It holds the resource representation. The server provides the resource representation format based upon the request's header selection, such as XML, JSON, or plain text.
+		
+	- The third component is the Headers. It contains metadata or header about the response. The information in the response header includes access control, encoding, data, connection, and so on.
+
+<h2 style="color:#6290C3"><center> Automating Junos Device Using REST API </center></h2>
+## Junos REST API Functionality
+
+- Benefits:
+    
+    - Securely execute configuration.
+        
+    - Simple configuration.
+        
+    - Network Configuration Protocol and SSH are not required.
+        
+    - Juniper provides a GUI REST API Explorer.
+        
+    - Supports data in ASCII text, JSON, and XML formats.
+    
+- Junos REST API Architecture:
+    
+    - After the REST service is enabled, a `lighttpd` server launches and begins listening to incoming connections.
+        
+    - A REST client makes HTTPS Junos RPC requests.
+        
+    - The `lighttpd` server receive and processes the HTTP GET or POST request and forwards the client RPC request to the `mod_juise` plug-in.
+        
+    - The `mod_juise` plug-in invokes the Junos User Interface Scripting Environment (JUISE) to process the Junos RPC and authentication.
+        
+    - The RPC request is passed to the Junos management process (mgd).
+        
+    - The `mgd` returns the data back to the JUISE, which formats the data for the `lighttpd` web server, which the passes the response back to the REST Client.
+        
+    - #Note: `lighttpd`, `mod_juise`, and JUISE run inside a `chroot` environment for increased security. A environment that processes cannot access files outside of a designated directory structure.
+    
+- [Enabling Junos REST API over HTTP]: `set system services rest http port 3000`, 3000 is the default HTTP port. Or `http addresses [x.x.x.x y.y.y.y]`. Junos REST API supports IPv4 only.
