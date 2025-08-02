@@ -566,7 +566,7 @@ Associate Automation and DevOps
     - Supports data in ASCII text, JSON, and XML formats.
     
 - Junos REST API Architecture:
-    
+    ![[Pasted image 20250801222849.png]]
     - After the REST service is enabled, a `lighttpd` server launches and begins listening to incoming connections.
         
     - A REST client makes HTTPS Junos RPC requests.
@@ -582,3 +582,40 @@ Associate Automation and DevOps
     - #Note: `lighttpd`, `mod_juise`, and JUISE run inside a `chroot` environment for increased security. A environment that processes cannot access files outside of a designated directory structure.
     
 - [Enabling Junos REST API over HTTP]: `set system services rest http port 3000`, 3000 is the default HTTP port. Or `http addresses [x.x.x.x y.y.y.y]`. Junos REST API supports IPv4 only.
+	![[Pasted image 20250801222917.png]]
+- [Enabling Junos REST API over HTTPS]: Generate a self-sign SSL certificate. The Junos REST API also supports certificates signed by a trusted certified authority (CA). User the `server-certificate configuration` option to identify the SSL certification to use. You can also customize the HTTPS Junos REST API listening port. 
+	![[Pasted image 20250801224405.png]]
+- [Controlling Access to the REST API]: By restricting the allowed source IP address. You can also limit the simultaneous connections.
+	![[Pasted image 20250801224557.png]]
+## Querying Junos REST API
+
+- [GET Request]: Generally includes all of the required data in the URL.
+	![[Pasted image 20250801224802.png]]
+- [POST Request]: Includes additional data to the message body.
+	
+- [Web Browser]: Used for simple HTTP GET queries. 
+	![[Pasted image 20250801230604.png]]
+- [cURL]: A command-line application for transferring data using many different protocols. The `-k` option bypasses self-signed certificate warnings, `-u` is used to provide a username and password for authentication.
+	![[Pasted image 20250801230839.png]]
+	- The `--netrc` option is a more secure option to authenticate your request. It uses the `.netrc` file user's home directory that specify the hostname, username, and password for the remote device. Ensure that only the user has read and write permission for the file.
+	![[Pasted image 20250801231037.png]]
+	- Use `format=text` attribute to specify the return data format. 
+	![[Pasted image 20250801231203.png]]
+	- It is possible to include multiple Junos RPCs in a REST API request using the POST HTTP method. The feature is especially useful if you want to modify configurations using the REST API because you can lock, load, commit, and unlock device configurations using one HTTP request. To execute multiple RPCs, simply place them in sequence. The HTTP POST method is used when a cURL query is performed using the `-d` option. Additionally, you can specify a stop-on-error parameter `stop-on-error=1` in the URL that halts further execution of RPCs if one of the RPCs in the request fails.
+	![[Pasted image 20250801231439.png]]
+	- `traceoptions` to generate additional logging information for a configured service. You can configure `traceoptions` flags for `lighttpd`, `juise`, and `oral1`. You can only enable one flag at a time. Since the `lighttpd` and JUISE processes are executed in a chroot environment, the processes do not have access to the standard Junos `/var/log` directory. Trace options log files for these processes are located in the `/var/chroot/rest-api/var/log` directory on the device.
+	![[Pasted image 20250801231600.png]]
+## Junos REST API Explorer
+
+- [Enabling the Explorer]: To enable the Representational State Transfer (REST) API Explorer, use the command `set system services rest enable-explorer` in configuration mode. After committing the configuration, access the REST API Explorer by opening a web browser and navigating to your Junos device's hostname or IP address, followed by a colon and the configured port number. The default ports are 3000 for HTTP and 3443 for HTTPS. Authentication is required—you must enter a valid username and password before submitting any requests.
+	![[Pasted image 20250801231802.png]]
+- The option to execute a single remote procedure call (RPC) is selected by default when you open the REST API Explorer. Queries sent to the REST API can be submitted as either HTTP GET or HTTP POST requests. The Junos REST API Explorer supports outputting data in XML, JavaScript Object Notation (JSON), and plain text formats. Input the Junos RPC in the URL field, provide a username and a password, and click Submit.
+	![[Pasted image 20250801232002.png]]
+- When you click the Submit button, the REST API Explorer creates the HTTP request. The request details appear in the Request Headers field and are sent to the Junos REST API server. The tool also generates the equivalent cURL request. The Response Headers field displays the HTTP header returned by the server. If the request succeeds, the Response Body field shows the RPC response from the Junos REST API server.
+	![[Pasted image 20250801232054.png]]
+- To perform multiple RPCs in one HTTP request, select the Multiple RPCs option. This enables an additional setting to stop execution if an error occurs. If the Stop on error option is not checked and an error happens, the REST API server reports the error but continues with the next RPC in the list.
+	![[Pasted image 20250801232343.png]]
+## Automating Junos Devices
+
+- The Junos REST API Explorer helps identify the proper HTTP method and Junos RPC to use. In this example, a POST request executes a single RPC containing the `<get-config>` command in the request body. Using POST allows specifying a subtree filter to retrieve only relevant portions of the device configuration. The server returns the filtered XML configuration data in the Response Body field, which an automation script can then analyze to determine which services are enabled on the device.
+	![[Pasted image 20250801232631.png]]
