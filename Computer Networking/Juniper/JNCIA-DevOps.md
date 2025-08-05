@@ -619,3 +619,48 @@ Associate Automation and DevOps
 
 - The Junos REST API Explorer helps identify the proper HTTP method and Junos RPC to use. In this example, a POST request executes a single RPC containing the `<get-config>` command in the request body. Using POST allows specifying a subtree filter to retrieve only relevant portions of the device configuration. The server returns the filtered XML configuration data in the Response Body field, which an automation script can then analyze to determine which services are enabled on the device.
 	![[Pasted image 20250801232631.png]]
+
+<h2 style="color:#6290C3"><center> Automating Juniper Management Platform Using REST API </center></h2>
+- Juniper Management platforms are centralized points of network management that include software-defined networks (SDN), orchestrations, and network automation.
+	
+	- Network automation simplifies complex device configurations, reduces potential configuration errors, speed up troubleshooting and minimizes network down time, optimizes the network and the network services and abstracts away complexity in network architectures and automates workflows, creating consistency, accuracy, and agility.
+	
+- Juniper management platforms are cloud-based network automation products.
+	
+- [Juniper Mist Cloud]: A combination  of Artificial Intelligence (AI), Machine Learning (ML), and data science techniques to optimize user experiences and simplify operations across the wireless, wired, and software-defined WAN domains. 
+	![[Pasted image 20250805125318.png]]
+	- [Wireless Infrastructure]: Includes Juniper Edge and Juniper Series of High Performance Access Points.
+		![[Pasted image 20250805125229.png]]
+	- [Wired Infrastructure]: Includes Juniper Networks EX and QFX Series Switches that are designed for enterprise branch campus and data center deployment.
+		![[Pasted image 20250805125237.png]]
+	- [WAN Infrastructure]: Includes Juniper Sessions Smart Router and SRX Series Service Gateways. These solutions provide rich streaming telemetry that enables application health, WAN link health, and gateway health metrics and anomaly detection.
+		![[Pasted image 20250805125249.png]]
+		
+	- [Wi-fi Assurance]: A cloud service powered by Mist AI that uses ML to automate wireless operations. Automating Wireless operations makes the Wi-fi service reliable, and provides networks insights. The Juniper AP works wit the Juniper Mist Cloud architecture and Mist AI to collect and analyze metadata from all wireless clients in near real-time.
+		
+	- [Wired Assurance Cloud]: Uses cloud management and Mist AI to improve campus networks. This cloud service drives the campus network toward AI-powered operations, thereby enhancing experience for connected devices. Juniper Mist Cloud uses Mist AI to streamline deployment and management of networks by providing visibility into device performance. Wired Assurance helps IT teams identify and resolve network issues more quickly and thus focus on providing superior network experience.
+		
+	- [Mist WAN Assurance]: Makes network deployment and operation easier and enhances visibility into user experience. Using the data information from Mist AI, Session Smart Routers, and SRX series firewalls, this cloud service offers network automation and insights that enables you to quickly assess the health across an entire site, access points or clients.
+		
+	- [Juniper User Engagement]: Utilizes virtual Bluetooth Low Energy (BLE) and cloud-based ML to reduce deployment costs and enhance the precision of real-time indoor location services.
+		
+	- [Mist Asset Visibility]: Enables indoor location tracking of people, assets, and their movement by leveraging BLE technology.
+		
+	- [Mist IoT Assurance]: Streamlines IT operation while securing network connections for BYOD and IoT devices. This cloud service uses multi-preshared key (MPSK), or private preshared key (PPSK) as types of identity.
+		
+	- [Mist Premium Analytics]: A cloud-based subscriptions service that offer comprehensive network observability and business intelligence to IT and business users.
+		
+	- [Marvis]: An AI-driven conversational assistant.
+	
+- Juniper Mist Cloud receives input from different sources. The data input includes; device data from APs, Switches, and gateways for end-to-end insights; system configuration data from the network administrator; application data from clients using the Juniper Mist Software Development Kit (SDK).
+	
+- Juniper Mist Cloud provides a unified management dashboard for your entire network. Simplifies network monitoring, configuration, and trouble shooting for each component. Offers comprehensive visibility across the entire network. Juniper Mist Cloud services are programmable and the API enables network automation.
+	
+	- Juniper Mist API can control remote Juniper Mist network infrastructure using HTTP Request and Response.
+	
+- [Juniper Mist API Components]: Includes HTTP method, API endpoint URL, authorization token, and content type. 
+	
+	- HTTP Method field specifies the HTTP methods to perform CRUD operations.
+		
+	- API Endpoint URL field specifies the destination URL for the API request. The Mist REST API uses the Mist website for all HTTPS API endpoints. The endpoints vary by global region. The authentication Token is required to authenticate the API request. The header field indicates the format of the HTTP request.
+		![[Pasted image 20250805143557.png]]![[Pasted image 20250805143842.png]]
