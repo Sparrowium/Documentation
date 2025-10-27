@@ -1,8 +1,8 @@
-## Introduction
+<h2>Introduction</h2>
 
 - Juniper Networks is a company that develop and markets Networking product.
 
-## Certification
+<h2>Certification</h2>
 
 - [[JNCIA-Junos]]: Associate in Routing and Switching.
 	
@@ -10,6 +10,6 @@
 	
 - [[JNCIA-DevOps]]: Associate in DevOps and Automation.
 
-## Virtual Environment
+<h2>Virtual Environment</h2>
 
 - [[Junos Lab]]: Juniper Virtual Environment for emulating networking products.

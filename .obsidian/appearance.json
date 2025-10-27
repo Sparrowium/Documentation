@@ -1,8 +1,11 @@
 {
   "theme": "obsidian",
-  "cssTheme": "Comfort color dark",
+  "cssTheme": "Wombat",
   "enabledCssSnippets": [
-    "theme"
+    "theme",
+    "MCL Multi Column"
   ],
-  "baseFontSize": 24
+  "baseFontSize": 20,
+  "baseFontSizeAction": true,
+  "accentColor": ""
 }

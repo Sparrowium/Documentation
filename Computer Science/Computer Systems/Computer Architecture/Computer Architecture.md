@@ -2,8 +2,7 @@
 ## Inside Common Devices
 
 - [Desktop PC]: 
-	
-	
+
 	- Contains the mainboard/motherboard, which contains the essential parts of the computer including the Processor and main Memory. 
 		
 	- The mainboard aka **Printed Circuit Board** started off with an acid-proof fiberglass insulator board, completely covered with a layer of copper, then design the board in a CAD program, print it onto transparency, and shine light through transparency to selectively mask a light sensitive chemical on the board. After that, dip it into acid to remove the unmasked copper and the rest of the copper will become the wiring. You then solder the electronic components onto the appropriate location on the board. 

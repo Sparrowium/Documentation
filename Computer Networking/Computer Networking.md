@@ -1,7 +1,7 @@
 
 <h2 style="color:#6290C3"><center> Getting Started with Networking </center></h2>
 
-## How Networks Work
+<h2>How Networks Work</h2>
 
 - A network is a conduit that connects two or more computers or other devices.
 	
@@ -92,7 +92,7 @@
 - [Networking Addressing]: 
 	![[Pasted image 20250312221836.png]]
 
-## Building Ethernet LANs
+<h2>Building Ethernet LANs</h2>
 
 - [PC's]: Are also known as end user's devices, hosts.
 	
@@ -242,7 +242,7 @@
 			
 		- [The fragmentation threshold]: Specifies what size of packet should be split into fragments, and the fragment lifetime specifies how long fragments should be kept while waiting for related fragments to arrive.
 
-## Routing Basic
+<h2>Routing Basic</h2>
 
 - Small Router.![[Pasted image 20250320200248.png]]
 - Router in Network Diagram.![[Pasted image 20250320200313.png]]
@@ -283,7 +283,7 @@
 - [FDDI Format]: A format that was used after the router strip off the original frame format it through a default gateway.
 	![[Pasted image 20250322232105.png]]
 
-## IP Addressing
+<h2>IP Addressing</h2>
 
 - [Internet Protocol]: The most common Layer 3 protocol. Layer 3 addresses known as IP Addresses. The Internet protocol uses these addresses to transmit data from a source network device to a destination network device. It also performs other services such as fragmentation and reassembly of data.
 	
@@ -405,7 +405,7 @@
 - [Reserved Prefix]: 
 	![[Pasted image 20250401221925.png]]
 
-## WAN Technologies
+<h2>WAN Technologies</h2>
 
 - LANs are built, owned, and operated by individual companies and organizations. WANs are own by third-party service providers.
 	
@@ -540,7 +540,7 @@
 - [MPLS Services]: 
 	![[Pasted image 20250402214645.png]]
 
-## Transport Layer Protocol
+<h2>Transport Layer Protocol</h2>
 
 - Data get route to the correct computer with the help of IP and other lower layer protocols, such as Ethernet. The Transport Layer protocols is getting the data from one application program to the correct application program on another, it enable true end-to-end or application-to-application communication.
 	

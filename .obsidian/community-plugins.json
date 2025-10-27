@@ -1,4 +1,12 @@
 [
   "persistent-graph",
-  "change-case"
+  "change-case",
+  "obsidian-excalidraw-plugin",
+  "homepage",
+  "obsidian-git",
+  "obsidian-icon-folder",
+  "home-tab",
+  "simple-banner",
+  "dataview",
+  "typewriter-mode"
 ]

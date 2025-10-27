@@ -1,7 +1,7 @@
 Associate Routing and Switching.
 <h2 style="color:#6290C3"><center> Introduction </center></h2>
 
-## Advantages of Junos CLI
+<h2>Advantages of Junos CLI</h2>
 
 - [Junos OS]: Juniper Network Operating Systems for Junos Devices including Switches, Routers, and Firewalls. It manages the power and cooling of the chassis runs the protocols that power the network, and offers various different user interfaces that you can use to manages the device.
 	
@@ -53,7 +53,7 @@ Associate Routing and Switching.
 	
 	- It also contain separate hardware for processing transit traffic, and traffic that is destined to the device it self, such as traffic from protocols or management traffic. This gives you extra protection. If a routing protocol is overwhelmed, transit traffic continues to be forwarded.
 
-## Fixed-Port Chassis, Modular Chassis, and Routing Engine
+<h2>Fixed-Port Chassis, Modular Chassis, and Routing Engine</h2>
 
 - There are two broad categories of devices that run Junos OS. Fixed-Port Devices, Modular Devices.
 	
@@ -77,7 +77,7 @@ Associate Routing and Switching.
 	
 - Fixed port have only one routing engine, while Modular chassis may host spare RE with hot-swappable feature.
 
-## Juniper Product Set
+<h2>Juniper Product Set</h2>
 
 - Based on Unit Chassis, Feature Set, Ports.
 	
@@ -96,10 +96,10 @@ Associate Routing and Switching.
 - [Virtual Junos OS]: Used for Cloud Environments, Virtual Labs, Hardware Routers with Virtual Capabilities.
 
 <h2 style="color:#6290C3"><center> SSH and Operation Mode </center></h2>
-## Understanding the Network
+<h2>Understanding the Network</h2>
 
 - Internet connection is connected to the Router because the Router connect many subnets together while the switch connect devices within a subnet.
-## Using SSH to Remotely Connect to the Junos CLI
+<h2>Using SSH to Remotely Connect to the Junos CLI</h2>
 
 - Using Protocol, Username, Password, Router's IP Address.
 	
@@ -121,7 +121,7 @@ Associate Routing and Switching.
 		![[Pasted image 20250414185403.png]]
 	- If this warning appear when a device is already trusted. It could be a hardware fault, or a fake device. 
 
-## Junos CLI: Operation Mode
+<h2>Junos CLI: Operation Mode</h2>
 
 - Are the default mode if you SSH with a non-root username. You can verify and troubleshoot almost anything in operational mode, this includes clear statistics and perform administrative tasks such as rebooting the device. Whenever the CLI program ends in a **greater-than sign (>) you are in operational mode**, you will also get a new blank shell prompt every time you press the return key.
 	
@@ -160,7 +160,7 @@ Associate Routing and Switching.
 - [LLDP]: Link Layer Discovery Protocol. Discovers directly connected devices. Devices can send LLDP messages to advertise their hostname, port-names, macs, poe, vendor name, ...
 	![[Pasted image 20250414193413.png]]
 
-## CLI Built-in Command Reminders, Auto-Completion, Junos Hierarchy
+<h2>CLI Built-in Command Reminders, Auto-Completion, Junos Hierarchy</h2>
 
 - Pressing up and down to browse your command history.
 	
@@ -173,7 +173,7 @@ Associate Routing and Switching.
 - Everything in Junos is hierarchical.
 
 <h2 style="color:#6290C3"><center> Network Interfaces </center></h2>
-## Junos Interface Naming Convention
+<h2>Junos Interface Naming Convention</h2>
 
 - [Network Interface]: Process all incoming and outgoing network traffic-including traffic due to the device as well.
 	
@@ -191,7 +191,7 @@ Associate Routing and Switching.
 	![[Pasted image 20250415151116.png]]
 - The interface naming scheme is used on all Junos devices. Every single devices has one consistent naming convention, this also includes devices without line cards.
 
-## The show interface terse Command 
+<h2>The show interface terse Command</h2>
 via Operational Mode
 
 - [MTU]: Maximum Transmission Unit, the largest size packet or frame allowed on an interface.
@@ -224,7 +224,7 @@ via Operational Mode
 - Type `show interfaces descriptions` to add text descriptions to physical interfaces and logical units.
 	![[Pasted image 20250415155904.png]]
 
-## Reading show interfaces Command Output
+<h2>Reading show interfaces Command Output</h2>
 via Operational Mode
 
 - Type `show interfaces`. The output is split into 2 section. 
@@ -236,7 +236,7 @@ via Operational Mode
 	
 - Type `show interfaces extensive`, will show you everything about an interface. This includes status, traffic stats, traffic port priority, error counters, ip settings, and more. But it is recommended for troubleshooting, logging, and monitoring.
 
-## Filtering Output with CLI Pipe
+<h2>Filtering Output with CLI Pipe</h2>
 
 - Ex: `show interfaces terse | ?`
 	
@@ -256,7 +256,7 @@ via Operational Mode
 - In Junos you can **pipe as much as you want**.
 
 <h2 style="color:#6290C3"><center> Reading a Junos Configuration </center></h2>
-## Hierarchy View and Set View
+<h2>Hierarchy View and Set View</h2>
 
 - [Active Configuration]: The configuration that is currently running/"active" on the device. This config is stored in a database but it is viewed as a text file. 
 	
@@ -308,7 +308,7 @@ via Operational Mode
 - By reading a configuration file in set view, you're learning the exact same configuration statements you'll type to configure the device. By reading a configuration file in hierarchy view, you're learning the actual structure and layout of the configuration. It is best to learn and master both type of view.
 
 <h2 style="color:#6290C3"><center> Configuring JunOS </center></h2>
-## The JunOS Candidate Configuration
+<h2>The JunOS Candidate Configuration</h2>
 
 - Junos Configuration is done in configuration mode, the config is written into a text file and it is stored in a separate location called the Candidate Configuration.
 	
@@ -324,7 +324,7 @@ via Operational Mode
 	![[Pasted image 20250501191744.png]]
 - [Scrapping Proposed Changes]: Type `rollback`.
 	![[Pasted image 20250501192542.png]]
-## Utilizing the Commit and Rollback Commands
+<h2>Utilizing the Commit and Rollback Commands</h2>
 
 - [Deploying Changes]: Type `commit` or `commit and-quit` to exit to Operational Mode.
 	![[Pasted image 20250501192903.png]]
@@ -367,7 +367,7 @@ via Operational Mode
 	![[Pasted image 20250501203005.png]]
 - [Running Operational Commands in Configuration]: Type `run`, useful for prototyping/probing in home-labs cases, avoid in production.
 	![[Pasted image 20250501203516.png]]
-## Way To Lock the Candidate Configuration
+<h2>Way To Lock the Candidate Configuration</h2>
 
 - The candidate configuration is shared among user's. Many engineers can add configuration at the same time, meaning a bigger change. When another user enter the candidate configuration, the system will automatically display all user that is currently in the candidate configuration.
 	
@@ -379,7 +379,7 @@ via Operational Mode
 	![[Pasted image 20250504175836.png]]![[Pasted image 20250504175955.png]]
 	- [Commit at a Different Time]: Type `commit at` to deploy the commit at a chosen time. To clear the pending commit type `clear system commit`.
 	![[Pasted image 20250504180154.png]]
-## Deactivate and Disabling Different Pieces of the Configuration 
+<h2>Deactivate and Disabling Different Pieces of the Configuration</h2>
 
 - [Disabling a Physical Interface]: Can be as easy as unplug the cables or turn it off and on again. Another method would be shut it down through configuration known as putting the interface into an "admin-down" state `set [content] disable`.
 	![[Pasted image 20250504180537.png]]
@@ -399,7 +399,7 @@ via Operational Mode
 	![[Pasted image 20250504183113.png]]
 - Reminder: Use `rollback` if the configuration goes out of hand.
 	![[Pasted image 20250504183203.png]]
-## Deploying Configuration within a Hierarchy
+<h2>Deploying Configuration within a Hierarchy</h2>
 
 - [Using Hierarchy to Deploy Shorter Commands]: Type `edit [hierarchy-level]` to edit at a deeper hierarchy, this will short up commands.
 	![[Pasted image 20250504193046.png]]
@@ -409,7 +409,7 @@ via Operational Mode
 	![[Pasted image 20250504193422.png]]
 	- `commit` is unaffected in terms of hierarchy's depth. But in `configure private` mode, `commit` is only allowed at the top of the hierarchy level.
 	![[Pasted image 20250504193619.png]]
-## Using rename and replace Commands to Edit the Configuration
+<h2>Using rename and replace Commands to Edit the Configuration</h2>
 
 - [rename]: Changes one occurrence of a user-defined element in the configuration. 
 	![[Pasted image 20250504194301.png]]
@@ -418,7 +418,7 @@ via Operational Mode
 	- It is used to change the names of firewall filters and policies that apply to routing protocols. It is also used to search for an incorrect IP and subnet mask and replace it with the correct IP and subnet mask.
 	
 - In large routers that host services for multiple customers, `rename` is the preferred method in case of IP overlap used by customers.
-## Keyboard Shortcuts
+<h2>Keyboard Shortcuts</h2>
 
 - Useful Keyboard short cut.
 	![[Pasted image 20250504195803.png]]
@@ -432,7 +432,7 @@ via Operational Mode
 	![[Pasted image 20250504200157.png]]
 
 <h2 style="color:#6290C3"><center> Routing Tables, Route Preference, and Longest Prefix Matches </center></h2>
-## Directly Connected, Static, and Dynamics Routes
+<h2>Directly Connected, Static, and Dynamics Routes</h2>
 
 - Routes define how to get to a destination. As such they are the combination of a subnet, and knowledge of how to get to that subnet. Routes contains information for what is known as the "next hop" in the path, destination subnet, outgoing interface, IP address of the next-hop router.
 	
@@ -469,7 +469,7 @@ via Operational Mode
 	- Other protocols are much slower to react to changes, but this is a good thing because it gives them the ability to learn multiple routes to every single subnet on the public internet.
 		
 	- Four well known protocols: OSPF, IS-IS, BGP, RIP.
-## Route Preference
+<h2>Route Preference</h2>
 
 - When a router learns how to get to a subnet, engineers call the subnet a "prefix". This is a more precise word to describe a block of IPs, specifically in the context of routing.
 	
@@ -492,7 +492,7 @@ via Operational Mode
 	- If the Direct route goes down, other routes will be used for forwarding.
 		
 	- It is important to use **numerically lowest route preference**.
-## Longest Prefix Match Lookup
+<h2>Longest Prefix Match Lookup</h2>
 
 - You can divide the subnet into even smaller subnets.
 	![[Pasted image 20250513195141.png]]
@@ -504,7 +504,7 @@ via Operational Mode
 	![[Pasted image 20250513195916.png]]
 	
 - [Forwarding Table]: Responsible for looking up the destination IP of incoming packets, and deciding how to forward it. The forwarding table is create by importing all of the active routes in the routing table and ports it onto the forwarding table. Junos utilize the routing table and then decide the best path and give it to the forwarding table, where transit traffic is actually processed.
-## The inet.0 and inet.6 Routing Tables
+<h2>The inet.0 and inet.6 Routing Tables</h2>
 
 - The table `inet.0` contains all known IPv4 prefixes, learned from all protocols, and the table `inet6.0` performs the same job for IPv6 prefixes. Tables names like `inet.1`, `inet.2`, `inet.3`, and so on are used in more advanced networks such as networks that use multicast or MPLS (multi-protocol label switching).
 	
@@ -525,7 +525,7 @@ via Operational Mode
 	- Noted that `/64` give the first half for network portion, second half for host identifiers. `/128` refers to a specific host address, since IPv6 is 128 bits long.
 
 <h2 style="color:#6290C3"><center> Static Routes </center></h2>
-## Advantages and Trade-offs
+<h2>Advantages and Trade-offs</h2>
 
 - Advantages: Simple to create, easy to understand, useful in small networks, ideal if there is only one path to the destination prefix.
 	
@@ -546,7 +546,7 @@ via Operational Mode
 	- Low-Powered Routers.
 		
 	- Situations where there is only one path to a destination.
-## Configuration and Verification
+<h2>Configuration and Verification</h2>
 
 - [ping]: Type `ping` to test connectivity at the end of the link. Pings are very small packets that gives you the visibility of whether end-to-end connectivity is successful.
 	
@@ -564,7 +564,7 @@ via Operational Mode
 	
 - [IPv6 Routing Syntax]: Type `set routing-options rib inet6.0 static route [ip address] next-hop [ip address]`.
 	![[Pasted image 20250513222631.png]]
-## Default Routes
+<h2>Default Routes</h2>
 
 - Two prefixes that contains every single IP address possible for IPv4 and IPv6:
 	![[Pasted image 20250513223039.png]]
@@ -584,7 +584,7 @@ via Operational Mode
 	![[Pasted image 20250513224044.png]]
 
 <h2 style="color:#6290C3"><center> Dynamic Router </center></h2>
-##  Routing Protocols, and The Problem They Solve
+<h2>Routing Protocols, and The Problem They Solve</h2>
 
 - The advantages:
 	
@@ -603,7 +603,7 @@ via Operational Mode
 	- Second, routing protocols use up more of your router's CPU and memory resources, when compared to static routes.
 		
 	- Third, it may not be necessary to run a routing protocol in a very small network, or if you only have one path to a remote subnet.
-## Interior and Exterior Gateway Protocols
+<h2>Interior and Exterior Gateway Protocols</h2>
 
 - There are protocols for different situations, with different advantages.
 	
@@ -621,7 +621,7 @@ via Operational Mode
 - [Link-State Protocols]: Offer more features and intelligence. These protocols learn the topology of the network, including the speed of the links. This gives them the ability to find the best path based on this network visibility. They care about the number of hops, but also how believable those hops are. Given the choice between a path with fast links and more hops, or slow links and less hops, a link-state protocol is very likely to choose the path that offers more bandwidth.
 	
 - [RIP (Routing Information Protocols)]: First routing protocols.
-## Link-State Protocols
+<h2>Link-State Protocols</h2>
 
 - Each routers generates and advertises data about its place in the network such as the prefixes connected to that router, and the connections it has to other routes. They can be refer as "jigsaw pieces", and if all "jigsaw pieces" do the same thing, the results is that each router can put the pieces together and form the full topology back together.
 	
@@ -648,7 +648,7 @@ via Operational Mode
 	- Both protocols use "jigsaw pieces" to build a full view of the topology, assign metrics to links so the SPF algorithm can calculate loop-free paths, can react quickly to topology changes (despite being slow on default, config is needed), have ways of dividing large networks into smaller topologies (useful for small, less powerful router).
 		
 	- OSPF calls "jigsaw pieces" LSAs (Link-State Advertisements), IS-IS calls them LSPs (Link-State PDUs (Protocol data unit/chunk of data)).
-## Configuring and Verifying a Basic IPv4 OSPF Deployment
+<h2>Configuring and Verifying a Basic IPv4 OSPF Deployment</h2>
 
 - Deleting Static Routes
 	![[Pasted image 20250515204506.png]]
@@ -691,7 +691,7 @@ via Operational Mode
 	
 - Use `passive` keyword to enable OSPF without hello messages.
 	![[Pasted image 20250515212827.png]]
-## Configuring and Verifying a Basic IPv6 OSPF Deployment
+<h2>Configuring and Verifying a Basic IPv6 OSPF Deployment</h2>
 
 - IS-IS can advertise both IPv4 and IPv6. OSPFv2 Advertise IPv4 only via `ospf`. OSPFv3 advertise both or separated via `ospf3`.
 	
@@ -709,14 +709,14 @@ via Operational Mode
 	![[Pasted image 20250515214003.png]]
 
 <h2 style="color:#6290C3"><center> Junos OS Switches </center></h2>
-## Introduction
+<h2>Introduction</h2>
 
 - The Switches usually has 3 PIC, PIC 0 and PIC 2 are in the front, PIC 3 are in the back and mostly used for VC (Virtual Chassis).
 	
 - [VC (Virtual Chassis)]: Gives you the ability to configure two or more switch as if they were one logical switch, with one management IP and one configuration. 
 	
 - The T in "EX4300-24T", means Copper Twisted Pair Ports.
-## Configuring and Verifying VLANs
+<h2>Configuring and Verifying VLANs</h2>
 
 - All Modern Jun OS switches are Layer 3, which means that they have the capabilities to forward traffic on both Layer 2 (Ethernet) and Layer 3 (IP). 
 	
@@ -738,7 +738,7 @@ via Operational Mode
 	![[Pasted image 20250520092935.png]]
 - Type `set vlan {vlan name} vlan-id {number}` to configure a VLAN.
 	![[Pasted image 20250520093713.png]]
-## Configuring Access Port and Verifying MAC Tables
+<h2>Configuring Access Port and Verifying MAC Tables</h2>
 
 - [Access Port]: When a physical ports belong to only one VLAN. By default all port on a switch are access port.
 	![[Pasted image 20250520094628.png]]![[Pasted image 20250520094712.png]]
@@ -747,7 +747,7 @@ via Operational Mode
 - Type `show ethernet-switching table` to view all MACs on all ports, on all VLANs.
 	![[Pasted image 20250520095455.png]]![[Pasted image 20250520095229.png]]
 	- Noted that "D" in the MAC Flags column stands for dynamic, which means that all MAC address are learned by listening to incoming traffic.
-## Trunk Ports
+<h2>Trunk Ports</h2>
 
 - [Trunk Ports]: Belongs to multiple VLANs at once, and traffic in and out of the trunk port is tagged with relevant VLAN number. The tags map incoming frames to the relevant VLAN-and therefore, the relevant broadcast domain.
 	
@@ -765,7 +765,7 @@ via Operational Mode
 	
 - When it comes to Link Layer Discovery Protocol. They are enabled by default on all interfaces. Switches comes with LLDP by default because there are some hosts that rely on LLDP information to automatically configure their network settings in the most optimal way.
 	![[Pasted image 20250520105440.png]]
-## Configuring Multiple Logical Unit on IP Interfaces
+<h2>Configuring Multiple Logical Unit on IP Interfaces</h2>
 
 - Verifying The Router LAN configuration.
 	![[Pasted image 20250520110010.png]]
@@ -784,7 +784,7 @@ via Operational Mode
 - [Port Security and Storm Control]: It shutdown switch port if certain conditions are met.
 	
 - [Link Aggregation Group (LAG)]: Increase bandwidth by bundling multiple cables into one logical link.
-## Juniper EX and QFX Switches
+<h2>Juniper EX and QFX Switches</h2>
 
 - [EX Series Switches]: High performance devices that can sit at the access layer and at the aggregation/core layer. These switches are "cloud ready", meaning they can be utilize by Mist AI.
 	![[Pasted image 20250520141655.png]]![[Pasted image 20250520141702.png]]
@@ -799,7 +799,7 @@ via Operational Mode
 - [Marvis]: A natural language interface that is powered by AI.
 
 <h2 style="color:#6290C3"><center> Jun OS Device Configuration </center></h2>
-## Out-of-Band Management Interfaces
+<h2>Out-of-Band Management Interfaces</h2>
 
 - [In-Band-Management Traffic]: This means that your SSH traffic shares the same network as your data traffic. This is fine when your network is healthy. Indeed, the majority of SSH sessions are usually in-band.
 	
@@ -824,7 +824,7 @@ via Operational Mode
 	- Second, you could connect the management interface into a separate, dedicated internet connection. This solution is useful when you can only access your device remotely. This options comes with an additional expense for the cost of the WAN link, and potentially with the cost of an additional router to terminate the WAN connection, and potentially a firewall to offer additional security-but depending on how crucial this device is, the cost may be worth it.
 		
 	- Third, you could connect the management interface to a separate management LAN. This is a good option if you have a lot of devices that have dedicated management interfaces. It is also goof choice if you have multiple devices that deal with management in some way.
-## Accurate Time on a Jun OS Device
+<h2>Accurate Time on a Jun OS Device</h2>
 
 - Internal logs and configuration changes all have timestamps-and this information is crucial to troubleshooting process. By contrast, when the device is working off of an incorrect time, this incorrect time will be stored with every commit on the box. This would make it much more difficult to establish if a particular commit caused the network fault-especially if you are troubleshooting across multiple devices, each with a slightly different time.
 	
@@ -843,7 +843,7 @@ via Operational Mode
 - Type `show system uptime` and `show ntp associations` to verify the configured time.
 	![[Pasted image 20250520205547.png]]![[Pasted image 20250520205720.png]]
 	- The `st` column, which is short for stratum. This is the number of NTP servers you are away from an authoritative atomic clock. The lower the better.
-## DNS Solution Process
+<h2>DNS Solution Process</h2>
 
 - [DNS]: Domain Name System, a distributed database that translate domain names to IP addresses and vice versa.
 	
@@ -857,7 +857,7 @@ via Operational Mode
 	![[Pasted image 20250520210829.png]]
 	- Use `ping` to test the responsiveness.
 	![[Pasted image 20250520210844.png]]
-## Creating User Account
+<h2>Creating User Account</h2>
 
 - Showing user account.
 	![[Pasted image 20250520212543.png]]
@@ -871,7 +871,7 @@ via Operational Mode
 	![[Pasted image 20250520213430.png]]
 - Type `set system login user employee authentication {password type}` to change existing password on a user. It also require a confirmation by typing the same password again.
 	![[Pasted image 20250520213548.png]]
-## Setting User Permissions
+<h2>Setting User Permissions</h2>
 
 - [Login Classes]: Collection of permissions that you assign to user, to permit or restrict access to any part of your device.
 	![[Pasted image 20250520214631.png]]
@@ -887,7 +887,7 @@ via Operational Mode
 	
 - Type `set system login user {username} class {class options} authentication {password type}` to configure a user privileges. 
 	![[Pasted image 20250520215542.png]]
-## J-Web Graphical Interface
+<h2>J-Web Graphical Interface</h2>
 
 - A graphical interface that offers management and monitoring. It has less feature than the CLi, but it is more simplistic and easier to use.
 	![[Pasted image 20250520220401.png]]
@@ -904,7 +904,7 @@ via Operational Mode
 - To verify type `https://` or `https://` along with the IP address of the interface you are using to access J-Web.
 
 <h2 style="color:#6290C3"><center> Setting Up Brnad New Junos Device </center></h2>
-## Default Junos Configuration
+<h2>Default Junos Configuration</h2>
 
 - Each platform comes with different default settings from the factory. You must log in, read the default config, and choose that to change
 	
@@ -913,7 +913,7 @@ via Operational Mode
 - Some devices come pre-configured with protocols that make sens only on that platform.
 	
 	- Switches usually comes with RSTP (Rapid Spanning Tree Protocol) preconfig to prevent loops on Layer 2.
-## Using the Console Port, and Implementing the Mandatory Configuration on Jun OS Devices
+<h2>Using the Console Port, and Implementing the Mandatory Configuration on Jun OS Devices</h2>
 
 - Connect to the CLI using the console port, using a special cable called console cable, and sometimes called a serial cable.
 	![[Pasted image 20250522165433.png]]
@@ -942,7 +942,7 @@ via Operational Mode
 	- Type `exit` will log out of Junos CLI and brought you back to UNIX Shell. Type it again will log out completely.
 	
 - Root password must be establish before configuring the system.
-## Recommended Initial System Settings
+<h2>Recommended Initial System Settings</h2>
 
 - Some useful settings for new device.
 	![[Pasted image 20250522171352.png]]
@@ -969,7 +969,7 @@ via Operational Mode
 		- If you have a modular chassis with two routing engine, use the command `request system halt both-routing-engines`. This will shut the primary RE then the backup RE.
 		
 	- Another options is to `request system power-off`, which you can do remotely if the device have a physical button. If not it will remain the same status as `request system halt` and remain powered.
-## Zero Touch Provisioning
+<h2>Zero Touch Provisioning</h2>
 
 - [ZTP (Zero Touch Provisioning)]: A way for a new Junos device to automatically find a server on a network that can tell it how to get a configuration file, and whether there is a new version of Junos that it can upgrade to. If there is, then the ZTP server will reply with the requested info.
 	
@@ -992,7 +992,7 @@ via Operational Mode
 	- Using these DHCP options, a DHCP server can communicate everything that is needed. To be clear, the software and the configuration does not need to be on the DHCP server itself. Instead, these pieces are usually hosted elsewhere in the network.
 
 <h2 style="color:#6290C3"><center> Junos OS Architecture </center></h2>
-## The Routing Engine
+<h2>The Routing Engine</h2>
 
 - A routing engine is a regular computer that has CPU and Memory. It performs a variety of tasks such as running and maintains monitoring, management, system settings, chassis settings, protocols, and more.
 	![[Pasted image 20250522203019.png]]![[Pasted image 20250522203043.png]]
@@ -1000,7 +1000,7 @@ via Operational Mode
 	
 - The RE is not responsible for processing transit traffic, but only for creating and maintaining the forwarding table.
 	![[Pasted image 20250522203537.png]]
-## The Packet Forwarding Engine
+<h2>The Packet Forwarding Engine</h2>
 
 - [PFE (Packet Forwaring Engine)]: The pieces of infrastructure that have designed to forward traffic in the most optimal way. The PFE performs Layer 2 (Ethernet) and Layer 3 (IP) packet switching, frame switching, lookups, data manipulation, and packet forwarding. The PFE chooses the next-hop for incoming traffic, it rewrites and manipulates packet and frame headers as needed at lightning speed.
 	
@@ -1025,7 +1025,7 @@ via Operational Mode
 - Broadly and Specifically of PFEs:
 	![[Pasted image 20250522211915.png]]
 	- Sometimes, you will hear the term "PFE Complex". In fact, advancements in hardware mean that some ASICs nowadays are "sliced" into two. Each receives a copy of the forwarding table, and each slice offers its own dedicated bandwidth.
-## Transit Traffic and Exception Traffic
+<h2>Transit Traffic and Exception Traffic</h2>
 
 - [Line Card CPU]: Responsible for managing the components on that PFE, and for connecting the PFE to the Routing Engine. It sends counters, status, and logs up to the RE, and receives the copy of the forwarding table from the RE. The line card CPU will install it into all of the ASICs that it controls on that line card. In other words, if a lie card had multiple forwarding ASIC chips, this one CPU would be responsible for managing all of them.
 	
@@ -1045,7 +1045,7 @@ via Operational Mode
 	
 - Useful Exception Traffic Knowledge:
 	![[Pasted image 20250522213903.png]]
-## FreeBSD and How It Relates to Junos OS
+<h2>FreeBSD and How It Relates to Junos OS</h2>
 
 - Junos OS is based on FreeBSD kernel. The code is based on FreeBSD, and runs on top of FreeBSD.
 	
@@ -1058,7 +1058,7 @@ via Operational Mode
 	- Second, when you upgrade Junos, there is an option to roll back to a previously installed version of Junos. However, this options is sometimes removed then the underlying FreeBSD kernel also been upgraded. If the underlying FreeBSD kernel has radically changed, then Junos rollback may not be possible.
 		
 	- Third, sometimes FreeBSD version change is so significant that you may need to do incremental upgrades to get from one Junos version to another.
-## Junos OS Daemons
+<h2>Junos OS Daemons</h2>
 
 - [Daemons]: Background process that always runs. These individual processes each run in their own protected memory space, which mean that a failure of one daemon will not affect the rest of the system. Indeed, individual daemon can be restarted, which is more convenient than restarting the entire device.
 	
@@ -1079,7 +1079,7 @@ via Operational Mode
 - [snmpd]: Simple Network Management Protocol Daemon. Generates SNMP message that can be sent to external monitoring systems.
 	
 - [ppmd]: Periodic Packet Management Daemon. Process that enables the line card CPU to handle some trivial tasks that were once exclusively the job of the Routing Engine.
-## Junos OS Evolved
+<h2>Junos OS Evolved</h2>
 
 - FreeBSD is replaced with Linux. Not tied to underlying hardware. Can be integrate with third-party applications since it run on hypervisor Linux.
 	
@@ -1087,7 +1087,7 @@ via Operational Mode
 	![[Pasted image 20250522221507.png]]
 
 <h2 style="color:#6290C3"><center> Logging, Troubleshooting, and Monitoring </center></h2>
-## Viewing Log Files
+<h2>Viewing Log Files</h2>
 
 - [Syslog]: A way of logging events on Unix-like systems. There are three broad elements to creating a syslogs:
 	
@@ -1125,7 +1125,7 @@ via Operational Mode
 	![[Pasted image 20250527162309.png]]
 	- Or you can send logs directly to the CLI using the `user` option.
 	![[Pasted image 20250527162318.png]]
-## Network Connectivity Troubleshooting Commands
+<h2>Network Connectivity Troubleshooting Commands</h2>
 
 - Adding the keyword `rapid` to the `ping {ip address}` to send many rapid pings in a very quick succession. This will send the next ping as soon as a reply has been received for the previous ping. If a response is not received, Junos waits up to a maximum of 500ms before declaring the ping has timed out, and then sending the next ping.
 	![[Pasted image 20250527163014.png]]
@@ -1154,7 +1154,7 @@ via Operational Mode
 	- For IPv6 type `show ipv6 neighbors` to check IPv6/MAC bindings. THis reveals all MACs learned via NDP.
 	![[Pasted image 20250527185849.png]]
 - SSH from Junos itself. 
-## Viewing Live Traffic Statistics and Exception Traffic
+<h2>Viewing Live Traffic Statistics and Exception Traffic</h2>
 
 - Type `monitor interface traffic` to show live traffic stats across all interfaces and will help you find the one interface that requires further exploration.
 	![[Pasted image 20250527190305.png]]
@@ -1167,7 +1167,7 @@ via Operational Mode
 	- In addition, you can also use the `write-file {file name}` options to save the packets to a packet capture file, so that you can export it to your computer and open it up in a packet capture viewer such as Wireshark.
 		
 	- By default, Junos will try to be helpful by performing a reverse DNS lookup search on any IPs to find their hostname. It is recommended that you turn this off using the `no-resolve` option in the command. This will speed up your output.
-## Built-in Help Documents
+<h2>Built-in Help Documents</h2>
 
 - Type `help apropos {keyword}` to reveal every single command that contains your keyword. 
 	![[Pasted image 20250527191519.png]]
@@ -1177,7 +1177,7 @@ via Operational Mode
 	![[Pasted image 20250527191853.png]]
 
 <h2 style="color:#6290C3"><center> Junos OS Firewall Filters </center></h2>
-## Stateful Security Policies and Stateless Firewall Filters
+<h2>Stateful Security Policies and Stateless Firewall Filters</h2>
 
 - [Stateful Traffic Rules]: It have the ability to look across multiple packets to understand which packets belong to the same session (called a flow in Junos).
 	![[Pasted image 20250527201332.png]]
@@ -1196,7 +1196,7 @@ via Operational Mode
 	- In fact, stateless rules are rarely used to control every single aspect of the traffic flow through a device. This is really the function and purpose of a firewall, rather than a router or a switch. Instead, you use stateless rules to perform "quick and easy" filtering. Meaning that there is no need for extensive data processing here, or to keep track of some kind of stable table, just drop it and move on.
 	
 - Stateful rules are called security policies as they are created under a dedicated `security` configuration. Stateless rules are called firewall filters, as they are configured under a dedicated `firewall` hierarchy.
-## Firewall Filter Terms, and the Actions They Take on Packets
+<h2>Firewall Filter Terms, and the Actions They Take on Packets</h2>
 
 - Basically just a tons of `if/then` statements, but in Junos they are `from/then` statements. Each statement is called a `term`, a firewall can contain as many terms as you like, each term is processes from top to bottom.
 	![[Pasted image 20250527205402.png]]
@@ -1218,12 +1218,12 @@ via Operational Mode
 	![[Pasted image 20250527211111.png]]
 	- However, if you were to configure both `log` and `next term` then the traffic would be logged, but the processing would continue to the next term. You could use this to log a wide range of traffic, regardless of whether another term decides to accept or deny it.
 	![[Pasted image 20250527211309.png]]
-## Processing Terms in a Firewall Filter
+<h2>Processing Terms in a Firewall Filter</h2>
 
 - Firewall filters are made active by applying them to an interface. You can either apply them inbound or outbound. When a firewall filter is active, every single packet is inspected against each individual term in the filter. This happens in the order that the terms are configured, from the first filter to the last.
 	
 - If an interface has a firewall filter applied to it in a particular direction, then every packet in that direction will be inspected against the firewall filter. If a packet does not match any term, it will be dropped. This is because firewall have an implicit term at the very end which matches all traffic, and has an action of `discard`. If you want to allow all other traffic, you will need to configure an explicit final term with an action of `accept`.
-## Junos OS Firewall Filter Configuration
+<h2>Junos OS Firewall Filter Configuration</h2>
 
 - All stateless filters are configured within the `firewall` hierarchy. Within that you configure the firewall filter within the address `family` of your choosing. This is very help for keeping tour filters organized. It also means Junos will only offer you match conditions that make sense for that address family. The firewall filter is then given a unique name of tour choosing.
 	![[Pasted image 20250527213245.png]]
@@ -1259,13 +1259,13 @@ via Operational Mode
 	
 - Type `show firewall counter {counter name} filter {filter name}` as an alternative to verify your traffic via counter. 
 	![[Pasted image 20250527220227.png]]
-## The insert Command
+<h2>The insert Command</h2>
 
 - Use `insert family {ip version} filter {filter name}` to move terms within a filter. You use it in combination with the `before` and `after` keyword to insert the term before or after any other term of your choice.
 	![[Pasted image 20250527220624.png]]
 
 <h2 style="color:#6290C3"><center> Configuring JunOS: A Deeper Dive </center></h2>
-## Annotate, Lock, and Redact Parts of the Configuration
+<h2>Annotate, Lock, and Redact Parts of the Configuration</h2>
 
 - Type `show configuation | no-more` to list all of the output of the command at once, without pressing the keyboard to reveal further lines.
 	![[Pasted image 20250529144902.png]]
@@ -1279,7 +1279,7 @@ via Operational Mode
 	![[Pasted image 20250529150700.png]]
 - Type `annotate {content} {text}` to comment a portions of the hierarchy.
 	![[Pasted image 20250529150754.png]]
-## Creating and Managing Files
+<h2>Creating and Managing Files</h2>
 
 - Type `file list` to show all the files currently in the home directory. 
 	![[Pasted image 20250529151034.png]]
@@ -1299,7 +1299,7 @@ via Operational Mode
 	
 - Type `file copy {source file} {destination folder}` to copy a source file and send it to the destination folder using either FTP (File Transfer Protocol) or SCP (Secure Copy).
 	![[Pasted image 20250529161123.png]]
-## Using load Commands for Larger Configurations
+<h2>Using load Commands for Larger Configurations</h2>
 
 - Type `load override terminal` to past hierarchical configuration directly to the CLI. The word `override` means that this command completely replaces the existing candidate configuration with your new configuration. The word `terminal` means that you are using the CLI to paste your configuration into the device.
 	![[Pasted image 20250529162147.png]]
@@ -1311,7 +1311,7 @@ via Operational Mode
 	
 - Type `load {command} terminal` to load bulk command into the CLI and bypass the syntax checking.
 	![[Pasted image 20250529163938.png]]
-## Automating Aspects of a Junos OS Configuration
+<h2>Automating Aspects of a Junos OS Configuration</h2>
 
 - Type `set system archival configuration {options}` to automatically back up configurations to an external server. The `transfer-on-commit` or `transfer interval` options save the configuration to the backup server whenever you commit the changes. `archive-sites {server address} password {password}` options save the configuration to the backup server of your choosing.
 	![[Pasted image 20250529164554.png]]
@@ -1333,7 +1333,7 @@ via Operational Mode
 	![[Pasted image 20250529172352.png]]
 
 <h2 style="color:#6290C3"><center> Interfaces: A Deeper Dive </center></h2>
-## IRB and Loopback Interfaces
+<h2>IRB and Loopback Interfaces</h2>
 
 - [Loopback Interfaces]: A virtual interface that is always up. You can give it an IP address, and you can then advertise this IP address in tour routing protocol of choice. Syntax 
 	![[Pasted image 20250619100157.png]]
@@ -1359,7 +1359,7 @@ via Operational Mode
 	![[Pasted image 20250619104730.png]]
 	- Verifying IRB in VLAN via `show vlans {vlan name} detail`.
 	![[Pasted image 20250619104839.png]]
-## Primary and Preferred IP Address
+<h2>Primary and Preferred IP Address</h2>
 
 - Pipe `find inet | except cache` to filter out unimportant information and focuses on the addresses only.
 	![[Pasted image 20250619155428.png]]
@@ -1369,7 +1369,7 @@ via Operational Mode
 	
 - Add the tags/keyword `preferred/primary` to the configuration to override the default behavior and set your own preferences.
 	![[Pasted image 20250619155546.png]]
-## Load Balancing and Link Aggregation Groups
+<h2>Load Balancing and Link Aggregation Groups</h2>
 
 - If two routes have equally conditions, the routes preferences are randomized. This only happen on a per-prefix basis.
 	
@@ -1391,7 +1391,7 @@ via Operational Mode
 	![[Pasted image 20250619162601.png]]
 
 <h2 style="color:#6290C3"><center> APIs and Automation </center></h2>
-## XML APIs
+<h2>XML APIs</h2>
 
 - [API (Application Programming Interface)]: An API enables software to interact with other software processes. 
 	
