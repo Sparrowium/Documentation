@@ -15,13 +15,14 @@ This is an official documentation where I will demonstrate my understanding and 
 ---
 >[!multi-column]
 >
->>[!Computer]+ Topics
->>[[Computer]]
->>[[Computer Science]]
->>[[Computer Engineering]]
->>[[Computer Networking]]
+>>[!note]+ Science
+>>[Concepts](./Computer%20Science/Concepts/Computer%20Science.md)
+>>[Resources](./Computer%20Science/Resources/)
 >
->>[!]
+>>[!note]+ Engineering
+>>[Concepts](./Computer%20Engineering/Concepts/Computer%20Engineering.md)
+>>[Resources](./Computer%20Engineering/Resources/)
+
 
 
 
