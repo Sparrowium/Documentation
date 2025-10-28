@@ -15,6 +15,7 @@
 - [Computer Hardware Engineer]: An engineer or architect who encompass the electronics engineering and electrical engineering fields, with subspecialities in analog, digital, or electromechanical systems.
 	
 - [Computer Software Engineer]: An engineer who applies a software development process, which involves defining, implementing, testing, managing, and maintaining software systems, as well as developing the software development process itself.
+
 <h2>Specialty Areas</h2>
 
 - [[Processor Design]]: A subfield of computer science and computer engineering that deals with creating processor, a key component of computer hardware.

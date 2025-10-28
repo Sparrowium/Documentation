@@ -1,7 +1,8 @@
-## Basic
+<h2>Basic</h2>
 
 Theoretical Computer Science is mathematical and abstract in spirit, but it derives its motivation from practical and everyday computation. It aims to understand the natures of computation and, as a consequence of this understanding provide more methodologies.
-### Sub-Fields and Topics
+
+<h3>Sub-Fields and Topics</h3>
 
 - [[Algorithms]]: An algorithm is a step-by-step procedure for calculations. Algorithms are used for calculation, data processing, and automated reasoning. It is an effective method expressed as a finite list of well-defined instructions for calculating a function.
 	

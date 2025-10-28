@@ -4,24 +4,39 @@
     "type": "split",
     "children": [
       {
-        "id": "97e1305245515fc6",
+        "id": "4509724f8bf84da7",
         "type": "tabs",
         "children": [
           {
-            "id": "461b553417a9fb0b",
+            "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Computer Networking/Juniper/JNCIA-Junos.md",
+                "file": "Computer Networking/Concepts/Juniper/JNCIA-Design.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "JNCIA-Junos"
+              "title": "JNCIA-Design"
+            }
+          },
+          {
+            "id": "e934305facfe623e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Computer Science/Concepts/Applied Disciplines/Software Engineering/Tools/Git.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Git"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -167,55 +182,55 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "461b553417a9fb0b",
+  "active": "e934305facfe623e",
   "lastOpenFiles": [
-    "Computer Networking/Juniper/JNCIA-DevOps.md",
-    "Computer Networking/Juniper/JNCIA-Design.md",
-    "Computer Engineering/Computer Engineering.md",
-    "Home.md",
-    "Computer Science/Computer Systems/Computer Architecture/Computer Architecture.md",
-    "Zettelkasten.md",
-    "README.md",
+    "Computer Science/Concepts/Applied Disciplines/Software Engineering/Software Engineering.md",
+    "Computer Networking/Concepts/Juniper/Junos Lab.md",
+    "Computer Networking/Concepts/Juniper/JNCIA-DevOps.md",
+    "Computer Networking/Concepts/Juniper/JNCIA-Junos.md",
+    "Computer Networking/Concepts/Juniper/JNCIA-Design.md",
     "Computer Networking/Computer Networking.md",
+    "Computer Networking/Resources",
+    "Computer Engineering/Resources",
+    "Computer Science/Concepts",
+    "Computer Science/Untitled.md",
+    "Computer Engineering/Computer Engineering.md",
+    "Computer Networking/Concepts",
+    "Computer Networking/Untitled.md",
+    "Computer Engineering/Concepts",
+    "Untitled",
+    "Zettelkasten.md",
+    "Home.md",
+    "Computer Networking/Concepts/Juniper/Juniper.md",
+    "Computer Science/Concepts/Computer Systems/Computer Architecture/Computer Architecture.md",
+    "README.md",
     "Computer.md",
     "Computer Science/Computer Science.md",
     "Templates",
-    "assets/general_imgs/luye-gainianxinhua-11111111111111111111111.jpg",
-    "assets/general_imgs/wallpaperflare.com_wallpaper(4).jpg",
-    "assets/general_imgs",
+    "_assets/general_imgs/luye-gainianxinhua-11111111111111111111111.jpg",
+    "_assets/general_imgs/wallpaperflare.com_wallpaper(4).jpg",
+    "_assets/general_imgs",
     "Untitled.base",
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/CSS.md",
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/HTML.md",
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Programming Language Theory and Program Semantics.md",
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Languages.md",
-    "Computer Science/Computer Systems/Computer Networks/Computer Networks.md",
-    "Computer Science/Computer Systems/Microarchitecture/Microarchitecture.md",
-    "Computer Networking/Juniper/JNCIA-Junos.md",
-    "assets/imgs/Pasted image 20250805143842.png",
-    "assets/imgs/Pasted image 20250805143557.png",
-    "assets/imgs/Pasted image 20250805125318.png",
-    "assets/imgs/Pasted image 20250805125249.png",
-    "assets/imgs/Pasted image 20250805125237.png",
-    "assets/imgs/Pasted image 20250805125229.png",
+    "Computer Science/Concepts/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/CSS.md",
+    "Computer Science/Concepts/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/HTML.md",
+    "Computer Science/Concepts/Theoretical Disciplines/Programming Language Theory and Program Semantics/Programming Language Theory and Program Semantics.md",
+    "Computer Science/Concepts/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Languages.md",
+    "Computer Science/Concepts/Computer Systems/Computer Networks/Computer Networks.md",
+    "Computer Science/Concepts/Computer Systems/Microarchitecture/Microarchitecture.md",
+    "_assets/imgs/Pasted image 20250805143842.png",
+    "_assets/imgs/Pasted image 20250805143557.png",
+    "_assets/imgs/Pasted image 20250805125318.png",
+    "_assets/imgs/Pasted image 20250805125249.png",
+    "_assets/imgs/Pasted image 20250805125237.png",
+    "_assets/imgs/Pasted image 20250805125229.png",
     "Pasted image 20250805143842.png",
     "Pasted image 20250805143557.png",
-    "Computer Science/Computer Systems/System Software/Linux.md",
-    "Computer Science/Computer Systems/System Software/System Software.md",
-    "Computer Science/Computer Systems/Concurrency/Concurrency.md",
-    "Computer Science/Computer Systems/Data Mining/Data Mining.md",
-    "Computer Science/Computer Systems/Database/Database.md",
-    "Computer Science/Computer Systems/Distributed Computing/Distributed Computing.md",
-    "Computer Science/Applied Disciplines/Applied disciplines.md",
-    "Computer Science/Applied Disciplines/Computational Science & Engineering/Computational Science & Engineering.md",
-    "Computer Science/Applied Disciplines/Software Engineering/Software Engineering.md",
-    "Computer Networking/Juniper",
-    "Computer Networking",
-    "assets/imgs",
-    "assets",
+    "Computer Science/Concepts/Computer Systems/System Software/Linux.md",
+    "Computer Science/Concepts/Computer Systems/System Software/System Software.md",
+    "Computer Science/Concepts/Computer Systems/Concurrency/Concurrency.md",
+    "Computer Science/Concepts/Computer Systems/Data Mining/Data Mining.md",
+    "Computer Networking/Concepts/Juniper",
     "Untitled 1.canvas",
-    "Untitled.canvas",
-    "Computer Science/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages",
-    "Computer Science/Computer Systems/System Software",
-    "Computer Science/Computer Systems/Computer Systems"
+    "Untitled.canvas"
   ]
 }

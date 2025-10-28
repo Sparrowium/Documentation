@@ -1,7 +1,8 @@
 A set of computers sharing resources located on or provided by network nodes.
 
 <h2 style="color:#6290C3"><center> Basic </center></h2>
-## What is Computer Networks?
+
+<h2>What is Computer Networks?</h2>
 
 - Computer Networks is a set of computers sharing resources located on or provided by network nodes
 	
@@ -15,7 +16,7 @@ A set of computers sharing resources located on or provided by network nodes.
 	
 - Computer networks may be classified by many criteria, including the *transmissions medium* used to carry signals, **bandwidth**, **communication protocols** to organize **network traffic**, the network size, the topology, **traffic control** mechanisms, and organizational intent.
 
-## What is the Use of Computer Networks? 
+<h2>What is the Use of Computer Networks?</h2>
 
 - Computer networks enhance how users communicate with each other by using various electronic methods like email, instant messaging, online chat, voice and voice calls, and video conferencing. 
 	
@@ -23,7 +24,7 @@ A set of computers sharing resources located on or provided by network nodes.
 	
 - Networks allow for the sharing of files and information, giving authorized users access to data stored on other computers or devices.
 
-## Network Packet
+<h2>Network Packet</h2>
 
 - A formatted unit of data carried by a **packet-switched network**.
 	
@@ -34,13 +35,16 @@ A set of computers sharing resources located on or provided by network nodes.
 	- [Payload]: The part of the transmitted data that is the actual intended message.
 	
 - In packet switching, the bandwidth of the transmission medium is shared between multiple communication sessions, in contrast to circuit switching, in which circuits are preallocated for the duration of one session and data is typically transmitted as a continuous bit stream.
-### Terminology
+
+<h3>Terminology</h3>
 
 - In the seven-layer **OSI model** of computer networking, *packet* strictly refer to a *protocol data unit* at layer 3, the **network layer**.
-### Architecture
+
+<h3>Architecture</h3>
 
 - The basis of packet concept is the postal letter: the header is like the envelope, the payload is the entire content inside the envelope, and the footer would be your signature at the bottom.
-### Contents
+
+<h3>Contents</h3>
 
 - A packet may contain any of the following components:
 	
@@ -58,7 +62,7 @@ A set of computers sharing resources located on or provided by network nodes.
 		
 	- [Payload]: The data that is carried on behalf of an application. It is usually of variable length, up to a maximum that is set by the network protocol and sometimes the equipment on the route. When necessary, some networks can break a larger packet into smaller packets.
 
-## Network Topology
+<h2>Network Topology</h2>
 
 - The arrangement of the elements (links, nodes, ...) of a communication network. 
 	
@@ -88,7 +92,8 @@ A set of computers sharing resources located on or provided by network nodes.
 	
 - [Overlay Network]: A virtual network that is built on top of another network. Nodes in the overlay network are connected by virtual or logical links. Each link corresponds to a path, perhaps through many physical links in the underlying network. 
 	![[Pasted image 20250313194630.png]]
-## Network Links
+
+<h2>Network Links</h2>
 
 - [Transmission Media]: Are resources used to link devices to form a computer. These includes:
 	
@@ -121,7 +126,8 @@ A set of computers sharing resources located on or provided by network nodes.
 	- [Cellular and PCS Systems]: Use several radio communications technologies. The systems divide the region covered into multiple geographic areas. Each area has a low-power transmitter or radio relay antenna device to relay calls from one area to the next area.
 		
 	- [Radio and Spread Spectrum Technology]: Wireless local area networks use a high-frequency radio technology similar to digital cellular and a low-frequency radio technology. Wireless LANs use spread spectrum technology to enable communication between multiple devices in a limited area. Common flavor of open standard wireless radio-wave technology known as WiFi.
-## Network Nodes
+
+<h2>Network Nodes</h2>
 
 - [Network Interfaces]: A network interface controller (NIC) is computer hardware that computer to the network media and has the ability to process low-level network information.
 	
@@ -146,14 +152,16 @@ A set of computers sharing resources located on or provided by network nodes.
 - [Modems]: Are used to connect network nodes via wire not originally designed for digital network traffic, or for wireless. To do this one or more carrier signals are modulated by the digital signal to produce an analog signal that can be tailored to give the required properties for transmission.
 	
 - [Firewalls]: A network device or software for controlling network security and access rules. Firewalls are inserted in connections between secure internal networks and potentially insecure external networks such as the Internet. Firewalls are typically configured to reject access requests from unrecognized sources while allowing actions from recognized ones.
- ## Communication Protocols
+
+<h2>Communication Protocols</h2>
 
 - A set of rules for exchanging information over a network. Communication protocols have various characteristics. They may be connection-oriented or connectionless, they may use circuit mode or packet switching, and they may use hierarchical addressing or flat addressing.
 	
 - In a protocol stack, often constructed per the OSI model, communications functions are divided up into protocol layers, where each layer leverages the services of the layer below it until the lowest layer controls the hardware that sends information across the media. The use of protocol layering is ubiquitous across the field of computer networking.
 	
 - Common Protocols: TCP/IP, Ethernet,...
-## Network Geographic Scale
+
+<h2>Network Geographic Scale</h2>
 
 - [Nanoscale Network]: Communication between sensors and actuators found in biological systems and other harsh environment.
 	
@@ -178,7 +186,8 @@ A set of computers sharing resources located on or provided by network nodes.
 - [Virtual Private Network (VPN)]: An overlay network in which some of the links between nodes are carried by open connections or virtual circuits in some larger network (e.g., the Internet) instead of by physical wires. The data link layer protocols of the virtual network are said to be tunneled through the larger network.
 	
 - [Global Area Network (GAN)]: A network used for supporting mobile users across an arbitrary number of wireless LANs, satellite coverage areas, etc.
-## Organization Scope
+
+<h2>Organization Scope</h2>
 
 - [Intranet]: A set of networks that are under the control of a single administrative entity. An intranet typically uses the Internet Protocol and IP-based tools such as web browsers and file transfer applications. The administrative entity limits the use of the intranet to its authorized users.
 	
@@ -187,7 +196,8 @@ A set of computers sharing resources located on or provided by network nodes.
 - [Internet]: An internetwork is the connection of multiple different types of computer networks to form a single computer network using higher-layer network protocols and connecting them together using routers. The Internet is the largest example of internetwork. It is a global system of interconnected governmental, academic, corporate, public, and private computer networks. It is based on the networking technologies of the Internet protocol suite.
 	
 - [Darknet]: An overlay network, typically running on the Internet, that is only accessible through specialized software. It is an anonymizing network where connections are made only between trusted peers. Darknets are distinct from other distributed peer-to-peer networks as sharing is anonymous (that is, IP addresses are not publicly shared), and therefore users can communicate with little fear of governmental or corporate interference.
-## Network Performance
+
+<h2>Network Performance</h2>
 
 - [Bandwidth]: In bit/s may refer to consumed bandwidth, corresponding to achieved throughput or goodput, i.e., the average rate of successful data transfer through a communication path. The throughput is affected by processes such as bandwidth shaping, bandwidth management, bandwidth throttling, bandwidth cap and bandwidth allocation.
 	

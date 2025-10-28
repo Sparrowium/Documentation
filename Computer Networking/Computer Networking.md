@@ -244,8 +244,10 @@
 
 <h2>Routing Basic</h2>
 
-- Small Router.![[Pasted image 20250320200248.png]]
-- Router in Network Diagram.![[Pasted image 20250320200313.png]]
+- Small Router.
+	![[Pasted image 20250320200248.png]]
+- Router in Network Diagram.
+	![[Pasted image 20250320200313.png]]
 - In addition to a Layer 2 address brunt into it by the manufacturer, each NIC or network interface also has a Layer 3 address assigned to it by the network administrator.
 	
 - A Layer 3 device has 2 portions: a network number and a host number.

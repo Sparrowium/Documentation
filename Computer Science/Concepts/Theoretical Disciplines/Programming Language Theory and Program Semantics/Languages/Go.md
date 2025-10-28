@@ -1,6 +1,7 @@
 High level General Purpose Language
 <h2><center> Basic </center></h2>
-## Setting Up Environment
+
+<h2>Setting Up Environment</h2>
 
 - Installing [Go Tools](https://go.dev/dl/)
 	
@@ -58,7 +59,7 @@ High level General Purpose Language
 	
 - [Makefiles]: A special file used by the make build automation tool to control the build process of a project.
 
-## Predeclared Types and Declarations
+<h2>Predeclared Types and Declarations</h2>
 
 - [Predeclared Types]: Types that are built into the language. 
 	
@@ -117,7 +118,7 @@ High level General Purpose Language
 - [Naming Variables and Constants]: Go uses Camel case. 
 	` var HelloWorld string = "true"`
 
-## Composite Types
+<h2>Composite Types</h2>
 
 - [Arrays - Too Rigid to Use Directly]: Because the size of the array to be part of the type of the array. In addition, you cant use a type conversion to directly convert arrays of different sizes to identical types.
 	`var x = [3]int{0, 0, 0}`
@@ -192,7 +193,7 @@ High level General Purpose Language
 		
 	- [Comparing and Converting Struct]: Depends on the struct's fields.
 
-## Blocks, Shadows, and Control Structures
+<h2>Blocks, Shadows, and Control Structures</h2>
 
 - [Blocks]: A place where a declaration occurs. 
 	
@@ -289,7 +290,7 @@ High level General Purpose Language
 	
 - [goto]: A jump statement (skip statement).
 
-## Functions
+<h2>Functions</h2>
 
 - [Declaring and Calling Functions]: A function declaration contains four parts: the keyword func, the name of the function, the input parameters, and the return type. 
 	
@@ -383,7 +384,7 @@ High level General Purpose Language
 	
 - [Go is Call by Value]: This is because go always makes a copy of the value of the variable whenever you supply a variable for a parameter to a function.
 
-## Pointers
+<h2>Pointers</h2>
 
 - [Pointer]: 
 	
@@ -454,7 +455,7 @@ High level General Purpose Language
 	
 - [Tuning the Garbage Collector]: Doubling the value of GOGC will halve the amount of CPU time spent on GC. Limiting the amount of memory prevent unwanted memory overflow.
 
-## Types, Methods, and Interfaces
+<h2>Types, Methods, and Interfaces</h2>
 
 - [Types in GO]: 
 	```
@@ -606,7 +607,7 @@ High level General Purpose Language
 	
 - Go is Practical.
 
-## Generics
+<h2>Generics</h2>
 
 - Generics Reduce Repetitive Code and Increase Type Safety
 	

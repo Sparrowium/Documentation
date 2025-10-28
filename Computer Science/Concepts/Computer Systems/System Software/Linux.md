@@ -1,7 +1,8 @@
 An Operating System based on UNIX, it is also known as GNU/Linux
 
 <h2 style="color:#6290C3"><center> Introduction </center></h2>
-## What is Linux?
+
+<h2>What is Linux?</h2>
 
 - An operating system takes on all this undifferentiated heavy lifting, abstracting away the different hardware components and providing you with a (usually) clean and nicely designed Application Programming Interface (API).
 	
@@ -13,7 +14,8 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 
 <h2 style="color:#6290C3"><center> Linux Kernel </center></h2>
 - Provides the core functionality, on its own it is not the operating system, but a central part of it.
-## Linux Architecture
+
+<h2>Linux Architecture</h2>
 
 ![[Pasted image 20250304193433.png]]
 
@@ -47,7 +49,7 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 	
 - [User Mode]: Means comparatively slower but safer and more convenient abstractions. 
 
-## CPU Architectures
+<h2>CPU Architectures</h2>
 
 - Linux runs on a large number of different CPU architectures. For each architecture, it contains a architecture specific code, which allows it to port Linux and make it available on new hardware quickly.
 	
@@ -68,7 +70,7 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 	
 - [RISC-V Architecture]: An open RISC standard.
 
-## Kernel Components
+<h2>Kernel Components</h2>
 
 - Linux Kernel is a monolithic one--that is, all the components discussed are part of a single library--there are functional areas in the code base that we can identify and ascribe dedicated responsibility.
 	
@@ -139,7 +141,7 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 	- Use `strace ls`, `strace -c\` to troubleshoot or looking at the history log of syscalls.
 	![[Pasted image 20250304212544.png]]![[Pasted image 20250304213022.png]]
 
-## Kernel Extensions
+<h2>Kernel Extensions</h2>
 
 - [Module]: A program that you can load into a kernel on demand. That is, you do not necessarily have to recompile the kernel and/or reboot the machine. 
 	
@@ -163,7 +165,8 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 	- Used for network load balancing.
 
 <h2 style="color:#6290C3"><center> Shells and Scripting </center></h2>
-## Basics
+
+<h2>Basics</h2>
 
 - [Terminals]: Or Terminal Emulator, Soft Terminal, is a program that provides a textual user interface. Terminal supports reading characters from  the keyboard and displaying them on the screen. They're simply apps.
 	
@@ -251,7 +254,8 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 		`sudo tail -f /var/log/Xorg.0.log`
 		
 	- Date and time handling via `date`.
-## Terminal Multiplexer
+
+<h2>Terminal Multiplexer</h2>
 
 - [Multiplexing]: Using multiple terminal windows to perform many interdependent tasks. A process of overlaying a terminal with multiple windows.
 	
@@ -272,7 +276,8 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 	- [tmux-resurrect]: Allows you to restore sessions with `Ctrl+s` (safe) and `Ctrl+r` (restore)..
 		
 	- [tmux-continuum]: Automatically saves/restores a sessions (15 minute interval).
-## Scripting
+
+<h2>Scripting</h2>
 
 - Most of the scripts are written in **bash**.
 	
@@ -353,7 +358,8 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 	- Before you check your script into a repo, consider using `bats` to test it. `bats`, short for Bash Automated Testing System, allows you to define test files as a bash script with special syntax for test cases. Each test case is simply a bash function with a description, and you would typically invoke these scripts as a part of a CI pipeline.
 
 <h2 style="color:#6290C3"><center> Access Control </center></h2> 
-## Basics
+
+<h2>Basics</h2>
 
 - Resources and Ownership:
 	

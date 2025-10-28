@@ -2,7 +2,7 @@ A Hyper Text Markup Language.
 
 <h2><center> Basic </center></h2>
 
-## What is HTML?
+<h2>What is HTML?</h2>
 
 - [HTML]: the basic building block of the Web. It defines the meaning and the structure of web content through elements such as tags. 
 	
@@ -14,7 +14,7 @@ A Hyper Text Markup Language.
 	
 - File extension: `.html`
 
-## How to create and write HTML code?
+<h2>How to create and write HTML code?</h2>
 
 - Step 1: Open a text editor.
 	
@@ -24,7 +24,7 @@ A Hyper Text Markup Language.
 	
 - Step 4: Run the HTML page in your browser via open the file in your browser.
 
-## What is a HTML DOCTYPE?
+<h2>What is a HTML DOCTYPE?</h2>
 
 - [HTML Doctype Declaration]: a reference to a Document Type Definition (DTD). A DTD refers to an **XML** (extensible markup language) document format representing allowed elements in a web page. It informs the web browser the HTML version and standard in which the current page is written; this helps different web browsers to parse the web page correctly. The Doctype Declaration is neither a tag or an element in HTML, its a null element with no closing tag.
 	
@@ -32,7 +32,7 @@ A Hyper Text Markup Language.
 	
 - Syntax: `<!DOCTYPE html>`
 
-## HTML Tags
+<h2>HTML Tags</h2>
 
 - [HTML Tags]: Are hidden keywords or commands incorporated in HTML, which can be define how your browser will display the content and format of the page. Most HTML tag have 2 sections: **Opening** ( < ... > ) and **Closing** ( </ ... > ), and any text written in between the tags will carry the tags effects upon them. 
 	
@@ -52,7 +52,7 @@ A Hyper Text Markup Language.
 	
 - [BODY Tag]: the `<body> ... </body>` tag is used to display information of the HTML document. All formatting and writing of content are done in this section within the `<body>` and the `</body>`. If your HTML code does not have it, the code will still run but nothing will be displayed. Noted that, `<body>` needs to be inside the `<html>` tag.
 
-## HTML Elements
+<h2>HTML Elements</h2>
 
 - [HTML Element]: A combination of HTML tags and content within the opening and closing tags.
 	
@@ -60,7 +60,7 @@ A Hyper Text Markup Language.
 	
 - [Heading Elements or `<hn>` Elements]: HTML has 6 different sizes heading ranging from 1 -> 6. In addition, Web browser will automatically add one line prior/following to make it look neat.
 
-## HTML Attributes
+<h2>HTML Attributes</h2>
 
 ^3881c6
 
@@ -84,13 +84,13 @@ A Hyper Text Markup Language.
 	- [Style Attributes]: This attribute gives you a chance for specifying the rules for Cascading Style Sheet (CSS) in your element.
 		`<p style="..."></p>`
 
-## HTML Formatting
+<h2>HTML Formatting</h2>
 
 - Formatting can be defined as the appearance of your documentation or presentation of your HTML code in a meaningful and more beautiful way.
 	
 - [Formatting Tags]: Refer to [HTML W3C](https://www.w3.org/TR/WD-html40-970708/index/attribs.html)
 
-## HTML Comments
+<h2>HTML Comments</h2>
 
 - Provide the details of what is written in the HTML source code. HTML comment tags are completely ignored to display by the browsers.
 	
@@ -106,7 +106,7 @@ A Hyper Text Markup Language.
 	
 - Syntax: `<! -- ... -->`
 
-## HTML Forms
+<h2>HTML Forms</h2>
 
 - A [Web Forms] is a part of an HTML document containing HTML form elements such as input, select, checkboxes, radio, buttons, etc. 
 	
@@ -122,7 +122,8 @@ A Hyper Text Markup Language.
 	
 - `<label>` Elements: Defines a form element label by holding the element's ID in the "**for**" attribute.
 	`<label for=""> ... </label>`
-## CSS in HTML
+
+<h2>CSS in HTML</h2>
 
 - Cascading Style Sheets (CSS) describes web content's visual presentation and layout.
 	
@@ -136,7 +137,7 @@ A Hyper Text Markup Language.
 
 <h2><center> Glossary </center></h2>
 
-## HTML Tag
+<h2>HTML Tag</h2>
 
 - `<head>` Tag: The `<head>` tag in HTML is a container for metadata (information about the document, such as its title, scripts, and style sheets) that is not directly related to the page's content.
 	```<head> ... </head>```
@@ -214,9 +215,9 @@ A Hyper Text Markup Language.
 	`<font> ... </font>`
 	
 
-## HTML Attributes
+<h2>HTML Attributes</h2>
 
-### Common Attributes
+<h3>Common Attributes</h3>
 
 - `class` Attribute: Allows developers to reuse CSS styles across multiple HTML elements.
 	`class=`
@@ -233,7 +234,7 @@ A Hyper Text Markup Language.
 - `href` Attribute: "Hypertext Reference" Specifies the URL of a linked resource.
 	`href=`
 
-### Event Attributes
+<h3>Event Attributes</h3>
 
 - Defines how an event should respond to an event that occur on the web page. This could be user-triggered or automatically.
 	

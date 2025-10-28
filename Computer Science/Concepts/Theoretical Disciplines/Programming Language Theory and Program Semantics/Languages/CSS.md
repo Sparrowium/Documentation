@@ -2,7 +2,7 @@ A Cascading Style Sheet Language.
 
 <h2><center> Basic </center></h2>
 
-## What is CSS? 
+<h2>What is CSS?</h2>
 
 - [CSS]: Abbreviated as Cascading Style Sheets and describes how HTML elements need to be displayed and rendered when represented in a web page format or other media such as **HTML** or **XML**. 
 	
@@ -25,7 +25,8 @@ A Cascading Style Sheet Language.
 	- Easier in testing thanks to smaller modules.
 	
 - File extension: `.css`
-## How to create and write CSS code?
+
+<h2>How to create and write CSS code?</h2>
 
 - Step 1: Open a text editor.
 	
@@ -33,7 +34,7 @@ A Cascading Style Sheet Language.
 	
 - Step 3: Save the file with the **.css** extension. This will make the file a CSS Document.
 
-## CSS Syntax
+<h2>CSS Syntax</h2>
 
 - [CSS Syntax]: consists of three parts, a selector, a property, and a value. However at the fundamental level of CSS, it only has two building blocks that defines how the code perform.
 	`property` : Are identifiers that point to different stylistic characteristic.
@@ -47,7 +48,7 @@ A Cascading Style Sheet Language.
 	
 - [White Spaces in CSS]: Makes your style sheet more readable or constructive.
 
-## Types of CSS
+<h2>Types of CSS</h2>
 
 - [Inline CSS]:
 	
@@ -70,7 +71,8 @@ A Cascading Style Sheet Language.
 		- Link the Style Sheet into HTML through `<link href=""></link>` element.
 
 <h2><center> Glossary </center></h2>
-## CSS Selectors
+
+<h2>CSS Selectors</h2>
 
 - [CSS Selectors]: 
 	
@@ -146,7 +148,7 @@ A Cascading Style Sheet Language.
 	`:dir(direction) {}`
 	`selector[dir=direction] {}`
 
-## CSS Properties
+<h2>CSS Properties</h2>
 
 - [Color Property]: Used to define colors for HTML elements. Supporting colors format are: RGB, HEX, HSL, RGBA, HSLA.
 	`selector {background-color: ... ;}`: Background color for HTML element.
@@ -219,7 +221,7 @@ A Cascading Style Sheet Language.
 		
 	- [Fallback Values]: Are values that substitute in when the variable is not defined.
 
-## CSS Advanced
+<h2>CSS Advanced</h2>
 
 - [Gradients]: Are a helpful feature for creating smooth transitions between two or more colors on webpage elements without relying on images.
 	

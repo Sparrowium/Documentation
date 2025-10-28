@@ -1,6 +1,7 @@
 Also Called **Computer Organization**
 <h2 style="color:#6290C3"><center> The Baseline </center></h2>
-## Computer Subsystems
+
+<h2>Computer Subsystems</h2>
 
 - Computer hardware consist of three separated subsystems: [Central Processing Unit], [Memory], and [Input/Output(I/O)]. These are connected with buses.
 	![[Pasted image 20250112222509.png]]
@@ -20,7 +21,7 @@ Also Called **Computer Organization**
 		
 	- [Control Bus]: Carries signals that specify how each of the subsystems should be using the signals on other buses.
 
-## Program Execution
+<h2>Program Execution</h2>
 
 - [Program]: Consists of a sequence of instructions stored in memory. When you create a new program, you can use an *editor* to write the *source code* for your new program and it will be stored as a file on the disk. The you use a *compiler* to translate the *high-level language* statements into machine code instruction that are stored in a disk file.
 	
@@ -31,7 +32,8 @@ Also Called **Computer Organization**
 - If the CPU is instructed to store data in memory, it places the data on the data bus, places the location in memory where the data is to be stored on the address bus, and places a **write** signal on the control bus. The memory subsystem responds by copying the data on the data bus into the specified memory location.
 
 <h2 style="color:#6290C3"><center> Data Storage Formats </center></h2>
-## Describing Switches and Groups of Switches
+
+<h2>Describing Switches and Groups of Switches</h2>
 
 - [Representing Switches with Bits]: 
 	
@@ -53,7 +55,7 @@ Also Called **Computer Organization**
 		
 	- [Byte]: The smallest number of bits that can be accessed at a time in a computer.
 
-## Mathematical Equivalency of Binary and Decimal
+<h2>Mathematical Equivalency of Binary and Decimal</h2>
 
 - [Positional Notation]: The value of a symbol depends on its position within a group of symbols.
 	`123 = 1 * 10^2 + 2 * 10^1 + 3 * 10^0`
@@ -80,7 +82,7 @@ Also Called **Computer Organization**
 - [Converting Unsigned Decimal to Binary]: We can produce the binary representation of a number by working from right to left, repeatedly dividing by, and using the remainder as the value of the respective bit. 
 	![[Pasted image 20250114154739.png]]
 
-## Storing Data in Memory 
+<h2>Storing Data in Memory </h2>
 
 - There are two generals kinds of memory used for storing program instructions and data in a computer: **RAM (Random Access Memory)** which is volatile and it takes the same amount of time to access any byte in memory, **ROM (Read-only Memory)** which is non-volatile memory (NVM). **SAM (Sequential Access Memory)** means that the amount it takes to access a byte depends on its position.
 	
@@ -128,7 +130,8 @@ Also Called **Computer Organization**
 	- [Big Endian]: Data is stored in memory with the *most* significant byte in a multiple-byte value in the lowest-numbered address. That is, the "biggest" byte comes first in memory.
 
 <h2 style="color:#6290C3"><center> Computer Arithmetic </center></h2>
-## Adding and Subtracting Unsigned Integers
+
+<h2>Adding and Subtracting Unsigned Integers</h2>
 
 - [Adding in the Decimal Number System]: 
 	![[Pasted image 20250117220727.png]]
@@ -136,7 +139,7 @@ Also Called **Computer Organization**
 	![[Pasted image 20250128124322.png]]
 - [Adding and Subtracting Unsigned Integers in Binary]: Can be tedious if another bytes needs to be borrowed when performing calculation.
 
-## Adding and Subtracting Signed Integer
+<h2>Adding and Subtracting Signed Integer</h2>
 
 - Calculation in signed integer tends to be incorrect due to the "sign magnitude code" which result in arithmetically incorrect.
 	
@@ -164,7 +167,8 @@ Also Called **Computer Organization**
 - [Overflow flag]: The CPU includes a one-bit overflow flag that shows whether the result of addition or subtraction exceeds the number of bits allowed for a signed integer using the two’s complement notation.
 
 <h2 style="color:#6290C3"><center> Boolean Algebra </center></h2>
-## Basic Boolean Operators
+
+<h2>Basic Boolean Operators</h2>
 
 - A Boolean operator acts on a value, or pair of values, called the operands
 	
@@ -181,9 +185,9 @@ Also Called **Computer Organization**
 	- [NOT]: A *unary operator*, which acts on only one operand. The result of NOT is 1 if the operand is 0, vice versa. Other name for NOT is *complement* and *invert*.
 		![[Pasted image 20250130170014.png]]	
 
-## Boolean Algebra Rules
+<h2>Boolean Algebra Rules</h2>
 
-### Boolean Algebra Rules That Are the Same as Elementary Algebra
+<h3>Boolean Algebra Rules That Are the Same as Elementary Algebra</h3>
 
 - [AND and OR are associative]: Means that there are two or more occurrences of the operator in an expression, the order of applying the operator does not change the value of the expression. Mathematically: 		
 	![[Pasted image 20250130170511.png]]![[Pasted image 20250130170607.png]]![[Pasted image 20250130170630.png]]
@@ -202,7 +206,7 @@ Also Called **Computer Organization**
 	
 - [NOT shows involution]: An operator show *involution* if applying it to a quantity twice yields the original quantity.
 
-### Boolean Algebra Rules That Differ from Elementary Algebra
+<h3>Boolean Algebra Rules That Differ from Elementary Algebra</h3>
 
 - [OR is distributive over AND]: The OR operator applied to quantities AND-ed together can be distributed to apply to each of the AND-ed quantities.
 	![[Pasted image 20250130185327.png]]![[Pasted image 20250130185622.png]]
@@ -219,7 +223,7 @@ Also Called **Computer Organization**
 - [De Morgan's law applies]: Boolean algebra states that if you replace every 0 with 1, every 1 with a 0, every AND with an OR, and every OR with an AND, the equation will still be true.
 	![[Pasted image 20250130190427.png]]
 
-## Boolean Functions
+<h2>Boolean Functions</h2>
 
 - A Boolean Functions looks somewhat like an elementary algebra function, but the variables can appear in either uncomplemented or complemented form. The variables and constants are connected by Boolean operators. A Boolean function evaluates to either 1 or 0.
 	
@@ -248,9 +252,9 @@ Also Called **Computer Organization**
 - [Comparison of Canonical Boolean Forms]:
 	![[Pasted image 20250206154234.png]]
 
-## Boolean Expression Minimization
+<h2>Boolean Expression Minimization</h2>
 
-### Minimal Expressions
+<h3>Minimal Expressions</h3>
 
 - When simplifying a Boolean function, start with one of the canonical forms to ensure you have taken all of the possible cases into account. Create a truth table that list all possible combinations of the variables in the problem. List the minterms and maxterms.
 	
@@ -262,11 +266,11 @@ Also Called **Computer Organization**
 	
 - [Minimal Product of Sums]: A product of sums expression where all other mathematically equivalent product of sums expressions have at least as many sum terms, and those with the same number of sum terms have at least as many literals.
 
-### Minimization Using Algebraic Manipulations
+<h3>Minimization Using Algebraic Manipulations</h3>
 
 - By using idempotency rule, distribution, the complement properties, substitutions. 
 
-### Minimization using Karnaugh Maps
+<h3>Minimization using Karnaugh Maps</h3>
 
 - [Karnaugh Maps]: A rectangular grid with a cell for each minterm. There are 2 ^ n cells for n variables.
 	
@@ -284,12 +288,13 @@ Also Called **Computer Organization**
 	
 - [Don't Care Cells]: Are cells that no matter the combination the value never occur, or known as irrelevant.
 
-## Combining Basic Boolean Operators
+<h2>Combining Basic Boolean Operators</h2>
 
 - [XOR]: The XOR is a binary operator. The result is 1 if one, and only one, of the two operands is 1; otherwise, the result is 0.
 
 <h2 style="color:#6290C3"><center> Logic Gates </center></h2>
-## Crash Course
+
+<h2>Crash Course</h2>
 
 - [Current]: The movement of electrical charge, measured in *Coulombs*. A flow of one coulomb is *ampere*, often abbreviated as *amp*. Current flow through an electrical circuit only if there is a completely connected path from one side of the power source to the other side.
 	
@@ -325,7 +330,7 @@ Also Called **Computer Organization**
 		
 	- [Power Consumption]: Energy is the ability to cause change, and power is a measure of how fast energy can be used to make the change. The basic unit of energy is a joule. The basic unit of power is a watt, which is defined as expending one joule per second. Resistance is the primary consumer of power. 
 
-## Transistors
+<h2>Transistors</h2>
 
 - [Transistors]: A device whose resistance can be controlled electronically. 
 	
@@ -348,14 +353,14 @@ Also Called **Computer Organization**
 			
 		-  The circuit responds much faster. A MOSFET can supply the current at its output faster than a resistor, charging the gate of the following MOSFET. This allows us to build faster computers.
 
-## NAND and NOR Gates
+<h2>NAND and NOR Gates</h2>
 
 - [NAND]: A binary operator that gives a result of 0 if and only if both operands are 1 and gives 1 otherwise.
 	![[Pasted image 20250206210159.png]]
 - [NOR]: A binary operator that gives a result of 0 if at least one of the two operands is 1 and gives 1 otherwise.
 	![[Pasted image 20250206210308.png]]
 
-## NAND as a Universal Gate
+<h2>NAND as a Universal Gate</h2>
 
 - One of the interesting properties about NAND gates is that they can be used to build AND, OR, and NOT gates. This means the NAND gate can be used to implement any Boolean function. In this sense, you can think of the NAND gate as a universal gate.
 	![[Pasted image 20250206210404.png]]![[Pasted image 20250206210421.png]]![[Pasted image 20250206210428.png]]
@@ -369,13 +374,14 @@ Also Called **Computer Organization**
 	- Add a NAND gate for any product with only a single literal.
 
 <h2 style="color:#6290C3"><center> Combinational Logic Circuits </center></h2>
-## The Two Classes of Logic Circuits
+
+<h2>The Two Classes of Logic Circuits</h2>
 
 - [Combinational]: A combinational logic circuits has output that depends only on the inputs given at any specific time and not on any previous inputs.
 	
 - [Sequential]: A sequential logic circuit has outputs that depend both on previous and current inputs.
 
-## Adders
+<h2>Adders</h2>
 
 - [Half Adders]: Simply adds the two bits in the current bit position of a number (expressed in binary). Only work with two inputs bits and does not take into account of a possible carry.
 	![[Pasted image 20250213142257.png]]
@@ -386,7 +392,7 @@ Also Called **Computer Organization**
 - [Ripple-Carry Addition and Subtraction Circuits]:
 	![[Pasted image 20250213143313.png]]![[Pasted image 20250213143325.png]]
 
-## Decoders
+<h2>Decoders</h2>
 
 - [Decoder]: Process the 4 bits of the the register, and the output is one of n possible connections to the specified register.
 	
@@ -397,14 +403,14 @@ Also Called **Computer Organization**
 - Decoders are more versatile because each input can be seen as a minterm.
 	![[Pasted image 20250213144049.png]]
 
-## Multiplexers
+<h2>Multiplexers</h2>
 
 - [Multiplexers]: A device that can switch between 2^n input lines by using n selection lines.
 	![[Pasted image 20250213144506.png]]
 - [Tristate Buffers]: A buffer that has 3 states: 0, 1, and "no connection".The “no connection” output is actually a high impedance connection, also called high Z or open. The “no connection” output lets us physically connect the outputs of many tristate buffers together but select only one to pass its input to the common output line. A tristate buffer has both a data input and an enabling feature. 
 	![[Pasted image 20250213145748.png]]![[Pasted image 20250213145803.png]]![[Pasted image 20250213145841.png]]![[Pasted image 20250213150006.png]]
 
-## Programmable Logic Devices
+<h2>Programmable Logic Devices</h2>
 
 - PLDs, Programmable Logic Devices, contains many AND and OR gates which can be programmed to implement Boolean Functions. The inputs, and their complemented value, are connected to the AND gates. The AND gates, taken together, are referred to as the AND plane, or AND array. The outputs of from the AND gates are connected to OR gates, which taken together are referred to as the OR plane, or OR array. Depending on the type, one or both planes can be programmed to implement combinational logic. When using a PLD, a design change means only changing how the device is programmed, not buying different devices, meaning the circuit board does not need to be redesigned.
 	
@@ -422,10 +428,12 @@ Also Called **Computer Organization**
 	![[Pasted image 20250213152114.png]]
 
 <h2 style="color:#6290C3"><center> Sequential Logic Circuits </center></h2>
+
 - [System State]: A description of the system such that knowing the state at time t0 and the inputs from time t0 through time t1, uniquely determines the state at time t and the outputs from time t0 through time t1. 
 	
 - [Finite State Machine]: A mathematical model of computation that can exist in any one of a finite number of states. If a sequential logic circuit is designed such that its output depends only on the state it’s in, it’s called a Moore state machine. If the output also depends on the input causing a transition to a state, it’s called a Mealy state machine.
-## Latches
+
+<h2>Latches</h2>
 
 - A one-bit storage device that can be in one of two states, depending on its input. A latch can be constructed by connecting two or more logic gates such that the output from one gate is fed back into the input of another gate; this keeps the out- put of both gates in the same state as long as power is applied.
 	
@@ -451,7 +459,7 @@ Also Called **Computer Organization**
 - [The D Latch]: A D latch allows us to store the value of one bit.
 	![[Pasted image 20250227163106.png]]![[Pasted image 20250227163115.png]]
 
-## Flip-Flops
+<h2>Flip-Flops</h2>
 
 - A one bit storage device designed to accept an input during one portion of the clock signal and then lock the output to a single value throughout the duration of the other portion if the clock signal.
 	
@@ -465,7 +473,8 @@ Also Called **Computer Organization**
 	![[Pasted image 20250227170244.png]]![[Pasted image 20250227170301.png]]![[Pasted image 20250227170322.png]]![[Pasted image 20250227170333.png]]![[Pasted image 20250227170343.png]]
 
 <h2 style="color:#6290C3"><center> Memory </center></h2>
-## The Memory Hierarchy
+
+<h2>The Memory Hierarchy</h2>
 
 - The closer the memory is to the CPU the fast and more expensive it will be. 
 	![[Pasted image 20250306131728.png]]
@@ -503,7 +512,7 @@ Also Called **Computer Organization**
 	
 - [Registers]: The fastest memory. They’re mainly used for numerical computations, logical operations, temporary data storage, and similar short-term operations. They are also very specific to the particular architecture and usage.
 
-## Implementing Memory in Hardware
+<h2>Implementing Memory in Hardware</h2>
 
 - [Four Bit Register]:
 	![[Pasted image 20250306134711.png]]![[Pasted image 20250306134751.png]]
@@ -522,7 +531,8 @@ Also Called **Computer Organization**
 	- When data is to be stored in DRAM, the new bit value, 0 or 1, is first stored in the latch. Then Row Select is set to 1, and the Sense Amplifier/Latch circuitry applies the voltage corresponding to the logical 0 or 1 to the capacitor. The capacitor is either charged or discharged appropriately.
 
 <h2 style="color:#6290C3"><center> Central Processing Unit </center></h2>
-## CPU Overview
+
+<h2>CPU Overview</h2>
 
 - [CPU Subsystems]: The subsystems are connected through internal buses, which include the hardware pathways and the software protocols that control the communication.
 	![[Pasted image 20250313142223.png]]
@@ -560,7 +570,7 @@ Also Called **Computer Organization**
 		![[Pasted image 20250313144352.png]]
 	- Most instructions in a program use at least on register in at least one of the register files. A program typically loads data from memory into a register, operates on the data, and stores the result in memory. Registers are also used to hold addresses of items that are stored in memory, thus serving as pointers to data or other addresses.
 
-## x86_64 Register
+<h2>x86_64 Register</h2>
 
 ![[Pasted image 20250313144722.png]]![[Pasted image 20250313144733.png]]
 - [General Purpose Register]: Deal with the integral data types and memory addresses. Each bit in the register is numbered from right to left, beginning with 0. So, the rightmost bit is number 0, the next one to the left is 1, and so on. Since there are 64 bits in each general purpose register, the leftmost bit is 63.
@@ -576,7 +586,7 @@ Also Called **Computer Organization**
 - [Status Register]: Indicates a side effects of many instructions.
 	![[Pasted image 20250313150653.png]]
 
-## C/C++ Integral Data Types and Register Sizes
+<h2>C/C++ Integral Data Types and Register Sizes</h2>
 
 - [Data Type]: Specifies the possible values for the data types, the bit patterns used to represent those values, operations that can be performed on the data, and the data's semantic usage in the program.
 	
@@ -586,7 +596,7 @@ Also Called **Computer Organization**
 	![[Pasted image 20250313151307.png]]
 - A value can usually be represented with more than one data type.
 
-## Using gdb to View the CPU Registers
+<h2>Using gdb to View the CPU Registers</h2>
 - Using gdb to view the contents of the CPU register:
 	![[Pasted image 20250313151722.png]]
 	1. Using the register storage class modifier to request that the compiler use a CPU register for the feet and inchesRem variables.
@@ -610,7 +620,8 @@ Also Called **Computer Organization**
 	3. Using the `ENTER` key repeats the previous command.
 
 <h2 style="color:#6290C3"><center> Programming in Assembly Language </center></h2>
-## Compiling a Program Written in C
+
+<h2>Compiling a Program Written in C</h2>
 
 - [Preprocessing]: This step resolves compiler directives such as `#include` (ﬁle inclusion), `#define` (macro deﬁnition), and `#if` (conditional compilation) by invoking the program cpp. The compilation process can be stopped at the end of the preprocessing phase with the `-E` option, which writes the resulting C source code to standard out. 
 	
@@ -628,7 +639,8 @@ Also Called **Computer Organization**
 - As you might know, if you don’t use any of the gcc options to stop the process at the end of one of these steps (-E, -S, -c), the compiler will perform all four steps and automatically delete the intermediate files, leaving only the executable program as the final result. You can direct gcc to keep all the intermediate files with the `-save-temps` option.
 	
 - The complement of being able to stop gcc along the way is that we can supply files that have effectively gone through the earlier steps, and gcc will incorporate those files into the remaining steps. If we supply only object files (.o), gcc will go directly to the linking step. An implicit benefit of this is that we can write programs in assembly language that call functions in the C standard library (which are already in object file format), and gcc will automatically link our assembly language with those library functions.
-## From C to Assembly Language
+
+<h2>From C to Assembly Language</h2>
 
 - Programs written in C are organized into functions. Each function has a name that is unique within the program. After the C runtime environment is set up, the main function is called, so our program starts with main.
 	```
@@ -853,7 +865,8 @@ Also Called **Computer Organization**
 			8    push    rbp    # save caller's frame pointer
 			(gdb) tui enable
 			```
-## AT&T Syntax
+
+<h2>AT&T Syntax</h2>
 
 ```
 	# doNothingProg_att.s

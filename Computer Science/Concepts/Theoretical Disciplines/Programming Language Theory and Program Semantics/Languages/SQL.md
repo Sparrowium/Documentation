@@ -1,8 +1,9 @@
 Structured Query Language
 <h2><center> Basic </center></h2>
-## Background
 
-### Introduction to Databases
+<h2>Background</h2>
+
+<h3>Introduction to Databases</h3>
 
 - [Database]: A database is a set of related information.
 	
@@ -33,7 +34,7 @@ Structured Query Language
 - [Common Terminology]:
 	![[Pasted image 20250212201533.png]]
 
-### What is SQL?
+<h3>What is SQL?</h3>
 
 - **SEQUEL**, a Language used to manipulate data in relational databases, and other database technologies.
 	
@@ -62,7 +63,7 @@ Structured Query Language
 	- Some database vendors have toolkit/API to integrate SQL into programming languages.
 		![[Pasted image 20250212203351.png]]
 
-### What is PostgreSQL?
+<h3>What is PostgreSQL?</h3>
 
 - An Object-Relational database management system (ORDBMS).
 	
@@ -82,16 +83,17 @@ Structured Query Language
 	`index methods`
 	`procedural languages`
 
-### Third Party GUI for SQL
+<h3>Third Party GUI for SQL</h3>
 
 - [pgAdmin 4](https://www.pgadmin.org/docs/pgadmin4/9.1/index.html): A Open Source management tool for PostgreSQL. 
 
 <h2 style="color:#6290C3"><center> Getting Started </center></h2>
-## Installation 
+
+<h2>Installation </h2>
 
 - Refer to PostgreSQL Guidelines for [Installation](https://www.postgresql.org/docs/16/installation.html). Or follow the OS/Distros Guidelines for Installation, which in this documentation uses [Fedora Workstation](https://docs.fedoraproject.org/en-US/quick-docs/postgresql/).
 
-## Architecture Fundamentals
+<h2>Architecture Fundamentals</h2>
 
 - In database jargon, PostgreSQL uses a client/server model. A PostgreSQL session consists of the following cooperating processes:
 	
@@ -103,7 +105,7 @@ Structured Query Language
 	
 - The PostgreSQL server can handle multiple concurrent connections from clients. To achieve this it starts (“forks”) a new process for each connection. From that point on, the client and the new server process communicate without intervention by the original `postgres` process. Thus, the supervisor server process is always running, waiting for client connections, whereas client and associated server processes come and go.
 
-## Creating and Populating a Database
+<h2>Creating and Populating a Database</h2>
 
 - To create a database type: `createdb {name}`.
 	
