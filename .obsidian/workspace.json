@@ -4,11 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "4509724f8bf84da7",
+        "id": "256e7ba6692d5531",
         "type": "tabs",
         "children": [
           {
-            "id": "e7a7b303c61786dc",
+            "id": "5b42f4ab71054935",
+            "type": "leaf",
+            "state": {
+              "type": "home-tab-view",
+              "state": {},
+              "icon": "search",
+              "title": "Home tab"
+            }
+          },
+          {
+            "id": "d2af1d3e8bc53fd6",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -21,7 +31,8 @@
               "title": "Home"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -167,17 +178,19 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "d2af1d3e8bc53fd6",
   "lastOpenFiles": [
     "Computer.md",
-    "README.md",
     "Home.md",
+    "README.md",
+    "Computer Science/Concepts/Theoretical Disciplines/Theoretical disciplines.md",
+    "Computer Networking/Concepts/Computer Networking.md",
+    "Computer Networking/Concepts/Terminology.md",
+    "Computer Networking/Concepts/Juniper/Juniper.md",
+    "Computer Engineering/Concepts/Computer Engineering.md",
     "Computer Science/Concepts/Computer Systems/Computer Architecture/Computer Architecture.md",
     "Computer Science/Concepts/Theoretical Disciplines/Algorithms/Algorithms.md",
     "Computer Science/Concepts/Theoretical Disciplines/Automate Theory/Automate Theory.md",
-    "Computer Networking/Concepts/Terminology.md",
-    "Computer Networking/Concepts/Computer Networking.md",
-    "Computer Engineering/Concepts/Computer Engineering.md",
     "Computer Science/Concepts/Computer Science.md",
     "Research",
     "Computer Science/Concepts/Applied Disciplines/Artificial Intelligence/Artificial Intelligence.md",
@@ -198,7 +211,6 @@
     "Computer Networking/Untitled.md",
     "Computer Engineering/Concepts",
     "Zettelkasten.md",
-    "Computer Networking/Concepts/Juniper/Juniper.md",
     "Computer Science/Computer Science.md",
     "Templates",
     "_assets/general_imgs/luye-gainianxinhua-11111111111111111111111.jpg",
@@ -206,7 +218,6 @@
     "_assets/general_imgs",
     "Untitled.base",
     "Computer Science/Concepts/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/CSS.md",
-    "Computer Science/Concepts/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/HTML.md",
     "_assets/imgs/Pasted image 20250805143842.png",
     "_assets/imgs/Pasted image 20250805143557.png",
     "_assets/imgs/Pasted image 20250805125318.png",
