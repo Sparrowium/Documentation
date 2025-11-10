@@ -1,11 +1,11 @@
 {
   "theme": "obsidian",
-  "cssTheme": "Wombat",
+  "cssTheme": "AnuPpuccin",
   "enabledCssSnippets": [
     "theme",
-    "MCL Multi Column"
+    "dashboard"
   ],
-  "baseFontSize": 20,
+  "baseFontSize": 16,
   "baseFontSizeAction": true,
-  "accentColor": ""
+  "accentColor": "#f5bd5c"
 }
