@@ -23,6 +23,10 @@ System software refers to the low-level software that manages and controls a com
 - [Utility Software]: Tools for system maintenance and optimization.
 	
 - [Boot Loaders]: Software that initializes the OS during startup.
+	
+- [[Containers]]: Software that separate resources and allow mass software scale and deployment, usually share the same host.
+	
+- [[Virtual Machine]]: Software that allow a physical device to have multiple host and resources separation.
 
 ## System Software Applications
 
