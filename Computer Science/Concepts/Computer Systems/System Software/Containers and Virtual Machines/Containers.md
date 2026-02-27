@@ -31,4 +31,11 @@
 <h2> What is Container Orchestration? </h2>
 - [Container Orchestration]: A software technology that allows the automatics management of containers. This is necessary for the modern cloud application development because an application might contain thousands of microservices in their respective containers. The large number of containerized microservices makes it impossible for software developers to manage them manually.
 	
-- Developers use container orchestration tools to automatically start, stop, and manage containers. Container Orchestrators allow developers to scale cloud applications precisely and avoid humans errors.
+- Developers use container orchestration tools to automatically start, stop, and manage containers. Container Orchestrators allow developers to scale cloud applications precisely and avoid humans errors. 
+
+<h2> Types of container technology </h2>
+- [[Docker]]: A popular open-source container runtime that allows software developer to build, deploy, and test containerized application on various platforms. Docker containers are self-contained packages of application and related files that are created with the Docker framework.
+	
+- [[Linux]]: An open-source operating system with built-in container technology. Linux container ([LXC]) are self-contained environments that allow multiple Linux-based applications to run on  a single host machine. Software developers uses Linux containers to deploy applications that write or read large amounts of data. Linux container do not copy the entire operating system to their virtualized environment. Instead, the containers consist of necessary functionalities allocated in the Linux namespace.
+	
+- [Kubernetes]: An open-source container orchestrator that software developer use to deploy, scale, and manage a vast number of micro services. It has a declarative model that makes automating easier. The declarative model ensures that Kubernetes takes the appropriate action to fulfil the requirements based on the configuration files.
