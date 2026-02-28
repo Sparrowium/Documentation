@@ -11,14 +11,12 @@
             "id": "5970cdbb7ce0c007",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "Computer Science/Concepts/Computer Systems/System Software/Containers and Virtual Machines/Containers.md",
-                "mode": "source",
-                "source": false
+                "file": "_assets/imgs/Pasted image 20260222223920.png"
               },
-              "icon": "lucide-file",
-              "title": "Containers"
+              "icon": "lucide-image",
+              "title": "Pasted image 20260222223920"
             }
           }
         ]
@@ -74,8 +72,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -156,8 +153,8 @@
             "state": {
               "type": "git-view",
               "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
+              "icon": "lucide-ghost",
+              "title": "git-view"
             }
           }
         ],
@@ -176,19 +173,18 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "obsidian-excalidraw-plugin:New drawing": false,
-      "homepage:Open homepage": false,
-      "obsidian-git:Open Git source control": false
+      "command-palette:Open command palette": false
     }
   },
-  "active": "cb5a004409d4cb44",
+  "active": "94c6bde8c47967b6",
   "lastOpenFiles": [
-    "Computer Science/Concepts/Computer Systems/System Software/Containers and Virtual Machines/Virtual Machine.md",
+    "_assets/imgs/Pasted image 20260222224009.png",
+    "_assets/imgs/Pasted image 20260222223920.png",
+    "_assets/imgs/Screenshot_20260223-141946.png",
+    "_assets/imgs/Screenshot_20260223-141622.png",
     "Computer Science/Concepts/Computer Systems/System Software/Containers and Virtual Machines/Containers.md",
+    "Computer Science/Concepts/Computer Systems/System Software/Containers and Virtual Machines/Virtual Machine.md",
     "Computer Science/Concepts/Computer Systems/System Software/System Software.md",
-    "Pasted image 20260222224009.png",
-    "Pasted image 20260222223920.png",
     "Computer Science/Concepts/Computer Systems/Microarchitecture/Microarchitecture.md",
     "Computer Science/Concepts/Computer Systems/System Software/Linux.md",
     "Home.md",
@@ -215,7 +211,6 @@
     "Computer Science/Concepts/Applied Disciplines/Software Engineering/Tools/Git.md",
     "Computer Science/Concepts/Applied Disciplines/Software Engineering/Software Engineering.md",
     "Computer Networking/Concepts/Juniper/Junos Lab.md",
-    "Computer Networking/Computer Networking.md",
     "Computer Networking/Resources",
     "Computer Engineering/Resources",
     "Computer Science/Concepts",
@@ -229,7 +224,6 @@
     "_assets/imgs/Pasted image 20250805125318.png",
     "_assets/imgs/Pasted image 20250805125249.png",
     "_assets/imgs/Pasted image 20250805125237.png",
-    "_assets/imgs/Pasted image 20250805125229.png",
     "Untitled 1.canvas",
     "Untitled.canvas"
   ]
