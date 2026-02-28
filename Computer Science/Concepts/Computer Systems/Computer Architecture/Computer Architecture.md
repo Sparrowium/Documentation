@@ -33,7 +33,6 @@
 <h2>Historical Architectures</h2>
 
 <h3>What is a Computer?</h3>
-
 - A computer is a machine that can simulate any other machine, given as mush memory it asks for.
 	`Read, Write, and Process Data`
 	`Read, Write, and Execute Program
@@ -42,7 +41,6 @@
 	`Branch (if statements`
 
 <h3>Before the Industrial Revolution</h3>
-
 - [The Stone Age]:
 	
 	- [Lebombo Bone]: A bone with carved notches that may have been used as a tally stick around 40000 BCE, in a tally, one marks represents one physical thing. An example of Data Representation.

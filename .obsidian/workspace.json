@@ -11,12 +11,14 @@
             "id": "5970cdbb7ce0c007",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "_assets/imgs/Pasted image 20260222223920.png"
+                "file": "Computer Science/Concepts/Computer Systems/System Software/Containers and Virtual Machines/Docker.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "Pasted image 20260222223920"
+              "icon": "lucide-file",
+              "title": "Docker"
             }
           }
         ]
@@ -176,13 +178,19 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "94c6bde8c47967b6",
+  "active": "5970cdbb7ce0c007",
   "lastOpenFiles": [
-    "_assets/imgs/Pasted image 20260222224009.png",
+    "Pasted image 20260227192455.png",
+    "Computer Science/Concepts/Computer Systems/Computer Architecture/Computer Architecture.md",
+    "Computer Science/Concepts/Computer Systems/Computer Networks/Computer Networks.md",
+    "Computer Science/Concepts/Computer Systems/System Software/Containers and Virtual Machines/Docker.md",
+    "Computer Science/Concepts/Computer Systems/System Software/Containers and Virtual Machines/Containers.md",
+    "Computer Networking/Concepts/Juniper/JNCIA-Design.md",
+    "Computer Networking/Concepts/Juniper/JNCIA-DevOps.md",
     "_assets/imgs/Pasted image 20260222223920.png",
+    "_assets/imgs/Pasted image 20260222224009.png",
     "_assets/imgs/Screenshot_20260223-141946.png",
     "_assets/imgs/Screenshot_20260223-141622.png",
-    "Computer Science/Concepts/Computer Systems/System Software/Containers and Virtual Machines/Containers.md",
     "Computer Science/Concepts/Computer Systems/System Software/Containers and Virtual Machines/Virtual Machine.md",
     "Computer Science/Concepts/Computer Systems/System Software/System Software.md",
     "Computer Science/Concepts/Computer Systems/Microarchitecture/Microarchitecture.md",
@@ -191,8 +199,6 @@
     "Computer Science/Concepts/Computer Systems/System Software/Containers and Virtual Machines",
     "Computer Networking/Concepts/Terminology.md",
     "Computer Networking/Concepts/Juniper/JNCIA-Junos.md",
-    "Computer Networking/Concepts/Juniper/JNCIA-DevOps.md",
-    "Computer Networking/Concepts/Juniper/JNCIA-Design.md",
     "Computer.md",
     "Untitled.base",
     "README.md",
@@ -200,7 +206,6 @@
     "Computer Networking/Concepts/Computer Networking.md",
     "Computer Networking/Concepts/Juniper/Juniper.md",
     "Computer Engineering/Concepts/Computer Engineering.md",
-    "Computer Science/Concepts/Computer Systems/Computer Architecture/Computer Architecture.md",
     "Computer Science/Concepts/Theoretical Disciplines/Algorithms/Algorithms.md",
     "Computer Science/Concepts/Theoretical Disciplines/Automate Theory/Automate Theory.md",
     "Computer Science/Concepts/Computer Science.md",
@@ -209,8 +214,6 @@
     "Computer Science/Resources",
     "Computer Engineering/Concepts.md",
     "Computer Science/Concepts/Applied Disciplines/Software Engineering/Tools/Git.md",
-    "Computer Science/Concepts/Applied Disciplines/Software Engineering/Software Engineering.md",
-    "Computer Networking/Concepts/Juniper/Junos Lab.md",
     "Computer Networking/Resources",
     "Computer Engineering/Resources",
     "Computer Science/Concepts",
@@ -223,7 +226,6 @@
     "_assets/imgs/Pasted image 20250805143557.png",
     "_assets/imgs/Pasted image 20250805125318.png",
     "_assets/imgs/Pasted image 20250805125249.png",
-    "_assets/imgs/Pasted image 20250805125237.png",
     "Untitled 1.canvas",
     "Untitled.canvas"
   ]
