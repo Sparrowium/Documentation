@@ -59,3 +59,44 @@ Large shipping BO-AT but software style.
 		- By default, a container is relatively well isolated from other containers and its host machine. You can control how isolated a container's network, storage, or other underlying subsystems are from other containers or from the host machine.
 			
 		- A container is defined by its image as well as any configuration options you provide to it when you create or start it. When a container is removed, any changes to its state that aren't stored in persistent storage disappear.
+		
+	
+	`docker run -i -t ubuntu /bin/bash`
+	- If you don't have the `ubuntu` image locally, Docker pulls it from your configured registry, as though you had run `docker pull ubuntu` manually.
+		
+	- Docker creates a new container, as though you had run a `docker container create` command manually.
+		
+	- Docker allocates a read-write filesystem to the container, as its final layer. This allows a running container to create or modify files and directories in its local filesystem.
+		
+	- Docker creates a network interface to connect the container to the default network, since you didn't specify any networking options. This includes assigning an IP address to the container. By default, containers can connect to external networks using the host machine's network connection.
+		
+	- Docker starts the container and executes `/bin/bash`. Because the container is running interactively `-i` and attached to your terminal `-t`, you can provide input using your keyboard while Docker logs the output to your terminal.
+		
+	- When you run `exit` to terminate the `/bin/bash` command, the container stops but isn't removed. You can start it again or remove it.
+
+<h2> Underlying Technology </h2>
+- Docker is written in [[Go]] programming language and takes advantage of several features of the Linux Kernel to deliver its functionality. Docker uses a technology called `namespaces` to provide the isolated workspace called the container. When you run a container, Docker creates a namespaces for that container.
+	
+- These namespaces provide a layer of isolation. Each aspect of a container runs in a separate namespace and its access is limited to that namespace. 
+
+<h1 style="color:#6290C3"><center> Docker Concept </center></h1>
+<h2> What Is A Container? </h2>
+- Containers are isolated processes for each of your app's components. Each component run in its own isolated environment, completely isolated from everything else on your machine. 
+	
+	- Each container has everything it needs to function with no reliance on any pre-installed dependencies on the host machines.
+		
+	- They have minimal influence on the host and other containers, increasing the security of your applications.
+		
+	- Each container is independently managed. Deleting one container won't affect any others.
+		
+	- Containers can run anywhere, one that runs on your development machine will work the same way in a data center or else where.
+
+<h2> Containers Versus Virtual Machine </h2>
+- VM is an entire operating system with its own kernel, hardware drivers, programs, and applications. Spinning up a VM only to isolate a single application is a lot of overhead.
+	
+- A container is simply an isolated process with all the files it needs to run. If you run multiple containers, they all share the same kernel, allowing you to run more application on less infrastructure.
+	
+- Quite often, you will see containers and VMs used together. As an example, in a cloud environment, the provisioned machines are typically VMs. However, instead of provisioning one machine to run one application, a VM with a container runtime can run multiple containerized applications, increasing resource utilization and reducing costs.
+
+<
+- 
