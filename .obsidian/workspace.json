@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 409,
-    "collapsed": true
+    "width": 409
   },
   "right": {
     "id": "e5d9271595e93348",
@@ -181,10 +180,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "94c6bde8c47967b6",
   "lastOpenFiles": [
-    "Pasted image 20260308184304.png",
-    "Pasted image 20260308183344.png",
+    "_assets/imgs/Pasted image 20260308184304.png",
+    "_assets/imgs/Pasted image 20260308183344.png",
     "Computer Science/Concepts/Computer Systems/System Software/Containers and Virtual Machines/Containers.md",
     "Computer.md",
     "Home.md",
