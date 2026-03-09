@@ -13,28 +13,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Home.md",
+                "file": "Computer Science/Concepts/Computer Systems/System Software/Containers and Virtual Machines/Docker.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Home"
-            }
-          },
-          {
-            "id": "0559c62fa328b32b",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.12.4"
-              },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.12.4"
+              "title": "Docker"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -91,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 409,
+    "collapsed": true
   },
   "right": {
     "id": "e5d9271595e93348",
@@ -107,6 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Computer Science/Concepts/Computer Systems/System Software/Containers and Virtual Machines/Docker.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +105,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for Docker"
             }
           },
           {
@@ -175,7 +164,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -191,20 +181,24 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "94c6bde8c47967b6",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "Pasted image 20260308184304.png",
+    "Pasted image 20260308183344.png",
+    "Computer Science/Concepts/Computer Systems/System Software/Containers and Virtual Machines/Containers.md",
+    "Computer.md",
+    "Home.md",
+    "Computer Science/Concepts/Computer Systems/System Software/Containers and Virtual Machines/Docker.md",
+    "_assets/imgs/Pasted image 20260308174922.png",
+    "Untitled.base",
+    "Computer Science/Concepts/Computer Systems/Computer Networks/Computer Networks.md",
     "_assets/imgs/Screenshot_20260223-141946.png",
     "_assets/imgs/Screenshot_20260223-141622.png",
     "_assets/imgs/Pasted image 20260222224009.png",
     "_assets/imgs/Pasted image 20260222223920.png",
     "_assets/imgs/Pasted image 20260227192455.png",
     "Computer Science/Concepts/Computer Systems/System Software/Containers and Virtual Machines/Virtual Machine.md",
-    "Computer Science/Concepts/Computer Systems/System Software/Containers and Virtual Machines/Docker.md",
-    "Computer Science/Concepts/Computer Systems/System Software/Containers and Virtual Machines/Containers.md",
     "Computer Science/Concepts/Computer Systems/System Software/Containers and Virtual Machines",
-    "Home.md",
-    "Computer.md",
-    "Untitled.base",
     "README.md",
     "Computer Science/Concepts/Theoretical Disciplines/Theoretical disciplines.md",
     "Computer Networking/Concepts/Computer Networking.md",
@@ -229,16 +223,12 @@
     "Computer Networking/Resources",
     "Computer Engineering/Resources",
     "Computer Science/Concepts",
-    "Computer Science/Untitled.md",
     "Computer Networking/Concepts",
     "Computer Engineering/Concepts",
     "Templates",
     "_assets/general_imgs/luye-gainianxinhua-11111111111111111111111.jpg",
     "_assets/general_imgs/wallpaperflare.com_wallpaper(4).jpg",
     "_assets/imgs/Pasted image 20250805143842.png",
-    "_assets/imgs/Pasted image 20250805143557.png",
-    "_assets/imgs/Pasted image 20250805125318.png",
-    "_assets/imgs/Pasted image 20250805125249.png",
     "Untitled 1.canvas",
     "Untitled.canvas"
   ]

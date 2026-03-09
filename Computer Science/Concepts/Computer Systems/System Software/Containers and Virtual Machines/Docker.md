@@ -80,7 +80,8 @@ Large shipping BO-AT but software style.
 - These namespaces provide a layer of isolation. Each aspect of a container runs in a separate namespace and its access is limited to that namespace. 
 
 <h1 style="color:#6290C3"><center> Docker Concept </center></h1>
-<h2> What Is A Container? </h2>
+<h2> The Basics </h2>
+<h3> What Is A Container? </h3>
 - Containers are isolated processes for each of your app's components. Each component run in its own isolated environment, completely isolated from everything else on your machine. 
 	
 	- Each container has everything it needs to function with no reliance on any pre-installed dependencies on the host machines.
@@ -91,12 +92,76 @@ Large shipping BO-AT but software style.
 		
 	- Containers can run anywhere, one that runs on your development machine will work the same way in a data center or else where.
 
-<h2> Containers Versus Virtual Machine </h2>
+<h3> Containers Versus Virtual Machine </h3>
 - VM is an entire operating system with its own kernel, hardware drivers, programs, and applications. Spinning up a VM only to isolate a single application is a lot of overhead.
 	
 - A container is simply an isolated process with all the files it needs to run. If you run multiple containers, they all share the same kernel, allowing you to run more application on less infrastructure.
 	
 - Quite often, you will see containers and VMs used together. As an example, in a cloud environment, the provisioned machines are typically VMs. However, instead of provisioning one machine to run one application, a VM with a container runtime can run multiple containerized applications, increasing resource utilization and reducing costs.
 
-<
-- 
+<h3> What Is An Image? </h3>
+- A container image is a standardized package that includes all of the files, binaries, libraries, and configurations to run a container.
+	
+- Two important principles of images:
+	
+	- Images are immutable. Once an image is created, it can't be modified. You can only make a new image or add changes on top of it.
+		
+	- Container images are composed of layers. Each layer represents a set of file system changes that add, remove, or modify files.
+	
+- These two principles let you to extend or add to existing images. Starting from the foundation (python, go, c, ...) and add additional layers to install your app's dependencies and add your code.
+
+<h3> Finding Images </h3>
+- [Docker Hub]: The default global marketplace for storing and distributing images. It has over 100000 images created by developers that you can run locally. You can search for Docker Hub images and run them directly form Docker Desktop.
+	
+- Docker Hub provides a variety of Docker-supported and endorsed images known as Docker Trusted Content. These provide fully managed services or great starters for your own images. These include:
+	
+	- [Docker Official Images]: A curated set of Docker repo, serve as the starting point for the majority of users, and are some of the most secure on Docker Hub.
+		
+	- [Docker Hardened Images]: Minimal, secure, production-ready images with near-zero CVEs, designed to reduce attack surface and simplify compliance. Free and open source under Apache 2.0.
+		
+	- [Docker Verified Publishers]: High quality images from commercial publishers verified by Docker. 
+		
+	- [Docker-Sponsored Open Source]: Images published and maintained by open-source projects sponsored by Docker through Docker's open source program.
+
+<h3> What Is A Registry? </h3>
+- An image registry is a centralized location for string and sharing your container images. It can be either public or private. Docker Hub is a public registry that anyone can use and is the default registry.
+
+<h3> Registry VS Repositories </h3>
+- A _registry_ is a centralized location that stores and manages container images, whereas a _repository_ is a collection of related container images within a registry.
+	![[Pasted image 20260308174922.png]]
+
+<h3> What Is Docker Compose? </h3>
+- [Docker Compose]: A declarative tool used to define all of the containers and their configurations from networks, flags, in a single YAML file. If you include this file in your code repository, anyone that clones your repo can get up and running with a single command. 
+	
+- Compose is a declarative tools, you define it and go. No need for recreate everything from scratch, for changes run `docker compose up` again and Compose will reconcile the changes in your file and apply them intelligently.
+
+<h2> Building Images </h2>
+<h3> The Image Layer </h3>
+- Each layer in an image contains a set of filesystem changes - additions, deletions, or modifications.
+	
+	- The first layer adds basics commands and a package manager, such as apt.
+		
+	- The second layer installs a Programming Languages and Language Dependencies Manager for dependency management.
+		
+	- The third layer copies in an application's specific requirements.txt file.
+		
+	- The fourth layer installs that application's specific dependencies.
+		
+	- The fifth layer copies in the actual source code of the application.
+	![[Pasted image 20260308183344.png]]
+	
+- This the beneficial because it allows layers to be reused between images. Thanks to layering you can leverage the same base. This will make builds faster and reduce the amount of storage and bandwidth required to distribute the images.
+	![[Pasted image 20260308184304.png]]
+	
+- Layers let you extend images of others by reusing their base layers allowing you to add only the data that your application needs.
+
+<h3> Stacking The Layer </h3>
+- Layering is made possible by content-addressable storage and union filesystems.
+	
+	- After each layer is downloaded, it is extracted into its own directory on the host filesystem.
+		
+	- When you run a container from an image, a union filesystem is created where layers are stacked on top of each other, creating a new and unified view.
+		
+	- When the container starts, its root directory is set to the location of this unified directory, using `chroot`.
+	
+- When the union filesystem is created, in addition to the image layers, a directory is created specifically for the running container. This allows the container to make filesystem changes while allowing the original image layers to remain untouched. This enables you to run multiple containers form the same underlying image.
