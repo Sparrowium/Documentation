@@ -165,3 +165,124 @@ Large shipping BO-AT but software style.
 	- When the container starts, its root directory is set to the location of this unified directory, using `chroot`.
 	
 - When the union filesystem is created, in addition to the image layers, a directory is created specifically for the running container. This allows the container to make filesystem changes while allowing the original image layers to remain untouched. This enables you to run multiple containers form the same underlying image.
+
+<h3> Writing A Dockerfile </h3>
+- A Dockerfile is a text-based documents that's used to created a container image. It provides instructions to the image builder on the commands to run, files to copy, startup command, and more.
+	![[Pasted image 20260318130126.png]]
+	
+- Common Instruction:
+	
+	- `FROM <image>`: Specifies the image that the build will extend.
+		
+	- `WORKDIR <path>`: Specifies the "working directory" or the path in the image where files will be copied and commands will be executed.
+		
+	- `COPY <host-path> <image-path>`: Tells the builder to copy files from the host and put them into the container image.
+		
+	- `RUN <command>`: Run the specified command.
+		
+	- `ENV <name> <value>`: Sets an environment variable that a running container will use.
+		
+	- `EXPOSE <port-number>`: Sets configurations on the image that indicates a port the image would like to expose.
+		
+	- `USER <user-or-id>`: Sets the default user for all subsequent instructions.
+		
+	- `CMD ["<command>", "<arg1>"]`: Sets the default command a container using this image will run.
+	
+
+<h3> Build, Tag, Publish An Image </h3>
+- Building images: Process of building an image based on a Dockerfile.
+	
+	- `dock build .`: The dot provides the path or URL to the build context/Dockerfile.
+		
+	- When you build, the builder pulls the base image, if needed, and then runs the instructions specified in the Dockerfile.
+	
+- Tagging images: Process of giving an image a name, which also determines where the image can be distributed.
+	
+	- `[HOST[:PORT_NUMBER]/]PATH[:TAG]`
+		
+		- `HOST`: The optional registry hostname where the image is located. If no host is specified, Docker's public registry at `docker.io` is used by default.
+			
+		- `PORT_NUMBER`: Registry portnumber if a hostname is provided.
+			
+		- `PATH`: The path of the image, consisting of slash-separated component. For DockerHub, the format follows `[NAMESPACE/]REPOSITORY`, where namespace is either a user's or organization's name. If no namespace is specified `library` is used, which is the namespace for Docker Official Images.
+			
+		- `TAG`: A custom, human-readable identifier that's typically used to identify different versions or variants of an image. If no tag is specified, `latest` is used by default.
+		`nginx == docker.io/library/nginx:latest`
+		
+	- To tag an image during build add the `-t` or `--tag` flag.
+		`docker build -t my-username/my-image .`
+		`docker image tag my-username/my-image another-username/another-image:v1`
+	
+	
+	
+- Publishing images: Process to distribute or share the newly created image using a container registry.
+	
+	- Once you have an image built and tagged, you're ready to push it to a registry. To do so used `docker push` command.
+		`docker push my-username/my-image`
+		
+	- This step requires authentication.
+
+<h3> Using The Build Cache </h3>
+- Docker uses the latest build cache/instructions from a previous build to reduce build time. This means that whenever Docker is building and it founds previous instructions that are identical to the process, Docker will just use the output of that instructions and mapped it to the current build so that it doesnt need to redo it.
+	
+	- Examples that causes cache invalidations:
+		
+		- Any changes to the command of a `RUN` instruction invalidates that layer. Docker detects the change and invalidates the build cache if there's any modifications to a `RUN` command in your Dockerfile.
+			
+		- Any changes to files copied into the image with the COPY or ADD instructions. Docker keeps an eye on any alterations to files within your project directory. Whether it's a change in content or properties like permissions, Docker considers these modifications as triggers to invalidate the cache.
+			
+		- Once one layer is invalidated, all following layers are also invalidated. If any previous layer, including the base image or intermediary layers, has been invalidated due to changes, Docker ensures that subsequent layers relying on it are also invalidated. This keeps the build process synchronized and prevents inconsistencies.
+
+<h3> Multiple Stage Build </h3>
+- Multi-stage build introduce stages in your Dockerfile, each with a specific purpose. Think of it like the ability to run different parts of a build in multiple environments, concurrently. By separating the build environment the final runtime environment, you can significantly reduce the image size and attack surface. This is especially beneficial for applications with large build dependencies.
+	
+- Multi-stage builds are recommended for all types of applications.
+	
+	- For interpreted language, you can build and minify your code in one stage, and copy the production-ready files to a smaller runtime image. This optimizes your image for deployment.
+		
+	- For compiled language, like C, Go, Rust, multi-stage builds let you compile in one stage and copy the compiled binaries into a final runtime image. No need to bundle the entire compiler in your final image. 
+	
+- Simplified example of a multi-stage build structure using pseudo-code. Notice there are multiple `FROM` statements and a new `AS <stage-name>`. In addition, the `COPY` statement in the second stage is copying `--from` the previous stage.
+	
+```
+	# Stage 1: Build environment
+	FROM builder-image AS build-stage 
+	# Install build tools (e.g., Maven, Gradle)
+	# Copy source code
+	# Build commands (e.g., compile, package)
+	
+	# Stage 2: Runtime environment
+	FROM runtime-image AS final-stage  
+	#  Copy application artifacts from the build stage (e.g., JAR file)
+	COPY --from=build-stage /path/in/build/stage /path/to/place/in/final/stage
+	# Define runtime configuration (e.g., CMD, ENTRYPOINT) 
+```
+	
+- This Dockerfile uses two stages:
+	
+	- This build stage uses a base image containing build tools needed to compile your application. It includes commands to install build tools, copy source code, and execute build commands.
+		
+	- The final stages uses a smaller base image suitable for running your application. It copies the compiled artifacts from the build stage. Finally it defines the runtime configuration (using `CMD/ENTRYPOINT`) for starting your application.
+
+<h2> Running Containers </h2>
+<h3> Publishing And Exposing Ports </h3>
+- Publishing Ports: Provides the ability to break through a little bit of networking isolation by setting up a forwarding rule. You can indicate that request on your host's port (ex 8080) should be forwarded to the container port (80). Publishing ports happens during container creation using the `-p` (or `--publish`) flag with `docker run`.
+	`docker run -d -p HOST_PORT:CONTAINER_PORT nginx`
+	`docker run -d -p 8080:80 nginx`
+	
+	- `HOST_PORT`: The port number on your host machine where you want to receive traffic.
+		
+	- `CONTAINER_PORT`: The port number within the container that's listening for connections.
+	
+- Publishing To Ephemeral Ports: Publish to port you don't care which host port is used. Simply omit `HOST_PORT`.
+	`docker run -p 80 nginx`
+	
+	- Once the container is running, using `docker ps` will show you the port that was chosen.
+	
+- Publishing All Ports: `-P/--publish-all` flag, will publish all exposed ports to ephemeral ports. 
+	`docker run -P nginx`
+	
+
+<h3> Overriding Container Defaults </h3>
+- Sometimes you might want to use database instances for development and testing purposes. Running these database instances on the same port might conflict. Refer to [[]]
+- 
