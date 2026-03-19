@@ -1,8 +1,7 @@
 High level General Purpose Language
 <h2><center> Basic </center></h2>
 
-<h2>Setting Up Environment</h2>
-
+## Setting Up Environment
 - Installing [Go Tools](https://go.dev/dl/)
 	
 - Troubleshooting Your Go Installation:
@@ -59,8 +58,7 @@ High level General Purpose Language
 	
 - [Makefiles]: A special file used by the make build automation tool to control the build process of a project.
 
-<h2>Predeclared Types and Declarations</h2>
-
+## Predeclared Types and Declarations
 - [Predeclared Types]: Types that are built into the language. 
 	
 - [The Zero Value]: A defaults value that is assigned to any variables that is declared but not assigned a value.
@@ -118,8 +116,7 @@ High level General Purpose Language
 - [Naming Variables and Constants]: Go uses Camel case. 
 	` var HelloWorld string = "true"`
 
-<h2>Composite Types</h2>
-
+## Composite Types
 - [Arrays - Too Rigid to Use Directly]: Because the size of the array to be part of the type of the array. In addition, you cant use a type conversion to directly convert arrays of different sizes to identical types.
 	`var x = [3]int{0, 0, 0}`
 	
@@ -193,8 +190,7 @@ High level General Purpose Language
 		
 	- [Comparing and Converting Struct]: Depends on the struct's fields.
 
-<h2>Blocks, Shadows, and Control Structures</h2>
-
+## Blocks, Shadows, and Control Structures
 - [Blocks]: A place where a declaration occurs. 
 	
 	- [Package Blocks]: Are declaration outside of any functions.
@@ -290,8 +286,7 @@ High level General Purpose Language
 	
 - [goto]: A jump statement (skip statement).
 
-<h2>Functions</h2>
-
+## Functions
 - [Declaring and Calling Functions]: A function declaration contains four parts: the keyword func, the name of the function, the input parameters, and the return type. 
 	
 	- The input parameters are listed in parentheses, separated by commas, with the parameters name first and then type second.
@@ -384,8 +379,7 @@ High level General Purpose Language
 	
 - [Go is Call by Value]: This is because go always makes a copy of the value of the variable whenever you supply a variable for a parameter to a function.
 
-<h2>Pointers</h2>
-
+## Pointers
 - [Pointer]: 
 	
 	- A variable that holds the location in memory where the value is stored.
@@ -455,8 +449,7 @@ High level General Purpose Language
 	
 - [Tuning the Garbage Collector]: Doubling the value of GOGC will halve the amount of CPU time spent on GC. Limiting the amount of memory prevent unwanted memory overflow.
 
-<h2>Types, Methods, and Interfaces</h2>
-
+## Types, Methods, and Interfaces
 - [Types in GO]: 
 	```
 	type Person struct {
@@ -607,8 +600,7 @@ High level General Purpose Language
 	
 - Go is Practical.
 
-<h2>Generics</h2>
-
+## Generics
 - Generics Reduce Repetitive Code and Increase Type Safety
 	
 - [Introducing Generics in Go]: 
@@ -664,7 +656,7 @@ High level General Purpose Language
 		}
 		```
 	- The addition of type terms allow you to define a type that lets you write generic comparison functions:
-		 ```
+		```
 		type Ordered interface {
 			~int | ~int8 | ~int16 | ~int32 | ~int64 |
 				~uint | ~uint8 | ~uint16 | ~uint32 | ~uint64 | ~uintptr |
@@ -672,7 +664,7 @@ High level General Purpose Language
 				~string
 		}
 		```
-	- The Ordered interface lists all types that support the `==,<,>,~=,<=,>=` operators, which was defined in the *cmp package*. 
+	- The Ordered interface lists all types that support the operators which was defined in the *cmp package*.
 		
 	- The *cmp package* also defines two comparison functions. The *Compare* function either return -1, 0, 1, depending on whether its first parameter is less than, equal to, or greater than its second parameters, and the *Less* function returns true if its first parameter is less than its second parameter. 
 		

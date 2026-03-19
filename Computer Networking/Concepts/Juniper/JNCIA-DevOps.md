@@ -1,8 +1,6 @@
 Juniper Networks Certified Associate in Automation and DevOps
 <h2 style="color:#6290C3"><center> Introduction to Juniper Platform Automation and NetDevOps </center></h2>
-
-<h2>Network Operations</h2>
-
+## Network Operations
 - Modern applications are evolving and require the network to keep pace. To deploy applications at scale, network and service configuration must be automated. Applications running in virtualized environments, such as private, public, and hybrid clouds, require networking to be virtualized as well. Instead of deploying and managing physical hardware devices, software-based virtual switches, routers, and firewalls are used. Modern networks are also able to dynamically adjust and optimize traffic flow based on the analysis of network telemetry data.
 	
 - The primary reason for changing the traditional approach to networking comes from the fact that computer networks often exist as parts of larger projects, and must evolve in unison.
@@ -13,8 +11,7 @@ Juniper Networks Certified Associate in Automation and DevOps
 		
 	- Additionally, the waterfall model takes into account that there is a significant interval of time between releases of software. Each new release contains a large volume of code changes because multiple features are typically released at the same time. This increases the probability of issues at deployment time.
 
-<h2>DevOps: Principle and Practice.</h2>
-
+## DevOps: Principle and Practice.
 - DevOps is a combination of technologies, design concepts, mentalities, and ideals that enable high-performing IT teams to move quickly while maintaining stability.
 	
 	- DevOps aims to unite development, operations, and other teams in your organization to improve communication, collaboration, and integration. DevOps creates a tight loop between product release and feedback, with the ultimate goal of decreasing the time to market while increasing organizational performance and customer satisfaction.
@@ -43,8 +40,7 @@ Juniper Networks Certified Associate in Automation and DevOps
 	
 - [Continuous Delivery and Continuous Deployment]: Are natural extensions of CI. These terms are often used to describe the DevOps model. The difference between the two is that Continuous Delivery makes sure that the code is ready to deploy at any time, while Continuous Deployment is a way to automate the code deployment. The most important aspect of Continuous Delivery and Continuous Deployment is that operations, security, and compliance teams are brought into the conversation much earlier than before. Being a part of the process early enables these teams to give valuable input and visualize the process from beginning to end.
 
-<h2>NetDevOps</h2>
-
+## NetDevOps
 - [NetDevOps]: Is the application of DevOps philosophies, principles, and behaviors to network operations (NetOps). DevOps principles counter the waterfall methodology, where extended planning, building, and testing cycles occur in long sequential stages. NetDevOps brings automation to the network resulting in increased speed, reduced cost, and a decrease in the number of configuration errors. Junos devices are completely programmable. Every capability baked into the Junos CLI is exposed to developers, making the platforms completely automatable.
 	
 	- Junos automation solutions support network engineers and operators to move at the rapid pace demanded by the DevOps community. Juniper Networks embraces various automation and orchestration tools, such as Ansible, Salt, and so on. Junos OS enables network engineers to use common NetDevOps tools for full orchestration of large-scale service deployments.
@@ -67,9 +63,7 @@ Juniper Networks Certified Associate in Automation and DevOps
 	![[Pasted image 20250605234957.png]]
 
 <h2 style="color:#6290C3"><center> Junos Automation </center></h2>
-
-<h2>Junos Automation APIs</h2>
-
+## Junos Automation APIs
 - The main Junos processes responsible for automation are the management process `mgd` and the Juniper Extension Toolkit (JET) service process `jsd`. The `mgd` process handles automation requests received using the Junos XML API, Yet Another Next Generation (YANG) language, and Representational State Transfer (REST) APIs, as well as some SNMP functions.
 	![[Pasted image 20250606225951.png]]
 - Junos works well in development and operations (DevOps) environments for these reasons. Junos has a rich set of APIs. Junos uses transactional configuration updates (the Junos commit model). Junos configuration and operational data are based on a consistent XML data model, such as internal Data Definition Language (DDL) and Output Definition Language (ODL), YANG, and OpenConfig. Junos supports popular IT automation and configuration management systems such as Ansible, Salt, and Terraform. In addition to remote management through APIs, Junos supports on-box scripts and applications.
@@ -102,8 +96,7 @@ Juniper Networks Certified Associate in Automation and DevOps
 		
 	- To keep up with the rapid configuration changes that automation systems can generate, JET applications can configure the ephemeral configuration database. The Ephemeral database can commit over 1,000 configuration changes per second. To reach this magnitude of commits per second, commits are not validated. This means that you need to ensure that the app is pushing a valid configuration.
 
-<h2>Junos Automation API Overview</h2>
-
+## Junos Automation API Overview
 - Junos OS enables you to customize the behavior of a device with commit, operation, event, and SNMP scripts that run on the Junos device. These scripts take XML input, process it, call the Junos functions specified in the script, and output the instructions to Junos. The type of input accepted and the information returned is different for each of the different script types.
 	![[Pasted image 20250606234158.png]]
 	- The programming languages used for Junos on-box scripting are Extensible Stylesheet Language Transformations (XSLT), Stylesheet Language Alternative Syntax (SLAX), and Python.
@@ -148,9 +141,7 @@ Juniper Networks Certified Associate in Automation and DevOps
 	![[Pasted image 20250606235151.png]]
 
 <h2 style="color:#6290C3"><center> XML and XPath </center></h2>
-
-<h2>XML Document Format</h2>
-
+## XML Document Format
 - [XML]: A standards-based way of structuring and communicating data. It was developed by the World Wide Web Consortium also known as W3C.
 	![[Pasted image 20250611225441.png]]
 	- XML appears similar to HTML because it uses tags in a similar fashion. XML is a language that is used to define a collection of markers known as tags.
@@ -178,8 +169,7 @@ Juniper Networks Certified Associate in Automation and DevOps
 - [XML schema definition (XSD)]: A file that ensures that everyone working with an XML document uses a standard set of tags to communicate the information. The XSD is what makes the XML document meaningful. XSD, like XML, is a standard developed by World Wide Web Consortium (W3C). XSD documents are themselves XML documents using a specific structure defined in the W3C standard.
 	![[Pasted image 20250611231355.png]]![[Pasted image 20250611231412.png]]
 
-<h2>XML in Junos OS</h2>
-
+## XML in Junos OS
 - When you enter an operational mode command in Junos CLI, the CLI converts the command into XML format for processing. After processing the command, Junos OS returns the output in an XML document, which the CLI converts back into a readable format for display. XML encoding enables remote Junos automation apps to handle operations and configurations. The Junos XML API has XML equivalents for all Junos OS configuration statements and most operational mode commands. Each operational mode command with a Junos XML counterpart maps to a request tag element, and if necessary, a response tag element.
 	![[Pasted image 20250611231719.png]]![[Pasted image 20250611231736.png]]
 - Junos OS CLI commands query Junos OS infrastructure using XML.
@@ -197,8 +187,7 @@ Juniper Networks Certified Associate in Automation and DevOps
 - Junos OS CLI output can show which XSD version to use.
 	![[Pasted image 20250611232501.png]]
 
-<h2>Navigating XML using XPath</h2>
-
+## Navigating XML using XPath
 - The Junos on-box scripts, such as commit, op, event, and SNMP, can be written in Extensible Stylesheet Language Transformations (XSLT), which is a standard for processing XML data. On a Junos device, XSLT performs XML-to-XML transformations, turning one XML hierarchy into another. The XSLT engine reads a script and an XML document. It uses the instructions in the script to process the XML document by traversing the document's hierarchy. Usually, the script shows what portion of the XML document tree to be traversed, how it should be inspected, and what XML should be generated at each point. For Junos on-box scripts, the XSLT engine is a function of the Junos OS management process.
 	![[Pasted image 20250611232652.png]]
 	- XSLT uses the XPath standard to specify and locate elements in the input document's XML hierarchy. XPath enables you to define complex criteria for selecting certain portions of the XML input document.
@@ -236,9 +225,7 @@ Juniper Networks Certified Associate in Automation and DevOps
 	- The `junos:group` attribute is attached to nodes that have inherited configuration settings from a configuration group.
 
 <h2 style="color:#6290C3"><center> XML and NETCONF </center></h2>
-
-<h2>NECONF</h2>
-
+## NECONF
 - [NETCONF]: A standards-based protocol used for communication with network devices. Communication is usually SSH. With NETCONF you can perform action like locking, reading, modifying, deleting, and unlocking devices.
 	![[Pasted image 20250624233626.png]]
 - [Message Layer]: Provides a simple, transport-independent framing mechanism for encoding RPCs and notifications.
@@ -257,8 +244,7 @@ Juniper Networks Certified Associate in Automation and DevOps
 		
 	- To enable both NETCONF and SSH sessions, include SSH statement such as `set system services ssh`. The statement enables SSH access to device for all users and applications.
 
-<h2>Junos RPCs</h2>
-
+## Junos RPCs
 - Type `netconf` to start a session in the Junos CLI.
 	![[Pasted image 20250624234913.png]]![[Pasted image 20250624235007.png]]
 - To establish a NETCONF session and execute commands, you issue NETCONF RPCs (Remote Procedure Calls) that perform operational mode commands and modify device configurations. All NETCONF RPC requests must be enclosed within XML `<rpc>` tags and terminate with the `]]>]]>` delimiter to mark the end of the message.
@@ -266,24 +252,20 @@ Juniper Networks Certified Associate in Automation and DevOps
 - Pipe `| display xml rpc` Junos CLI command option provides insight into the appropriate Remote Procedure Call (RPC) for a given operation, but it should not be considered the definitive reference. The authoritative sources for RPC specifications are the Junos XML Schema Definition (XSD) files, which are included with each new release of the Junos OS. These XSD files contain the official schema definitions and serve as the primary reference for NETCONF RPCs in Junos.
 	![[Pasted image 20250624235311.png]]
 
-<h2>Junos XML API Programming Languages</h2>
-
+## Junos XML API Programming Languages
 - [XSLT]: The basic model consists of an XSLT engine or processor that accepts as input a script or stylesheet and an XML document. The XSLT engine uses the instructions in the script to process the XML document’s hierarchy. The script identifies interesting portions of the XML document, how it should be inspected, and what XML output should be generated. Because XSLT was created to support generic XML-to-XML transformations, it is a natural choice for both inspecting Junos configuration syntax and for generating errors and warnings.
 	![[Pasted image 20250624235644.png]]![[Pasted image 20250624235709.png]]
 - [SLAX]: A programming language developed by Juniper Engineers to simplify the automation of Junos. It is now an open-source language. Unlike XSLT, SLAX is easier to use while maintaining the same capabilities. You can convert between SLAX and XSLT, as SLAX code is ultimately translated into XSLT before being processed by the XSLT engine. Programmers who are unfamiliar with XSLT often prefer SLAX because it allows them to focus on their programming tasks without needing to learn XSLT's complex syntax.
 	![[Pasted image 20250624235832.png]]![[Pasted image 20250624235850.png]]
 
 <h2 style="color:#6290C3"><center> Python Fundamentals </center></h2>
-
-<h2>Python Basics</h2>
-
+## Python Basics
 - This flow chart demonstrates the actions that are taken when a Python script or program is executed. When the Python code is executed, the Python interpreter analyzes the program or script. If there are no syntax issues, the interpreter begins to translate the Python code into a byte code. In some scenarios, the Python code is translated and stored as a Python byte code `.pyc` file.
 	![[Pasted image 20250625233155.png]]
 	- Storing Python modules and packages in this manner speeds up execution because the interpreter doesn’t need to evaluate the Python code every time the module or package is referenced. Finally, the byte code is passed to the Python runtime, known as the Python virtual machine (pvm), that executes the byte code instructions.
 	
 
-<h2>Python Modules, Packages, and Libraries</h2>
-
+## Python Modules, Packages, and Libraries
 - [Module]: Is the smallest component of the package in the form of a Python script that comprises functions and methods to implement various features of the package. 
 	
 - [Package]: Consists of modules, resource file and is often developed using other packages to support various features. These supporting packages are called dependencies. 
@@ -333,9 +315,7 @@ Juniper Networks Certified Associate in Automation and DevOps
 
 <h2 style="color:#6290C3"><center> Querying Junos Devices Using Junos PyEZ </center></h2>
 
-
-<h2>Connecting Junos Devices Using Junos PyEZ</h2>
-
+## Connecting Junos Devices Using Junos PyEZ
 - Junos PyEZ connects to Junos platform using a serial console, Telnet, or NETCONF over SSH. It also supports SSH connections that are initiated by the Junos device.
 	![[Pasted image 20250703100000.png]]
 - Connecting to Junos devices requires authentication. When a Junos PyEZ script attempts to connect to a device to performs action, it must authenticate using an account with sufficient permission to perform action. Junos operating systems uses login classes to enforce administration privileges and permissions. The Junos built-in `super-user` class provides sufficient permission for PyEZ to performs all supported actions, a custom class is also supported.
@@ -357,8 +337,7 @@ Juniper Networks Certified Associate in Automation and DevOps
 - Storing usernames and passwords in Python scripts is not secure. If public key authentication is not an option, you can configure a Python script that prompts a user for credentials when the Python script is run. Import the built-in Python `getpass` module and define login prompt variables. Reference the login prompt variables in the connection portion of the script. When the script is run, the user is presented with username and password prompts during authentication.
 	![[Pasted image 20250703111608.png]]
 
-<h2>Performing Junos PyEZ Device Operations</h2>
-
+## Performing Junos PyEZ Device Operations
 - Junos PyEZ perform operational tasks: Reboot and power off platforms, secure copy files, upgrade Junos software, access the Unix and Junos device shell, ...
 	
 	- `jnpr.junos.utils.sw` module `SW` class provides `reboot()` and `poweroff()` methods to manage the device run time. The operation can be performed immediately (default) or scheduled for later. If the script is connected to he device using NETCOND over SSH, you will need to call the device object `open()` method again to reconnect.
@@ -370,15 +349,12 @@ Juniper Networks Certified Associate in Automation and DevOps
 	- `jnpr.junos.utils.start_shell` module defines the `StartShell` class. The `StartShell` class enables Python applications to initiate an SSH connection to a Junos device and access the Junos or Unix shell. The `StartShell` object `run()` method enables a Python application to execute Unix shell and Junos CLI commands and retrieve responses.
 	![[Pasted image 20250703151637.png]]![[Pasted image 20250703151701.png]]
 
-<h2>Automating Junos Device Operations</h2>
-
+## Automating Junos Device Operations
 - Network Administrator use Junos PyEZ to execute remote procedures calls (RPCs) on Junos devices and perform the same operational tasks traditionally performed using the Junos CLI. PyEZ uses the same XML API used by the CLI to send retrieve data to and from the Junos management daemon `mgd`. You can determine  the RPC corresponding to a particular Junos CLI command by issuing the CLI and including the `| displat xml rpc` command operator.
 	![[Pasted image 20250703154036.png]]![[Pasted image 20250703154133.png]]![[Pasted image 20250703154147.png]]
 
 <h2 style="color:#6290C3"><center> Configuring Junos Devices Using Junos PyEZ </center></h2>
-
-<h2>Automating Device Configuration</h2>
-
+## Automating Device Configuration
 - `jnpr.junos.utils.config` modules defines the `Config` class. The utility enables you to retrieve, load, rollback, and compare Junos device configuration. PyEZ supports both unstructured and structured configuration changes.
 	
 	- Unstructured configuration changes consist of static or templated configuration data that is formatted using ASCII text, Junos XML elements , Junos set commands, or JavaScript Object Notation (JSON). Unstructured changes can leverage Python `Jinjia2` templates to deploy configuration containing unique device-specific configuration values. 
@@ -404,15 +380,13 @@ Juniper Networks Certified Associate in Automation and DevOps
 	For Redundant Routing Engines.
 	![[Pasted image 20250716101323.png]]
 
-<h2>Exception Handling</h2>
-
+## Exception Handling
 - Exceptions are errors that happens in the runtime, causing the operations to fail.
 	
 - `jnpr.junos.exception` Modules handle PyEZ runtime exceptions. It defines Junos-specific exceptions, including connection errors (ex: auth errors), configuration errors, commit errors, protocol timeout errors, and permission errors.
 	![[Pasted image 20250716101846.png]]
 
-<h2>Jinja2 Templates</h2>
-
+## Jinja2 Templates
 - Jinja2 templates is utilize to configure device with unique values.
 	
 	- Identify device configuration that you want to turn into template variable values.
@@ -424,8 +398,7 @@ Juniper Networks Certified Associate in Automation and DevOps
 	- Creating a script using the Jinja2 Template.
 	![[Pasted image 20250716102937.png]]
 
-<h2>Junos XML API Automation</h2>
-
+## Junos XML API Automation
 - Example.
 	![[Pasted image 20250716103511.png]]
 - [XML Parsing]: Used to optimize operation memory and processing speed.
@@ -435,9 +408,7 @@ Juniper Networks Certified Associate in Automation and DevOps
 
 
 <h2 style="color:#6290C3"><center> Data Serialization-JSON and YAML </center></h2>
-
-<h2>JSON and YAML: Data Structures</h2>
-
+## JSON and YAML: Data Structures
 - JSON Dictionary.
 	![[Pasted image 20250717094751.png]]
 - [JSON]: A lightweight data-interchange format. It is human-readable but is easier for machines to parse than human. It is language-independent but uses conventions like C,C++,JAVA,JAVASCRIPT,PERL, and PYTHON. It first appeared as a lightweight alternative to XML and quickly became popular.
@@ -468,8 +439,7 @@ Juniper Networks Certified Associate in Automation and DevOps
 	- Nested YAML uses indentations to create structures.
 	![[Pasted image 20250717104608.png]]
 
-<h2>Junos Automation with JSON and YAML</h2>
-
+## Junos Automation with JSON and YAML
 - Python and Jinja2.
 	![[Pasted image 20250717104810.png]]
 - Ansible.
@@ -486,9 +456,7 @@ Juniper Networks Certified Associate in Automation and DevOps
 		![[Pasted image 20250717105754.png]]![[Pasted image 20250717105849.png]]
 
 <h2 style="color:#6290C3"><center> Rest API </center></h2>
-
-<h2>Rest API Architecture</h2>
-
+## Rest API Architecture
 - [API]: Communicates and exchanges data with two different software.
 	
 	- The client such as the mobile user or the Web user, sends the request to the application server through the API gateway. After receiving the request, the API gateway makes a call to the server and receives the response. The API then responds to the client request. The API client-server architecture provides two-way communication.
@@ -574,9 +542,7 @@ Juniper Networks Certified Associate in Automation and DevOps
 	- The third component is the Headers. It contains metadata or header about the response. The information in the response header includes access control, encoding, data, connection, and so on.
 
 <h2 style="color:#6290C3"><center> Automating Junos Device Using REST API </center></h2>
-
-<h2>Junos REST API Functionality</h2>
-
+## Junos REST API Functionality
 - Benefits:
     
     - Securely execute configuration.
@@ -612,8 +578,7 @@ Juniper Networks Certified Associate in Automation and DevOps
 - [Controlling Access to the REST API]: By restricting the allowed source IP address. You can also limit the simultaneous connections.
 	![[Pasted image 20250801224557.png]]
 
-<h2>Querying Junos REST API</h2>
-
+## Querying Junos REST API
 - [GET Request]: Generally includes all of the required data in the URL.
 	![[Pasted image 20250801224802.png]]
 - [POST Request]: Includes additional data to the message body.
@@ -631,8 +596,7 @@ Juniper Networks Certified Associate in Automation and DevOps
 	- `traceoptions` to generate additional logging information for a configured service. You can configure `traceoptions` flags for `lighttpd`, `juise`, and `oral1`. You can only enable one flag at a time. Since the `lighttpd` and JUISE processes are executed in a chroot environment, the processes do not have access to the standard Junos `/var/log` directory. Trace options log files for these processes are located in the `/var/chroot/rest-api/var/log` directory on the device.
 	![[Pasted image 20250801231600.png]]
 
-<h2>Junos REST API Explorer</h2>
-
+## Junos REST API Explorer
 - [Enabling the Explorer]: To enable the Representational State Transfer (REST) API Explorer, use the command `set system services rest enable-explorer` in configuration mode. After committing the configuration, access the REST API Explorer by opening a web browser and navigating to your Junos device's hostname or IP address, followed by a colon and the configured port number. The default ports are 3000 for HTTP and 3443 for HTTPS. Authentication is required—you must enter a valid username and password before submitting any requests.
 	![[Pasted image 20250801231802.png]]
 - The option to execute a single remote procedure call (RPC) is selected by default when you open the REST API Explorer. Queries sent to the REST API can be submitted as either HTTP GET or HTTP POST requests. The Junos REST API Explorer supports outputting data in XML, JavaScript Object Notation (JSON), and plain text formats. Input the Junos RPC in the URL field, provide a username and a password, and click Submit.
@@ -642,8 +606,7 @@ Juniper Networks Certified Associate in Automation and DevOps
 - To perform multiple RPCs in one HTTP request, select the Multiple RPCs option. This enables an additional setting to stop execution if an error occurs. If the Stop on error option is not checked and an error happens, the REST API server reports the error but continues with the next RPC in the list.
 	![[Pasted image 20250801232343.png]]
 
-<h2>Automating Junos Devices</h2>
-
+## Automating Junos Devices
 - The Junos REST API Explorer helps identify the proper HTTP method and Junos RPC to use. In this example, a POST request executes a single RPC containing the `<get-config>` command in the request body. Using POST allows specifying a subtree filter to retrieve only relevant portions of the device configuration. The server returns the filtered XML configuration data in the Response Body field, which an automation script can then analyze to determine which services are enabled on the device.
 	![[Pasted image 20250801232631.png]]
 

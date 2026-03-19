@@ -1,16 +1,13 @@
 
 ## What is a Computer?
-
 - A **computer** is an electronic device that can be programmed to carry out a set of instruction to manipulates information, or data. It has the ability to **store**, **retrieve**, and **process** data.
 
 ## Hardware vs Software
-
 - [Hardware]: Is any part of your computer that has a **physical structure/appearance**.
 	
 - [Software]: Is any **set of instruction** that tells the hardware **what to do** and **how to do it**.
 
 ## What are the different types of computers?
-
 - [Desktop Computer]: Is designed o be placed on a desk surface, and it is typically made up of few different parts.
 	
 - [Laptop Computer]: Is a battery-powered computer that is **more portable** than desktop, allowing you to use it everywhere.
@@ -22,7 +19,6 @@
 - [Specialized Computer]: Is a specialized type of computer that is designed to do a specific job. Ex: Smartphone, Wearable, Game Console, TV, etc.
 
 ## Basic Parts of a Computer
-
 - [Computer Case]: 
 	
 	- A computer is a metal and plastic box that **contains the main components** of the computer, including the [Motherboard], [Central Processing Unit (CPU)], and [Power Supply Unit]. The front of the case usually has an I/O Interface Port that has an **On/Off button**. 
@@ -46,7 +42,6 @@
 	- [Touchpad]: - also called a trackpad - Is a touch-sensitive pad that lets you control the pointer by making a drawing motion with your finger.
 
 ## Buttons and Ports on a Computer
-
 - [Front of the Computer Case]: Usually have 1-3 USB port, 1-2 Aux port, Power button.
 	
 - [Back of the Computer Case]: Has **connection ports** that are made to fit **specific devices**. Usually have 2-5 USB port, 3 Video port (VGA, HDMI, DP), 6 Aux port, 1 RJ-45 Port, 1 Power supply port, some will have RP-SMA port/connector for external Wi-Fi antenna.
@@ -68,7 +63,6 @@
 	- Other devices may include [Game Controller], [Joystick], [Digital Cameras], and [Mobiles Devices].
 
 ## Inside a Computer
-
 - [Motherboard]: The computer **main circuit board**. It's a thin PCB plate that holds the CPU, Memory, Connectors for Hard Drives and Optical Drives, Expansion Cards to control the Video and Audio, and connections to your computer's ports. The mother board connects directly or indirectly to every part of the computer.
 	
 - [CPU/Processor]: The central processing unit (CPU), also called the processor, is located inside the computer case on the motherboard. It is called the brain of the computer, and its job is to execute and carries out commands from user's input.
@@ -90,7 +84,6 @@
 	- [Network Card]: The network card allows your computer to communicate over a network and access internet. It can either be connected through **Ethernet** or **Wireless**. Most computers has built in network card.
 
 ## Laptop Computers
-
 - A laptop is a personal computer that can be **easily moved** and used in a variety of locations. Most laptops are designed to have all of the functionality of a desktop computer but in a compacted size.
 	
 - A laptop has an **all-in-one design**, with a built-in **monitor**, **keyboard**, **touchpad** (which replaces the mouse), and **speakers**.
@@ -104,7 +97,6 @@
 	- [AC Adapter]: A specialized power cable.
 
 ## Mobile Devices
-
 - A mobile device is a general term for any type of **handheld computer**.
 	
 - [Tablets]: **Tablet computers** are designed to be portable. The entire screen is touch-sensitive, allowing you to type on a **virtual keyboard** and use your finger as a mouse pointer.

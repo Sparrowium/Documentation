@@ -1,12 +1,10 @@
 
 A field within Computer Science and a branch of Engineering focused on designing, developing, testing, and maintaining of software applications. 
 
-<h2>What is Software Engineering?</h2>
-
+## What is Software Engineering?
 - Software Engineering is the process of designing, developing, testing, and maintaining software. It is a systematic and disciplined approach to software development that aims to create high-quality, reliable, and maintainable software.
 
-<h2>Workload</h2>
-
+## Workload
 - [Requirement Analysis]: Is about elicitation, analysis, specification, and validation of requirements for software. Software requirements can be functional, non-functional, or domain. 
 	
 	- [Functional Requirements]: Describe expected behaviors (outputs).
@@ -33,16 +31,15 @@ A field within Computer Science and a branch of Engineering focused on designing
 	
 - [Software Maintenance]: Refers to the supporting of software after released. It may include but is not limited to: error correction, optimization, deletion of unused and discarded features, and enhancement of existing features.
 
-<h2>Tools</h2>
-
-- [Configuration Management and Source Code Management]:
+## Tools
+- Configuration Management and Source Code Management:
 	[[CVS]]
 	[[Git]]
 	
-- [Build Tools]:
+- Build Tools:
 	[[Make]]
 	
-- [Editors]:
+- Editors:
 	[[Integrated Development Environments (IDEs)]]
 	[[Text Editors]]
 	

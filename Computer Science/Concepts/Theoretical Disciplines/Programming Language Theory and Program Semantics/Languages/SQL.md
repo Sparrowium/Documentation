@@ -1,10 +1,7 @@
 Structured Query Language
 <h2><center> Basic </center></h2>
-
-<h2>Background</h2>
-
-<h3>Introduction to Databases</h3>
-
+## Background
+### Introduction to Databases
 - [Database]: A database is a set of related information.
 	
 - [Database System]: A system of database that computerized data storage that has retrieval mechanisms. That has the ability to retrieve data quickly, index data in multiple ways, and deliver up-to-the-minute information to its user community.
@@ -34,8 +31,7 @@ Structured Query Language
 - [Common Terminology]:
 	![[Pasted image 20250212201533.png]]
 
-<h3>What is SQL?</h3>
-
+### What is SQL?
 - **SEQUEL**, a Language used to manipulate data in relational databases, and other database technologies.
 	
 - SQL goes hand in hand with the relational model because the result of an SQL Query is a table (A result set). Thus, a new permanent table can be created in a relational database simply by storing the result set of a query. Similarly, the result set and permanent table can also be used as an input.
@@ -63,8 +59,7 @@ Structured Query Language
 	- Some database vendors have toolkit/API to integrate SQL into programming languages.
 		![[Pasted image 20250212203351.png]]
 
-<h3>What is PostgreSQL?</h3>
-
+### What is PostgreSQL?
 - An Object-Relational database management system (ORDBMS).
 	
 - An open source that support a large part of the SQL standard and offers many modern features.
@@ -83,18 +78,14 @@ Structured Query Language
 	`index methods`
 	`procedural languages`
 
-<h3>Third Party GUI for SQL</h3>
-
+### Third Party GUI for SQL
 - [pgAdmin 4](https://www.pgadmin.org/docs/pgadmin4/9.1/index.html): A Open Source management tool for PostgreSQL. 
 
 <h2 style="color:#6290C3"><center> Getting Started </center></h2>
-
-<h2>Installation </h2>
-
+## Installation 
 - Refer to PostgreSQL Guidelines for [Installation](https://www.postgresql.org/docs/16/installation.html). Or follow the OS/Distros Guidelines for Installation, which in this documentation uses [Fedora Workstation](https://docs.fedoraproject.org/en-US/quick-docs/postgresql/).
 
-<h2>Architecture Fundamentals</h2>
-
+## Architecture Fundamentals
 - In database jargon, PostgreSQL uses a client/server model. A PostgreSQL session consists of the following cooperating processes:
 	
 	- [Server Process]: Manages the database files, accepts connections to the database from the client applications, and performs database actions on behalf of the clients. The database server program is called `postgres`.
@@ -105,8 +96,7 @@ Structured Query Language
 	
 - The PostgreSQL server can handle multiple concurrent connections from clients. To achieve this it starts (“forks”) a new process for each connection. From that point on, the client and the new server process communicate without intervention by the original `postgres` process. Thus, the supervisor server process is always running, waiting for client connections, whereas client and associated server processes come and go.
 
-<h2>Creating and Populating a Database</h2>
-
+## Creating and Populating a Database
 - To create a database type: `createdb {name}`.
 	
 - To remove a database type: `dropdb {name}`.

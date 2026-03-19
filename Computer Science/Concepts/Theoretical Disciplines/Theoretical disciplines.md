@@ -1,9 +1,7 @@
-<h2>Basic</h2>
-
+## Basic
 Theoretical Computer Science is mathematical and abstract in spirit, but it derives its motivation from practical and everyday computation. It aims to understand the natures of computation and, as a consequence of this understanding provide more methodologies.
 
-<h3>Sub-Fields and Topics</h3>
-
+### Sub-Fields and Topics
 - [[Algorithms]]: An algorithm is a step-by-step procedure for calculations. Algorithms are used for calculation, data processing, and automated reasoning. It is an effective method expressed as a finite list of well-defined instructions for calculating a function.
 	
 - [[Automate Theory]]: The study of abstract machines and automata, as well as the computational problems that can be solved using them. It is a theory in theoretical computer science, under discrete mathematics. *Automata* comes from the Greek word meaning "self-acting". It is also the study of self-operating virtual machines to help in the logical understanding of input and output process, without or with intermediate stage(s) of computation.

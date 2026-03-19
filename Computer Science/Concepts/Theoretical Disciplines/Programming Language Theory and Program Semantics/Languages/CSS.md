@@ -2,8 +2,7 @@ A Cascading Style Sheet Language.
 
 <h2><center> Basic </center></h2>
 
-<h2>What is CSS?</h2>
-
+## What is CSS?
 - [CSS]: Abbreviated as Cascading Style Sheets and describes how HTML elements need to be displayed and rendered when represented in a web page format or other media such as **HTML** or **XML**. 
 	
 - Intended for enabling the separation of appearance with content, which includes layout, coloring, and font styles.
@@ -26,16 +25,14 @@ A Cascading Style Sheet Language.
 	
 - File extension: `.css`
 
-<h2>How to create and write CSS code?</h2>
-
+## How to create and write CSS code?
 - Step 1: Open a text editor.
 	
 - Step 2: Write CSS code.
 	
 - Step 3: Save the file with the **.css** extension. This will make the file a CSS Document.
 
-<h2>CSS Syntax</h2>
-
+## CSS Syntax
 - [CSS Syntax]: consists of three parts, a selector, a property, and a value. However at the fundamental level of CSS, it only has two building blocks that defines how the code perform.
 	`property` : Are identifiers that point to different stylistic characteristic.
 	`values` : Alter the stylistic characteristic within the web page.
@@ -48,8 +45,7 @@ A Cascading Style Sheet Language.
 	
 - [White Spaces in CSS]: Makes your style sheet more readable or constructive.
 
-<h2>Types of CSS</h2>
-
+## Types of CSS
 - [Inline CSS]:
 	
 	- Are CSS style written inside HTML elements.
@@ -72,8 +68,7 @@ A Cascading Style Sheet Language.
 
 <h2><center> Glossary </center></h2>
 
-<h2>CSS Selectors</h2>
-
+## CSS Selectors
 - [CSS Selectors]: 
 	
 	- Are used for selecting the substance of your web page you wish to style. These selectors act as the components of the rule set of CSS. CSS Selectors choose elements in HTML based on the class, id, attribute, type, etc.
@@ -148,8 +143,7 @@ A Cascading Style Sheet Language.
 	`:dir(direction) {}`
 	`selector[dir=direction] {}`
 
-<h2>CSS Properties</h2>
-
+## CSS Properties
 - [Color Property]: Used to define colors for HTML elements. Supporting colors format are: RGB, HEX, HSL, RGBA, HSLA.
 	`selector {background-color: ... ;}`: Background color for HTML element.
 	`selector {color: ... ;}`: HTML text color.
@@ -221,8 +215,7 @@ A Cascading Style Sheet Language.
 		
 	- [Fallback Values]: Are values that substitute in when the variable is not defined.
 
-<h2>CSS Advanced</h2>
-
+## CSS Advanced
 - [Gradients]: Are a helpful feature for creating smooth transitions between two or more colors on webpage elements without relying on images.
 	
 	- [Linear Gradient]: The `linear-gradient()` function generates a linear gradient. The function takes two or more color stops as arguments and the colors transition from one stop to the next along a straight line.

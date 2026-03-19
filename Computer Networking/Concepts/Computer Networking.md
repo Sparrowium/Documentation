@@ -1,8 +1,6 @@
 
 <h2 style="color:#6290C3"><center> Getting Started with Networking </center></h2>
-
-<h2>How Networks Work</h2>
-
+## How Networks Work
 - A network is a conduit that connects two or more computers or other devices.
 	
 - There are two basic kinds of networks:
@@ -92,8 +90,7 @@
 - [Networking Addressing]: 
 	![[Pasted image 20250312221836.png]]
 
-<h2>Building Ethernet LANs</h2>
-
+## Building Ethernet LANs
 - [PC's]: Are also known as end user's devices, hosts.
 	
 - Ethernet is a set of standards that define rules for things such as Frame Format, Communication.
@@ -242,8 +239,7 @@
 			
 		- [The fragmentation threshold]: Specifies what size of packet should be split into fragments, and the fragment lifetime specifies how long fragments should be kept while waiting for related fragments to arrive.
 
-<h2>Routing Basic</h2>
-
+## Routing Basic
 - Small Router.
 	![[Pasted image 20250320200248.png]]
 - Router in Network Diagram.
@@ -285,8 +281,7 @@
 - [FDDI Format]: A format that was used after the router strip off the original frame format it through a default gateway.
 	![[Pasted image 20250322232105.png]]
 
-<h2>IP Addressing</h2>
-
+## IP Addressing
 - [Internet Protocol]: The most common Layer 3 protocol. Layer 3 addresses known as IP Addresses. The Internet protocol uses these addresses to transmit data from a source network device to a destination network device. It also performs other services such as fragmentation and reassembly of data.
 	
 - [IPv4]: The most commonly used protocol. ![[Pasted image 20250325161144.png]]
@@ -407,8 +402,7 @@
 - [Reserved Prefix]: 
 	![[Pasted image 20250401221925.png]]
 
-<h2>WAN Technologies</h2>
-
+## WAN Technologies
 - LANs are built, owned, and operated by individual companies and organizations. WANs are own by third-party service providers.
 	
 - WANs service providers are sometimes called service providers, telcos, WAN carriers, or just "carriers".
@@ -542,8 +536,7 @@
 - [MPLS Services]: 
 	![[Pasted image 20250402214645.png]]
 
-<h2>Transport Layer Protocol</h2>
-
+## Transport Layer Protocol
 - Data get route to the correct computer with the help of IP and other lower layer protocols, such as Ethernet. The Transport Layer protocols is getting the data from one application program to the correct application program on another, it enable true end-to-end or application-to-application communication.
 	
 - User Datagram Protocol (UDP), and the Transmission Control Protocol (TCP), bridge the gap between the lower layer, which are responsible for data delivery and the Application layer. These utilize software ports to help route data to the correct application, the destination port provides a way of getting the data to the correct Application Layer protocol and ultimately the correct application program. The source port uniquely identifies the connection on the sending side.
@@ -638,5 +631,4 @@
 - [Key TCP Operation]: Application Layer protocols send data to TCP as a continuous stream of bites. TCP group bits into bytes, and bytes into manageable chunks or segments that can be one byte or many bytes in length. Each byte of data sent over a TCP connection has a sequence number. Each byte is acknowledged. Sequence number are used for acknowledge which data has been received, determine if the data has been lost or damaged, put the data into the correct order.
 
 <h2 style="color:#6290C3"><center> Computer Networking Vendors </center></h2>
-
 - [[Juniper]]:  Often called **Juniper Networks**, is an American multinational corporation headquartered in Sunnyvale, California. The company develops and markets networking products, including routers, switches, network management software, network security products, and software-defined networking technology

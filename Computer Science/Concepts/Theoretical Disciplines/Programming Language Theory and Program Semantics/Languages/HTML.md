@@ -1,9 +1,7 @@
 A Hyper Text Markup Language.
 
 <h2><center> Basic </center></h2>
-
-<h2>What is HTML?</h2>
-
+## What is HTML?
 - [HTML]: the basic building block of the Web. It defines the meaning and the structure of web content through elements such as tags. 
 	
 - The word in **Hyper Text** in HTML refers to a "Link" that connect the web pages from one to another, either in a single website or between websites. 
@@ -14,8 +12,7 @@ A Hyper Text Markup Language.
 	
 - File extension: `.html`
 
-<h2>How to create and write HTML code?</h2>
-
+## How to create and write HTML code?
 - Step 1: Open a text editor.
 	
 - Step 2: Write HTML code.
@@ -24,16 +21,14 @@ A Hyper Text Markup Language.
 	
 - Step 4: Run the HTML page in your browser via open the file in your browser.
 
-<h2>What is a HTML DOCTYPE?</h2>
-
+## What is a HTML DOCTYPE?
 - [HTML Doctype Declaration]: a reference to a Document Type Definition (DTD). A DTD refers to an **XML** (extensible markup language) document format representing allowed elements in a web page. It informs the web browser the HTML version and standard in which the current page is written; this helps different web browsers to parse the web page correctly. The Doctype Declaration is neither a tag or an element in HTML, its a null element with no closing tag.
 	
 - It should be on the first line at the top of all other content on the web page.
 	
 - Syntax: `<!DOCTYPE html>`
 
-<h2>HTML Tags</h2>
-
+## HTML Tags
 - [HTML Tags]: Are hidden keywords or commands incorporated in HTML, which can be define how your browser will display the content and format of the page. Most HTML tag have 2 sections: **Opening** ( < ... > ) and **Closing** ( </ ... > ), and any text written in between the tags will carry the tags effects upon them. 
 	
  - [HTML Document]:
@@ -52,18 +47,14 @@ A Hyper Text Markup Language.
 	
 - [BODY Tag]: the `<body> ... </body>` tag is used to display information of the HTML document. All formatting and writing of content are done in this section within the `<body>` and the `</body>`. If your HTML code does not have it, the code will still run but nothing will be displayed. Noted that, `<body>` needs to be inside the `<html>` tag.
 
-<h2>HTML Elements</h2>
-
+## HTML Elements
 - [HTML Element]: A combination of HTML tags and content within the opening and closing tags.
 	
 - [Nested HTML Elements]: HTML elements can be nested by writing another element before closing the previous element.
 	
 - [Heading Elements or `<hn>` Elements]: HTML has 6 different sizes heading ranging from 1 -> 6. In addition, Web browser will automatically add one line prior/following to make it look neat.
 
-<h2>HTML Attributes</h2>
-
-^3881c6
-
+## HTML Attributes
 - [HTML Attributes]: An HTML attribute is a property named used to provide supplementary information about HTML elements. Some common examples of HTML attributes are id, class, align, etc. Many attributes are defined globally and are applied to any element, whereas we use some of them only for specific HTML elements.
 	
 - Syntax: `<element_name attribute_name="value"> .... </element_name>`
@@ -76,7 +67,7 @@ A Hyper Text Markup Language.
 		`<p id="..."></p>`
 		
 	- [Title Attributes]: Gives a recommended title for your element.
-		`<h3 title="..."></h3>`
+		`### `
 		
 	- [Class Attributes]: This attribute is implemented by combining an element through a stylesheet (CSS) and identifying its class element.
 		`<p class="..."></p>`
@@ -84,14 +75,12 @@ A Hyper Text Markup Language.
 	- [Style Attributes]: This attribute gives you a chance for specifying the rules for Cascading Style Sheet (CSS) in your element.
 		`<p style="..."></p>`
 
-<h2>HTML Formatting</h2>
-
+## HTML Formatting
 - Formatting can be defined as the appearance of your documentation or presentation of your HTML code in a meaningful and more beautiful way.
 	
 - [Formatting Tags]: Refer to [HTML W3C](https://www.w3.org/TR/WD-html40-970708/index/attribs.html)
 
-<h2>HTML Comments</h2>
-
+## HTML Comments
 - Provide the details of what is written in the HTML source code. HTML comment tags are completely ignored to display by the browsers.
 	
 - Used to explain the owner code to help others understand when they edit their source code for future purposes.
@@ -106,8 +95,7 @@ A Hyper Text Markup Language.
 	
 - Syntax: `<! -- ... -->`
 
-<h2>HTML Forms</h2>
-
+## HTML Forms
 - A [Web Forms] is a part of an HTML document containing HTML form elements such as input, select, checkboxes, radio, buttons, etc. 
 	
 - Common Web Forms: Contact form, Registration form, Sign-in form, Lead Generation form, Order form, Survey form, Search form, Email form.
@@ -123,8 +111,7 @@ A Hyper Text Markup Language.
 - `<label>` Elements: Defines a form element label by holding the element's ID in the "**for**" attribute.
 	`<label for=""> ... </label>`
 
-<h2>CSS in HTML</h2>
-
+## CSS in HTML
 - Cascading Style Sheets (CSS) describes web content's visual presentation and layout.
 	
 - Ways to implement CSS into HTML: 
@@ -136,9 +123,7 @@ A Hyper Text Markup Language.
 	- [External CSS]: To add external CSS, link to a separate CSS file using the HTML `<link>` element in each HTML page's `<head>` section. Useful for styling multiple pages because it allows you to make changes to the CSS in one place and have those changes reflected on all of your pages.
 
 <h2><center> Glossary </center></h2>
-
-<h2>HTML Tag</h2>
-
+## HTML Tag
 - `<head>` Tag: The `<head>` tag in HTML is a container for metadata (information about the document, such as its title, scripts, and style sheets) that is not directly related to the page's content.
 	```<head> ... </head>```
 	
@@ -215,10 +200,8 @@ A Hyper Text Markup Language.
 	`<font> ... </font>`
 	
 
-<h2>HTML Attributes</h2>
-
-<h3>Common Attributes</h3>
-
+## HTML Attributes
+### Common Attributes
 - `class` Attribute: Allows developers to reuse CSS styles across multiple HTML elements.
 	`class=`
 	
@@ -234,8 +217,7 @@ A Hyper Text Markup Language.
 - `href` Attribute: "Hypertext Reference" Specifies the URL of a linked resource.
 	`href=`
 
-<h3>Event Attributes</h3>
-
+### Event Attributes
 - Defines how an event should respond to an event that occur on the web page. This could be user-triggered or automatically.
 	
 - `onload` Attribute: Triggers an action to be executed when the page is loaded.

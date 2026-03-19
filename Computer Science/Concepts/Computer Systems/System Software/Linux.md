@@ -1,9 +1,7 @@
 An Operating System based on UNIX, it is also known as GNU/Linux
 
 <h2 style="color:#6290C3"><center> Introduction </center></h2>
-
-<h2>What is Linux?</h2>
-
+## What is Linux?
 - An operating system takes on all this undifferentiated heavy lifting, abstracting away the different hardware components and providing you with a (usually) clean and nicely designed Application Programming Interface (API).
 	
 - Linux have a lot of distributions, often called as **distros**, which includes a concrete bundling of kernel and related components, including package management, file systems layouts, init systems, and a shell, preselected for you.
@@ -15,8 +13,7 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 <h2 style="color:#6290C3"><center> Linux Kernel </center></h2>
 - Provides the core functionality, on its own it is not the operating system, but a central part of it.
 
-<h2>Linux Architecture</h2>
-
+## Linux Architecture
 ![[Pasted image 20250304193433.png]]
 
 - There are three distinct layers:
@@ -49,8 +46,7 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 	
 - [User Mode]: Means comparatively slower but safer and more convenient abstractions. 
 
-<h2>CPU Architectures</h2>
-
+## CPU Architectures
 - Linux runs on a large number of different CPU architectures. For each architecture, it contains a architecture specific code, which allows it to port Linux and make it available on new hardware quickly.
 	
 - [BIOS and EUFI]: 
@@ -70,8 +66,7 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 	
 - [RISC-V Architecture]: An open RISC standard.
 
-<h2>Kernel Components</h2>
-
+## Kernel Components
 - Linux Kernel is a monolithic one--that is, all the components discussed are part of a single library--there are functional areas in the code base that we can identify and ascribe dedicated responsibility.
 	
 - Main functional blocks in kernel code base:
@@ -141,7 +136,7 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 	- Use `strace ls`, `strace -c\` to troubleshoot or looking at the history log of syscalls.
 	![[Pasted image 20250304212544.png]]![[Pasted image 20250304213022.png]]
 
-<h2>Kernel Extensions</h2>
+## Kernel Extensions
 
 - [Module]: A program that you can load into a kernel on demand. That is, you do not necessarily have to recompile the kernel and/or reboot the machine. 
 	
@@ -165,8 +160,7 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 	- Used for network load balancing.
 
 <h2 style="color:#6290C3"><center> Shells and Scripting </center></h2>
-
-<h2>Basics</h2>
+## Basics
 
 - [Terminals]: Or Terminal Emulator, Soft Terminal, is a program that provides a textual user interface. Terminal supports reading characters from  the keyboard and displaying them on the screen. They're simply apps.
 	
@@ -255,8 +249,7 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 		
 	- Date and time handling via `date`.
 
-<h2>Terminal Multiplexer</h2>
-
+## Terminal Multiplexer
 - [Multiplexing]: Using multiple terminal windows to perform many interdependent tasks. A process of overlaying a terminal with multiple windows.
 	
 -  [screen]: The original terminal multiplexer.
@@ -277,8 +270,7 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 		
 	- [tmux-continuum]: Automatically saves/restores a sessions (15 minute interval).
 
-<h2>Scripting</h2>
-
+## Scripting
 - Most of the scripts are written in **bash**.
 	
 - Scripting Basics:
@@ -358,9 +350,7 @@ An Operating System based on UNIX, it is also known as GNU/Linux
 	- Before you check your script into a repo, consider using `bats` to test it. `bats`, short for Bash Automated Testing System, allows you to define test files as a bash script with special syntax for test cases. Each test case is simply a bash function with a description, and you would typically invoke these scripts as a part of a CI pipeline.
 
 <h2 style="color:#6290C3"><center> Access Control </center></h2> 
-
-<h2>Basics</h2>
-
+## Basic
 - Resources and Ownership:
 	
 	- Linux is a multiuser operating system and as such has inherited the concept of a user form UNIX. Each user is associated with a user ID that can be given access to executables, files, devices, and other Linux assets. A human user can log in with a ser account, and a process can run as a user account. Then there are resources, files, which are any hardware or software components available to the user.

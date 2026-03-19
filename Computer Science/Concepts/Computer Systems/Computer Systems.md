@@ -1,9 +1,7 @@
 ## Basic
-
 Computer Systems is a fields of studies that focuses on the understanding how different components of a computer system interact, including their architecture, design, performance, and how to optimize their functionality to solve computational problem effectively.
 
 ### Sub-Fields and Topics
-
 - [[Computer Architecture]]: Is a description of the structure of a computer system made from component parts. It can sometimes be a high-level description that ignores details of the implementation. At a more detailed level, the description may include the instruction set architecture design, microarchitecture design, logic design, and implementation.
 	
 - [[Microarchitecture]]: Also called *computer organization* and sometimes abbreviated as μarch or uarch, is the way a given instruction set architecture (ISA) is implemented in a particular processor. A given ISA may be implemented with different microarchitectures; implementations may vary due to different goals of a given design or due to shifts in technology.

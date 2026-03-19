@@ -1,17 +1,14 @@
 
-<h2>What is Git?</h2>
-
+## What is Git?
 - The stupid content tracker.
 - _Git_ is a distributed version control system that tracks versions of files. It is often used to control source code by programmers who are developing software collaboratively.
 - _Git_ goals is to include speed, data integrity, and support for distributed, non-linear workflows - thousands of parallel branches running on different computers.
 - _Git_ is a fast, scalable, distributed revision control system with an unusually rich command set that provides both high-level operations and full access to internals.
 
-<h2>Why was Git created?</h2>
-
+## Why was Git created?
 - _Git_ was created for use in the development of the [[#Linux Kernel]] by Linus Torvalds and others developing the kernel.
 
-<h2>[About version control and Git](https://docs.github.com/en/get-started/using-git/about-git#about-version-control-and-git)</h2>
-
+## [About version control and Git](https://docs.github.com/en/get-started/using-git/about-git#about-version-control-and-git)
 A version control system, or VCS, tracks the history of changes as people and teams collaborate on projects together. As developers make changes to the project, any earlier version of the project can be recovered at any time.
 
 Developers can review project history to find out:
@@ -31,14 +28,12 @@ In a distributed version control system, every developer has a full copy of the 
     
 - Businesses using Git can break down communication barriers between teams and keep them focused on doing their best work. Plus, Git makes it possible to align experts across a business to collaborate on major projects.
 
-<h2>[About repositories](https://docs.github.com/en/get-started/using-git/about-git#about-repositories)</h2>
-
+## [About repositories](https://docs.github.com/en/get-started/using-git/about-git#about-repositories)
 A repository, or Git project, encompasses the entire collection of files and folders associated with a project, along with each file's revision history. The file history appears as snapshots in time called commits. The commits can be organized into multiple lines of development called branches. Because Git is a DVCS, repositories are self-contained units and anyone who has a copy of the repository can access the entire codebase and its history. Using the command line or other ease-of-use interfaces, a Git repository also allows for: interaction with the history, cloning the repository, creating branches, committing, merging, comparing changes across versions of code, and more.
 
 Through platforms like GitHub, Git also provides more opportunities for project transparency and collaboration. Public repositories help teams work together to build the best possible final product.
 
-<h2>[Basic Git commands](https://docs.github.com/en/get-started/using-git/about-git#basic-git-commands)</h2>
-
+## [Basic Git commands](https://docs.github.com/en/get-started/using-git/about-git#basic-git-commands)
 To use Git, developers use specific commands to copy, create, change, and combine code. These commands can be executed directly from the command line or by using an application like GitHub Desktop. Here are some common commands for using Git:
 
 - `git init` initializes a brand new Git repository and begins tracking an existing directory. It adds a hidden subfolder within the existing directory that houses the internal data structure required for version control.
@@ -59,8 +54,7 @@ To use Git, developers use specific commands to copy, create, change, and combin
     
 - `git push` updates the remote repository with any commits made locally to a branch.
 
-<h2>SYNOPSIS</h2>
-
+## SYNOPSIS
 _git_ \[-v | --version] \[-h | --help] \[-C \<path>] \[-c <\name>=\<value>]
     \[--exec-path\[=\<path>]] \[--html-path] \[--man-path] \[--info-path]
     \[-p | --paginate | -P | --no-pager] \[--no-replace-objects] \[--no-lazy-fetch]
@@ -68,8 +62,7 @@ _git_ \[-v | --version] \[-h | --help] \[-C \<path>] \[-c <\name>=\<value>]
     \[--work-tree=\<path>] \[--namespace=\<name>] \[--config-env=\<name>=\<envvar>]
     \<command> \[\<args>]
 
-<h2>OPTIONS</h2>
-
+## OPTIONS
 -v
 --version
 - Prints the Git suite version that the git program came from.

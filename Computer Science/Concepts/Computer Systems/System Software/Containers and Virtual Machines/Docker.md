@@ -1,14 +1,14 @@
 Large shipping BO-AT but software style.
 
 <h1 style="color:#6290C3"><center> Introduction </center></h1>
-<h2> What is Docker? </h2>
+##  What is Docker? 
 - [Docker]: An open source platform for developing, shipping, and running applications. 
 	
 - It enables you to separate your applications from your infrastructure so you can deliver software quickly, and manage the infrastructure the way you manage your applications. 
 	
 - It significantly reduce the delay between writing code and running it in production.
 
-<h2> The Platform </h2>
+##  The Platform 
 - Provides the ability to package and run an application in a loosely isolated environment called a container. The isolation and security let you run many containers simultaneously on a given host. Containers are lightweight and contain everything needed to run the application, so you don't need you rely what's installed on the host. 
 	
 - Docker provides tooling and a platform to manage the lifecycle of your containers:
@@ -19,7 +19,7 @@ Large shipping BO-AT but software style.
 		
 	- When you're ready, deploy your application into your production environment, as a container or an orchestrated service. This works the same whether your production environment is a local data center, a cloud provider, or a hybrid of the two.
 
-<h2> The use case of Docker </h2>
+##  The use case of Docker 
 - Fast, consistent delivery of your applications. 
 	
 	- By allowing developers to work in standardized environment using local containers, Docker streamlined the development lifecycle, which provide your applications and services. Containers are great for continuous integration and continuous delivery (CICD) workflow.
@@ -34,7 +34,7 @@ Large shipping BO-AT but software style.
 	
 	- Docker is lightweight and fast. It provides a viable, cost-effective alternative to hypervisor-based virtual machines, so you can use more of your server capacity to achieve your business goals. Docker is perfect for high density environments and for small and medium deployments where you need to do more with fewer resources.
 
-<h2> Docker Architecture </h2>
+##  Docker Architecture 
 - Docker uses a client-server architecture. The Docker client talks to the Docker daemon, which does the heavy lifting of building, running, and distributing your Docker containers. The Docker client and daemon can run on the same system, or you can connect a Docker client to a remote Docker daemon. The Docker client and daemon communicate using a REST API, over UNIX sockets or a network interface. Another Docker client is Docker compose, that lets you work with application consisting of a set of containers.
 	![[Pasted image 20260227192455.png]]
 	
@@ -59,7 +59,7 @@ Large shipping BO-AT but software style.
 		- By default, a container is relatively well isolated from other containers and its host machine. You can control how isolated a container's network, storage, or other underlying subsystems are from other containers or from the host machine.
 			
 		- A container is defined by its image as well as any configuration options you provide to it when you create or start it. When a container is removed, any changes to its state that aren't stored in persistent storage disappear.
-		
+	
 	
 	`docker run -i -t ubuntu /bin/bash`
 	- If you don't have the `ubuntu` image locally, Docker pulls it from your configured registry, as though you had run `docker pull ubuntu` manually.
@@ -74,14 +74,14 @@ Large shipping BO-AT but software style.
 		
 	- When you run `exit` to terminate the `/bin/bash` command, the container stops but isn't removed. You can start it again or remove it.
 
-<h2> Underlying Technology </h2>
+##  Underlying Technology 
 - Docker is written in [[Go]] programming language and takes advantage of several features of the Linux Kernel to deliver its functionality. Docker uses a technology called `namespaces` to provide the isolated workspace called the container. When you run a container, Docker creates a namespaces for that container.
 	
 - These namespaces provide a layer of isolation. Each aspect of a container runs in a separate namespace and its access is limited to that namespace. 
 
 <h1 style="color:#6290C3"><center> Docker Concept </center></h1>
-<h2> The Basics </h2>
-<h3> What Is A Container? </h3>
+##  The Basics 
+###  What Is A Container? 
 - Containers are isolated processes for each of your app's components. Each component run in its own isolated environment, completely isolated from everything else on your machine. 
 	
 	- Each container has everything it needs to function with no reliance on any pre-installed dependencies on the host machines.
@@ -92,14 +92,14 @@ Large shipping BO-AT but software style.
 		
 	- Containers can run anywhere, one that runs on your development machine will work the same way in a data center or else where.
 
-<h3> Containers Versus Virtual Machine </h3>
+###  Containers Versus Virtual Machine 
 - VM is an entire operating system with its own kernel, hardware drivers, programs, and applications. Spinning up a VM only to isolate a single application is a lot of overhead.
 	
 - A container is simply an isolated process with all the files it needs to run. If you run multiple containers, they all share the same kernel, allowing you to run more application on less infrastructure.
 	
 - Quite often, you will see containers and VMs used together. As an example, in a cloud environment, the provisioned machines are typically VMs. However, instead of provisioning one machine to run one application, a VM with a container runtime can run multiple containerized applications, increasing resource utilization and reducing costs.
 
-<h3> What Is An Image? </h3>
+###  What Is An Image? 
 - A container image is a standardized package that includes all of the files, binaries, libraries, and configurations to run a container.
 	
 - Two important principles of images:
@@ -110,7 +110,7 @@ Large shipping BO-AT but software style.
 	
 - These two principles let you to extend or add to existing images. Starting from the foundation (python, go, c, ...) and add additional layers to install your app's dependencies and add your code.
 
-<h3> Finding Images </h3>
+###  Finding Images 
 - [Docker Hub]: The default global marketplace for storing and distributing images. It has over 100000 images created by developers that you can run locally. You can search for Docker Hub images and run them directly form Docker Desktop.
 	
 - Docker Hub provides a variety of Docker-supported and endorsed images known as Docker Trusted Content. These provide fully managed services or great starters for your own images. These include:
@@ -123,20 +123,20 @@ Large shipping BO-AT but software style.
 		
 	- [Docker-Sponsored Open Source]: Images published and maintained by open-source projects sponsored by Docker through Docker's open source program.
 
-<h3> What Is A Registry? </h3>
+###  What Is A Registry? 
 - An image registry is a centralized location for string and sharing your container images. It can be either public or private. Docker Hub is a public registry that anyone can use and is the default registry.
 
-<h3> Registry VS Repositories </h3>
+###  Registry VS Repositories 
 - A _registry_ is a centralized location that stores and manages container images, whereas a _repository_ is a collection of related container images within a registry.
 	![[Pasted image 20260308174922.png]]
 
-<h3> What Is Docker Compose? </h3>
+###  What Is Docker Compose? 
 - [Docker Compose]: A declarative tool used to define all of the containers and their configurations from networks, flags, in a single YAML file. If you include this file in your code repository, anyone that clones your repo can get up and running with a single command. 
 	
 - Compose is a declarative tools, you define it and go. No need for recreate everything from scratch, for changes run `docker compose up` again and Compose will reconcile the changes in your file and apply them intelligently.
 
-<h2> Building Images </h2>
-<h3> The Image Layer </h3>
+##  Building Images 
+###  The Image Layer 
 - Each layer in an image contains a set of filesystem changes - additions, deletions, or modifications.
 	
 	- The first layer adds basics commands and a package manager, such as apt.
@@ -155,7 +155,7 @@ Large shipping BO-AT but software style.
 	
 - Layers let you extend images of others by reusing their base layers allowing you to add only the data that your application needs.
 
-<h3> Stacking The Layer </h3>
+###  Stacking The Layer 
 - Layering is made possible by content-addressable storage and union filesystems.
 	
 	- After each layer is downloaded, it is extracted into its own directory on the host filesystem.
@@ -166,7 +166,7 @@ Large shipping BO-AT but software style.
 	
 - When the union filesystem is created, in addition to the image layers, a directory is created specifically for the running container. This allows the container to make filesystem changes while allowing the original image layers to remain untouched. This enables you to run multiple containers form the same underlying image.
 
-<h3> Writing A Dockerfile </h3>
+###  Writing A Dockerfile 
 - A Dockerfile is a text-based documents that's used to created a container image. It provides instructions to the image builder on the commands to run, files to copy, startup command, and more.
 	![[Pasted image 20260318130126.png]]
 	
@@ -189,7 +189,7 @@ Large shipping BO-AT but software style.
 	- `CMD ["<command>", "<arg1>"]`: Sets the default command a container using this image will run.
 	
 
-<h3> Build, Tag, Publish An Image </h3>
+###  Build, Tag, Publish An Image 
 - Building images: Process of building an image based on a Dockerfile.
 	
 	- `dock build .`: The dot provides the path or URL to the build context/Dockerfile.
@@ -222,7 +222,7 @@ Large shipping BO-AT but software style.
 		
 	- This step requires authentication.
 
-<h3> Using The Build Cache </h3>
+###  Using The Build Cache 
 - Docker uses the latest build cache/instructions from a previous build to reduce build time. This means that whenever Docker is building and it founds previous instructions that are identical to the process, Docker will just use the output of that instructions and mapped it to the current build so that it doesnt need to redo it.
 	
 	- Examples that causes cache invalidations:
@@ -233,7 +233,7 @@ Large shipping BO-AT but software style.
 			
 		- Once one layer is invalidated, all following layers are also invalidated. If any previous layer, including the base image or intermediary layers, has been invalidated due to changes, Docker ensures that subsequent layers relying on it are also invalidated. This keeps the build process synchronized and prevents inconsistencies.
 
-<h3> Multiple Stage Build </h3>
+###  Multiple Stage Build 
 - Multi-stage build introduce stages in your Dockerfile, each with a specific purpose. Think of it like the ability to run different parts of a build in multiple environments, concurrently. By separating the build environment the final runtime environment, you can significantly reduce the image size and attack surface. This is especially beneficial for applications with large build dependencies.
 	
 - Multi-stage builds are recommended for all types of applications.
@@ -264,8 +264,8 @@ Large shipping BO-AT but software style.
 		
 	- The final stages uses a smaller base image suitable for running your application. It copies the compiled artifacts from the build stage. Finally it defines the runtime configuration (using `CMD/ENTRYPOINT`) for starting your application.
 
-<h2> Running Containers </h2>
-<h3> Publishing And Exposing Ports </h3>
+##  Running Containers 
+###  Publishing And Exposing Ports 
 - Publishing Ports: Provides the ability to break through a little bit of networking isolation by setting up a forwarding rule. You can indicate that request on your host's port (ex 8080) should be forwarded to the container port (80). Publishing ports happens during container creation using the `-p` (or `--publish`) flag with `docker run`.
 	`docker run -d -p HOST_PORT:CONTAINER_PORT nginx`
 	`docker run -d -p 8080:80 nginx`
@@ -283,6 +283,6 @@ Large shipping BO-AT but software style.
 	`docker run -P nginx`
 	
 
-<h3> Overriding Container Defaults </h3>
+###  Overriding Container Defaults 
 - Sometimes you might want to use database instances for development and testing purposes. Running these database instances on the same port might conflict. Refer to [[]]
 - 

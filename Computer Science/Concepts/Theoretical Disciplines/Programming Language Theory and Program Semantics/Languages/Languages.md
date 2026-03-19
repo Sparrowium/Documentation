@@ -2,24 +2,19 @@ A system of notation for writing Computer Programs
 
 <h2 style="color:#6290C3"><center> Introduction </center></h2>
 
-<h2>What is a Programming Language?</h2>
-
+## What is a Programming Language?
 - A programming language is a set of instruction that enables humans to communicate with computers-using a series of symbols that serve as a bridge that allows humans to turn ideas into instructions computers can understand.
 
-<h2>How are they described?</h2>
-
+## How are they described?
 - Programming Languages are described in terms of their [[#syntax]] (form) and [[#semantics]] (meaning), usually defined by a formal language.
 	
 - Languages are also describe by their feature such as a [[#type system]], [[#variables]], and mechanisms for [[#error handling]].
 
-<h2>Why is it important?</h2>
-
+## Why is it important?
 - An implementation of a programming language is required in order to execute programs, namely an interpreter or a compiler.
 
-<h2>Programming Languages Elements</h2>
-
-<h3>Syntax</h3>
-
+## Programming Languages Elements
+### Syntax
 - The syntax of a programming/computer language is the rules that define the combinations of symbols that are considered to be correctly structured statements or expressions in that language.
 	
 - The syntax of language defines its surface form. *Text-based* computer languages are based on sequences of characters, while *Visual* programming languages are based on the spatial layout and connections between symbols.
@@ -38,8 +33,7 @@ A system of notation for writing Computer Programs
 		
 	- For interpreted languages, syntax error are detect during program execution.
 
-<h3>Semantics</h3>
-
+### Semantics
 - The meaning and behavior of the languages
 	
 	- [Static Semantics]: Refers to the rules and constraints that are checked at **compile time**, before the program is executed. 
@@ -54,8 +48,7 @@ A system of notation for writing Computer Programs
 	
 - Provides a way to describe, analyze, and reason about programs.
 
-<h3>Type Systems</h3>
-
+### Type Systems
 - A [Type System] is a logical system comprising a set of rules that assigns a property called a type (e.g., integer, string, boolean,...) to every single term.
 	
 - By associating a type, it defines a meaning to the programmable hardware to form a symbolic system composed of that hardware and that some program., which ensure **Type Safety**.
@@ -74,12 +67,10 @@ A system of notation for writing Computer Programs
 		
 	- [Gradual Typing]: combination of both static and dynamic typing.
 
-<h3>Concurrency</h3>
-
+### Concurrency
 - The ability of a program to execute multiple task, operations, or computation at the same time. Mostly through managing data shared between different threads by controlling the order of execution of key instruction, controlling access to shared data, enabling massage passing between threads.
 
-<h3>Exception Handling</h3>
-
+### Exception Handling
 - Refers to the mechanism provided by programming languages to handle runtime errors or exceptional conditions that occur during the execution of a program. 
 	
 - Common exception handling:
@@ -88,8 +79,7 @@ A system of notation for writing Computer Programs
 		
 	- [Resumption]: Resuming the program near where the exception is occurred.
 
-<h3>Programming Language Levels</h3>
-
+### Programming Language Levels
 - High-Level Languages: Are highly abstracted from the hardware. They are designed to be readable and easy for human to use, with syntax resembling natural language or mathematical notation.
 	[[Python]]
 	
@@ -103,8 +93,7 @@ A system of notation for writing Computer Programs
 	[[Zig]], [[C]]
 	
 
-<h3>Other Languages</h3>
-
+### Other Languages
 - [[HTML]]: HyperText Markup Language
 	
 - [[CSS]]: Cascading Style Sheet

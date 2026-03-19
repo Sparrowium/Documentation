@@ -1,23 +1,19 @@
-<h2>What is it?</h2>
-
+## What is it?
 - A brand of engineering specialized in developing computer hardware and software. It integrates several fields of electrical engineering, electronics engineering and computer science.
 
-<h2>What does it require and involves?</h2>
-
+## What does it require and involves?
 - Computer engineers require training in hardware-software integration, software design, and software engineering. It encompass areas such as electromagnetism, artificial intelligence, robotics, computer networks, computer architecture and operating systems.
 	
 - Computer engineers are involved in many hardware and software aspect of computing, from the design o individual microcontroller, microprocessors, personal computers, and super computers, to circuit design.
 	
 - Computer engineering usually deals with areas including writing software and firmware for embedded microcontrollers, designing VLSI chips, analog sensors, mixed signal circuit boards, thermodynamics and Control systems. 
 
-<h2>Major Focus</h2>
-
+## Major Focus
 - [Computer Hardware Engineer]: An engineer or architect who encompass the electronics engineering and electrical engineering fields, with subspecialities in analog, digital, or electromechanical systems.
 	
 - [Computer Software Engineer]: An engineer who applies a software development process, which involves defining, implementing, testing, managing, and maintaining software systems, as well as developing the software development process itself.
 
-<h2>Specialty Areas</h2>
-
+## Specialty Areas
 - [[Processor Design]]: A subfield of computer science and computer engineering that deals with creating processor, a key component of computer hardware.
 	
 - [[Communication Networks]] and [[Wireless Networks]]: Focusing on communications and wireless networks, work advancements in telecommunications systems and networks, modulation and error-control coding, and information theory. High speed network design, interference suppression and modulation ,design, and analysis of fault-tolerant system, and storage and transmission schemes.

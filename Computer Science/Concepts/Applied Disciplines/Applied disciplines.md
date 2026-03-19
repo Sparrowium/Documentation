@@ -1,9 +1,7 @@
 ## Basic
-
 - Applied Computer Science is a field of computer science that focuses on practical applications of computer science in business, industry, and government.
 
 ### Sub-Fields and Topics
-
 - [[Computer Graphics and Visualization]]: The study of digital visual contents and involves the synthesis and manipulation of image data. The study is connected to many other fields in computer science, including computer vision, image processing, and computational geometry, and is heavily applied in the fields of specials effects and video games.
 	
 - [[Image and Sound Processing]]: Information can take the form of images, sound, video or other multimedia. Bits of information can be streamed via signals. Its processing is the central notion of informatics, the European view on computing, which studies information processing algorithms independently of the type of information carrier – whether it is electrical, mechanical or biological. This field plays important role in information theory, telecommunications, information engineering and has applications in medical image computing and speech synthesis, among others.

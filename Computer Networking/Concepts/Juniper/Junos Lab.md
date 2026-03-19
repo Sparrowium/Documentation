@@ -5,9 +5,7 @@
 	![[Pasted image 20250513083306.png]]
 
 <h2 style="color:#6290C3"><center> Junos Lab Questions </center></h2>
-
-<h2>SSH and Operational Mode</h2>
-
+## SSH and Operational Mode
 - `ssh lab@172.25.11.1` 
 	![[Pasted image 20250512220526.png]]![[Pasted image 20250512220549.png]]
 - `show system information`
@@ -31,8 +29,7 @@
 - `show version and haiku`
 	![[Pasted image 20250513082401.png]]![[Pasted image 20250513082416.png]]
 
-<h2>Network Interfaces</h2>
-
+## Network Interfaces
 - `show interfaces terse ge-0/0/6`
 	![[Pasted image 20250513091300.png]]![[Pasted image 20250513091311.png]]![[Pasted image 20250513091324.png]]![[Pasted image 20250513091357.png]]![[Pasted image 20250513091407.png]]![[Pasted image 20250513091436.png]]![[Pasted image 20250513091448.png]]
 - `show interfaces brief ge-0/0/6`

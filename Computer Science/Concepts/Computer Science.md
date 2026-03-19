@@ -1,8 +1,8 @@
-<h2>What is it?</h2>
+## What is it?
 
 - _Computer Science_ is the study of computers, computation, information and automation.
 
-<h2>What does it involves? or what is included with it?</h2>
+## What does it involves? or what is included with it?
 
 - [[Theoretical disciplines]]: mathematical abstract in spirit, but it derives its motivation from practical and everyday computation. It aims to understand computation and, as a consequence of this understanding, provide more efficient methodologies.
 	
@@ -10,11 +10,11 @@
 	
 - [[Computer Systems]]: a combination of hardware and software that can be programmed to perform a variety of tasks.
 
-<h2>What is the main point of Computer Science?</h2>
+## What is the main point of Computer Science?
 
 - To study and develop the theoretical foundations of practical application of computing systems.
 
-<h2>What are the Paradigms of Computer Science? </h2>
+## What are the Paradigms of Computer Science? 
 
 - [_Functional programming_]: A style of building the structures and elements of computer programs that treats computation as the evaluation of mathematical functions and avoids state and mutable data. It is declarative programming paradigm, which means programming is done with expressions or declarations instead of statements.
 	

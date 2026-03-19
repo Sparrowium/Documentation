@@ -2,8 +2,7 @@ Juniper Networks Certified Associate in Design
 
 <h2 style="color:#6290C3"><center> Network Design Fundamentals </center></h2>
 
-<h2>The Architect/Designer Role</h2>
-
+## The Architect/Designer Role
 - Assess the customer's current environments and its ability to satisfy their current business and technology requirements.
 	
 - Identify the technology shortfalls that need to be addresses.
@@ -14,8 +13,7 @@ Juniper Networks Certified Associate in Design
 	
 - Create high-level architectural designs and low-level detailed designs of network devices, configurations, and interconnections.
 
-<h2>Doing the Research</h2>
-
+## Doing the Research
 - Research about the customer:
 	
 	- The business and industry the customer is in.
@@ -36,8 +34,7 @@ Juniper Networks Certified Associate in Design
 	
 - --Expect some Back-and-Forth.--
 
-<h2>Creating a Network Design</h2>
-
+## Creating a Network Design
 - [Juniper Network's Lifecycle Service]: Consist of three main phases and it's often cyclical throughout the design's lifetime.
 	![[Pasted image 20250504204713.png]]
 	- [Planning Phase]: Assess the current environment and determine if it can satisfy the requirements proposed by the consumer. After evaluating the current setup, it will then move on to designing high-level architectural plans as well as low-level details of devices, configuration, and interconnection.
@@ -65,9 +62,7 @@ Juniper Networks Certified Associate in Design
 		- Focus on the low-level design, which deals with the physical aspects, including the specific devices to be used, cabling, and wiring considerations.
 
 <h2 style="color:#6290C3"><center> Routers and Switches </center></h2>
-
-<h2>Juniper Routers</h2>
-
+## Juniper Routers
 - Include: PTX Series, MX Series, ACX Series, SSR Series (Sessions Smart Routers).
 	
 - [Core Routers]: Specially design to function in the backbone or core of the network.
@@ -86,8 +81,7 @@ Juniper Networks Certified Associate in Design
 		
 	- The white-box SSR solution consists of two primary components: the Session Smart Router and the Session Smart Conductor.
 
-<h2>Juniper Switches</h2>
-
+## Juniper Switches
 - [EX Series]: Divided into three categories: access, aggregation, and core. Access switches, such as the EX2300, EX3400, EX4300, and EX4400, let users and devices connect to the network. Aggregation switches, like the EX4600 and EX9200, consolidate connections from multiple access switches and link to the core. Lastly, core switches like the EX4650 and EX9250 are high-capacity switches at the center of your network.
 	![[Pasted image 20250504213900.png]]
 	- The EX2300 and EX2300-C switches are ideal for smaller network environments with limited space and power. The EX4300 and EX4400 switches are excellent for high-performance campuses and data center access requirements. They both are Multigigabit switches that are perfect for advanced branch or campus deployments. The EX4600 and EX9200 lines of switches are well-suited for enterprise campus distribution and data center top-of-rack environments. The EX4650 switch is designed for midsize to large enterprise campus distribution deployments. The EX9200 line of switches, including the EX9204, 9208, and EX9214, offers a programmable, flexible, and scalable foundation for mission-critical applications. Meanwhile, the EX9250 line of switches, such as the EX9251 and EX9253, provides compact, programmable, and scalable core and aggregation devices for enterprise environments.
@@ -107,9 +101,7 @@ Juniper Networks Certified Associate in Design
 	- Some of the key features include the ability to set up, configure, and manage EX and QFX switches from Mist Cloud. It also utilizes open APIs for automation across third-party integrations, and offers AI-driven insights into switch performance.
 
 <h2 style="color:#6290C3"><center> Security and Wireless </center></h2>
-
-<h2>Juniper Security</h2>
-
+## Juniper Security
 - To assist customers in creating a network that's aware of potential threats. Keep in mind that means that the network is aware, which means you don't have to examine the network for threats 24 hours a day manually. It does this by extending security measures to every point of connection on the network, allowing for better protection of users, devices, applications, and also infrastructure.
 	
 - Instead of focusing solely on traditional network chokepoints for attack detection and mitigation, we use routers, switches, and access points to strengthen network defense. By making the entire network an integral part of its own protection, attacks can be identified and addressed more rapidly, leaving more room for legitimate traffic to flow smoothly.
@@ -132,8 +124,7 @@ Juniper Networks Certified Associate in Design
 	
 - [Juniper Secure Connect]: An SSL VPN application that helps remote workers securely access their corporate and cloud resources. It's compatible with a range of devices like Windows, MacOS, Android, and iOS.
 
-<h2>Juniper Wireless</h2>
-
+## Juniper Wireless
 - [Mist  AP]: Mist Access Point, are designed to work with Juniper Mist Cloud Services and Mist AI. They support 802.11ax (Wifi 6), 802.11ac Wave 2, BLE, and IoT.
 	
 - [Mist Edge]: Extends the microservices platform to the campus, bringing agility and scale while also enabling new applications at the edge. This solution is deployed as a standalone appliance, available in multiple variants for different-sized deployments. This way, organizations can easily manage and monitor their wireless APs.
@@ -159,9 +150,7 @@ Juniper Networks Certified Associate in Design
 	- [Risk Profiling]: Brings network security to the distributed access network edge by evaluating the risks associated with each connecting device and implementing access and security policies.
 
 <h2 style="color:#6290C3"><center> SDN and Network Management </center></h2>
-
-<h2>Juniper SDN</h2>
-
+## Juniper SDN
 - [SDN]: Software Defined Networking, an approach to network virtualization and containerization that seeks to optimize network resources and quickly adapts networks to changing the business needs, applications and traffic.
 	
 	- With SDN, the functions of network orchestration, management, analytics, and automation become the job of the SDN controllers. Because these controllers are not networking devices, they can take advantage of the scale, performance, and availability of modern cloud computing and storage resources.
@@ -176,8 +165,7 @@ Juniper Networks Certified Associate in Design
 	
 	- A notable feature of NFX is its role as a key component in Juniper's automated SD-WAN and next-gen firewall solutions. It's a universal CPE platform that's capable of handling multiple Juniper and third-party VNFs on a single device, simplifying the deployment of new applications and services across an organization.
 
-<h2>Juniper Network Management</h2>
-
+## Juniper Network Management
 - [Paragon Automation]: A suite of software tools designed to help businesses optimize their network services. Regardless of whether you're working in a private data center or public or private clouds.
 	![[Pasted image 20250506184756.png]]
 	- A standout feature of Paragon Automation is its use of AI and machine learning. Think of these as your behind-the-scenes techs, working around the clock to identify and fix problems before they impact your business. This allows businesses to adopt a more proactive approach to maintaining their network services, helping to prevent disruptions and keep everything running smoothly.
@@ -220,9 +208,7 @@ Juniper Networks Certified Associate in Design
 	![[Pasted image 20250506192317.png]]
 
 <h2 style="color:#6290C3"><center> General Requirements </center></h2>
-
-<h2>RFP Requirements</h2>
-
+## RFP Requirements
 - [RFP (Request for Proposal)]: A mechanism that customers use to request network design proposals from potential vendors. Each RFP is unique, reflecting the specific requirements of each customer. An RFP can be brie or lengthy. An RFP includes:
 	
 	- Design requirements that detail business objectives, scope, and information about the existing network environments.
@@ -247,8 +233,7 @@ Juniper Networks Certified Associate in Design
 		
 	- [Business Continuity]: Network efficiency, quality of service requirements, load balanced and highly available networks.
 
-<h2>Scoping the Network Design</h2>
-
+## Scoping the Network Design
 - Every RFP is unique and you're likely one of several potential vendors. Your initial response is absolutely crucial to remain in the ring for the design contract. Aim to highlight your proposal's benefits in response to each RFP requirement, using the customer's specified format and familiar terminology. An RFP response should include things like:
 	
 	- [Executive Summary]: Concise outline of your design proposal emphasizing its advantages.
@@ -292,9 +277,7 @@ Juniper Networks Certified Associate in Design
 	- Ideally, you want the customer to specify the budget. Understand it as you develop your proposal; aim to match the customer's needs and budget. Keep in mind the budget might change, necessitating constant communication with the customer. Consider other costs like staffing, testing, training, and potential changes in job roles. Communicate these possibilities to the customer for further instructions.
 
 <h2 style="color:#6290C3"><center> Organizing Data </center></h2>
-
-<h2>Processing Data and Requests</h2>
-
+## Processing Data and Requests
 - Process of planning the initial design.
 	![[Pasted image 20250516234507.png]]
 	- The data falls into three main categories: customer information, requirements, and project boundaries.
@@ -351,8 +334,7 @@ Juniper Networks Certified Associate in Design
 		
 	- [Optimization]: Offer a design that uses EVPN/VXLAN with IP Fabrics.
 
-<h2>Boundaries and Scope of the Design Proposal</h2>
-
+## Boundaries and Scope of the Design Proposal
 - A step in organizing data is recognizing existing boundaries, that is, factors in customer requirements that may limit or change your design. Some of the common boundaries include things like:
 	![[Pasted image 20250519091634.png]]
 	- Defining the current and future user groups, their applications, data flows, and types.
@@ -387,8 +369,7 @@ Juniper Networks Certified Associate in Design
 		
 	- There could be multiple solutions fitting the customer's needs, often separated by cost. Offering several options, good, better, and best, keeps you competitive when customers are considering various vendors. If a customer finds your "good" solution affordable, they might find extra funding for the "best" option.
 
-<h2>Creating Design Proposal</h2>
-
+## Creating Design Proposal
 - Keep your design simple, create the logical structure before the physical structure, consider security throughout the design process, understand the design boundaries and scope, remember that every choice has a trade-off, ensure that your proposal is clearly documented.
 	
 - [Keeps Thing Simple]: Avoid overly complex designs that could be hard to implement or even understand. Document your design clearly and simply. Even if you believe your design is the best, if it's hard to comprehend, the customer may view it as too complicated, time-consuming, and costly to implement.
@@ -418,9 +399,7 @@ Juniper Networks Certified Associate in Design
 - [Design Stage: Design Specification]: A solid network design proposal comes with great documentation. This serves as a reference for design modifications, as changes are inevitable throughout the design process. The documentation should cover finalized design choices, changes, and their reasons. Since the document will go from a draft state to a final state, you should include a change log to track these changes for future maintenance. This document guides the implementation of the network, so ensure it's concise and easy to read.
 
 <h2 style="color:#6290C3"><center> Securing the Network </center></h2>
-
-<h2>Basics</h2>
-
+## Basics
 - While an indispensable tool, the Internet also opens the door for attackers across the globe to target your network. It takes just one overlooked vulnerability for the bad guys to breach your defenses. As network professionals, our job doesn't stop at just guarding the entrance; we must secure every potential point of weakness, both incoming and outgoing.
 	![[Pasted image 20250519102220.png]]
 	- Keep in mind that threats donâ€™t only come from the outside; internal risks are equally critical. There's a saying that our networks are 'Crunchy on the outside, soft and chewy on the inside,' this means that despite tough external defenses, the insider threat remains a concern.
@@ -448,8 +427,7 @@ Juniper Networks Certified Associate in Design
 - [Assessing Security in Network Design]: When planning on the design of a network, it's crucial to start with a thorough 'assessment' of the current network security status. This foundational step encompasses grasping the customer's specific needs, establishing the project's boundaries, and meticulously reviewing the data provided by the customer. Right from this early 'assess' stage, security must be at the forefront of our design considerations. It's imperative that we pinpoint and fully comprehend the essential security aspects before moving forward with the network design.
 	![[Pasted image 20250519102710.png]]
 
-<h2>Security Appliances</h2>
-
+## Security Appliances
 - Network Security is foundational, built into every fabric of the network from the outset.
 	![[Pasted image 20250519103129.png]]
 - [SRX Solutions]: A highlight of Juniper's security portfolio, goes beyond traditional firewall capabilities. It's at the core of Juniper's Security Intelligence, scaling with the needs of the business, capable of handling over a million custom threat data entries, and focused on enforcing the most pertinent intelligence. This means Juniper's customers get prompt, accurate threat mitigation with minimal false positives, embodying the smart, proactive defense they need.
@@ -492,8 +470,7 @@ Juniper Networks Certified Associate in Design
 		
 	- Tailored compliance reporting with the ability to generate and schedule reports from a library of over 1300 templates.
 
-<h2>WAN and Edge</h2>
-
+## WAN and Edge
 - Modern Enterprises have Complex WAN Networks.
 	![[Pasted image 20250519170120.png]]
 	- It is difficult to balance security, performance, and cost considerations.
@@ -512,8 +489,7 @@ Juniper Networks Certified Associate in Design
 	![[Pasted image 20250519171625.png]]
 	- The operational flow is streamlined via Security Director Cloud, which is where you craft and manage policies. This platform also provides a unified view of devices through its integration with Mist, ensuring a harmonized and efficient SASE deployment.
 
-<h2>Cloud Approach</h2>
-
+## Cloud Approach
 - [Zero Trust Access]: The Gartner model for cloud security is built around the concept of zero-trust network access, ensuring secure connections for users anywhere to applications everywhere. This model prioritizes context, which at its core considers user identity, application identity, connection type, and location all fundamental to Zero Trust Access (ZTA).
 	![[Pasted image 20250519171809.png]]
 	- Zero Trust Network Access, a broader term, extends ZTA principles, securing not just user-to-application interactions but also user access to internal resources, applying the same context-based security measures.
@@ -542,9 +518,7 @@ Juniper Networks Certified Associate in Design
 	![[Pasted image 20250519204158.png]]
 
 <h2 style="color:#6290C3"><center> Campus Design </center></h2>
-
-<h2>Components of the Campus Network</h2>
-
+## Components of the Campus Network
 - Campus comes in different shapes and sizes that has all the buildings and floors connected to share data centers resources, which could be off or on campus. A campus can also connect to other campuses, the Internet, regional sites, or branches via LAN. 
 	![[Pasted image 20250525215744.png]]
 	- Modern campus has evolve from supporting traditional client/server traffic to managing real-time applications like VoIP, video conferencing, and other unified communications tools while handling increasing users and devices. 
@@ -565,8 +539,7 @@ Juniper Networks Certified Associate in Design
 	![[Pasted image 20250527082815.png]]
 	- You can use VLANs to segment traffic functionally. However, this has some limitations, given a Layer 2 network only supports 4094 VLANs. Security-wise, firewalls may need to sit between traffic flows to enforce security policies, potentially complicating network management as the network expands.
 
-<h2>Practices and Considerations for Campus Design</h2>
-
+## Practices and Considerations for Campus Design
 - General guidelines to consider when designing campus networks:
 	![[Pasted image 20250527083034.png]]
 - Traditional Campus Network Limitations:
@@ -614,8 +587,7 @@ Juniper Networks Certified Associate in Design
 - [Oversubscription Ratios]: Identify the ingress-to-egress link bandwidth in a north-to-south-direction in the network.
 	![[Pasted image 20250527090633.png]]
 
-<h2>Architectural Design Options for the Campus</h2>
-
+## Architectural Design Options for the Campus
 - Legacy Campus Architecture:
 	![[Pasted image 20250527090852.png]]
 - [Mist Campus]: Three EVPN-VXLAN architectures that Juniper suggests:
@@ -640,9 +612,7 @@ Juniper Networks Certified Associate in Design
 	![[Pasted image 20250527091737.png]]
 
 <h2 style="color:#6290C3"><center> Campus WAN Design </center></h2>
-
-<h2>Components of the Campus WAN</h2>
-
+## Components of the Campus WAN
 - A WAN is a network covering a broad area used to interconnect business locations and resources. A WAN is a key tool permitting businesses to function effectively.
 	![[Pasted image 20250527092215.png]]
 - Campus WAN connectivity functions:
@@ -655,8 +625,7 @@ Juniper Networks Certified Associate in Design
 		
 	- [DCI Function (Data Center Interconnection)]: Links data centers together. This connection usually employs a standards-based Layer 2 or Layer 3 solution using MPLS, like Ethernet VPN Virtual Extensible LAN (EVPN/VXLAN). Reasons for multiple, often mirrored, data centers and their interconnection include things like disaster recover and business continuity, DC consolidation and virtualization, geo-clustering, and other Layer 2 extensions.
 
-<h2>Practices and Consideration for Campus WAN</h2>
-
+## Practices and Consideration for Campus WAN
 - Campus WAN design goals should be easy to deploy, flexible and scalable, resilient and secure, easy to manage, and service ready.
 	![[Pasted image 20250527092855.png]]
 - The preferred WAN connectivity might not be feasible at all locations. You might have to propose an alternate method for these sites. Although some locations might need exceptions to standard products and solutions, aim to keep these to a minimum.
@@ -695,8 +664,7 @@ Juniper Networks Certified Associate in Design
 		
 	- Some other scenarios include things like: Merging organizations; Multi-tenant buildings; High-security facilities; and University campuses with lots of departments.
 
-<h2>Design Options for Campus WAN</h2>
-
+## Design Options for Campus WAN
 - [Active/Passive Design]: A single WAN aggregation router has one of two data center links, with link cost and route preference dictating the choice. The active/passive approach often fits when the secondary path offers lower performance due to link speed or less direct routing. In this instance, the secondary path through another aggregation router is less direct. Ideally, both WAN aggregation sites balance traffic from branch offices, and all transit traffic for the data center uses the local, more direct path.
 	![[Pasted image 20250527103926.png]]
 - [Active/Active Design]: A remote branch's WAN router maintains two active connections with distinctly different Layer 3 VPN providers. The branch router uses default routes to the PE routers, balancing traffic across both links.
@@ -710,9 +678,7 @@ Juniper Networks Certified Associate in Design
 	- Third, a fully-meshed VPN design provides direct routes from each branch to others, and to the WAN sites and data centers. Though it minimizes hops and latency, it increases complexity and configuration size as tunnels grow with branch count. Due to this, many enterprises shift to provider-MPLS networks for fully-meshed branch connectivity. If used, a best practice is to limit VPN tunnels to come up on demand. Dynamic routing protocols like OSPF or BGP are preferable over static routing due to scalability challenges.
 
 <h2 style="color:#6290C3"><center> SD-WAN Design </center></h2>
-
-<h2>Approach</h2>
-
+## Approach
 - [Distributed Services vs Centralized Control]: Packet forwarding is an inherently distributed process (physically moving signals around the globe). Traditionally every router has a local control plane to make forwarding decisions. By delegating routing decisions to a central authority we are distributing the data plane, and centralizing control plane.
 	
 - [SD-WAN]: Software-Defined WAN, an automated, programmable WAN that dynamically an securely routes traffic based on application policies, network conditions, or WAN circuit priority. It centralizes the control of all routing devices in a network to a single controller. This gives the controller a full view of the network, allowing it to dynamically update the forwarding tables of all routing devices.
@@ -765,8 +731,7 @@ Juniper Networks Certified Associate in Design
 	![[Pasted image 20250602233954.png]]
 - The combo of SLEs and Mist Marvis AI offers precise insights into your network, such as pinpointing a bad cable. It can detect other things like MTU mismatches or problems with a bad WAN uplink. These three examples are just the tip of the iceberg. SLEs and Mist Marvis AI can actually reveal many more insights, acting as a powerful tool for diagnosing and resolving network issues efficiently.
 
-<h2>Inter-site Connectivity</h2>
-
+## Inter-site Connectivity
 - In a traditional network setup, we usually see a three-tier structure: access, core, and distribution, all leading to a single firewall at the WAN edge. This setup is straightforward to manage when it comes to policy enforcement and control, but it hits a snag with scalability, especially with older MPLS connections. Expanding these connections can be both costly and logistically difficult. As remote sites often rely on private circuits to connect back to the main hub via MPLS and many remote offices lack Direct Internet Access. Also, MPLS connections can be quite expensive.
 	![[Pasted image 20250602234123.png]]
 - The network's edge has expanded beyond a single point to include multiple WAN edges. Plus, with the rise of remote work, many sites now need to accommodate remote workers. SD-WAN addresses these evolving needs by offering more flexibility and scalability in network management.

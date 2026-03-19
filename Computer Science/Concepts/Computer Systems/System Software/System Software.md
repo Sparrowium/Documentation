@@ -1,7 +1,6 @@
 System software refers to the low-level software that manages and controls a computer's hardware and provide basic services to higher-level software.
 
 ## What is System Software?
-
 - System software is a software that provides **platform** for other software.
 	
 - It also consists of programs written in low-level languages, used to interact with the hardware at a very basic level.
@@ -13,7 +12,6 @@ System software refers to the low-level software that manages and controls a com
 - It acts as an intermediary between the user and the computer hardware, allowing the user to interact with the hardware and use various applications and programs.
 
 ## Examples of System Software
-
 - [[Operating System]]: Windows, [[Linux]], MacOS,...
 	
 - [Device Drivers]: Software that enables the communication between the hardware and OS.
@@ -29,7 +27,6 @@ System software refers to the low-level software that manages and controls a com
 - [[Virtual Machine]]: Software that allow a physical device to have multiple host and resources separation.
 
 ## System Software Applications
-
 - [Hardware Communication]: Serves as an interface between the hardware and software components of a computer, enabling them to communicate and work together.
 	
 - [Resource Management]: Manages computer resources such as memory, CPU usage, and storage, optimizing their utilization and ensuring that the system operates efficiently.
@@ -43,7 +40,6 @@ System software refers to the low-level software that manages and controls a com
 - [Customization]: Allows for customization of the system settings and configuration, giving the users greater control over their computing environment.
 
 ## System Software Features
-
 - [Memory Management]: Operating System perform memory management. The OS keeps track of the primary memory and allocates the memory when a process requests it.
 	
 - [Process Management]: OS performs process management. Allocates the main memory (RAM) to a process and de-allocates it when it is no longer required.
@@ -57,7 +53,6 @@ System software refers to the low-level software that manages and controls a com
 - [Scheduling]: The OS schedules the process through its scheduling algo.
 
 ## Issues in System Software
-
 - [Compatibility Issues]: System software may not be compatible with certain hardware components, which can cause errors or crashes.
 	
 - [Security Issues]: System software may contain vulnerabilities that can be exploited by hackers or malware to gain unauthorized access to the system or steal sensitive data.

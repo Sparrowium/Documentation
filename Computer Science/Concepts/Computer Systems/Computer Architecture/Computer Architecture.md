@@ -1,6 +1,5 @@
 <h2 style="color:#6290C3"><center> Introduction </center></h2>
-<h2>Inside Common Devices</h2>
-
+## Inside Common Devices
 - [Desktop PC]: 
 
 	- Contains the mainboard/motherboard, which contains the essential parts of the computer including the Processor and main Memory. 
@@ -30,9 +29,8 @@
 	- Contains proprietary circuit boards that are design to run arbitrary programs. These circuit boards contains *firmware*, a single program "burned" into the chip that performs only one task.
 
 <h2 style="color:#6290C3"><center> Fundamental Concepts </center></h2>
-<h2>Historical Architectures</h2>
-
-<h3>What is a Computer?</h3>
+## Historical Architectures
+### What is a Computer?
 - A computer is a machine that can simulate any other machine, given as mush memory it asks for.
 	`Read, Write, and Process Data`
 	`Read, Write, and Execute Program
@@ -40,7 +38,7 @@
 	`Jump (goto statements`
 	`Branch (if statements`
 
-<h3>Before the Industrial Revolution</h3>
+### Before the Industrial Revolution
 - [The Stone Age]:
 	
 	- [Lebombo Bone]: A bone with carved notches that may have been used as a tally stick around 40000 BCE, in a tally, one marks represents one physical thing. An example of Data Representation.
@@ -113,10 +111,8 @@
 	
 - [The 2020s, the Cloud, and the Internet of Things]: Where everything becomes data centered
 
-<h2>Data Representation</h2>
-
-<h3>A Brief History of Data Representations</h3>
-
+## Data Representation
+### A Brief History of Data Representations
 - [Tally Sticks and Trading Tokens]: The oldest-known data representations. 
 	
 - [Roman Numerals]: A closer representation to the human perception of numbers based on the notation of grouped tallies. Larger numbers are usually an approximation or *numerosity*.
@@ -125,8 +121,7 @@
 	
 - [Arabic and Other Numerals]: Arabic system introduced the base-exponent method with fixed columns containing symbols for numbers of 10, 100, 1000, and so on. It also introduced the concept of zero filling in columns that have no count.
 
-<h3>Modern Number Systems</h3>
-
+### Modern Number Systems
 - [Base and Exponents]: Exponentiation is the repeated multiplication of a base.
 	
 - [Base 10: Decimal]: For base 10 we have an alphabet of 10 symbols: 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9. Strings of n symbols from this alphabet can specify one of 10^n numbers.
@@ -147,8 +142,7 @@
 	
 - [Base 256: Bytes]: Hex code but grouped into pairs of hex digits. 
 
-<h3>Representing Data</h3>
-
+### Representing Data
 - [Natural Numbers]: Traditionally denoted by the set symbol N, are the numbers 1,2,3,4, and so on. They are often used to represent numbers of physical things in the world.
 	
 - [Integers]: Set symbol Z, are whole numbers from negative inf to positive inf. They can be defined as pairing natural numbers with positive or negative signs.
@@ -188,24 +182,20 @@
 	
 - [Data Structure]: Any data structure, such as the structs and objects found in most programming languages, can be represented through serialization, whereby the data is transformed into a series of bits to store in memory. Serialization can be performed hierarchically: if a complex structure is composed of several smaller structures, we serialize it be serializing each of these components, then joining their representations together in a series to make the total representation.
 
-<h3>Measuring Data</h3>
-
+### Measuring Data
 - The basic unit of data is **bit (b)**, which can take one of two possible states, usually written as 0 and 1.
 	
 - [SI]: An international organization of scientists and engineers that sets generally accepted standards for scientific measurement units.
 
-<h2>Basic CPU-Based Architecture</h2>
-
-<h3>A Musical Processing Unit</h3>
-
+## Basic CPU-Based Architecture
+### A Musical Processing Unit
 - A machine with a capability of reading and performs musical scores.
 	
 - [From Music To Calculation]: Implementing player piano-style roll of punch cards to specify sequences of instructions, and a Jacquard loom-style mechanical reader to read them and automatically activate the corresponding simple machines in return.
 	
 - [From Calculation to Computation]: Implementing instructions similar to the musical processing unit, facilitating repeats, codas, and the like. And Memory are required to store intermediate results.
 
-<h3>Babbage's Central Processing Unit</h3>
-
+### Babbage's Central Processing Unit
 - [High-Level Architecture]: Contains CPU, RAM, and bus to connect them.
 	
 - [Programming Interface]: Old school programming interface were programs.
@@ -242,10 +232,8 @@
 
 <h2 style="color:#6290C3"><center> The Electronic Hierarchy </center></h2>
 
-<h2>Switches</h2>
-
-<h3>Directional Systems</h3>
-
+## Switches
+### Directional Systems
 - [Switch]: A directional system, takes an input and does something, causing an output.
 	
 - [Water Valve]: An example of a directional system.
@@ -272,8 +260,7 @@
 		![[Pasted image 20250130151557.png]]
 	- The p-n junction functions like the water valve: in its high-energy state it’s like an open valve, enabling current to flow; in its low-energy state it’s like a closed valve, preventing current from flowing.
 
-<h3>Switching</h3>
-
+### Switching
 - A switch turn a flow on and off automatically using another flow.
 	
 - [Water Current Switch]: A system consist of two water valves placed in sequence, with both of their blocks replaced by a spring-loaded moving platform.
@@ -294,27 +281,22 @@
 - [Clocks]: An automatic switch that signal on and off over a period of time.
 	![[Pasted image 20250130155751.png]]
 
-<h3>Fabricating Transistor</h3>
-
+### Fabricating Transistor
 - [Fabrication]: The process of creating transistors and wires and connecting them together on wafers. A *wafer* presents a two-dimensional surface on which transistors are laid out. Tiny metal wires are added to connect them together.
 
-<h3>Moore's Law</h3>
-
+### Moore's Law
 - Transistors will double per two years. But recently there have been a barrier when the 64bit era hits. As transistors increases, heat increases and power consumption increases.The formula below show the relationship between clock frequency, capacitance, voltage, and power:
 	`P = C(V^2)F`
 
-<h2>Digital Logic</h2>
-
-<h3>Claude Shannon and Logic Gates</h3>
-
+## Digital Logic
+### Claude Shannon and Logic Gates
 - [Logic Gates]: Devices that take a representation of one or more binary variables as inputs, and produce one or more binary outputs using the same representation.
 	
 - Simple switches are not logic gates because they lose energy, so the output representation has lower energy and is different from the input.
 	 
 - Any computation could be performed by combining instances of small sets of standard logic gates, such as AND, OR, and NOT.
 
-<h3>Logic Gates</h3>
-
+### Logic Gates
 - [Modern Logic Gates Definition]: A logic gate is any device that has some binary inputs and some binary outputs and doesn't contain any memory, where the inputs and outputs use exactly the same physical representations for two symbols, 0 and 1. A logic gate's function can be completely and deterministically described by a truth table, which lists the resulting outputs for each configuration of the inputs.
 	
 - [Standard Logic Gate]: AND, OR, NOT, XOR, NOR, NAND.
@@ -326,8 +308,7 @@
 	
 - [Putting Logic Gates on Chips]: To connect the logic gates you attach physical wires to appropriate pins.
 
-<h3>Boolean Logic</h3>
-
+### Boolean Logic
 - Logic allows us to formalize statements and inferences about truth and false-hood.
 	
 - [Boolean Logic]: Uses variable names to represent conceptual statements whose values are either true or false.
@@ -347,14 +328,12 @@
 		
 	- [Proof]: A list of transformations from the first to the second expression, where each transformation is justified by stating which law has been applied. If an equality has been shown by proof, we say it is proved.
 
-<h3>Simplifying Logic Circuits Using Boolean Logic</h3>
-
+### Simplifying Logic Circuits Using Boolean Logic
 - Simplification can include reducing both the number of gates and the number of types of gates.
 	
 - This is done by translating a logic gate network into a Boolean expression, simplifying the expression using the laws of arithmetic, then translating the result back into a smaller logic gate network. 
 
-<h3>Laying Out Digital Logic</h3>
-
+### Laying Out Digital Logic
 - [7400 Chips]: Connect a bunch of 7400 chips
 	
 - [Photolithogaphy]: Here, masks are prepared containing the transistor layouts needed to form the logic gates. This process gives the smallest, fastest hardware, but it’s economical only at large scales to justify the setup costs.
@@ -363,10 +342,8 @@
 	
 - [Field Programmable Gate Arrays]: Similar to PLA, but you can rewrite it whenever you like with the new digital logic rather than only being able to burn it once. FPGAs operates by electronically switching on and off connections between blocks of standard logic.
 
-<h2>Simple Machines</h2>
-
-<h3>Combinatorial Logic</h3>
-
+## Simple Machines
+### Combinatorial Logic
 - Digital logic networks that can be describes by Boolean Logic, without considering the role of time.
 	
 - [Bitwise Logical Operations]: 
@@ -410,13 +387,11 @@
 		
 	- [Subtractor]: A machine that subtracts one number from another.
 
-<h3>From Combinatorial to Sequential Logic</h3>
-
+### From Combinatorial to Sequential Logic
 - A type of logic circuit that depends on both the current input and past sequence of input.
 	![[Pasted image 20250211211725.png]]![[Pasted image 20250211211737.png]]
 
-<h3>Clocked Logic</h3>
-
+### Clocked Logic
 - [Clock Signal]: Abbreviate as clk, that steadily oscillates between 0 and 1.
 	
 - [Tick]: A status updater.
@@ -452,10 +427,8 @@
 		
 	- [Chisel]: A high-level hardware language that was developed for general architecture design usage. Chisel describes classes of hardware with object orientation.
 
-<h2>Digital CPU Design</h2>
-
-<h3>The Baby's Programmer Interface</h3>
-
+## Digital CPU Design
+### The Baby's Programmer Interface
 - Store their instructions and data in the same RAM space. Each line has a number, and it gets copied to the RAM address of that same number.
 	![[Pasted image 20250225125022.png]]
 	- [Halting]: Stop the machine. Prevent execution of any further instructions and tell the user to inspect the results by lighting up the bulb.
@@ -500,12 +473,10 @@
 		# 22 is still 0 because line 03 is skipped 
 		```
 
-<h3>Assemblers</h3>
-
+### Assemblers
 - Automate the process of translating human-readable assembly programs into machine code. A file of 0s and 1s correspond to machine code is called an executable, as it can be executed directly by the CPU once copied to RAM.
 
-<h3>The Baby's Internal Structures</h3>
-
+### The Baby's Internal Structures
 - [Registers]: Are fast word-length memory, usually made today as arrays of D-type flip-flops, which live inside the CPU and are readable and writable by the CU and ALU. 
 	
 	- The size of the registers in a CPU are usually taken to define the CPU's word length; 32-bit uses 32 bit-words that are stored in 32-bit registers. 
@@ -523,8 +494,7 @@
 	- Tunnels, which are named point taking the place of wires. 
 	![[Pasted image 20250225200150.png]]
 
-<h3>Putting It All Together</h3>
-
+### Putting It All Together
 - [Fetch]: To bring a copy of the next instruction from RAM into the IR in the CPU. Fetching assumes that the address of the next instruction is already in the program counter. When the CPU is first turned on, the program counter-like all registers- is initialized to 0, but is immediately incremented to 1, so the firs instruction must to stored at address 1 and will be fetched.
 	
 	- To perform a fetch, the program counter is temporarily connected to the address lines of RAM, on tick 1. The data out lines of RAM can be permanently connected to the IR data in, but the IR takes only a copy of the word from these lines when write-enabled and clocked at tick 2
@@ -550,16 +520,13 @@
 		- For the branch instruction, SKN, we check its condition and behave as normal if it’s false, or increment the program counter an extra time if it’s true, to skip over one line of code.
 		![[Pasted image 20250225202808.png]]
 
-<h2>Advanced CPU Design</h2>
-
-<h3>Number of User Registers</h3>
-
+## Advanced CPU Design
+### Number of User Registers
 - Makes programming easier, makes programs run faster, in trades for, complexity. 
 	
 - Some architecture have a set of registers which allow programmers to take advantage of possibly simpler and faster instructions on the accumulator while retaining the flexibility to work with the other registers.
 
-<h3>Number of Instructions</h3>
-
+### Number of Instructions
 - [Instruction Set Architecture (ISA)]: Defines the interface between what the programmer can see and can use, and what needs to be implemented by the CPU designer. 
 	
 	- But there's a trade off between the assembly language programmer's life and the digital logic implementer's life.
@@ -570,8 +537,7 @@
 	
 - [RISC]: Stands for Reduced instruction set computing, stating that hardware is nasty, expensive to develop, and difficult to debug, so make the processor as lean as possible, then solve all the problems in software, which is less expensive and nicer. Focusing on keeping the instructions set as small as possible, then make it fast as possible.
 
-<h3>Duration of Instructions</h3>
-
+### Duration of Instructions
 - [Open Loop Architecture]: No feedback to the counter about the rest of the CPU state. 
 	
 - [Closed Loop Architecture]: the timing of triggers isn’t set by a central counter. Instead, each stage of work is responsible for trigger- ing the next stage when it’s ready to do so.
@@ -580,8 +546,7 @@
 	
 - Open-loop style is usually associated with RISC, due to RISC’s emphasis on making all instructions simple and fast. Closed-loop is associated with CISC, as CISC may want to include single instructions that perform a lot of complex work and take many ticks to complete, as well as short, fast ones.
 
-<h3>Different Addressing Modes</h3>
-
+### Different Addressing Modes
 - RISC aims to reduce the size of the instruction set by maintaining a clean separation between memory access instructions and arithmetic instructions.
 	![[Pasted image 20250304154136.png]]
 - CISC, in contrast, aims to provide multiple variations of the ADD instruction to make the programmer’s life easier. In addition to ADD, which adds the contents of two registers, we could create another instruction such as ADDM for “add from memory” that would enable the four-line RISC-style addition program to be written with a single instruction
@@ -590,8 +555,7 @@
 	![[Pasted image 20250304155051.png]]
 - [Offset addressing]: (aka index addressing) modes are another popular ISA inclusion. The idea here is that assembly programmers often need to make repeated use of many variables that they tend to store close together in memory. Their life can be made easier if they can first use a new instruction to specify the address of this general region of variable storage, such as A7B216 , then refer to each individual variable by the difference between its address and this region’s address to pick each of the variables in order.
 
-<h3>Subroutines</h3>
-
+### Subroutines
 - [Subroutine]: A piece of code sitting somewhere in memory that will do something when your main program calls it, and will return to the same line in the main program after it was called.
 	
 - Other subroutines names: Functions, Procedures, Method.
@@ -608,14 +572,12 @@
 		
 	- [stack pointer register]: An internal register that contains a pointer to the top of the stack.
 
-<h3>Floating Point Units</h3>
-
+### Floating Point Units
 - [Floating-point registers]: Are specialized user registers designed to store floating-point data representations for use in floating-point computations.
 	
 - [Floating Point Unit (FPU)]: Are complex pieces of digital logic and expensive to design; they also take up lots of silicon and are prone to bugs.
 
-<h3>Pipelining</h3>
-
+### Pipelining
 - A form of instruction-level parallelism.
 	
 - [Hazards]:
@@ -646,26 +608,22 @@
 		
 	- [Operand Forwarding]: Directly route the result of an instruction to become an input to a next or nearby instruction.
 
-<h3>Out of Order Execution</h3>
-
+### Out of Order Execution
 - A advanced form of instruction-level parallelism than pipelining. It involves actually swapping around the order of instructions as they come into CPU, so they're executed in a different order than they appear in the program.
 	
 - They key to OOOE is recognizing that instructions in a serial programs can often be swapped without changing their results.
 	
 - OOOE is usually performed by digital logic in the CPU, in real time during program execution. Usually only a short window—such as 10 or 20 instructions—around the current instruction in the program is considered for reordering.
 
-<h3>Hyperthreading</h3>
-
+### Hyperthreading
 - Another way to make use of CPU resources when they would otherwise be sitting idle during the cycle. Rather than work on consecutive instructions from one program, we put them all together to form a second virtual CPU core that operates on a separate set of instructions. Each component of this virtual core runs out of phase with its use in the main CPU core, when it would otherwise be idle. By collecting all the components together, all out of phase, we create a whole extra CPU, keeping all the silicon in constant use at all times.
 	
 - It effectively doubles the number of apparent cores over the number of physical cores in a device, which is why you often see your computer report having twice the number of cores that were advertised on the hardware you bought.
 	
 - Hyperthreading has the advantage over pipelining that you no longer have to worry about hazards because the two cores can operate completely independently of one other. On the other hand, it doesn’t increase the speed of any one program. It also requires additional digital logic to read, store, and write the states of the two virtual CPUs at the right times, and duplication of some hardware components, so that one doesn’t affect the other.
 
-<h2>Input/Output</h2>
-
-<h3>Basic I/O Concepts</h3>
-
+## Input/Output
+### Basic I/O Concepts
 - [I/O Modules]: Are digital electronics that are assigned and connected to addresses in the computer's *address space*, the range of possible addresses that the CPU can access.
 	
 - [Devices]: Are electronic systems, including digital and analog electronics, that aren't connected directly to the computer's address space but that can communicate with it via the attached I/O modules.
@@ -673,8 +631,7 @@
 - [Peripherals]: Are the most obvious elements of I/O for most computer users: they're physical objects that connect to the computer from outside. They're encased in their own plastic and connect to the computer's box via a wire that the end user can easily plug and unplug.
 	![[Pasted image 20250311180607.png]]
 
-<h3>Buses</h3>
-
+### Buses
 - [Bus Architecture]: A specific type of network architecture in which every device involved in communication has equal access to a shared wire or set of wires, called bus.
 	
 - There's no privacy in bus architecture, which may have interesting security implications if untrusted devices are allowed to access it.
@@ -701,8 +658,7 @@
 	![[Pasted image 20250311185319.png]]
 	- To execute a load instruction, the operand containing the address to be loaded is temporarily connected from its instruction register (IR) bits to the MAR, creating a copy in the MAR. When this copy is completed, the MAR is temporarily connected to memory as a read request, and the data from memory is temporarily connected to the MBR, which takes a copy of this data. Then the control unit (CU) can temporarily connect the MBR to the accumulator or other user register.
 
-<h3>I/O Modules</h3>
-
+### I/O Modules
 - A chip that sits on the bus and at some address, it looks just like RAM to the CPU, but it has wires coming out of the other side that go to the device. The module presents a standardized interface to the CPU, and translates requests from the CPU to specific signals on the wires to the particular device. 
 	
 - Storing to these addresses might transmit commands to the device. Loading from these addresses might read data from the device.
@@ -725,8 +681,7 @@
 		
 	- [Error Detection]: Error is reported to I/O modules, then passed on to the CPU.
 
-<h3>I/O Module Technique</h3>
-
+### I/O Module Technique
 - [Polling]: The CPU requests an action by the I/O module over the bus. The I/O module starts to perform the requested action, setting appropriates bits in an internal I/O modules status registers as it goes. The CPU then periodically checks the status of the I/O module by reading this status register until it finds that the action is complete. 
 	
 	- Advantages of polling are that it’s simple to implement and the CPU has direct control over I/O operation, requiring very little hardware support. The disadvantage—as in the human boss case—is that the CPU must periodically poll the module to check its status. This ties up the CPU, creating long periods where it does no useful work.
@@ -741,8 +696,7 @@
 	
 	- This frees up the CPU and DMA usually sends an interrupt when a task is complete, so the CPU is involved only at the beginning and the end of the transfer.
 
-<h3>I/O Without Modules</h3>
-
+### I/O Without Modules
 - [CPU I/O Pins]: I/O modules are implemented as *pins* that is connected directly to the CPU. Reduce complexity allows the bus for other activities, comes at a cost of spaces.
 	
 - [Memory Mapping]: Map address directly onto the RAM, as it can be readable and writable, cost of confusion.
@@ -750,10 +704,8 @@
 - [Bus Hierarchies]: Multiple layers or buses, improves usability.
 	![[Pasted image 20250311192949.png]]
 
-<h2>Memory</h2>
-
-<h3>The Memory Hierarchy</h3>
-
+## Memory
+### The Memory Hierarchy
 - The arrangement of memory in a system.
 	![[Pasted image 20250320162625.png]]
 	- [Registers]: Memory inside the CPU.
@@ -768,8 +720,7 @@
 		
 	- [Offline Memory]: Memory that can be connected only to the computer with human intervention.
 
-<h3>Primary Memory</h3>
-
+### Primary Memory
 - Known as *system memory*, is memory stored in an address space that's directly accessible by the CPU's load and store instructions. This includes RAM and ROM.
 	
 - IN primary memory each memory location is given a unique address. Each address stores a fixed-size array of bits called a *word*. Often, but not always, the word length is chosen to be the same as the address length.
@@ -817,8 +768,7 @@
 		
 	- [Flash Memory]: is EEPROM that can be erased and rewritten block-wise, meaning you can selectively wipe and rewrite just one small part, or block, of the memory at a time. This way you can leave most of the ROM intact, unlike with regular EEPROM, where you have to wipe and rewrite an entire chip of ROM at a time, as in a firmware update.
 
-<h3>Caches</h3>
-
+### Caches
 - An extra layer in the memory pyramid between the fast registers of the CPU and the slower RAM. It stores copies of the most heavily used memory contents, making them available for quick retrieval. Without a cache, RAM would connect straight to the CPU, either directly or using a bus with control (C), address (A), and data (D) lines.
 	![[Pasted image 20250320180533.png]]
 - The problem with this kind of cacheless architecture is that most programs need to access RAM frequently, but the capacitors that implement DRAM are slower than the flip-flops that implement the CPU’s registers. RAM thus becomes a major bottleneck for system speed. Adding an SRAM-based cache made from flip-flops between the CPU and RAM helps avoid these bottlenecks.
@@ -862,8 +812,7 @@
 	- [Advanced Cache Architecture]:
 		![[Pasted image 20250320185210.png]]
 
-<h3>Secondary and Offline Memory</h3>
-
+### Secondary and Offline Memory
 - [Secondary Memory]: Is memory that can quickly be brought into addressed memory space via I/O. Data items in secondary memory don’t have ad- dresses in the primary memory address space. Rather, they’re accessed via I/O, usually via an I/O module that does sit in the primary address space and relays requests to the secondary storage. Secondary storage is some- times called online storage to emphasize that it’s powered, active, and available whenever the computer is on.
 	
 - [Offline Memory]: Is that which can’t automatically be loaded into primary memory without manual human interventions. Often this includes secondary memory media that are physically ejectable and replaceable, such as tapes, discs, and USB devices. These media are secondary memory when connected to the computer, and offline memory when disconnected. Off- line memory is typically used for backup and archival purposes, as well as for transportation. The fastest way to move petabytes of data around the world is still to put it on a truck as offline memory and drive it to its destination.
@@ -888,12 +837,10 @@
 	
 - [Solid State Drives]: These are manufactured to have the same form factors and I/O interfaces, and similar capacities, as hard drives, but with no moving parts. This makes them faster, more reliable, lower power, quieter, smaller, and less prone to breakage when dropped. As there are no moving parts, they can be truly random access. SSDs are flash memory, as we’ve previously reviewed.
 
-<h3>Tertiary Memory</h3>
-
+### Tertiary Memory
 - A recently proposed level in the memory hierarchy. It lies below secondary memory but above offline memory, and has been created to describe memories that used to be offline—requiring humans to physically load and eject media such as discs and tapes—but is now automated by mechanical processes.
 
-<h3>Data Centers</h3>
-
+### Data Centers
 - Thousands, or tens or hundreds of thousands, of secondary and tertiary memories together in a warehouse-sized building. Built with extreme security and resilience in mind.
  
 
