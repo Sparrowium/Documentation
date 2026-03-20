@@ -190,13 +190,13 @@ Large shipping BO-AT but software style.
 	
 
 ###  Build, Tag, Publish An Image 
-- Building images: Process of building an image based on a Dockerfile.
+- [Building images]: Process of building an image based on a Dockerfile.
 	
 	- `dock build .`: The dot provides the path or URL to the build context/Dockerfile.
 		
 	- When you build, the builder pulls the base image, if needed, and then runs the instructions specified in the Dockerfile.
 	
-- Tagging images: Process of giving an image a name, which also determines where the image can be distributed.
+- [Tagging images]: Process of giving an image a name, which also determines where the image can be distributed.
 	
 	- `[HOST[:PORT_NUMBER]/]PATH[:TAG]`
 		
@@ -215,7 +215,7 @@ Large shipping BO-AT but software style.
 	
 	
 	
-- Publishing images: Process to distribute or share the newly created image using a container registry.
+- [Publishing images]: Process to distribute or share the newly created image using a container registry.
 	
 	- Once you have an image built and tagged, you're ready to push it to a registry. To do so used `docker push` command.
 		`docker push my-username/my-image`
@@ -266,7 +266,7 @@ Large shipping BO-AT but software style.
 
 ##  Running Containers 
 ###  Publishing And Exposing Ports 
-- Publishing Ports: Provides the ability to break through a little bit of networking isolation by setting up a forwarding rule. You can indicate that request on your host's port (ex 8080) should be forwarded to the container port (80). Publishing ports happens during container creation using the `-p` (or `--publish`) flag with `docker run`.
+- [Publishing Ports]: Provides the ability to break through a little bit of networking isolation by setting up a forwarding rule. You can indicate that request on your host's port (ex 8080) should be forwarded to the container port (80). Publishing ports happens during container creation using the `-p` (or `--publish`) flag with `docker run`.
 	`docker run -d -p HOST_PORT:CONTAINER_PORT nginx`
 	`docker run -d -p 8080:80 nginx`
 	
@@ -274,15 +274,59 @@ Large shipping BO-AT but software style.
 		
 	- `CONTAINER_PORT`: The port number within the container that's listening for connections.
 	
-- Publishing To Ephemeral Ports: Publish to port you don't care which host port is used. Simply omit `HOST_PORT`.
+- [Publishing To Ephemeral Ports]: Publish to port you don't care which host port is used. Simply omit `HOST_PORT`.
 	`docker run -p 80 nginx`
 	
 	- Once the container is running, using `docker ps` will show you the port that was chosen.
 	
-- Publishing All Ports: `-P/--publish-all` flag, will publish all exposed ports to ephemeral ports. 
+- [Publishing All Ports]: `-P/--publish-all` flag, will publish all exposed ports to ephemeral ports. 
 	`docker run -P nginx`
 	
 
 ###  Overriding Container Defaults 
-- Sometimes you might want to use database instances for development and testing purposes. Running these database instances on the same port might conflict. Refer to [[]]
-- 
+- [Overriding Network Ports]: Sometimes you might want to use database instances for development and testing purposes. Running these database instances on the same port might conflict. Refer to [[#Publishing And Exposing Ports]]
+	
+- [Setting Environments Variables]: Sets an environment variable inside the container with its value.
+	`docker run -e foo=bar postgres env`
+	
+	- The `.env` files acts as a convenient way to set environment variable in for your Docker containers without cluttering your command line with numerous `-e` flag. To use a `.env` file you can pass `--env-file` options.
+		`docker run --env-file .env postgres env`
+	
+- [Restricting the Container to Consume the Resources]: You can use `--memory` and `--cpu` flags to restrict how much CPU and memory a container can use.
+	`docker run -e POSTGRES_PASSWORD=secret --memory="512m" --cpus="0.5" postgres`
+	
+- You can use `docket stats` to monitor real-time resource usage of running container.
+
+### Persisting Container Data
+- [Container Volumes]: A storage mechanism that provide the ability to persist data beyond the life-cycle of an individual container. 
+	`docker volume create log-data`
+	
+	- Mounting volume when starting a container with the following commands.
+		` docker run -d -p 80:80 -v log-data:/logs docker/welcome-to-docker`
+		
+	- When the container runs, all files it writes into the /logs folder will be saved in this volume, outside of the container. If you delete the container and start a new container using the same volume, the files will till be there.
+		
+	- You can attach the same volume to multiple containers to share files between containers. Helping with log aggregation, data pipelines, or other event driven applications.
+	
+- [Managing Volume]: Volumes have their own lifecycle beyond that of containers and can grow quite large depending on the type of data and applications. 
+	
+	- `docker volume ls`: List all volumes.
+		
+	- `docker volume rm <volume-name-or-id>`: Remove a volume (only works when the volume is not attached to any containers).
+		
+	- `docker volume prune`: Remove all unused (unattached) volumes.
+
+### Sharing Local Files With Containers
+- [Volume/Bind Mounts]: Volume if you want to persist data of a container, bind mounts if you want to share the host files with the container.
+	
+- Using `-v` for basic volume of bind mount operations, if the host location doesnt exist when using `-v` or `--volume`, a directory will be automatically created.
+	`docker run -v /HOST/PATH:/CONTAINER/PATH -it nginx`
+	
+- The `--mount` flags offer more advanced features and granular control, making it suitable to complex mount scenarios or production developments. If a you bind-mount a file/directory that doesn't exist, an error will be created.
+	` docker run --mount type=bind,source=/HOST/PATH,target=/CONTAINER/PATH,readonly nginx`
+	
+- Make sure to configure permissions so that docker can host files. For example `directory:[permission]`
+	`docker run -v HOST-DIRECTORY:/CONTAINER-DIRECTORY:rw nginx`
+
+### Multi-Container Applications
+- You can define the entire multi-container application in a single YAML file called `compose.yml`.
