@@ -1,0 +1,10 @@
+/* Make horizontal rules brighter in Blue Topaz */
+.markdown-preview-view hr {
+    border-top-width: 2px;
+    border-top-color: var(--interactive-accent) !important;  /* or any bright color like #ffaa00 */
+}
+
+.markdown-source-view div.hr.cm-line hr {
+    border-top-width: 2px;
+    border-top-color: var(--interactive-accent) !important;
+}
