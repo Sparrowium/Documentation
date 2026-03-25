@@ -17,51 +17,66 @@ This is an official documentation where I will demonstrate my understanding and 
 <hr>
 
 
-<h1><center> Task </center></h1>
 
 
 
-<hr>
-
-
-<h1><center> Most Recent Files </center></h1>
-
-
-```dataview  
-LIST  
-WHERE  
-file.path != "Dashboard.md"  
-SORT file.mtime DESC LIMIT 5  
-```
 
 
 <hr>
 
+> [!dashboard]
+> > [!stats]
+> > > [!stat] Tasks Completed
+> > > ```dataviewjs
+> > > const todo = dv.page("TODO");
+> > > if (todo) {
+> > >   const content = await dv.io.load(todo.file.path);
+> > >   const completed = (content.match(/- \[x\]/g) || []).length;
+> > >   dv.paragraph(completed);
+> > > } else dv.paragraph("0");
+> > > ```
+> > 
+> > > [!stat] Total Notes
+> > > ```dataviewjs
+> > > dv.paragraph(dv.pages("").where(p => p.file.ext === "md").length);
+> > > ```
+>
+> > [!main]
+> > > [!topic-columns]
+> > > > [!topic] Computer Engineering
+> > > > [![](computer-chip-svgrepo-com.svg)](Computer%20Engineering.md)
+> > > > The study of Embedded Systems, Architecture, and Circuits Hardware Design
+> > > 
+> > > > [!topic] Computer Networking
+> > > > [![](networking-servers-svgrepo-com.svg)](Computer%20Networking.md)
+> > > > The study of Networking Systems, Administration, and Infrastructure.
+> > > 
+> > > > [!topic] Computer Science
+> > > > [![](computer-code-svgrepo-com.svg)](Computer%20Science.md)
+> > > > The study of Software, Firmware, and System Designs
+>
+> > [!todo-recent]
+> > > [!todo] 📋 Incomplete Tasks
+> > > ```dataviewjs
+> > > const todo = dv.page("TODO");
+> > > if (todo) {
+> > >   const content = await dv.io.load(todo.file.path);
+> > >   const lines = content.split("\n");
+> > >   const incomplete = lines.filter(l => l.includes("- [ ]"));
+> > >   dv.paragraph(incomplete.length ? incomplete.join("\n") : "✅ All tasks completed!");
+> > > } else dv.paragraph("*Create a TODO.md file with tasks.*");
+> > > ```
+> > 
+> > > [!recent] 🕒 Recently Modified
+> > > ```dataview
+> > > LIST
+> > > FROM ""
+> > > WHERE file.name != "Home" AND file.name != "TODO"
+> > > SORT file.mtime DESC
+> > > LIMIT 5
+> > > ```
 
-<h1><center> Topics </center></h1>
-
-
- >[!multi-column | center-fixed]
-> 
-> > [!column | center-fixed]
-> > ## Computer Engineering
-> > [![](computer-chip-svgrepo-com.svg)](Computer%20Engineering.md)
-> > The study of Embedded Systems, Architecture, and Circuits Hardware Design
-> 
-> > [!column | center-fixed]
-> > ## Computer Networking
-> > [![](networking-servers-svgrepo-com.svg)](Computer%20Networking.md)
-> > The study of Networking Systems, Administration, and Infrastructure.
-> 
-> > [!column | center-fixed]
-> > ## Computer Science
-> > [![](computer-code-svgrepo-com.svg)](Computer%20Science.md)
-> > The study of Software, Firmware, and System Designs
 <hr>
-
-
-<h1><center> Studying </center></h1>
-
 
 ```contributionGraph
 title: ""
@@ -71,39 +86,39 @@ dateRangeType: LATEST_DAYS
 startOfWeek: 0
 showCellRuleIndicators: true
 titleStyle:
-  textAlign: left
-  fontSize: 15px
+  textAlign: center
+  fontSize: 20px
   fontWeight: normal
 dataSource:
   type: PAGE
   value: ""
   dateField:
     type: FILE_MTIME
-  filters: []
-  countField:
-    type: DEFAULT
 fillTheScreen: true
 enableMainContainerShadow: false
-cellStyle:
-  minWidth: 16px
-  minHeight: 16px
+mainContainerStyle:
+  backgroundColor: "#6496c819"
 cellStyleRules:
-  - id: default_b
-    color: "#9be9a8"
+  - id: Ocean_a
+    color: "#8dd1e2"
     min: 1
     max: 2
-  - id: default_c
-    color: "#40c463"
+  - id: Ocean_b
+    color: "#63a1be"
     min: 2
+    max: 3
+  - id: Ocean_c
+    color: "#376d93"
+    min: 3
     max: 5
-  - id: default_d
-    color: "#30a14e"
+  - id: Ocean_d
+    color: "#012f60"
     min: 5
-    max: 10
-  - id: default_e
-    color: "#216e39"
-    min: 10
-    max: 999
+    max: 9999
+cellStyle:
+  minWidth: 4px
+  minHeight: 27px
 
 ```
+
 <hr>

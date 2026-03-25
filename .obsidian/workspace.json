@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "4509724f8bf84da7",
+        "id": "07e354334bd05120",
         "type": "tabs",
         "children": [
           {
-            "id": "e7a7b303c61786dc",
+            "id": "f5512743b6552bc0",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 409
+    "width": 383.5
   },
   "right": {
     "id": "e5d9271595e93348",
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Git.md",
+                "file": "Home.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Git"
+              "title": "Outgoing links from Home"
             }
           },
           {
@@ -128,7 +128,9 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-tags",
               "title": "Tags"
@@ -140,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Computer.md",
+                "file": "Home.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Computer"
+              "title": "Outline of Home"
             }
           },
           {
@@ -159,12 +161,12 @@
               "title": "Source Control"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -180,26 +182,29 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "f5512743b6552bc0",
   "lastOpenFiles": [
-    "Computer Science/Concepts/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/HTML.md",
-    "Computer Science/Concepts/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Languages.md",
+    "Computer Networking/Concepts/Computer Networking.md",
     "Home.md",
     "README.md",
+    "Computer.md",
+    "_assets/dataview/Untitled.base",
+    "_assets/dataview",
+    "_assets/dataview/Untitled 1.base",
+    "Computer Science/Concepts/Theoretical Disciplines/Quantum Computation/Quantum Computation.md",
+    "Computer Science/Concepts/Applied Disciplines/Artificial Intelligence/Artificial Intelligence.md",
+    "Excalidraw/Drawing 2026-03-23 10.55.45.excalidraw.md",
+    "Computer Engineering/Concepts/Computer Engineering.md",
+    "Computer Science/Concepts/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/HTML.md",
+    "Computer Science/Concepts/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Languages.md",
     "Computer Science/Concepts/Theoretical Disciplines/Programming Language Theory and Program Semantics/Languages/Go.md",
     "Computer Science/Concepts/Theoretical Disciplines/Programming Language Theory and Program Semantics/Programming Language Theory and Program Semantics.md",
     "Computer Science/Concepts/Theoretical Disciplines/Parallel Computation/Parallel Computation.md",
     "Computer Science/Concepts/Theoretical Disciplines/Machine Learning/Machine Learning.md",
-    "Computer Engineering/Concepts/Computer Engineering.md",
     "Computer Science/Concepts/Computer Systems/System Software/Containers and Virtual Machines/Docker.md",
-    "Computer Science/Concepts/Applied Disciplines/Artificial Intelligence/Artificial Intelligence.md",
     "Computer Science/Concepts/Applied Disciplines/Software Engineering/Tools/Git.md",
-    "Excalidraw/Drawing 2026-03-23 10.55.45.excalidraw.md",
-    "Computer.md",
-    "Untitled.base",
     "Computer Networking/Concepts/Juniper/JNCIA-Design.md",
     "_assets/general_imgs/wallpaperflare.com_wallpaper(4).jpg",
-    "Computer Networking/Concepts/Computer Networking.md",
     "_assets/general_imgs/networking-servers-svgrepo-com.svg",
     "_assets/general_imgs/Unconfirmed 748525.crdownload",
     "_assets/general_imgs/computer-code-svgrepo-com.svg",
@@ -221,13 +226,9 @@
     "Computer Networking/Concepts/Juniper/JNCIA-Junos.md",
     "Computer Networking/Concepts/Juniper/Junos Lab.md",
     "Computer Networking/Concepts/Juniper/Juniper.md",
-    "Computer Science/Concepts/Applied Disciplines/Computational Science & Engineering/Computational Science & Engineering.md",
-    "Computer Science/Concepts/Applied Disciplines/Computer Graphics and Visualization/Computer Graphics and Visualization.md",
     "_assets/imgs/Pasted image 20260318130126.png",
     "_assets/imgs/Pasted image 20260318145603.png",
     "Computer Science/Concepts/Computer Systems/System Software/Containers and Virtual Machines",
-    "Research",
-    "Computer Science/Resources",
     "Untitled 1.canvas",
     "Untitled.canvas"
   ]

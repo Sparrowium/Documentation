@@ -1,13 +1,14 @@
 {
   "theme": "obsidian",
-  "cssTheme": "Blue Topaz",
+  "cssTheme": "AnuPpuccin",
   "enabledCssSnippets": [
     "theme",
     "dashboard",
     "MCL Gallery Cards",
     "MCL Multi Column",
     "MCL Wide Views",
-    "transparent MCL"
+    "transparent MCL",
+    "dashboard (1)"
   ],
   "baseFontSize": 16,
   "baseFontSizeAction": true,

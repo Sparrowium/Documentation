@@ -1,0 +1,187 @@
+/* ==========================================
+   Dashboard – Subtle blue inner cards, transparent outer
+   ========================================== */
+
+/* Outer containers – fully transparent, hide their titles */
+.callout[data-callout="dashboard"],
+.callout[data-callout="stats"],
+.callout[data-callout="main"],
+.callout[data-callout="todo-recent"] {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.callout[data-callout="dashboard"] .callout-title,
+.callout[data-callout="stats"] .callout-title,
+.callout[data-callout="main"] .callout-title,
+.callout[data-callout="todo-recent"] .callout-title {
+  display: none !important;
+}
+.callout[data-callout="dashboard"] .callout-content,
+.callout[data-callout="stats"] .callout-content,
+.callout[data-callout="main"] .callout-content,
+.callout[data-callout="todo-recent"] .callout-content {
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Stats row – flex layout */
+.callout[data-callout="stats"] .callout-content {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  gap: 20px !important;
+  justify-content: space-between !important;
+}
+
+/* Inner stat cards – subtle blue background, neutral border */
+/* Stat cards – subtle blue background, neutral border */
+.callout[data-callout="stat"] {
+  flex: 1 1 0 !important;
+  padding: 15px !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: 8px !important;
+  background: rgba(100, 150, 200, 0.1) !important;
+  margin: 0 !important;
+  text-align: center !important;      /* center text at card level */
+}
+
+.callout[data-callout="stat"] .callout-title {
+  display: block !important;
+  font-weight: bold !important;
+  font-size: 1.2rem !important;
+  margin-bottom: 0.5rem !important;
+  text-align: center !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+.callout[data-callout="stat"] .callout-content {
+  text-align: center !important;
+  font-size: 1.2rem !important;
+  background: transparent !important;
+  padding: 0 !important;
+  display: flex !important;           /* force flex to center children */
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: column !important;  /* keep vertical flow */
+}
+
+/* Ensure any direct text or child elements are centered */
+.callout[data-callout="stat"] .callout-content p,
+.callout[data-callout="stat"] .callout-content div,
+.callout[data-callout="stat"] .callout-content span,
+.callout[data-callout="stat"] .callout-content .dataview {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Topic columns container */
+.callout[data-callout="topic-columns"] {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 0 1rem 0 !important;
+}
+.callout[data-callout="topic-columns"] .callout-title {
+  display: none !important;
+}
+.callout[data-callout="topic-columns"] .callout-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* Topic cards – subtle blue background, neutral border, centered */
+.callout[data-callout="topic"] {
+  background: rgba(100, 150, 200, 0.1) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: 16px !important;
+  padding: 0.75rem !important;
+  margin: 0 !important;
+  flex: 1 1 200px !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+.callout[data-callout="topic"] .callout-title {
+  display: block !important;
+  font-size: 1.2rem !important;
+  font-weight: bold !important;
+  text-align: center !important;
+  margin-bottom: 0.5rem !important;
+  background: transparent !important;
+  border: none !important;
+}
+.callout[data-callout="topic"] .callout-content {
+  text-align: center !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+.callout[data-callout="topic"] img {
+  max-width: 70% !important;
+  height: auto !important;
+  display: block !important;
+  margin: 0 auto 0.5rem auto !important;
+  border-radius: 8px !important;
+  filter: invert(1) !important; /* black → white */
+}
+
+/* Todo & Recent two‑column section */
+.callout[data-callout="todo-recent"] .callout-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Todo and recent cards – subtle blue background, neutral border */
+.callout[data-callout="todo"],
+.callout[data-callout="recent"] {
+  background: rgba(100, 150, 200, 0.1) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: 16px !important;
+  padding: 0.75rem !important;
+  margin: 0 !important;
+  flex: 1 1 0 !important;
+  min-width: 200px !important;
+}
+.callout[data-callout="todo"] .callout-title,
+.callout[data-callout="recent"] .callout-title {
+  display: block !important;
+  font-size: 1.2rem !important;
+  font-weight: bold !important;
+  text-align: center !important;
+  margin-bottom: 0.5rem !important;
+  background: transparent !important;
+  border: none !important;
+}
+.callout[data-callout="todo"] .callout-content,
+.callout[data-callout="recent"] .callout-content {
+  background: transparent !important;
+  padding: 0 !important;
+}
+.callout[data-callout="todo"] ul,
+.callout[data-callout="recent"] ul {
+  padding-left: 1.5rem;
+  text-align: left !important;
+}
+.callout[data-callout="todo"] li,
+.callout[data-callout="recent"] li {
+  margin-bottom: 0.5rem;
+}
+
+/* Hide any stray callout folds/icons */
+.callout .callout-fold,
+.callout .callout-icon {
+  display: none !important;
+}
+
+/* Embedded content transparent */
+.markdown-embed {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}

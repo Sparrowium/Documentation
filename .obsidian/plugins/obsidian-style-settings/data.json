@@ -1,6 +1,6 @@
 {
   "anuppuccin-theme-settings@@anuppuccin-theme-light": "ctp-rosepine-light",
-  "anuppuccin-theme-settings@@anuppuccin-theme-dark": "ctp-frappe",
+  "anuppuccin-theme-settings@@anuppuccin-theme-dark": "ctp-macchiato",
   "anuppuccin-theme-settings@@anuppuccin-light-theme-accents": "ctp-accent-light-peach",
   "anuppuccin-theme-settings@@anuppuccin-theme-accents": "ctp-accent-yellow",
   "anuppuccin-theme-settings@@anp-callout-select": "anp-callout-block",
@@ -46,5 +46,17 @@
   "Blue-Topaz-Codebox-Highlight@@code-box-style-option": "codebox-default-style",
   "Blue-Topaz-Codebox-Highlight@@mute-code-indent-line": false,
   "Blue-Topaz-Codebox-Highlight@@code-theme-selection": "code-theme-bt-default",
-  "blue-topaz-theme@@fancy-hr": "fancy-hr-no-icon"
+  "blue-topaz-theme@@fancy-hr": "fancy-hr-no-icon",
+  "blue-topaz-theme@@left-ribbon-style": "default-left-ribbon-style",
+  "blue-topaz-theme@@search-bar-style-option": "default-search-bar",
+  "blue-topaz-theme@@scrollbar-style-option": "default-scrollbar",
+  "blue-topaz-theme@@view-button-front": true,
+  "blue-topaz-theme@@tab-title-bar-position": false,
+  "blue-topaz-theme@@toggle-divider-lines": false,
+  "blue-topaz-theme@@toggle-header-bottom-line": false,
+  "blue-topaz-theme@@layout-style-options": "bt-bubble-layout",
+  "blue-topaz-theme@@bt-bubble-not-file-tree": false,
+  "blue-topaz-theme@@bt-bubble-buttons": true,
+  "blue-topaz-theme@@folder-dataview-list-style": "dataview-list-style-pacman",
+  "blue-topaz-theme@@dvtable-style-options": "default-dvtable"
 }

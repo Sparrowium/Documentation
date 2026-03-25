@@ -2,5 +2,6 @@
   "alwaysUpdateLinks": true,
   "showInlineTitle": false,
   "strictLineBreaks": false,
-  "readableLineLength": false
+  "readableLineLength": false,
+  "livePreview": true
 }
